@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 public class start_game_control {
 	

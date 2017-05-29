@@ -5,14 +5,14 @@ import javafx.scene.paint.Color;
 /**
  * Created by Wessel on 29-5-2017.
  */
-public class Pion_model {
+public class Pawn_Model {
     private int playerID;
     private int pionID
     private Color color;
     private int [] coord;
 
 
-    public Pion_model(int playerID, int pionID, Color color, int x, int y, int z) {
+    public Pawn_Model(int playerID, int pionID, Color color, int x, int y, int z) {
         this.playerID = playerID;
         this.pionID = pionID;
         this.color = color;

@@ -23,7 +23,7 @@ public class main_menu {
 	host_controls_view hcv = new host_controls_view();
 	connect_host_view chv = new connect_host_view();
 	hervat_game_view hgv = new hervat_game_view();
-	end_game_view egv = new end_game_view();
+	//end_game_view egv = new end_game_view();
 	double BUTTON_WIDTH = 150.0;
 	
 	//VOILAAA MAKE ZE BUTTONS

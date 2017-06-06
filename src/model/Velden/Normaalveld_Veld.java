@@ -1,22 +1,17 @@
-package model;
+package model.Velden;
 
 /**
  * Created by Wessel on 6-6-2017.
  */
-public class Molshoop_Veld {
-
+public class Normaalveld_Veld {
     private int[] positie;
     private boolean isBezet;
 
-    public Molshoop_Veld(int x, int y, int z) {
+    public Normaalveld_Veld(int x, int y, int z) {
         this.positie = new int[]{x, y, z};
         this.isBezet = false;
     }
 
-
-    public static void ZetMolvast() {
-
-    }
 
     public int[] getPositie() {
         return positie;

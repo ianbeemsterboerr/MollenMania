@@ -37,9 +37,9 @@
     -fx-text-fill: black;
     -fx-width: 150px;
 }
-.btn_close:hover{
+#btn_close:hover, #btn_minimize:hover,#btn_loudspeaker:hover , #btn_oog:hover {
     -fx-background-color: whitesmoke;
-    
+
 }
 #btn_joinspel:hover, #btn_exitspel:hover, #btn_hostspel:hover, #btn_hervatspel:hover{
     -fx-background-color: black;

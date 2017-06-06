@@ -1,0 +1,47 @@
+.BorderPane{
+	-fx-background-image:url("../img/bgmol.png");
+}
+
+#bp_pane{
+	-fx-background-image:url("../img/bgmol.png");
+	-fx-background-size:800 600;
+	-fx-background-position: center center;
+	-fx-background-repeat: stretch;
+}
+
+#btn_loudspeaker{
+	-fx-graphic:url("../img/speaker.png");
+    -fx-background-color: transparent;
+}
+
+#btn_oog{
+   -fx-graphic:url("../img/focus.png");
+    -fx-background-color: transparent;
+}
+
+#btn_close{
+    -fx-graphic:url("../img/close.png");
+    -fx-background-color: transparent;
+}
+
+#btn_minimize{
+    -fx-graphic:url("../img/substract.png");
+    -fx-background-color: transparent;
+}
+
+#btn_joinspel, #btn_exitspel, #btn_hostspel, #btn_hervatspel{
+    -fx-padding: 10;   
+    -fx-background-color: white;
+    -fx-font-family: Helvetica;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-width: 150px;
+}
+.btn_close:hover{
+    -fx-background-color: whitesmoke;
+    
+}
+#btn_joinspel:hover, #btn_exitspel:hover, #btn_hostspel:hover, #btn_hervatspel:hover{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

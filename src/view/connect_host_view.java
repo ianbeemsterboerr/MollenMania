@@ -63,8 +63,8 @@ public class connect_host_view {
 	    grid.add(btn_back, 2, 2);
 	    Scene connect_scene = new Scene(grid, 355, 140);
 		//Make scene call up style.css for styling
-		connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-		connectStage.setTitle("Insert IP to connect");
+        connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
+        connectStage.setTitle("Insert IP to connect");
 		connectStage.setScene(connect_scene);
 		connectStage.show();
 	}

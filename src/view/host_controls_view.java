@@ -16,10 +16,10 @@ import model.host_model;
 
 public class host_controls_view {
 	
-	private molserver server;
 	host_model host;
-	
-	public host_controls_view(){
+    private molserver server;
+
+    public host_controls_view(){
 		
 	}
 	
@@ -70,8 +70,8 @@ public class host_controls_view {
 		
 		Scene connect_scene = new Scene(grid, 350, 125);
 		//Make scene call up style.css for styling
-		connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-		connectStage.setTitle("Host een spel");
+        connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
+        connectStage.setTitle("Host een spel");
 		connectStage.setScene(connect_scene);
 		connectStage.show();
 		}

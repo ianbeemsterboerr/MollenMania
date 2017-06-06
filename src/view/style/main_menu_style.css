@@ -1,31 +1,31 @@
 .BorderPane{
-	-fx-background-image:url("../img/bgmol.png");
+    -fx-background-image: url("../img/bgmol.png");
 }
 
 #bp_pane{
-	-fx-background-image:url("../img/bgmol.png");
+    -fx-background-image: url("../img/bgmol.png");
 	-fx-background-size:800 600;
 	-fx-background-position: center center;
 	-fx-background-repeat: stretch;
 }
 
 #btn_loudspeaker{
-	-fx-graphic:url("../img/speaker.png");
+    -fx-graphic: url("../img/speaker.png");
     -fx-background-color: transparent;
 }
 
 #btn_oog{
-   -fx-graphic:url("../img/focus.png");
+    -fx-graphic: url("../img/focus.png");
     -fx-background-color: transparent;
 }
 
 #btn_close{
-    -fx-graphic:url("../img/close.png");
+    -fx-graphic: url("../img/close.png");
     -fx-background-color: transparent;
 }
 
 #btn_minimize{
-    -fx-graphic:url("../img/substract.png");
+    -fx-graphic: url("../img/substract.png");
     -fx-background-color: transparent;
 }
 
@@ -37,7 +37,8 @@
     -fx-text-fill: black;
     -fx-width: 150px;
 }
-#btn_close:hover, #btn_minimize:hover,#btn_loudspeaker:hover , #btn_oog:hover {
+
+#btn_close:hover, #btn_minimize:hover, #btn_loudspeaker:hover, #btn_oog:hover {
     -fx-background-color: whitesmoke;
 
 }

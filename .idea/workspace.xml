@@ -18,8 +18,8 @@
       <file leaf-file-name="molserver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/molserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+            <state relative-caret-position="693">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -633,7 +633,7 @@
       <workItem from="1496048968604" duration="141000" />
       <workItem from="1496049305345" duration="3958000" />
       <workItem from="1496744044175" duration="1411000" />
-      <workItem from="1496745513477" duration="337000" />
+      <workItem from="1496745513477" duration="1038000" />
     </task>
     <task id="LOCAL-00001" summary="Fiche_Model toegevoegd">
       <created>1496049727757</created>
@@ -684,11 +684,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496745746079</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="PlayboardModel aangemaakt">
+      <created>1496745860496</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1496745860496</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9226000" />
+    <option name="totallyTimeSpent" value="9927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -768,6 +775,8 @@
     <MESSAGE value="Pion_Model aangemaakt" />
     <MESSAGE value="PlayboardModel aangemaakt" />
     <option name="LAST_COMMIT_MESSAGE" value="PlayboardModel aangemaakt" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1044,8 +1053,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/molserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="693">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
  */
 public class Pawn_Model {
     private int playerID;
-    private int pionID
+    private int pionID;
     private Color color;
     private int [] coord;
 

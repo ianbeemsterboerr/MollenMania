@@ -109,7 +109,7 @@ public class main_menu {
 	Scene main_scene = new Scene(bp_pane, 800, 600);
 	
 	//Make scene call up style.css for styling
-	main_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+	main_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
 	
 	//MAKE SHIT APPEAR
 	primaryStage.initStyle(StageStyle.UNDECORATED);

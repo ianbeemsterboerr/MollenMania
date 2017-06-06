@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import controller.moluser_interface;
 
 
-public interface player_observer extends Remote {
+public interface Player_Observer extends Remote {
 	/**
 	 * @since 0.1
 	 * @param t

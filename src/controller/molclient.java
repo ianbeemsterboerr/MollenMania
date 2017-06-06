@@ -3,8 +3,6 @@ package controller;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import model.player_model;
-import view.connect_host_view;
 import view.lobby_view;
 
 public class molclient {

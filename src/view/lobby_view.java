@@ -6,26 +6,22 @@ import java.rmi.server.UnicastRemoteObject;
 import controller.molclient;
 import controller.moluser_controller;
 import controller.moluser_interface;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.player_model;
-import model.player_observer;
+import model.Player_Model;
+import model.Player_Observer;
 
-public class lobby_view extends UnicastRemoteObject implements player_observer {
+public class lobby_view extends UnicastRemoteObject implements Player_Observer {
 	
 	//what do i need??!?!?!?
 	private molclient client;
-	private player_model player;
+	private Player_Model player;
 	private boolean enabled = false;
 	private moluser_controller mu_controller;
 	
@@ -44,26 +40,26 @@ public class lobby_view extends UnicastRemoteObject implements player_observer {
 		Stage lobbyStage = new Stage();
 		VBox vbox_hervat_options = new VBox();
 		GridPane grid = new GridPane();
-		TableView<player_model> game_table = new TableView();
+		TableView<Player_Model> game_table = new TableView();
 		
 		Button btn_pion = new Button("KIES PION");
 		Button btn_kleur = new Button("KIES KLEUR");
 		Button btn_refresh = new Button("REFRESH");
 		
-		//ObservableList<player_model> data = FXCollections.observableArrayList(player.player());
+		//ObservableList<Player_Model> data = FXCollections.observableArrayList(player.player());
 		game_table.setEditable(false);
 		
-		TableColumn<player_model, String> player_id_col = new TableColumn("PLAYER ID");
-		TableColumn<player_model, String> player_name_col = new TableColumn("PLAYER NAME");
+		TableColumn<Player_Model, String> player_id_col = new TableColumn("PLAYER ID");
+		TableColumn<Player_Model, String> player_name_col = new TableColumn("PLAYER NAME");
 		//game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(195.0);
 		
 		/**
 		player_id_col.setCellValueFactory(
-                new PropertyValueFactory<player_model, String>("player_id"));
+                new PropertyValueFactory<Player_Model, String>("player_id"));
 		player_name_col.setCellValueFactory(
-                new PropertyValueFactory<player_model, String>("player_name"));
+                new PropertyValueFactory<Player_Model, String>("player_name"));
 		**/
         game_table.getColumns().addAll(player_id_col,player_name_col);
         

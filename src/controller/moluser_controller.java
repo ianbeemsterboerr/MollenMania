@@ -1,11 +1,6 @@
 package controller;
-import view.connect_host_view;
 
 import java.rmi.RemoteException;
-import java.util.Observer;
-
-import model.player_model;
-import model.player_observer;
 
 public class moluser_controller {
 	moluser_interface p;

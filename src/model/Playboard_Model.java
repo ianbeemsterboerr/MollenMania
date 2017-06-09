@@ -1,12 +1,19 @@
 package model;
 
+import model.Velden.Molshoop_Veld;
+import model.Velden.Normaalveld_Veld;
+import model.Velden.SpeciaalVeld_Veld;
+
+import java.util.ArrayList;
+
 /**
  * Created by Wessel on 29-5-2017.
  */
-public class Playboard_Model {
+public class Playboard_Model extends Niveau_Model{
     private int playfieldID;
     private int orientation;
     private Field_Model field;
+
 
 
     public Playboard_Model(int playfieldID, int orientation, Field_Model field) {
@@ -14,6 +21,7 @@ public class Playboard_Model {
         this.orientation = orientation;
         this.field = field;
     }
+
 
     public int getPlayfieldID() {
         return playfieldID;

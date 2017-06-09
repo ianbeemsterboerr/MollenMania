@@ -5,6 +5,7 @@ import model.Velden.Molshoop_Veld;
 import model.Velden.Normaalveld_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +13,12 @@ import java.util.ArrayList;
  */
 public class Niveau_Model  {
 
-    ArrayList<Molshoop_Veld> molshopen = new ArrayList<Molshoop_Veld>();
-    ArrayList<Normaalveld_Veld> normaal = new ArrayList<Normaalveld_Veld>();
-    ArrayList<SpeciaalVeld_Veld> speciaal = new ArrayList<SpeciaalVeld_Veld>();
+        Molshoop_Veld molshopen[];
+        Normaalveld_Veld normaleVelden[];
 
-
-    public Niveau_Model(ArrayList<Molshoop_Veld> molshopen, ArrayList<Normaalveld_Veld> normaal, ArrayList<SpeciaalVeld_Veld> speciaal) {
+    public Niveau_Model(Molshoop_Veld[] molshopen, Normaalveld_Veld[] normaleVelden) {
         this.molshopen = molshopen;
-        this.normaal = normaal;
-        this.speciaal = speciaal;
+        this.normaleVelden = normaleVelden;
     }
 }
+

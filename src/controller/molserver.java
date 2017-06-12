@@ -15,14 +15,14 @@ public class molserver {
 	
 	public void startServer(){
 		try {
-			Player_Model moluser = new Player_Model(" ",1,null,null);
-			moluser_interface userSkeleton = (moluser_interface) UnicastRemoteObject.exportObject(moluser, 0); // cast to remote object
+		//	Player_Model moluser = new Player_Model(" ",1,null,null);
+		//	moluser_interface userSkeleton = (moluser_interface) UnicastRemoteObject.exportObject(moluser, 0); // cast to remote object
 			System.out.println("User skeleton created");
 			
 			Registry registry = LocateRegistry.createRegistry(1099); // default port 1099 // run RMI registry on local host
 			System.out.println("RMI Registry starter");
 			
-			registry.rebind("moluser_interface", userSkeleton); // bind userinterface to RMI registry
+		//	registry.rebind("moluser_interface", userSkeleton); // bind userinterface to RMI registry
             System.out.println("User skeleton bound");
             System.out.println("Server running...");
             

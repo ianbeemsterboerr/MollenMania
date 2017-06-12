@@ -15,7 +15,7 @@ public class molserver {
 	
 	public void startServer(){
 		try {
-			Player_Model moluser = new Player_Model(1, "bomama");
+			Player_Model moluser = new Player_Model(" ",1,null,null);
 			moluser_interface userSkeleton = (moluser_interface) UnicastRemoteObject.exportObject(moluser, 0); // cast to remote object
 			System.out.println("User skeleton created");
 			

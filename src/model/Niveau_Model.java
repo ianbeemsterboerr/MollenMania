@@ -13,12 +13,58 @@ import java.util.ArrayList;
  */
 public class Niveau_Model  {
 
-        Molshoop_Veld molshopen[];
-        Normaalveld_Veld normaleVelden[];
+    ArrayList<Molshoop_Veld> molshoop;
+    ArrayList<Normaalveld_Veld> normaal;
+    ArrayList<SpeciaalVeld_Veld> speciaal;
 
-    public Niveau_Model(Molshoop_Veld[] molshopen, Normaalveld_Veld[] normaleVelden) {
-        this.molshopen = molshopen;
-        this.normaleVelden = normaleVelden;
+
+
+
+    public int bepaalVeldSoort(ArrayList<Molshoop_Veld> molshoop, ArrayList <SpeciaalVeld_Veld> speciaal, int coord[]){
+        for (int i = 0; i < molshoop.size(); i ++) {
+            if (molshoop.get(i).getPositie() == coord){
+                return 1;
+            }
+
+         }
+        for (int i = 0; i < speciaal.size(); i++){
+            if (speciaal.get(i).getPositie() == coord) {
+                return 2;
+            }
+
+        }
+        return 0;
     }
+
+    public Niveau_Model(ArrayList<Molshoop_Veld> molshoop, ArrayList<SpeciaalVeld_Veld> speciaal) {
+        this.molshoop = molshoop;
+        this.speciaal = speciaal;
+    }
+
+
+    public ArrayList<Normaalveld_Veld> getNormaal() {
+        return normaal;
+    }
+
+    public void setNormaal(ArrayList<Normaalveld_Veld> normaal) {
+        this.normaal = normaal;
+    }
+
+    public ArrayList<SpeciaalVeld_Veld> getSpeciaal() {
+        return speciaal;
+    }
+
+    public void setSpeciaal(ArrayList<SpeciaalVeld_Veld> speciaal) {
+        this.speciaal = speciaal;
+    }
+
+    public ArrayList<Molshoop_Veld> getMolshoop() {
+        return molshoop;
+    }
+
+    public void setMolshoop(ArrayList<Molshoop_Veld> molshoop) {
+        this.molshoop = molshoop;
+    }
+
 }
 

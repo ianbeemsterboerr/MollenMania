@@ -5,6 +5,23 @@ package model.Velden;
  */
 public class Molshoop_Veld {
 
-    boolean molshoopCheck();
-    boolean isBezet();
+    private int [] positie;
+
+    public Molshoop_Veld (int x, int y, int z){
+        this.positie = new int[]{x,y,z};
+    }
+
+
+    public int[] getPositie() {
+        return positie;
+    }
+
+    public void setPositie(int[] positie) {
+        this.positie = positie;
+    }
+
+    boolean isBezet(){
+        return false;
+
+    }
 }

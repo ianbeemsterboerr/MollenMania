@@ -12,9 +12,8 @@ public interface moluser_interface extends Remote {
 	
 	public Player_Model player () throws RemoteException;
 	
-	public void max_observers () throws RemoteException;
-	
 	public void addObserver(Player_Observer po) throws RemoteException;
 	
 	public int observerSize() throws RemoteException;
+	
 }

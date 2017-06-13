@@ -24,6 +24,7 @@ public interface Player_Observer extends Remote {
 	 *             compromised
 	 */
 	public boolean isEnabled() throws RemoteException;
+	
 
 	/**
 	 * since 0.2

@@ -14,13 +14,15 @@ public class Spelbord_Model{
 		
 	}
 	
-	public void Spelbord_Model(Player_Model player){
+	public Spelbord_Model(Player_Model pl){
+		this.player = pl;
+	}
+	
+	public void addSpeler(){
 		this.players.add(player);
 	}
 	
-	public ArrayList playerList(){
-		return this.players;
-	}
-	
-
+	public ArrayList<Player_Model> speler_list(Player_Model player){
+		return players;
+	}	
 }

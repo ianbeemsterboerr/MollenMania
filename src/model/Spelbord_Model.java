@@ -11,7 +11,11 @@ public class Spelbord_Model{
 	private ArrayList<Player_Model> players;
 	
 	public Spelbord_Model(){
-		
+		button = new button []{
+				add new button ( dsdsd ),
+				add new
+		}
+		for <
 	}
 	
 	public Spelbord_Model(Player_Model pl){

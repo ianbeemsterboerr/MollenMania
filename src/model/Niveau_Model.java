@@ -2,12 +2,12 @@
 
         package model;
 
-        import model.Velden.GoudenSpade_Veld;
+        import model.Velden.GoudenSchep_Veld;
         import model.Velden.Molshoop_Veld;
         import model.Velden.Normaalveld_Veld;
         import model.Velden.SpeciaalVeld_Veld;
+        import model.Velden.GoudenSchep_Veld;
 
-        import java.lang.reflect.Array;
         import java.util.ArrayList;
 
 /**
@@ -18,6 +18,7 @@ public class Niveau_Model  {
     ArrayList<Molshoop_Veld> molshoop;
     ArrayList<Normaalveld_Veld> normaal;
     ArrayList<SpeciaalVeld_Veld> speciaal;
+    ArrayList<GoudenSchep_Veld> goudenSchep;
 
 
 
@@ -38,11 +39,20 @@ public class Niveau_Model  {
         return 0;
     }
 
-    public Niveau_Model(ArrayList<Molshoop_Veld> molshoop, ArrayList<SpeciaalVeld_Veld> speciaal) {
+    public Niveau_Model(ArrayList<Molshoop_Veld> molshoop, ArrayList<SpeciaalVeld_Veld> speciaal,ArrayList<GoudenSchep_Veld> goudenSchep) {
         this.molshoop = molshoop;
         this.speciaal = speciaal;
+        this.goudenSchep = goudenSchep;
     }
 
+
+    public ArrayList<GoudenSchep_Veld> getGoudenSchep() {
+        return goudenSchep;
+    }
+
+    public void setGoudenSchep(ArrayList<GoudenSchep_Veld> goudenSchep) {
+        this.goudenSchep = goudenSchep;
+    }
 
     public ArrayList<Normaalveld_Veld> getNormaal() {
         return normaal;

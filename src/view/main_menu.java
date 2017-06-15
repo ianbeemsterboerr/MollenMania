@@ -26,10 +26,10 @@ public class main_menu {
 	double BUTTON_WIDTH = 150.0;
 	
 	//VOILAAA MAKE ZE BUTTONS
-	Button btn_joinSpel = new Button("JOIN SPEL");
-	Button btn_hostSpel = new Button("HOST SPEL"); 
-	Button btn_exitSpel = new Button("EXIT SPEL");
-	Button btn_hervatSpel = new Button("HERVAT SPEL");
+	Button btn_joinSpel = new Button();
+	Button btn_hostSpel = new Button(); 
+	Button btn_exitSpel = new Button();
+	Button btn_hervatSpel = new Button();
 	Button btn_oog = new Button();
 	Button btn_close = new Button();
 	Button btn_loudspeaker = new Button();
@@ -106,7 +106,7 @@ public class main_menu {
 	bp_pane.setCenter(vbox_mid);
 	bp_pane.setTop(hbox_options);
 	
-	Scene main_scene = new Scene(bp_pane, 800, 600);
+	Scene main_scene = new Scene(bp_pane, 1000, 600);
 	
 	//Make scene call up style.css for styling
 	main_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());

@@ -10,13 +10,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.Player_Model;
 
 public class connect_host_view {
 	
 	private String txtValue;
 	private TextField ipadress, username;
+	private Player_Model player;
+	private String maxHostSpelers;
 	
-	public void connect_host_show(){
+	public connect_host_view(String maxSpelers){
+		this.maxHostSpelers = maxSpelers;
 		double button_width = 150.0;									
 		Stage connectStage = new Stage();
 		HBox hbox_connect = new HBox();
@@ -38,7 +42,7 @@ public class connect_host_view {
 		
 		btn_connect.setOnAction(e -> { 
 			try{
-				new molclient().ConnectServer();
+				new molclient(this.textBoxUsername(), this.maxHostSpelers);
 				connectStage.close();
 			}catch(Exception b){
 				b.printStackTrace();
@@ -62,11 +66,16 @@ public class connect_host_view {
 	    grid.add(btn_connect, 1, 2);
 	    grid.add(btn_back, 2, 2);
 	    Scene connect_scene = new Scene(grid, 355, 140);
+	    
 		//Make scene call up style.css for styling
-        connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-        connectStage.setTitle("Insert IP to connect");
+		connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+		connectStage.setTitle("Insert IP to connect");
 		connectStage.setScene(connect_scene);
 		connectStage.show();
+	}
+
+	public String textBoxUsername(){
+		return this.username.getText();
 	}
 
 }

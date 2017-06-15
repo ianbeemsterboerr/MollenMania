@@ -9,13 +9,6 @@ import java.util.Random;
 public class Fiche_Model {
 
     public Fiche_Model() {
-    }
-
-    private Random random = new Random();
-    private ArrayList<Integer> openFiche = new ArrayList<Integer>();
-    private ArrayList<Integer> geslotenFiche = new ArrayList<Integer>();
-
-    public void initFiches(){
         geslotenFiche.add(1);
         geslotenFiche.add(2);
         geslotenFiche.add(2);
@@ -23,6 +16,11 @@ public class Fiche_Model {
         geslotenFiche.add(3);
         geslotenFiche.add(4);
     }
+
+    private Random random = new Random();
+    private ArrayList<Integer> openFiche = new ArrayList<Integer>();
+    private ArrayList<Integer> geslotenFiche = new ArrayList<Integer>();
+
 
     public int kiesFiche() {
         int getal = random.nextInt(geslotenFiche.size());

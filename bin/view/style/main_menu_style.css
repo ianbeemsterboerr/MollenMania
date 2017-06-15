@@ -1,51 +1,36 @@
 .BorderPane{
-    -fx-background-image: url("../img/KeuzemenuLeeg.png");
+    -fx-background-image: url("../img/bgmol.png");
 }
 
 #bp_pane{
-    -fx-background-image: url("../img/KeuzemenuLeeg.png");
-	-fx-background-size:1000 600;
+    -fx-background-image: url("../img/bgmol.png");
+	-fx-background-size:800 600;
 	-fx-background-position: center center;
 	-fx-background-repeat: stretch;
 }
 
 #btn_loudspeaker{
-    -fx-graphic: url("../img/Icon_LuidsprekerLeeg.png");
+    -fx-graphic: url("../img/speaker.png");
     -fx-background-color: transparent;
 }
 
 #btn_oog{
-    -fx-graphic: url("../img/Icon_Oog.png");
+    -fx-graphic: url("../img/focus.png");
     -fx-background-color: transparent;
 }
 
 #btn_close{
-    -fx-graphic: url("../img/Icon_Kruisje.png");
+    -fx-graphic: url("../img/close.png");
     -fx-background-color: transparent;
 }
 
 #btn_minimize{
-    -fx-graphic: url("../img/Icon_Minnetje.png");
+    -fx-graphic: url("../img/substract.png");
     -fx-background-color: transparent;
 }
 
 #btn_joinspel{
     -fx-graphic: url("../img/Button_JoinSpel.png");
-    -fx-background-color: transparent;
-}
-
-#btn_hostspel{
-    -fx-graphic: url("../img/Button_HostSpel.png");
-    -fx-background-color: transparent;
-}
-
-#btn_exitspel{
-    -fx-graphic: url("../img/Button_Exit.png");
-    -fx-background-color: transparent;
-}
-
-#btn_hervatspel{
-    -fx-graphic: url("../img/Button_HervatSpel.png");
     -fx-background-color: transparent;
 }
 

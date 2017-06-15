@@ -14,6 +14,7 @@ import view.connect_host_view;
 
 public class main_menu {
 	public Stage main_menu_show(){
+		
 	//INITLIZE YO MAMA~~
 	Stage primaryStage = new Stage();
 	BorderPane bp_pane = new BorderPane();
@@ -21,9 +22,7 @@ public class main_menu {
 	VBox vbox_mid = new VBox();
 	HBox hbox_options = new HBox();		
 	host_controls_view hcv = new host_controls_view();
-	connect_host_view chv = new connect_host_view();
 	hervat_game_view hgv = new hervat_game_view();
-	//end_game_view egv = new end_game_view();
 	double BUTTON_WIDTH = 150.0;
 	
 	//VOILAAA MAKE ZE BUTTONS
@@ -36,6 +35,7 @@ public class main_menu {
 	Button btn_loudspeaker = new Button();
 	Button btn_minimize = new Button();
 	
+	//BUTTON WIDTHS
 	btn_joinSpel.setMaxWidth(BUTTON_WIDTH);
 	btn_hostSpel.setMaxWidth(BUTTON_WIDTH);
 	btn_exitSpel.setMaxWidth(BUTTON_WIDTH);
@@ -55,7 +55,7 @@ public class main_menu {
 	// Button actions
 	btn_joinSpel.setOnAction(e -> { 
 	try{
-		chv.connect_host_show(); 
+		new connect_host_view("0"); 
 	}catch(Exception b){
 		b.printStackTrace();
 	}});
@@ -109,9 +109,9 @@ public class main_menu {
 	Scene main_scene = new Scene(bp_pane, 800, 600);
 	
 	//Make scene call up style.css for styling
-        main_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-
-        //MAKE SHIT APPEAR
+	main_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+	
+	//MAKE SHIT APPEAR
 	primaryStage.initStyle(StageStyle.UNDECORATED);
 	primaryStage.setTitle("MollenMania - Main Menu");
 	primaryStage.setScene(main_scene);

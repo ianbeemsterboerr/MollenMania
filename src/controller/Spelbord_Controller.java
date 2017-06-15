@@ -8,7 +8,7 @@ import model.Spelbord_Model;
  */
 public class Spelbord_Controller {
 
-    Spel_Model spelmodel = new Spel_Model();
+
 
 
 }

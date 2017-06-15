@@ -44,6 +44,7 @@ public class Playboard_Model  {
         return 0;
     }
 
+
     public Niveau_Model getNiveau1() {
         return niveau1;
     }
@@ -55,6 +56,11 @@ public class Playboard_Model  {
     public Niveau_Model getNiveau3() {
         return niveau3;
     }
+
+    public Niveau_Model getNiveau4() {
+        return niveau4;
+    }
+
 
     public Playboard_Model(){
         //Niveau 1

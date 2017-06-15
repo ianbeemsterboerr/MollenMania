@@ -7,43 +7,44 @@ import java.util.ArrayList;
  */
 public class Spel_Model {
 
-    private ArrayList<Playboard_Model> Spelbord;
+    private Playboard_Model spelbord;
     private Speler_Model speler;
     private int huidigNiveau;
     private ArrayList<Player_Observer> playerObservers;
     private int maxAantalObservers;
 
     public Spel_Model(ArrayList<Playboard_Model> spelbord, Speler_Model speler, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
-        Spelbord = spelbord;
+        this.spelbord = spelbord;
         this.speler = speler;
         this.huidigNiveau = huidigNiveau;
         this.playerObservers = playerObservers;
         this.maxAantalObservers = maxAantalObservers;
     }
 
-    public void switchNiveau(i){
+    public Playboard_Model switchNiveau(int huidigNiveau, Playboard_Model spelbord){
+       if (huidigNiveau == 1 ){
+           }
+    }
+    public void setClickable() {
 
     }
-    public void setClickable {
+
+    public void setUnclickable(){
 
     }
-
-    public void setUnclickable {
-
-    }
-    public void spelSaven {
+    public void spelSaven (){
 
     }
-    public void notifyObservers{
+    public void notifyObservers(){
 
     }
 
     public ArrayList<Playboard_Model> getSpelbord() {
-        return Spelbord;
+        return spelbord;
     }
 
     public void setSpelbord(ArrayList<Playboard_Model> spelbord) {
-        Spelbord = spelbord;
+        spelbord = spelbord;
     }
 
     public Speler_Model getSpeler() {

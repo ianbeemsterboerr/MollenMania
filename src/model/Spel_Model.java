@@ -7,21 +7,21 @@ import java.util.ArrayList;
  */
 public class Spel_Model {
 
-    private ArrayList<Playboard_Model> spelers;
-    private Spelbord_Model spelbord;
+    private ArrayList<Playboard_Model> Spelbord;
+    private Speler_Model speler;
     private int huidigNiveau;
     private ArrayList<Player_Observer> playerObservers;
     private int maxAantalObservers;
 
-    public Spel_Model(ArrayList<Playboard_Model> spelers, Spelbord_Model spelbord, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
-        this.spelers = spelers;
-        this.spelbord = spelbord;
+    public Spel_Model(ArrayList<Playboard_Model> spelbord, Speler_Model speler, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
+        Spelbord = spelbord;
+        this.speler = speler;
         this.huidigNiveau = huidigNiveau;
         this.playerObservers = playerObservers;
         this.maxAantalObservers = maxAantalObservers;
     }
 
-    public void switchNiveau{
+    public void switchNiveau(i){
 
     }
     public void setClickable {
@@ -38,20 +38,20 @@ public class Spel_Model {
 
     }
 
-    public ArrayList<Playboard_Model> getSpelers() {
-        return spelers;
+    public ArrayList<Playboard_Model> getSpelbord() {
+        return Spelbord;
     }
 
-    public void setSpelers(ArrayList<Playboard_Model> spelers) {
-        this.spelers = spelers;
+    public void setSpelbord(ArrayList<Playboard_Model> spelbord) {
+        Spelbord = spelbord;
     }
 
-    public Spelbord_Model getSpelbord() {
-        return spelbord;
+    public Speler_Model getSpeler() {
+        return speler;
     }
 
-    public void setSpelbord(Spelbord_Model spelbord) {
-        this.spelbord = spelbord;
+    public void setSpeler(Speler_Model speler) {
+        this.speler = speler;
     }
 
     public int getHuidigNiveau() {

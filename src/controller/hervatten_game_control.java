@@ -3,8 +3,7 @@ package controller;
 import javafx.stage.FileChooser;
 import model.Spel_Model;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,10 +17,11 @@ public class hervatten_game_control {
 	public String kiesFile() {
 		return null;
 	}
-	public Spel_Model spelLaden() {
+
+	public Spel_Model spelLaden(String path) {
 		Spel_Model spelModel;
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("saveFile.dat"));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("path"));
 			spelModel = (Spel_Model) in.readObject();
 			in.close();
 		} catch (FileNotFoundException e) {

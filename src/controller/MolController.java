@@ -5,7 +5,7 @@ import model.Mol_Model;
 /**
  * Created by Wessel on 15-6-2017.
  */
-public class SpelbordController {
+public class MolController {
 
 public Mol_Model verplaatsMol (Mol_Model molModel, int [] eindpunt, int ficheNR){
     if (zetGeldig(molModel, eindpunt, ficheNR)){
@@ -31,6 +31,6 @@ public boolean zetGeldig(Mol_Model mol, int [] eindPunt, int ficheNR){
 
     }
         return false;
-    
+
 }
 }

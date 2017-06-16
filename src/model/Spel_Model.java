@@ -1,21 +1,25 @@
 package model;
 
+import javafx.fxml.Initializable;
+
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * Created by Wessel on 15-6-2017.
  */
-public class Spel_Model {
+public class Spel_Model implements Initializable {
 
     private Playboard_Model spelbord;
-    private Speler_Model speler;
+    private ArrayList<Speler_Model> spelerModels;
     private int huidigNiveau;
     private ArrayList<Player_Observer> playerObservers;
     private int maxAantalObservers;
 
-    public Spel_Model(Playboard_Model spelbord, Speler_Model speler, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
+    public Spel_Model(Playboard_Model spelbord, ArrayList<Speler_Model> spelerModels, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
         this.spelbord = spelbord;
-        this.speler = speler;
+        this.spelerModels = spelerModels;
         this.huidigNiveau = huidigNiveau;
         this.playerObservers = playerObservers;
         this.maxAantalObservers = maxAantalObservers;
@@ -34,17 +38,20 @@ public class Spel_Model {
            return spelbord.getNiveau4();
        }
     }
+
     public void setClickable() {
 
     }
 
-    public void setUnclickable(){
+    public void setUnclickable() {
 
     }
-    public void spelSaven (){
+
+    public void spelSaven() {
 
     }
-    public void notifyObservers(){
+
+    public void notifyObservers() {
 
     }
 
@@ -60,12 +67,12 @@ public class Spel_Model {
         spelbord = spelbord;
     }
 
-    public Speler_Model getSpeler() {
-        return speler;
+    public ArrayList<Speler_Model> getSpeler() {
+        return spelerModels;
     }
 
-    public void setSpeler(Speler_Model speler) {
-        this.speler = speler;
+    public void setSpelers(ArrayList<Speler_Model> spelers) {
+        this.spelerModels = spelerModels;
     }
 
     public int getHuidigNiveau() {
@@ -90,5 +97,10 @@ public class Spel_Model {
 
     public void setMaxAantalObservers(int maxAantalObservers) {
         this.maxAantalObservers = maxAantalObservers;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

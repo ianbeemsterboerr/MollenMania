@@ -5,13 +5,13 @@ import javafx.scene.paint.Color;
 /**
  * Created by Wessel on 29-5-2017.
  */
-public class Pawn_Model {
+public class Mol_Model {
     private int pionID;
     private Color color;
     private int [] coord;
 
 
-    public Pawn_Model(int playerID, int pionID, Color color, int x, int y, int z) {
+    public Mol_Model(int playerID, int pionID, Color color, int x, int y, int z) {
         this.pionID = pionID;
         this.color = color;
         this.coord = new int[] {x,y,z};

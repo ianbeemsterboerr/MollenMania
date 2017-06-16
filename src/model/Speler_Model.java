@@ -6,11 +6,11 @@ package model;
 public class Speler_Model {
 
     private Fiche_Model fiches;
-    private Pawn_Model[] mollen;
+    private Mol_Model[] mollen;
     private String naam;
     private int handGrote;
 
-    public Speler_Model(Fiche_Model fiches, Pawn_Model[] mollen, String naam, int handGrote) {
+    public Speler_Model(Fiche_Model fiches, Mol_Model[] mollen, String naam, int handGrote) {
         this.fiches = fiches;
         this.mollen = mollen;
         this.naam = naam;
@@ -26,11 +26,11 @@ public class Speler_Model {
         this.fiches = fiches;
     }
 
-    public Pawn_Model[] getMollen() {
+    public Mol_Model[] getMollen() {
         return mollen;
     }
 
-    public void setMollen(Pawn_Model[] mollen) {
+    public void setMollen(Mol_Model[] mollen) {
         this.mollen = mollen;
     }
 

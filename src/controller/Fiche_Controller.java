@@ -9,7 +9,6 @@ import java.util.Random;
  */
 public class Fiche_Controller {
 
-    Fiche_Model fiche = new Fiche_Model();
     Random random = new Random();
 
     public int kiesFiche(Fiche_Model fiche) {
@@ -23,15 +22,11 @@ public class Fiche_Controller {
     public void fichesCheck(Fiche_Model fiche){
         if(fiche.getGeslotenFiche().size()==0){
             System.out.println("Fiches resetten");
-            resetFiches();
+            for (int ficheNr : fiche.getOpenFiche()) {
+                fiche.getGeslotenFiche().add(ficheNr);
+            }
+            fiche.getOpenFiche().clear();
         }
-
     }
 
-    public void resetFiches(){
-        for(int ficheNr : fiche.getOpenFiche()){
-            fiche.getGeslotenFiche().add(ficheNr);
-        }
-        fiche.getOpenFiche().clear();
-    }
 }

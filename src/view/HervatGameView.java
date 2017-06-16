@@ -14,10 +14,11 @@ public class HervatGameView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Scene scene = new Scene();
+        //Scene scene = new Scene();
         primaryStage.setTitle("Spel hervatten");
-        final FileChooser fc = new FileChooser();
-
+        FileChooser fc = new FileChooser();
+        String naam = fc.showOpenDialog(primaryStage).getAbsolutePath();
+        primaryStage.show();
 
     }
 }

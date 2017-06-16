@@ -13,6 +13,7 @@ public class run extends Application {
 			
 			//MAGIC BABY
 		    primaryStage = main_stage.main_menu_show();
+		    primaryStage.show();
  		}
 		
 		public static void main(String[] args) {

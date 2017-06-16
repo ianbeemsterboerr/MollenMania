@@ -11,15 +11,16 @@ import java.util.ArrayList;
 /**
  * Created by Wessel on 16-6-2017.
  */
+
 public class SpelOpzettenController {
 ArrayList<Speler_Model> spelerList = new ArrayList<>();
 
 //Mist de OBSERVERS
-public Spel_Model spelOpzetten( Spel_Model spelModel, Speler_Model speler, Playboard_Model spelBord, int aantalSpelers){
+public Spel_Model spelOpzetten( Spel_Model spelModel, Speler_Model speler, Playboard_Model spelBord){
     spelModel.setSpelbord(spelBord);
     spelModel.setSpelers(spelerList);
     spelModel.setHuidigNiveau(1);
-    spelModel.setMaxAantalObservers(aantalSpelers);
+    spelModel.setMaxAantalObservers(spelerList.size());
     return spelModel;
     }
 

@@ -5,6 +5,7 @@ import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -43,7 +44,6 @@ public class Playboard_Model  {
         }
         return 0;
     }
-
 
     public Niveau_Model getNiveau1() {
         return niveau1;

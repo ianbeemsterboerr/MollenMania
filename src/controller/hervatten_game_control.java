@@ -2,6 +2,7 @@ package controller;
 
 import javafx.stage.FileChooser;
 import model.Spel_Model;
+import view.HervatGameView;
 
 
 import java.io.FileInputStream;
@@ -10,8 +11,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class hervatten_game_control {
-	public hervatten_game_control(){
 
+	public hervatten_game_control(){
+		HervatGameView hervatgame = new HervatGameView();
 	}
 
 	public String kiesFile() {

@@ -13,7 +13,7 @@ public class Spel_Model {
     private ArrayList<Player_Observer> playerObservers;
     private int maxAantalObservers;
 
-    public Spel_Model(ArrayList<Playboard_Model> spelbord, Speler_Model speler, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
+    public Spel_Model(Playboard_Model spelbord, Speler_Model speler, int huidigNiveau, ArrayList<Player_Observer> playerObservers, int maxAantalObservers) {
         this.spelbord = spelbord;
         this.speler = speler;
         this.huidigNiveau = huidigNiveau;
@@ -21,9 +21,18 @@ public class Spel_Model {
         this.maxAantalObservers = maxAantalObservers;
     }
 
-    public Playboard_Model switchNiveau(int huidigNiveau, Playboard_Model spelbord){
+    public Niveau_Model switchNiveau(int huidigNiveau, Playboard_Model spelbord){
        if (huidigNiveau == 1 ){
+                setHuidigNiveau(huidigNiveau++);
+                return spelbord.getNiveau2();
            }
+        else if (huidigNiveau == 2) {
+           setHuidigNiveau(huidigNiveau++);
+           return spelbord.getNiveau3();
+        }
+        else {
+           return spelbord.getNiveau4();
+       }
     }
     public void setClickable() {
 
@@ -39,8 +48,12 @@ public class Spel_Model {
 
     }
 
-    public ArrayList<Playboard_Model> getSpelbord() {
+    public Playboard_Model getSpelbord() {
         return spelbord;
+    }
+
+    public void setSpelbord(Playboard_Model spelbord) {
+        this.spelbord = spelbord;
     }
 
     public void setSpelbord(ArrayList<Playboard_Model> spelbord) {

@@ -1,5 +1,7 @@
 package view;
 
+import controller.InstellingenPanelController;
+import controller.MainMenuController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,114 +11,134 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sun.applet.Main;
 import view.host_controls_view;
 import view.connect_host_view;
 
 public class main_menu {
-	public Stage main_menu_show(){
-		
-	//INITLIZE YO MAMA~~
-	Stage primaryStage = new Stage();
-	BorderPane bp_pane = new BorderPane();
-	bp_pane.setPadding(new Insets(20, 20, 20, 20));
-	VBox vbox_mid = new VBox();
-	HBox hbox_options = new HBox();		
-	host_controls_view hcv = new host_controls_view();
-	hervat_game_view hgv = new hervat_game_view();
-	double BUTTON_WIDTH = 150.0;
-	
-	//VOILAAA MAKE ZE BUTTONS
-	Button btn_joinSpel = new Button();
-	Button btn_hostSpel = new Button(); 
-	Button btn_exitSpel = new Button();
-	Button btn_hervatSpel = new Button();
-	Button btn_oog = new Button();
-	Button btn_close = new Button();
-	Button btn_loudspeaker = new Button();
-	Button btn_minimize = new Button();
-	
-	//BUTTON WIDTHS
-	btn_joinSpel.setMaxWidth(BUTTON_WIDTH);
-	btn_hostSpel.setMaxWidth(BUTTON_WIDTH);
-	btn_exitSpel.setMaxWidth(BUTTON_WIDTH);
-	btn_hervatSpel.setMaxWidth(BUTTON_WIDTH);
-	
-	//SET ID's for CSS
-	btn_loudspeaker.setId("btn_loudspeaker");
-	btn_oog.setId("btn_oog");
-	btn_joinSpel.setId("btn_joinspel");
-	btn_hostSpel.setId("btn_hostspel");
-	btn_exitSpel.setId("btn_exitspel");
-	bp_pane.setId("bp_pane");
-	btn_close.setId("btn_close");
-	btn_hervatSpel.setId("btn_hervatspel");
-	btn_minimize.setId("btn_minimize");
-	
-	// Button actions
-	btn_joinSpel.setOnAction(e -> { 
-	try{
-		new connect_host_view("0"); 
-	}catch(Exception b){
-		b.printStackTrace();
-	}});
-	
-	btn_hostSpel.setOnAction(e -> { 
-	try{
-		hcv.host_controls_show(); 
-	}catch(Exception b){
-		b.printStackTrace();
-	}});
-	
-	btn_hervatSpel.setOnAction(e -> { 
-		try{
-			hgv.hervat_game_show(); 
-		}catch(Exception b){
-			b.printStackTrace();
-		}});
-	
-	btn_exitSpel.setOnAction(e -> { 
-		try{
-			System.exit(0);
-		}catch(Exception b){
-			b.printStackTrace();
-	}});
-	
-	btn_close.setOnAction(e -> { 
-		try{
-			System.exit(0);
-		}catch(Exception b){
-			b.printStackTrace();
-	}});
-	
-	btn_minimize.setOnAction(e -> { 
-		try{
-			primaryStage.setIconified(true);
-		}catch(Exception b){
-			b.printStackTrace();
-	}});
-	
-	//ADD SHIT TO SHIT
-	hbox_options.getChildren().addAll(btn_oog, btn_loudspeaker, btn_minimize, btn_close);
-	hbox_options.setAlignment(Pos.TOP_RIGHT);
-	
-	vbox_mid.getChildren().addAll(btn_joinSpel, btn_hostSpel, btn_hervatSpel, btn_exitSpel);
-	vbox_mid.setAlignment(Pos.CENTER);
-	vbox_mid.setSpacing(10.0);
-	
-	bp_pane.setCenter(vbox_mid);
-	bp_pane.setTop(hbox_options);
-	
-	Scene main_scene = new Scene(bp_pane, 1000, 600);
-	
-	//Make scene call up style.css for styling
-	main_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-	
-	//MAKE SHIT APPEAR
-	primaryStage.initStyle(StageStyle.UNDECORATED);
-	primaryStage.setTitle("MollenMania - Main Menu");
-	primaryStage.setScene(main_scene);
-	
-	return primaryStage;
+	private InstellingenView instellingenView;
+	private MainMenuController mainMenuController;
+
+	public main_menu(InstellingenView instellingenView, MainMenuController mainMenuController){
+		this.instellingenView=instellingenView;
+		this.mainMenuController = mainMenuController;
+
+		//INITLIZE YO MAMA~~
+		Stage primaryStage = new Stage();
+		BorderPane bp_pane = new BorderPane();
+		bp_pane.setPadding(new Insets(20, 20, 20, 20));
+		VBox vbox_mid = new VBox();
+		//HBox hbox_options = new HBox();
+		host_controls_view hcv = new host_controls_view();
+		hervat_game_view hgv = new hervat_game_view();
+		double BUTTON_WIDTH = 150.0;
+
+		//VOILAAA MAKE ZE BUTTONS
+		Button btn_joinSpel = new Button();
+		Button btn_hostSpel = new Button();
+		Button btn_exitSpel = new Button();
+		Button btn_hervatSpel = new Button();
+		//Button btn_oog = new Button();
+		//Button btn_close = new Button();
+		//Button btn_loudspeaker = new Button();
+		//Button btn_minimize = new Button();
+
+		//Only for testing purposes, circumvents lobby and goes straight to Spel Spelen
+		Button btn_spelSpelen = new Button("Test");
+
+		//BUTTON WIDTHS
+		btn_joinSpel.setMaxWidth(BUTTON_WIDTH);
+		btn_hostSpel.setMaxWidth(BUTTON_WIDTH);
+		btn_exitSpel.setMaxWidth(BUTTON_WIDTH);
+		btn_hervatSpel.setMaxWidth(BUTTON_WIDTH);
+		btn_spelSpelen.setMaxWidth(BUTTON_WIDTH);
+
+		//SET ID's for CSS
+		//btn_loudspeaker.setId("btn_loudspeaker");
+		//btn_oog.setId("btn_oog");
+		btn_joinSpel.setId("btn_joinspel");
+		btn_hostSpel.setId("btn_hostspel");
+		btn_exitSpel.setId("btn_exitspel");
+		bp_pane.setId("bp_pane");
+		//btn_close.setId("btn_close");
+		btn_hervatSpel.setId("btn_hervatspel");
+		//btn_minimize.setId("btn_minimize");
+
+		// Button actions
+		btn_joinSpel.setOnAction(e -> {
+			try{
+				//new connect_host_view("0");
+				mainMenuController.joinGame();
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
+
+		btn_hostSpel.setOnAction(e -> {
+			try{
+				//hcv.host_controls_show();
+				mainMenuController.hostGame();
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
+
+		btn_hervatSpel.setOnAction(e -> {
+			try{
+				//hgv.hervat_game_show();
+				mainMenuController.hervatSpel();
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
+
+		btn_exitSpel.setOnAction(e -> {
+			try{
+				System.exit(0);
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
+
+//		btn_close.setOnAction(e -> {
+//			try{
+//				System.exit(0);
+//			}catch(Exception b){
+//				b.printStackTrace();
+//			}});
+//
+//		btn_minimize.setOnAction(e -> {
+//			try{
+//				primaryStage.setIconified(true);
+//			}catch(Exception b){
+//				b.printStackTrace();
+//			}});
+
+		//EDIT THIS TO TEST SHIT!
+		btn_spelSpelen.setOnAction(e -> {
+			try{
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
+
+		//ADD SHIT TO SHIT
+		//hbox_options.getChildren().addAll(btn_oog, btn_loudspeaker, btn_minimize, btn_close);
+		//hbox_options.setAlignment(Pos.TOP_RIGHT);
+
+		vbox_mid.getChildren().addAll(btn_joinSpel, btn_hostSpel, btn_hervatSpel, btn_spelSpelen, btn_exitSpel);
+		vbox_mid.setAlignment(Pos.CENTER);
+		vbox_mid.setSpacing(10.0);
+
+		bp_pane.setCenter(vbox_mid);
+		bp_pane.setTop(instellingenView.getView());
+
+		Scene main_scene = new Scene(bp_pane, 1000, 600);
+
+		//Make scene call up style.css for styling
+		main_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
+
+		//MAKE SHIT APPEAR
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.setTitle("MollenMania - Main Menu");
+		primaryStage.setScene(main_scene);
+		//primaryStage.setFullScreen(true);
+		primaryStage.show();
 	}
 	
 }

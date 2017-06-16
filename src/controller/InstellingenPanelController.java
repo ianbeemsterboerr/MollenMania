@@ -6,21 +6,24 @@ import view.InstellingenView;
  * Created by Robert on 6/15/2017.
  */
 public class InstellingenPanelController {
-    private InstellingenModel instellingen;
-    private InstellingenView knoppenPanel;
+    private InstellingenModel instellingenModel;
+    private InstellingenView instellingenView;
 
     public InstellingenPanelController(){
-        this.knoppenPanel = new InstellingenView(this);
-        this.instellingen = new InstellingenModel();
+        this.instellingenView = new InstellingenView(this);
+        this.instellingenModel = new InstellingenModel();
+    }
+    public InstellingenView getInstellingenView(){
+        return instellingenView;
     }
 
     public void toggleVolume(){
-        if(instellingen.getSoundState()){
-            instellingen.setSoundState(false);
+        if(instellingenModel.getSoundState()){
+            instellingenModel.setSoundState(false);
         } else {
-            instellingen.setSoundState(true);
+            instellingenModel.setSoundState(true);
         }
-        System.out.println(instellingen.getSoundState());
+        System.out.println(instellingenModel.getSoundState());
     }
 
     public void openHandleiding(){
@@ -28,12 +31,12 @@ public class InstellingenPanelController {
     }
 
     public void toggleKleurenblindModus(){
-        if(instellingen.getKleurenBlindModus()){
-            instellingen.setKleurenBlindModus(false);
+        if(instellingenModel.getKleurenBlindModus()){
+            instellingenModel.setKleurenBlindModus(false);
         }else{
-            instellingen.setKleurenBlindModus(true);
+            instellingenModel.setKleurenBlindModus(true);
         }
-        System.out.println(instellingen.getKleurenBlindModus());
+        System.out.println(instellingenModel.getKleurenBlindModus());
     }
 
 }

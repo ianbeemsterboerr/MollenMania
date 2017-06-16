@@ -10,15 +10,10 @@ import java.io.File;
 /**
  * Created by Ian on 6/16/2017.
  */
-public class HervatGameView extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        //Scene scene = new Scene();
-        primaryStage.setTitle("Spel hervatten");
-        FileChooser fc = new FileChooser();
-        String naam = fc.showOpenDialog(primaryStage).getAbsolutePath();
-        primaryStage.show();
+public class HervatGameView {
+    public void show() {
 
     }
+
+
 }

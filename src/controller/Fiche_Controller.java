@@ -22,11 +22,11 @@ public class Fiche_Controller {
     public void fichesCheck(Fiche_Model fiche){
         if(fiche.getGeslotenFiche().size()==0){
             System.out.println("Fiches resetten");
-            for (int ficheNr : fiche.getOpenFiche()) {
+            for(int ficheNr : fiche.getOpenFiche()){
                 fiche.getGeslotenFiche().add(ficheNr);
             }
             fiche.getOpenFiche().clear();
         }
-    }
+        }
 
-}
+    }

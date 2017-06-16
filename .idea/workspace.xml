@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c14f0-734d-42da-8096-d7087ed0379c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/Spelbord_Controller.java" afterPath="$PROJECT_DIR$/src/controller/SpelbordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelbordController.java" afterPath="$PROJECT_DIR$/src/controller/SpelbordController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,8 +93,8 @@
       <file leaf-file-name="SpelbordController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="567">
+              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -759,7 +759,7 @@
       <workItem from="1496745513477" duration="1038000" />
       <workItem from="1497345978984" duration="9797000" />
       <workItem from="1497516583044" duration="11884000" />
-      <workItem from="1497606182084" duration="3463000" />
+      <workItem from="1497606182084" duration="3514000" />
     </task>
     <task id="LOCAL-00001" summary="Fiche_Model toegevoegd">
       <created>1496049727757</created>
@@ -821,7 +821,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35071000" />
+    <option name="totallyTimeSpent" value="35122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1331,8 +1331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="567">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
           <folding />
         </state>
       </provider>

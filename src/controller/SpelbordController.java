@@ -34,3 +34,4 @@ public boolean zetGeldig(Mol_Model mol, int [] eindPunt, int ficheNR){
 }
 
 }
+}

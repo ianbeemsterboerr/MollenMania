@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Wessel on 16-6-2017.
+ *
+ * Ook wel de "LobbyController"
  */
 
 public class SpelOpzettenController {
@@ -29,10 +31,6 @@ public Speler_Model setHandgrote(int handgrootte, Speler_Model speler) {
     return speler;
 }
 
-public Speler_Model setPionKleur (Color kleur, Speler_Model speler){
-    speler.setKleur(kleur);
-    return speler;
-}
 
 public void addSpelers (Speler_Model speler){
     this.spelerList.add(speler);

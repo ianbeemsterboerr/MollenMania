@@ -1,13 +1,13 @@
 package controller;
 
-import model.Mol_Model;
+import model.MolModel;
 
 /**
  * Created by Wessel on 15-6-2017.
  */
 public class MolController {
 
-public Mol_Model verplaatsMol (Mol_Model molModel, int [] eindpunt, int ficheNR){
+public MolModel verplaatsMol (MolModel molModel, int [] eindpunt, int ficheNR){
     if (zetGeldig(molModel, eindpunt, ficheNR)){
         molModel.setCoord(eindpunt);
         return molModel;
@@ -15,7 +15,7 @@ public Mol_Model verplaatsMol (Mol_Model molModel, int [] eindpunt, int ficheNR)
 return molModel;
 }
 
-public boolean zetGeldig(Mol_Model mol, int [] eindPunt, int ficheNR){
+public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){
     //bepaal delta Coordinaten:
     int deltaCoord[] = new int[3];
     for (int i = 0; i < eindPunt.length;i++ ){

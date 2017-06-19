@@ -23,21 +23,6 @@ public class Niveau_Model  {
 
 
 
-    public int bepaalVeldSoort(ArrayList<Molshoop_Veld> molshoop, ArrayList <SpeciaalVeld_Veld> speciaal, int coord[]){
-        for (int i = 0; i < molshoop.size(); i ++) {
-            if (molshoop.get(i).getPositie() == coord){
-                return 1;
-            }
-
-        }
-        for (int i = 0; i < speciaal.size(); i++){
-            if (speciaal.get(i).getPositie() == coord) {
-                return 2;
-            }
-
-        }
-        return 0;
-    }
 
     public Niveau_Model(ArrayList<Molshoop_Veld> molshoop, ArrayList<SpeciaalVeld_Veld> speciaal,ArrayList<GoudenSchep_Veld> goudenSchep) {
         this.molshoop = molshoop;

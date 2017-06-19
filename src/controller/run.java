@@ -11,7 +11,7 @@ import view.main_menu;
  * Start enkel de MainMenuController en InstellingenController op.
  */
 public class run extends Application {
-		
+
 		//main_menu main_stage = new main_menu();
 		private MainMenuController mainMenuC;
 		private static InstellingenPanelController instellingenController;
@@ -26,7 +26,7 @@ public class run extends Application {
 		    //primaryStage = main_stage.main_menu_show();
 		    //primaryStage.show();
  		}
-		
+
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			launch(args);

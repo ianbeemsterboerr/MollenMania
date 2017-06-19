@@ -33,9 +33,9 @@ public class MainMenuView {
 		BorderPane bp_pane = new BorderPane();
 		bp_pane.setPadding(new Insets(20, 20, 20, 20));
 		VBox vbox_mid = new VBox();
-		//HBox hbox_options = new HBox();
-		host_controls_view hcv = new host_controls_view();
-		hervat_game_view hgv = new hervat_game_view();
+		//HBox hbox_options = new HBox(); //deprecated
+		//host_controls_view hcv = new host_controls_view(); //deprecated
+		//hervat_game_view hgv = new hervat_game_view(); //deprecated
 		double BUTTON_WIDTH = 150.0;
 
 		//VOILAAA MAKE ZE BUTTONS

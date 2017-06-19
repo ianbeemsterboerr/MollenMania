@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 /**
  * @author Joshua
  *
- * Edited by Robert: start niet langer de MainMenuView (maun_menu) op.
+ * Edited by Robert: start niet langer de MainMenuView (main_menu) op.
  * Start enkel de MainMenuController en InstellingenController op.
  */
 public class run extends Application {

@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class host_controls_view {
 	ChoiceBox<String> cb_aantal_spelers;
 	public host_controls_view(){
+		System.out.println("host_controls_view aan!");
 		double button_width = 150.0;
 		Stage connectStage = new Stage();
 		HBox hbox_connect = new HBox();

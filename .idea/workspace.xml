@@ -2,43 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c14f0-734d-42da-8096-d7087ed0379c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/MolServer.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/controller/Bordspel_Interface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/controller/Mol_Server.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/controller/Player_Observer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/controller/Spelbord_Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/controller/run.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/model/Fiche_Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/model/MolModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MolServer/src/model/Speler_Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/Bordspel_Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/Bordspel_Interface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/Mol_Client.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/Player_Observer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/controller/molclient.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/model/Mol_Model.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controller/molclient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/view/lobby_view.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/model/Mol_Model.java" afterPath="$PROJECT_DIR$/src/model/MolModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/controller/MolController.class" afterPath="$PROJECT_DIR$/bin/controller/MolController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/controller/SpelOpzettenController.class" afterPath="$PROJECT_DIR$/bin/controller/SpelOpzettenController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/controller/SpelbordController.class" afterPath="$PROJECT_DIR$/bin/controller/SpelbordController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Fiche_Model.class" afterPath="$PROJECT_DIR$/bin/model/Fiche_Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Niveau_Model.class" afterPath="$PROJECT_DIR$/bin/model/Niveau_Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Playboard_Model.class" afterPath="$PROJECT_DIR$/bin/model/Playboard_Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Spel_Model.class" afterPath="$PROJECT_DIR$/bin/model/Spel_Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Speler_Model.class" afterPath="$PROJECT_DIR$/bin/model/Speler_Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/view/connect_host_view.class" afterPath="$PROJECT_DIR$/bin/view/connect_host_view.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/view/lobby_view.class" afterPath="$PROJECT_DIR$/bin/view/lobby_view.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MolController.java" afterPath="$PROJECT_DIR$/src/controller/MolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" afterPath="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelbordController.java" afterPath="$PROJECT_DIR$/src/controller/SpelbordController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/run.java" afterPath="$PROJECT_DIR$/src/controller/run.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Fiche_Model.java" afterPath="$PROJECT_DIR$/src/model/Fiche_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Speler_Model.java" afterPath="$PROJECT_DIR$/src/model/Speler_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/connect_host_view.java" afterPath="$PROJECT_DIR$/src/view/connect_host_view.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,16 +15,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Bordspel_Interface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MolServer/src/controller/Bordspel_Interface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Spelbord_Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MolServer/src/controller/Spelbord_Model.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lobby_View.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Lobby_View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/Lobby_View.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="861">
-              <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+              <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,28 +96,21 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
               <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="connect_host_view.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/connect_host_view.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="44" column="55" lean-forward="true" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1497871784792" expanded="true" signature="426:620" ph="{...}" />
+                <marker date="1497871784792" expanded="true" signature="693:755" ph="{...}" />
+                <marker date="1497871784792" expanded="false" signature="802:808" ph=" { " />
+                <marker date="1497871784792" expanded="false" signature="836:838" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Speler_Model.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Speler_Model.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Speler_Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state relative-caret-position="462">
+              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#778#779#0" expanded="true" />
@@ -248,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/controller/SpelController.java" />
         <option value="$PROJECT_DIR$/src/model/Niveau_Model.java" />
         <option value="$PROJECT_DIR$/src/model/Playboard_Model.java" />
-        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
         <option value="$PROJECT_DIR$/src/controller/MolController.java" />
         <option value="$PROJECT_DIR$/src/view/lobby_view.java" />
         <option value="$PROJECT_DIR$/src/controller/run.java" />
@@ -261,9 +207,10 @@
         <option value="$PROJECT_DIR$/src/view/Lobby_View.java" />
         <option value="$PROJECT_DIR$/src/controller/Bordspel_Controller.java" />
         <option value="$PROJECT_DIR$/src/controller/Mol_Client.java" />
-        <option value="$PROJECT_DIR$/src/model/Speler_Model.java" />
         <option value="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
         <option value="$PROJECT_DIR$/src/view/connect_host_view.java" />
+        <option value="$PROJECT_DIR$/src/model/Speler_Model.java" />
       </list>
     </option>
   </component>
@@ -902,7 +849,7 @@
       <workItem from="1497606182084" duration="5044000" />
       <workItem from="1497612568250" duration="1771000" />
       <workItem from="1497616233314" duration="3863000" />
-      <workItem from="1497865427804" duration="6039000" />
+      <workItem from="1497865427804" duration="6490000" />
     </task>
     <task id="LOCAL-00001" summary="Fiche_Model toegevoegd">
       <created>1496049727757</created>
@@ -999,7 +946,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48325000" />
+    <option name="totallyTimeSpent" value="48776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1344,14 +1291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/MolController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1456,10 +1395,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Lobby_View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/connect_host_view.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelOpzettenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <marker date="1497871784792" expanded="true" signature="426:620" ph="{...}" />
+            <marker date="1497871784792" expanded="true" signature="693:755" ph="{...}" />
+            <marker date="1497871784792" expanded="false" signature="802:808" ph=" { " />
+            <marker date="1497871784792" expanded="false" signature="836:838" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Speler_Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        <state relative-caret-position="462">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#778#779#0" expanded="true" />
@@ -1482,34 +1462,6 @@
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1526#1527#0" expanded="true" />
             <element signature="e#1568#1569#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelOpzettenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/connect_host_view.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="44" column="55" lean-forward="true" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Lobby_View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

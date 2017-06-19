@@ -1,22 +1,31 @@
 package model;
 
+import java.io.Serializable;
+
 import javafx.scene.paint.Color;
 
 /**
  * Created by Wessel on 29-5-2017.
  */
-public class Mol_Model {
+public class MolModel implements Serializable{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private int pionID;
     private Color color;
     private int [] coord;
 
+    public MolModel(int id){
+        this.pionID = id;
+    }
 
-    public Mol_Model(int playerID, int pionID, Color color, int x, int y, int z) {
+    public MolModel(int playerID, int pionID, Color color, int x, int y, int z) {
         this.pionID = pionID;
         this.color = color;
         this.coord = new int[] {x,y,z};
     }
-
 
     public int getPionID() {
         return pionID;

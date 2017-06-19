@@ -1,6 +1,5 @@
 package view;
 
-import controller.molclient;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.Player_Model;
+import controller.Mol_Client;
 
 public class connect_host_view {
 	
@@ -42,7 +42,7 @@ public class connect_host_view {
 		
 		btn_connect.setOnAction(e -> { 
 			try{
-				new molclient(this.textBoxUsername(), this.maxHostSpelers);
+				new Mol_Client(this.textBoxUsername());
 				connectStage.close();
 			}catch(Exception b){
 				b.printStackTrace();

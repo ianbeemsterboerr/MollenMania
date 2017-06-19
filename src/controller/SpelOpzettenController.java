@@ -29,10 +29,6 @@ public Speler_Model setHandgrote(int handgrootte, Speler_Model speler) {
     return speler;
 }
 
-public Speler_Model setPionKleur (Color kleur, Speler_Model speler){
-    speler.setKleur(kleur);
-    return speler;
-}
 
 public void addSpelers (Speler_Model speler){
     this.spelerList.add(speler);

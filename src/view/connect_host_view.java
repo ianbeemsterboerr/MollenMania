@@ -42,7 +42,11 @@ public class connect_host_view {
 		
 		btn_connect.setOnAction(e -> { 
 			try{
+<<<<<<< HEAD
 				new Mol_Client(this.textBoxUsername());
+=======
+				new molclient(this.textBoxUsername(), this.maxHostSpelers); //Robert: waarom zou deze view moeten aangeven hoeveel spelers er zijn? Das toch alleen de taak van de Host?
+>>>>>>> ec254963f8d644f42fe096789e4e527aa490e9a8
 				connectStage.close();
 			}catch(Exception b){
 				b.printStackTrace();

@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c14f0-734d-42da-8096-d7087ed0379c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/SpelJoinController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/JoinSpelView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/LobbyView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/MolView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/spelbord_view.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/view/host_controls_view.class" afterPath="$PROJECT_DIR$/bin/view/host_controls_view.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" afterPath="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelbordController.java" afterPath="$PROJECT_DIR$/src/controller/SpelbordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Speler_Model.java" afterPath="$PROJECT_DIR$/src/model/Speler_Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/connect_host_view.java" afterPath="$PROJECT_DIR$/src/view/connect_host_view.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/host_controls_view.java" afterPath="$PROJECT_DIR$/src/view/host_controls_view.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -97,43 +108,54 @@
             <state relative-caret-position="21">
               <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1497871784792" expanded="true" signature="426:620" ph="{...}" />
-                <marker date="1497871784792" expanded="true" signature="693:755" ph="{...}" />
-                <marker date="1497871784792" expanded="false" signature="802:808" ph=" { " />
-                <marker date="1497871784792" expanded="false" signature="836:838" ph=" }" />
+                <marker date="1497872375146" expanded="true" signature="167:244" ph="/**...*/" />
+                <marker date="1497872375146" expanded="true" signature="461:655" ph="{...}" />
+                <marker date="1497872375146" expanded="true" signature="728:790" ph="{...}" />
+                <marker date="1497872375146" expanded="false" signature="837:843" ph=" { " />
+                <marker date="1497872375146" expanded="false" signature="871:873" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Speler_Model.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Speler_Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Speler_Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="252">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#812#813#0" expanded="true" />
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#904#905#0" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#982#983#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1126#1127#0" expanded="true" />
-                <element signature="e#1159#1160#0" expanded="true" />
-                <element signature="e#1216#1217#0" expanded="true" />
-                <element signature="e#1260#1261#0" expanded="true" />
-                <element signature="e#1295#1296#0" expanded="true" />
-                <element signature="e#1326#1327#0" expanded="true" />
-                <element signature="e#1374#1375#0" expanded="true" />
-                <element signature="e#1414#1415#0" expanded="true" />
-                <element signature="e#1447#1448#0" expanded="true" />
-                <element signature="e#1479#1480#0" expanded="true" />
-                <element signature="e#1526#1527#0" expanded="true" />
-                <element signature="e#1568#1569#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
+                <element signature="e#952#953#0" expanded="true" />
+                <element signature="e#983#984#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#1127#1128#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1217#1218#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+                <element signature="e#1296#1297#0" expanded="true" />
+                <element signature="e#1327#1328#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
+                <element signature="e#1415#1416#0" expanded="true" />
+                <element signature="e#1448#1449#0" expanded="true" />
+                <element signature="e#1480#1481#0" expanded="true" />
+                <element signature="e#1527#1528#0" expanded="true" />
+                <element signature="e#1569#1570#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpelbordController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -208,9 +230,9 @@
         <option value="$PROJECT_DIR$/src/controller/Bordspel_Controller.java" />
         <option value="$PROJECT_DIR$/src/controller/Mol_Client.java" />
         <option value="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
-        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
         <option value="$PROJECT_DIR$/src/view/connect_host_view.java" />
         <option value="$PROJECT_DIR$/src/model/Speler_Model.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
       </list>
     </option>
   </component>
@@ -849,7 +871,7 @@
       <workItem from="1497606182084" duration="5044000" />
       <workItem from="1497612568250" duration="1771000" />
       <workItem from="1497616233314" duration="3863000" />
-      <workItem from="1497865427804" duration="6490000" />
+      <workItem from="1497865427804" duration="6922000" />
     </task>
     <task id="LOCAL-00001" summary="Fiche_Model toegevoegd">
       <created>1496049727757</created>
@@ -946,7 +968,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48776000" />
+    <option name="totallyTimeSpent" value="49208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1395,14 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Lobby_View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
@@ -1428,41 +1442,50 @@
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1497871784792" expanded="true" signature="426:620" ph="{...}" />
-            <marker date="1497871784792" expanded="true" signature="693:755" ph="{...}" />
-            <marker date="1497871784792" expanded="false" signature="802:808" ph=" { " />
-            <marker date="1497871784792" expanded="false" signature="836:838" ph=" }" />
+            <marker date="1497872375146" expanded="true" signature="167:244" ph="/**...*/" />
+            <marker date="1497872375146" expanded="true" signature="461:655" ph="{...}" />
+            <marker date="1497872375146" expanded="true" signature="728:790" ph="{...}" />
+            <marker date="1497872375146" expanded="false" signature="837:843" ph=" { " />
+            <marker date="1497872375146" expanded="false" signature="871:873" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Speler_Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="252">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#982#983#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-            <element signature="e#1260#1261#0" expanded="true" />
-            <element signature="e#1295#1296#0" expanded="true" />
-            <element signature="e#1326#1327#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1414#1415#0" expanded="true" />
-            <element signature="e#1447#1448#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
-            <element signature="e#1526#1527#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#983#984#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1296#1297#0" expanded="true" />
+            <element signature="e#1327#1328#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1480#1481#0" expanded="true" />
+            <element signature="e#1527#1528#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -9,5 +9,5 @@ public class LobbyView {
 
     private int x;
 
-    
+
 }

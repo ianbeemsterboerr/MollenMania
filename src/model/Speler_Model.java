@@ -13,11 +13,11 @@ public class Speler_Model {
     private int handGrootte;
     private Color kleur;
 
-    public Speler_Model(Fiche_Model fiches, Mol_Model[] mollen, String naam, int handGrote, Color kleur) {
+    public Speler_Model(Fiche_Model fiches, Mol_Model[] mollen, String naam, int handGrootte, Color kleur) {
         this.fiches = fiches;
         this.mollen = mollen;
         this.naam = naam;
-        this.handGrootte = handGrote;
+        this.handGrootte = handGrootte;
         this.kleur = kleur;
     }
 

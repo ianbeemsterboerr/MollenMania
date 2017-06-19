@@ -12,16 +12,18 @@ import java.io.ObjectOutputStream;
  */
 public class SpelSaveController {
     Spel_Model spelModel;
+    String naam;
 
-    public SpelSaveController(Spel_Model spelModel) {
+    public SpelSaveController(Spel_Model spelModel, String naam) {
         this.spelModel = spelModel;
+        this.naam = naam;
     }
 
     public void saveSpel() {
         try {
 
 
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Savefile.dat"));
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".dat"));
             out.writeObject(spelModel);
             out.close();
         } catch (FileNotFoundException e) {

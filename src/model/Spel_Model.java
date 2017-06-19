@@ -25,35 +25,9 @@ public class Spel_Model implements Initializable {
         this.maxAantalObservers = maxAantalObservers;
     }
 
-    public Niveau_Model switchNiveau(int huidigNiveau, Playboard_Model spelbord){
-       if (huidigNiveau == 1 ){
-                setHuidigNiveau(huidigNiveau++);
-                return spelbord.getNiveau2();
-           }
-        else if (huidigNiveau == 2) {
-           setHuidigNiveau(huidigNiveau++);
-           return spelbord.getNiveau3();
-        }
-        else {
-           return spelbord.getNiveau4();
-       }
-    }
 
-    public void setClickable() {
 
-    }
 
-    public void setUnclickable() {
-
-    }
-
-    public void spelSaven() {
-
-    }
-
-    public void notifyObservers() {
-
-    }
 
     public Playboard_Model getSpelbord() {
         return spelbord;

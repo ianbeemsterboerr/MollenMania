@@ -2,7 +2,6 @@ package controller;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.main_menu;
 
 /**
  * @author Joshua
@@ -12,7 +11,7 @@ import view.main_menu;
  */
 public class run extends Application {
 
-		//main_menu main_stage = new main_menu();
+		//MainMenuView main_stage = new MainMenuView();
 		private MainMenuController mainMenuC;
 		private static InstellingenPanelController instellingenController;
 

@@ -9,7 +9,14 @@ public class SpelJoinController {
     //joinSpelView
     //speler?
     private JoinSpelView joinSpelView;
-    public SpelJoinController(){
-        this.joinSpelView = new JoinSpelView();
+    private  MainMenuController mainMenuController;
+    public SpelJoinController(MainMenuController mainMenuController){
+
+        this.joinSpelView = new JoinSpelView(this);
+        this.mainMenuController = mainMenuController;
+    }
+
+    public MainMenuController getMainMenuController(){
+        return mainMenuController;
     }
 }

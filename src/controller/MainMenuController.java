@@ -1,32 +1,39 @@
 package controller;
 
 import view.InstellingenView;
-import view.main_menu;
+import view.MainMenuView;
 import view.*;
 
 /**
  * Created by Robert on 6/16/2017.
  */
 public class MainMenuController {
-    main_menu mainMenuView;
+    MainMenuView mainMenuView;
 
     public MainMenuController(InstellingenView instellingenView){
-        mainMenuView=new main_menu(instellingenView,this);
+        mainMenuView=new MainMenuView(instellingenView,this);
     }
 
     public void joinGame(){
         System.out.println("MainMenuController: joinGame");
+        mainMenuView.uitschakelen();
         new connect_host_view("0");
     }
     public void hostGame(){
         System.out.println("MainMenuController: hostGame");
+        mainMenuView.uitschakelen();
         new host_controls_view();
     }
     public void hervatSpel(){
         System.out.println("MainMenuController: hervatSpel");
+        mainMenuView.uitschakelen();
         new hervat_game_view();
     }
     public void closeGame(){
         System.exit(0);
+    }
+
+    public void inschakelenKnoppen(){
+        mainMenuView.inschakelen();
     }
 }

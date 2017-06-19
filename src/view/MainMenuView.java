@@ -15,11 +15,16 @@ import sun.applet.Main;
 import view.host_controls_view;
 import view.connect_host_view;
 
-public class main_menu {
+public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
 
-	public main_menu(InstellingenView instellingenView, MainMenuController mainMenuController){
+	Button btn_joinSpel;
+	Button btn_hostSpel;
+	Button btn_exitSpel;
+	Button btn_hervatSpel;
+
+	public MainMenuView(InstellingenView instellingenView, MainMenuController mainMenuController){
 		this.instellingenView=instellingenView;
 		this.mainMenuController = mainMenuController;
 
@@ -34,10 +39,10 @@ public class main_menu {
 		double BUTTON_WIDTH = 150.0;
 
 		//VOILAAA MAKE ZE BUTTONS
-		Button btn_joinSpel = new Button();
-		Button btn_hostSpel = new Button();
-		Button btn_exitSpel = new Button();
-		Button btn_hervatSpel = new Button();
+		btn_joinSpel = new Button();
+		btn_hostSpel = new Button();
+		btn_exitSpel = new Button();
+		btn_hervatSpel = new Button();
 		//Button btn_oog = new Button();
 		//Button btn_close = new Button();
 		//Button btn_loudspeaker = new Button();
@@ -139,6 +144,18 @@ public class main_menu {
 		primaryStage.setScene(main_scene);
 		//primaryStage.setFullScreen(true);
 		primaryStage.show();
+	}
+	public void uitschakelen(){
+		btn_joinSpel.setDisable(true);
+		btn_hostSpel.setDisable(true);
+		btn_exitSpel.setDisable(true);
+		btn_hervatSpel.setDisable(true);
+	}
+	public void inschakelen(){
+		btn_joinSpel.setDisable(false);
+		btn_hostSpel.setDisable(false);
+		btn_exitSpel.setDisable(false);
+		btn_hervatSpel.setDisable(false);
 	}
 	
 }

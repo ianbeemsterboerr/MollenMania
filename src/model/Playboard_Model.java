@@ -20,30 +20,7 @@ public class Playboard_Model  {
    private Niveau_Model niveau4 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
 
 
-    // met deze method worden de velden op een niveau vergeleken met de positie van een pion.
-    // Als het veld een molshoop is wordt er een 1 gereturnd
-    // als het veld een speciaalveld is wordt er een 2 gereturnd
-    // als het veld een goudenschep is wordt een een 3 gereturned
-    // als het geen speciaalveld of molshoop is, is het een normaal veld en wordt er een 0 gereturned.
 
-    public int bepaalVeldSoort(ArrayList<Niveau_Model> niveau, int coord[]){
-        for (int i = 0; i < niveau.get(0).getMolshoop().size(); i ++) {
-            if (niveau.get(0).getMolshoop().get(i).getPositie() == coord){
-                return 1;
-            }
-        }
-        for (int i = 0; i < niveau.get(1).getSpeciaal().size(); i ++) {
-            if (niveau.get(1).getSpeciaal().get(i).getPositie() == coord){
-                return 2;
-            }
-        }
-        for (int i = 0; i < niveau.get(2).getGoudenSchep().size(); i ++) {
-            if (niveau.get(2).getGoudenSchep().get(i).getPositie() == coord){
-                return 3;
-            }
-        }
-        return 0;
-    }
 
     public Niveau_Model getNiveau1() {
         return niveau1;

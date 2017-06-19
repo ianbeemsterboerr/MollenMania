@@ -6,21 +6,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
 /**
  * Created by Ian on 6/19/2017.
  */
-public class SpelSaveView extends FlowPane {
-    public SpelSaveView(SpelSaveController ctrl) {
+public class SpelSaveView {
+    public void show() {
+        Stage stage = new Stage();
+        FlowPane fp = new FlowPane();
         Button btn = new Button("Opslaan");
         TextArea txt = new TextArea();
-        setPrefHeight(100);
-        setPrefWidth(300);
 
-        btn.setOnAction(a -> {
-            ctrl.saveSpel(txt.getText());
-        });
+        fp.getChildren().add(txt);
+        fp.getChildren().add(btn);
+
+
+
+
+
     }
 
 }

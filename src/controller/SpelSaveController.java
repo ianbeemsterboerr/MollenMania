@@ -1,6 +1,10 @@
 package controller;
 
+import javafx.application.Application;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
 import model.Spel_Model;
+import view.SpelSaveView;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,12 +18,11 @@ public class SpelSaveController {
     Spel_Model spelModel;
     String naam;
 
-    public SpelSaveController(Spel_Model spelModel, String naam) {
+    public SpelSaveController(Spel_Model spelModel) {
         this.spelModel = spelModel;
-        this.naam = naam;
     }
 
-    public void saveSpel() {
+    public void saveSpel(String naam) {
         try {
 
 
@@ -32,4 +35,6 @@ public class SpelSaveController {
             System.out.println("Er is een File I/O exception opgetreden");
         }
     }
+
+
 }

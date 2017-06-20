@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c14f0-734d-42da-8096-d7087ed0379c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/HandleidingView.java" afterPath="$PROJECT_DIR$/src/view/HandleidingView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainMenuView.java" afterPath="$PROJECT_DIR$/src/view/MainMenuView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -26,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainMenuView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/MainMenuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1376">
-              <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="2448">
+              <caret line="144" column="40" lean-forward="false" selection-start-line="144" selection-start-column="40" selection-end-line="144" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HandleidingView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HandleidingView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/HandleidingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="629">
               <caret line="46" column="88" lean-forward="false" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
               <folding />
             </state>
@@ -128,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/model/Player_Observer.java" />
         <option value="$PROJECT_DIR$/src/model/Velden/GoudenSchep_Veld.java" />
         <option value="$PROJECT_DIR$/src/controller/SpelController.java" />
-        <option value="$PROJECT_DIR$/src/view/MainMenuView.java" />
         <option value="$PROJECT_DIR$/src/view/HandleidingView.java" />
+        <option value="$PROJECT_DIR$/src/view/MainMenuView.java" />
       </list>
     </option>
   </component>
@@ -881,7 +880,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66348000" />
+    <option name="totallyTimeSpent" value="66906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-8" width="1870" height="1096" extended-state="6" />
@@ -1094,16 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MainMenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1376">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Fiche_Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
@@ -1300,9 +1289,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/HandleidingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="629">
           <caret line="46" column="88" lean-forward="false" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/MainMenuView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="144" column="40" lean-forward="false" selection-start-line="144" selection-start-column="40" selection-end-line="144" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

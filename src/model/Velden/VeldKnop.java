@@ -16,11 +16,11 @@ public class VeldKnop extends Button {
 	public int getX() {
 		return coordinaten[0];
 	}
-	
+
 	public int getY() {
 		return coordinaten[1];
 	}
-	
+
 	public int getZ() {
 		return coordinaten[2];
 	}

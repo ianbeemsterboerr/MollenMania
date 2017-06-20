@@ -35,7 +35,6 @@ public class host_controls_view {
 
 		btn_host.setOnAction(e -> {
 			try{
-				
 				connectStage.close();
 				new connect_host_view(this.aantalSpelers());
 				//System.out.println(this.aantalSpelers());

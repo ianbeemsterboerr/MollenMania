@@ -16,7 +16,7 @@ public class MainMenuController {
 
     public void joinGame(){
         System.out.println("MainMenuController: joinGame");
-        mainMenuView.uitschakelen();
+        //mainMenuView.uitschakelen();
         new SpelJoinController(this);
         //new connect_host_view("0");
     }

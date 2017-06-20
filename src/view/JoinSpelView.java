@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.Speler_Model;
 
 /**
  * Created by Robert on 6/18/
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 public class JoinSpelView {
     private String txtValue;
     private TextField ipadress, username;
+    private Speler_Model player;
     private SpelJoinController spelJoinController;
 
     public JoinSpelView(SpelJoinController spelJoinController){
@@ -73,7 +75,7 @@ public class JoinSpelView {
         Scene connect_scene = new Scene(grid, 355, 140);
 
         //Make scene call up style.css for styling
-        connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+        //connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
         connectStage.setTitle("Insert IP to connect");
         connectStage.setScene(connect_scene);
         connectStage.show();

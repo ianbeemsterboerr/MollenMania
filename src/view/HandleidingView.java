@@ -17,10 +17,10 @@ public class HandleidingView {
 
 
     public HandleidingView(){
-        paginas[0] = new Image("../img/handleiding_pag1.png");
-        paginas[1] = new Image("../img/handleiding_pag2.png");
-        paginas[2] = new Image("../img/handleiding_pag3.png");
-        paginas[3] = new Image("../img/handleiding_pag4.png");
+        paginas[0] = new Image(getClass().getResource("img/handleiding_pag1.png").toString());
+        paginas[1] = new Image(getClass().getResource("img/handleiding_pag2.png").toString());
+        paginas[2] = new Image(getClass().getResource("img/handleiding_pag3.png").toString());
+        paginas[3] = new Image(getClass().getResource("img/handleiding_pag4.png").toString());
 
         double button_width = 150.0;
         Stage handleidingStage = new Stage();
@@ -31,18 +31,21 @@ public class HandleidingView {
         btn_volgende.setMaxWidth(button_width);
         btn_vorige.setMaxWidth(button_width);
 
+        btn_volgende.setOnAction(e -> {volgende();});
+        btn_vorige.setOnAction(e -> {vorige();});
+
         hbox_handleiding.getChildren().addAll(btn_vorige,btn_volgende);
         hbox_handleiding.setAlignment(Pos.CENTER);
 
         imgPane = new ImageView(paginas[huidigePagina]);
-        imgPane.setFitWidth(1440);
+        imgPane.setFitHeight(1000);
         imgPane.setPreserveRatio(true);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setBottom(hbox_handleiding);
         borderPane.setCenter(imgPane);
 
-        Scene handleiding_scene = new Scene(borderPane, 250, 85);
+        Scene handleiding_scene = new Scene(borderPane, 800, 1035);
         handleidingStage.setScene(handleiding_scene);
         handleidingStage.setTitle("Mollenmania - handleiding");
         handleidingStage.show();
@@ -66,3 +69,4 @@ public class HandleidingView {
         imgPane.setImage(paginas[huidigePagina]);
     }
 }
+

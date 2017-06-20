@@ -19,9 +19,6 @@ public class Playboard_Model  {
    private Niveau_Model niveau3 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
    private Niveau_Model niveau4 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
 
-
-
-
     public Niveau_Model getNiveau1() {
         return niveau1;
     }

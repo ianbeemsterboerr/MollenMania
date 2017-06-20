@@ -14,6 +14,7 @@ public class SpelJoinController {
 
         this.joinSpelView = new JoinSpelView(this);
         this.mainMenuController = mainMenuController;
+
     }
 
     public MainMenuController getMainMenuController(){

@@ -2,10 +2,14 @@ package view;
 
 import controller.InstellingenPanelController;
 import controller.MainMenuController;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,17 +23,20 @@ public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
 
-	Button btn_joinSpel;
-	Button btn_hostSpel;
-	Button btn_exitSpel;
-	Button btn_hervatSpel;
+	private Button btn_joinSpel;
+	private Button btn_hostSpel;
+	private Button btn_exitSpel;
+	private Button btn_hervatSpel;
+	private Button btn_spelSpelen;
+
+	Stage primaryStage;
 
 	public MainMenuView(InstellingenView instellingenView, MainMenuController mainMenuController){
 		this.instellingenView=instellingenView;
 		this.mainMenuController = mainMenuController;
 
 		//INITLIZE YO MAMA~~
-		Stage primaryStage = new Stage();
+		primaryStage = new Stage();
 		BorderPane bp_pane = new BorderPane();
 		bp_pane.setPadding(new Insets(20, 20, 20, 20));
 		VBox vbox_mid = new VBox();
@@ -43,13 +50,13 @@ public class MainMenuView {
 		btn_hostSpel = new Button();
 		btn_exitSpel = new Button();
 		btn_hervatSpel = new Button();
+		btn_spelSpelen = new Button("test");
 		//Button btn_oog = new Button();
 		//Button btn_close = new Button();
 		//Button btn_loudspeaker = new Button();
 		//Button btn_minimize = new Button();
 
 		//Only for testing purposes, circumvents lobby and goes straight to Spel Spelen
-		Button btn_spelSpelen = new Button("Test");
 
 		//BUTTON WIDTHS
 		btn_joinSpel.setMaxWidth(BUTTON_WIDTH);
@@ -68,6 +75,11 @@ public class MainMenuView {
 		//btn_close.setId("btn_close");
 		btn_hervatSpel.setId("btn_hervatspel");
 		//btn_minimize.setId("btn_minimize");
+
+		btn_spelSpelen.setOnAction(e->{
+			spelbord_view spelBordView = new spelbord_view();
+			spelBordView.spelbord_show().show();
+		});
 
 		// Button actions
 		btn_joinSpel.setOnAction(e -> {
@@ -102,12 +114,6 @@ public class MainMenuView {
 			}});
 
 		//EDIT THIS TO TEST SHIT!
-		btn_spelSpelen.setOnAction(e -> {
-			try{
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
-
 		//ADD SHIT TO SHIT
 		//hbox_options.getChildren().addAll(btn_oog, btn_loudspeaker, btn_minimize, btn_close);
 		//hbox_options.setAlignment(Pos.TOP_RIGHT);

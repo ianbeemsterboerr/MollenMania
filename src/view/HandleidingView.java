@@ -40,6 +40,7 @@ public class HandleidingView {
         imgPane = new ImageView(paginas[huidigePagina]);
         imgPane.setFitHeight(1000);
         imgPane.setPreserveRatio(true);
+        imgPane.setOnMouseClicked( e ->  volgende());
 
         BorderPane borderPane = new BorderPane();
         borderPane.setBottom(hbox_handleiding);

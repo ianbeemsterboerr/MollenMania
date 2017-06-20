@@ -31,18 +31,21 @@ public class HandleidingView {
         btn_volgende.setMaxWidth(button_width);
         btn_vorige.setMaxWidth(button_width);
 
+        btn_volgende.setOnAction(e -> {volgende();});
+        btn_vorige.setOnAction(e -> {vorige();});
+
         hbox_handleiding.getChildren().addAll(btn_vorige,btn_volgende);
         hbox_handleiding.setAlignment(Pos.CENTER);
 
         imgPane = new ImageView(paginas[huidigePagina]);
-        imgPane.setFitWidth(1440);
+        imgPane.setFitHeight(1000);
         imgPane.setPreserveRatio(true);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setBottom(hbox_handleiding);
         borderPane.setCenter(imgPane);
 
-        Scene handleiding_scene = new Scene(borderPane, 250, 85);
+        Scene handleiding_scene = new Scene(borderPane, 800, 1035);
         handleidingStage.setScene(handleiding_scene);
         handleidingStage.setTitle("Mollenmania - handleiding");
         handleidingStage.show();

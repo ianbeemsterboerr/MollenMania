@@ -20,10 +20,6 @@ public class Niveau_Model  {
     ArrayList<SpeciaalVeld_Veld> speciaal;
     ArrayList<GoudenSchep_Veld> goudenSchep;
 
-
-
-
-
     public Niveau_Model(ArrayList<Molshoop_Veld> molshoop, ArrayList<SpeciaalVeld_Veld> speciaal,ArrayList<GoudenSchep_Veld> goudenSchep) {
         this.molshoop = molshoop;
         this.speciaal = speciaal;

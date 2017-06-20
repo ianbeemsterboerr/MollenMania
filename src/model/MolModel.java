@@ -17,6 +17,7 @@ public class MolModel implements Serializable{
     private Color color;
     private int [] coord;
 
+
     public MolModel(int id){
         this.pionID = id;
     }

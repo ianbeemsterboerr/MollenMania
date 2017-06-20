@@ -13,8 +13,8 @@ import java.io.File;
  */
 public class HervatGameView {
     SpelHervattenController ctrl;
+
     public HervatGameView(SpelHervattenController ctrl) {
-        System.out.print(show());
         this.ctrl = ctrl;
     }
 

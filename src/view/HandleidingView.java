@@ -3,10 +3,14 @@ package view;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.image.*;
+
+import java.awt.*;
+
 /**
  * Created by Robert on 6/20/2017.
  */
@@ -38,14 +42,17 @@ public class HandleidingView {
         hbox_handleiding.setAlignment(Pos.CENTER);
 
         imgPane = new ImageView(paginas[huidigePagina]);
-        imgPane.setFitHeight(1000);
+        Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
+        double height = screenSize.getHeight();
+        imgPane.setFitHeight(height-70);//set heightn of image to hieght of computer -40
         imgPane.setPreserveRatio(true);
+        imgPane.setOnMouseClicked( e ->  volgende());
 
         BorderPane borderPane = new BorderPane();
         borderPane.setBottom(hbox_handleiding);
         borderPane.setCenter(imgPane);
 
-        Scene handleiding_scene = new Scene(borderPane, 800, 1035);
+        Scene handleiding_scene = new Scene(borderPane, 800, height);
         handleidingStage.setScene(handleiding_scene);
         handleidingStage.setTitle("Mollenmania - handleiding");
         handleidingStage.show();

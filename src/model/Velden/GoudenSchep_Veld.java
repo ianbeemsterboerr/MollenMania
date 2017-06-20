@@ -23,5 +23,9 @@ public class GoudenSchep_Veld {
         this.positie = positie;
     }
 
+    public boolean isEindeSpel() {
+        return eindeSpel;
+    }
+
 
 }

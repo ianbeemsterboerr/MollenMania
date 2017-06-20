@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Created by Robert on 6/19/2017.
@@ -70,11 +71,12 @@ public class HostSpelView {
         grid.add(btn_host, 1, 2);
         grid.add(btn_back, 2, 2);
 
-        Scene connect_scene = new Scene(grid, 250, 85);
+        Scene connect_scene = new Scene(grid, 360, 120);
         //Make scene call up style.css for styling
-        connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+        connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
         connectStage.setTitle("Host een spel");
         connectStage.setScene(connect_scene);
+        connectStage.initStyle(StageStyle.UNDECORATED);
         connectStage.show();
     }
 

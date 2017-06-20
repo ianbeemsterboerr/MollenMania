@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 public class hervatten_game_control {
 
 	public hervatten_game_control(){
-		HervatGameView hervatgame = new HervatGameView();
+		//HervatGameView hervatgame = new HervatGameView();
 	}
 
 	public String kiesFile() {

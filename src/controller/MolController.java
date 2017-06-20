@@ -28,7 +28,7 @@ public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
     }
 
 public boolean overMol(MolModel molModel, int [] eindPunt, int ficheNR){
-    return true; //fix deze shit
+    return false;
 }
 
 

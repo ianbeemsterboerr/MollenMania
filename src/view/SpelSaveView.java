@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 /**
  * Created by Ian on 6/19/2017.
+ * Wordt getoond wanneer er op "Save Spel" wordt gedrukt vanuit de game.
  */
 public class SpelSaveView {
     public void show() {
@@ -19,6 +20,7 @@ public class SpelSaveView {
         Button btn = new Button("Opslaan");
         TextArea txt = new TextArea();
 
+        txt.setMaxSize(10, 50);
         fp.getChildren().add(txt);
         fp.getChildren().add(btn);
 

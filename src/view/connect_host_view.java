@@ -9,14 +9,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import model.Player_Model;
 import controller.Mol_Client;
 
 public class connect_host_view {
 	
 	private String txtValue;
 	private TextField ipadress, username;
-	private Player_Model player;
 	private String maxHostSpelers;
 	
 	public connect_host_view(String maxSpelers){

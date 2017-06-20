@@ -234,7 +234,7 @@ public class spelbord_view {
 		});
 
 		// SET ID's for CSS
-		Scene scene = new Scene(root, 600, 1000);
+		Scene scene = new Scene(root, 1000, 600);
 		root.setId("root");
 
 		scene.getStylesheets().addAll(this.getClass().getResource("SpelbordStyle.css").toExternalForm());

@@ -10,11 +10,15 @@
 }
 
 #btn_loudspeaker{
-	-fx-graphic:url("../img/Icon_LuidsprekerLeeg.png");
+	-fx-graphic:url("../img/Icon_LuidsprekerHalf.png");
 }
 
 #btn_oog{
    -fx-graphic:url("../img/Icon_Oog.png");
+}
+
+#btn_handleiding{
+    -fx-graphic:url("../img/Icon_Spelregels.png");
 }
 
 #btn_close{

@@ -88,7 +88,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 		btn_klaar.setOnAction(e -> { 
 			try{
-				new Spelbord_View(this.bs_controller, this.bs_interface);
+				new SpelbordView(this.bs_controller, this.bs_interface);
 			}catch(Exception b){
 				b.printStackTrace();
 		}});

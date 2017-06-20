@@ -13,7 +13,7 @@ public class Mol_Client {
 		try {
 			// get access to the RMI registry on the remote server	
 			// if server on another machine: provide that machine's IP address. Default port  1099
-			Registry registry = LocateRegistry.getRegistry("145.101.91.52");
+			Registry registry = LocateRegistry.getRegistry("127.0.0.1");
 			
             //CALL OBJECT FROM INTERFACE IMPLEMENTATIONNN
 			// get remote interface object from registry

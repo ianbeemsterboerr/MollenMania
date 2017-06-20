@@ -19,17 +19,19 @@ public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
 
-	Button btn_joinSpel;
-	Button btn_hostSpel;
-	Button btn_exitSpel;
-	Button btn_hervatSpel;
+	private Button btn_joinSpel;
+	private Button btn_hostSpel;
+	private Button btn_exitSpel;
+	private Button btn_hervatSpel;
+
+	Stage primaryStage;
 
 	public MainMenuView(InstellingenView instellingenView, MainMenuController mainMenuController){
 		this.instellingenView=instellingenView;
 		this.mainMenuController = mainMenuController;
 
 		//INITLIZE YO MAMA~~
-		Stage primaryStage = new Stage();
+		primaryStage = new Stage();
 		BorderPane bp_pane = new BorderPane();
 		bp_pane.setPadding(new Insets(20, 20, 20, 20));
 		VBox vbox_mid = new VBox();

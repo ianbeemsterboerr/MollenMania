@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.VeldKnop;
+import model.Velden.VeldKnop;
 
 public class spelbord_view {
 	int[] intArray1;

@@ -17,10 +17,10 @@ public class HandleidingView {
 
 
     public HandleidingView(){
-        paginas[0] = new Image("../img/handleiding_pag1.png");
-        paginas[1] = new Image("../img/handleiding_pag2.png");
-        paginas[2] = new Image("../img/handleiding_pag3.png");
-        paginas[3] = new Image("../img/handleiding_pag4.png");
+        paginas[0] = new Image(getClass().getResource("img/handleiding_pag1.png").toString());
+        paginas[1] = new Image(getClass().getResource("img/handleiding_pag2.png").toString());
+        paginas[2] = new Image(getClass().getResource("img/handleiding_pag3.png").toString());
+        paginas[3] = new Image(getClass().getResource("img/handleiding_pag4.png").toString());
 
         double button_width = 150.0;
         Stage handleidingStage = new Stage();
@@ -66,3 +66,4 @@ public class HandleidingView {
         imgPane.setImage(paginas[huidigePagina]);
     }
 }
+

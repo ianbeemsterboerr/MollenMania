@@ -38,4 +38,8 @@ public class MainMenuController {
     public void inschakelenKnoppen(){
         mainMenuView.inschakelen();
     }
+
+    public void testTest(){
+        System.out.println("MainMenuView: test button!");
+    }
 }

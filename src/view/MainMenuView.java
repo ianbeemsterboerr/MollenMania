@@ -27,6 +27,7 @@ public class MainMenuView {
 	private Button btn_hostSpel;
 	private Button btn_exitSpel;
 	private Button btn_hervatSpel;
+	private Button btn_spelSpelen;
 
 	Stage primaryStage;
 
@@ -49,13 +50,13 @@ public class MainMenuView {
 		btn_hostSpel = new Button();
 		btn_exitSpel = new Button();
 		btn_hervatSpel = new Button();
+		btn_spelSpelen = new Button("test");
 		//Button btn_oog = new Button();
 		//Button btn_close = new Button();
 		//Button btn_loudspeaker = new Button();
 		//Button btn_minimize = new Button();
 
 		//Only for testing purposes, circumvents lobby and goes straight to Spel Spelen
-		Button btn_spelSpelen = new Button("Test");
 
 		//BUTTON WIDTHS
 		btn_joinSpel.setMaxWidth(BUTTON_WIDTH);
@@ -74,6 +75,11 @@ public class MainMenuView {
 		//btn_close.setId("btn_close");
 		btn_hervatSpel.setId("btn_hervatspel");
 		//btn_minimize.setId("btn_minimize");
+
+		btn_spelSpelen.setOnAction(e->{
+			spelbord_view spelBordView = new spelbord_view();
+			spelBordView.spelbord_show().show();
+		});
 
 		// Button actions
 		btn_joinSpel.setOnAction(e -> {
@@ -108,12 +114,6 @@ public class MainMenuView {
 			}});
 
 		//EDIT THIS TO TEST SHIT!
-		btn_spelSpelen.setOnAction(e -> {
-			try{
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
-
 		//ADD SHIT TO SHIT
 		//hbox_options.getChildren().addAll(btn_oog, btn_loudspeaker, btn_minimize, btn_close);
 		//hbox_options.setAlignment(Pos.TOP_RIGHT);

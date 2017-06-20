@@ -24,14 +24,14 @@ public class InstellingenView {
 
         this.btnGeluid = new Button();
         this.btnKleurenblindheid =new Button();
-        this.btnHandleiding =new Button("hndleid");
+        this.btnHandleiding =new Button();
         this.btnAfsluiten =new Button();
         this.btnMinimaliseer=new Button();
 
         //SET ID's for CSS
         btnGeluid.setId("btn_loudspeaker");
         btnKleurenblindheid.setId("btn_oog");
-        // nog geen style voor btnHandleiding
+        btnHandleiding.setId("btn_handleiding");
         btnMinimaliseer.setId("btn_minimize");
         btnAfsluiten.setId("btn_close");
 

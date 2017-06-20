@@ -19,6 +19,11 @@
     -fx-background-color: transparent;
 }
 
+#btn_handleiding{
+    -fx-graphic:url("../img/Icon_Spelregels.png");
+    -fx-background-color: transparent;
+}
+
 #btn_close{
     -fx-graphic: url("../img/Icon_Kruisje.png");
     -fx-background-color: transparent;
@@ -49,10 +54,15 @@
     -fx-background-color: transparent;
 }
 
-#btn_close:hover, #btn_minimize:hover, #btn_loudspeaker:hover, #btn_oog:hover {
+#btn_close:hover, #btn_minimize:hover, #btn_loudspeaker:hover, #btn_oog:hover,#btn_handleiding:hover {
+    -fx-background-color: rgba(255,255,255,0.5);
+
+}
+#btn_close:pressed, #btn_minimize:pressed, #btn_loudspeaker:pressed, #btn_oog:pressed,#btn_handleiding:pressed {
     -fx-background-color: whitesmoke;
 
 }
+
 #btn_joinspel:hover, #btn_exitspel:hover, #btn_hostspel:hover, #btn_hervatspel:hover{
     -fx-background-color: white;
     -fx-text-fill: white;

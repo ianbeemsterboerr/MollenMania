@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.Player_Model;
 
 /**
  * Created by Robert on 6/18/
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 public class JoinSpelView {
     private String txtValue;
     private TextField ipadress, username;
+    private Player_Model player;
     private SpelJoinController spelJoinController;
 
     public JoinSpelView(SpelJoinController spelJoinController){

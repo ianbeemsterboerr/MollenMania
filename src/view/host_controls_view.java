@@ -1,5 +1,6 @@
 package view;
 
+import controller.molserver;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -35,7 +36,7 @@ public class host_controls_view {
 
 		btn_host.setOnAction(e -> {
 			try{
-				
+				new molserver();
 				connectStage.close();
 				new connect_host_view(this.aantalSpelers());
 				//System.out.println(this.aantalSpelers());

@@ -1,9 +1,7 @@
 package model;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
 import controller.Bordspel_Interface;
-
 
 public interface Player_Observer extends Remote {
 	/**

@@ -28,6 +28,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	 */
 	private static final long serialVersionUID = 1L;
 	Bordspel_Controller bs_controller;
+	Bordspel_Interface bs_interface;
 	ObservableList<Speler_Model> data;
 	
 	public Lobby_View() throws RemoteException{
@@ -37,12 +38,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
 		
 		//Add this view to observer list
-		try {
-			bs_interface.addObserver(this);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 		
+		this.bs_interface = bs_interface;
 		this.bs_controller = bs_controller;
 		
 		//view bullshit
@@ -73,7 +70,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 		
-        
 		btn_pion.setMaxWidth(button_width);
 		btn_kleur.setMaxWidth(button_width);
 		btn_refresh.setMaxWidth(button_width);
@@ -90,12 +86,19 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 				b.printStackTrace();
 		}});
 		
+		btn_klaar.setOnAction(e -> { 
+			try{
+				new SpelbordView(this.bs_controller, this.bs_interface);
+			}catch(Exception b){
+				b.printStackTrace();
+		}});
+		
 		grid.setHgap(10);
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(game_table, 0, 0);
 	    grid.add(vbox_hervat_options, 1, 0);
 		
-		Scene lobby_scene = new Scene(grid, 365, 250);
+		Scene lobby_scene = new Scene(grid, 380, 250);
 		
 		lobbyStage.setTitle("Lobby");
 		lobbyStage.setScene(lobby_scene);

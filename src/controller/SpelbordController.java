@@ -3,7 +3,7 @@ package controller;
 import model.Niveau_Model;
 import model.Playboard_Model;
 import model.Spel_Model;
-import model.VeldKnop;
+import model.Velden.VeldKnop;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 

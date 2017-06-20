@@ -23,9 +23,11 @@ public class SpelSaveView {
         fp.getChildren().add(btn);
 
 
+        Scene scene = new Scene(fp, 300, 100);
 
-
-
+        stage.setScene(scene);
+        stage.setTitle("Spel saven");
+        stage.show();
     }
 
 }

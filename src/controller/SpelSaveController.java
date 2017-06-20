@@ -12,16 +12,24 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- * Created by Ian on 6/16/2017.
+ * @author Ian Beemsterboer.
+ * Heeft de verantwoordelijkheid om het spel op te slaan.
  */
 public class SpelSaveController {
     Spel_Model spelModel;
     String naam;
 
+    /**
+     * @param spelModel Het Spel_Model object dat opgeslagen moet worden.
+     */
     public SpelSaveController(Spel_Model spelModel) {
         this.spelModel = spelModel;
     }
 
+    /**
+     *
+     * @param naam  De naam waarmee het savebestand op de schijf wordt weggeschreven.
+     */
     public void saveSpel(String naam) {
         try {
 

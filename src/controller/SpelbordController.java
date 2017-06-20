@@ -3,6 +3,7 @@ package controller;
 import model.Niveau_Model;
 import model.Playboard_Model;
 import model.Spel_Model;
+import model.VeldKnop;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
@@ -12,10 +13,6 @@ import java.util.ArrayList;
  * Created by Wessel on 16-6-2017.
  */
 public class SpelbordController {
-    //private SpelbordView;
-    public SpelbordController() {
-
-    }
 
     public Niveau_Model switchNiveau(Spel_Model spelModel, int huidigNiveau, Playboard_Model spelbord) {
         if (huidigNiveau == 1) {
@@ -28,22 +25,6 @@ public class SpelbordController {
             spelModel.setHuidigNiveau(huidigNiveau++);
             return spelbord.getNiveau4();
         }
-    }
-
-    public void neerzettenMol(int[] positie) {
-
-    }
-
-    public void draaiFiche(int ficheID) {
-
-    }
-
-    public void selecteerMol(int[] molPositie) {
-
-    }
-
-    public void verplaatsMol(int[] molPositie, int[] nieuwPositie) {
-
     }
 
     // met deze method worden de velden op een niveau vergeleken met de positie van een pion.

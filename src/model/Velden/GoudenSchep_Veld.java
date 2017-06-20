@@ -6,9 +6,10 @@ package model.Velden;
 public class GoudenSchep_Veld {
 
     private int[] positie;
+    private boolean eindeSpel = false;
 
     public void spelAfgelopen(){
-
+        this.eindeSpel = true;
     }
     public GoudenSchep_Veld(int x, int y, int z) {
         this.positie = new int[]{x,y,z};

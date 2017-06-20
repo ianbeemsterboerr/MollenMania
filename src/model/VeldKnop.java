@@ -2,11 +2,11 @@ package model;
 
 import javafx.scene.control.Button;
 
-public class MolKnop extends Button {
+public class VeldKnop extends Button {
 	
 	private int[] coordinaten;
 	
-	public MolKnop(int x, int y, int z){
+	public VeldKnop(int x, int y, int z){
 		this.coordinaten = new int[]{x, y, z};
 	}
 

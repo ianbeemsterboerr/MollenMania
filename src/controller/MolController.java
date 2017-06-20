@@ -15,6 +15,11 @@ public MolModel verplaatsMol (MolModel molModel, int [] eindpunt, int ficheNR){
 return molModel;
 }
 
+public void selecteerMol(int[] molPositie) {
+
+    }
+
+
 public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){
     //bepaal delta Coordinaten:
     int deltaCoord[] = new int[3];

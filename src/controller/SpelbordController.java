@@ -30,21 +30,11 @@ public class SpelbordController {
         }
     }
 
-    public void neerzettenMol(int[] positie) {
+    public void neerzettenMol(int[] positie, Spel_Model spelModel) {
 
     }
 
-    public void draaiFiche(int ficheID) {
 
-    }
-
-    public void selecteerMol(int[] molPositie) {
-
-    }
-
-    public void verplaatsMol(int[] molPositie, int[] nieuwPositie) {
-
-    }
 
     // met deze method worden de velden op een niveau vergeleken met de positie van een pion.
     // Als het veld een molshoop is wordt er een 1 gereturnd

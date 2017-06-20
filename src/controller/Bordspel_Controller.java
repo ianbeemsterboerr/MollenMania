@@ -2,7 +2,6 @@ package controller;
 
 import java.rmi.RemoteException;
 
-import model.MolModel;
 import model.Speler_Model;
 
 public class Bordspel_Controller {
@@ -25,11 +24,4 @@ public class Bordspel_Controller {
 	public void loadSpel(){
 		
 	}
-	
-	public void printNaam(Speler_Model sm){
-		for(MolModel mol : sm.getMol_list()){
-			System.out.println(mol.getPionID());
-		}
-	}
-	
 }

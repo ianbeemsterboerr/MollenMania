@@ -101,20 +101,6 @@ public class MainMenuView {
 				b.printStackTrace();
 			}});
 
-//		btn_close.setOnAction(e -> {
-//			try{
-//				System.exit(0);
-//			}catch(Exception b){
-//				b.printStackTrace();
-//			}});
-//
-//		btn_minimize.setOnAction(e -> {
-//			try{
-//				primaryStage.setIconified(true);
-//			}catch(Exception b){
-//				b.printStackTrace();
-//			}});
-
 		//EDIT THIS TO TEST SHIT!
 		btn_spelSpelen.setOnAction(e -> {
 			try{
@@ -143,6 +129,7 @@ public class MainMenuView {
 		primaryStage.setTitle("MollenMania - Main Menu");
 		primaryStage.setScene(main_scene);
 		//primaryStage.setFullScreen(true);
+		instellingenView.registerStage(primaryStage);
 		primaryStage.show();
 	}
 	public void uitschakelen(){

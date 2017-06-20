@@ -7,15 +7,15 @@ import java.util.Random;
 /**
  * Created by Wessel on 15-6-2017.
  */
-public class Fiche_Controller {
+public class Fiche_Controller extends Random {
 
-    Random random = new Random();
 
     public int kiesFiche(Fiche_Model fiche) {
-        int getal = random.nextInt(fiche.getGeslotenFiche().size());
+        int getal = this.nextInt(fiche.getGeslotenFiche().size());
         int ficheNR = fiche.getGeslotenFiche().get(getal);
         fiche.getOpenFiche().add(fiche.getGeslotenFiche().get(getal));
         fiche.getGeslotenFiche().remove(getal);
+        System.out.println(ficheNR);
         return ficheNR;
     }
 

@@ -1,5 +1,7 @@
 package controller;
 
+import model.Speler_Model;
+import view.MolKnop;
 import model.MolModel;
 
 /**
@@ -7,17 +9,27 @@ import model.MolModel;
  */
 public class MolController {
 
-public MolModel verplaatsMol (MolModel molModel, int [] eindpunt, int ficheNR){
-    if (zetGeldig(molModel, eindpunt, ficheNR)){
-        molModel.setCoord(eindpunt);
+// Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
+public MolModel verplaatsMol (MolModel molModel, int [] eindPunt, int ficheNR){
+    if (zetGeldig(molModel, eindPunt, ficheNR)){
+        molModel.setCoord(eindPunt);
         return molModel;
     }
 return molModel;
 }
 
-public void selecteerMol(int[] molPositie) {
-
+public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
+    for(MolModel mol : speler.getMol_list()){
+        if (mol == molKnop.getMolModel()){
+            return mol;
+        }
     }
+    return null;
+    }
+
+public boolean overMol(MolModel molModel, int [] eindPunt, int ficheNR){
+
+}
 
 
 public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){

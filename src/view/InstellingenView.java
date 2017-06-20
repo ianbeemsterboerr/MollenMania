@@ -4,6 +4,7 @@ import controller.InstellingenPanelController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * Created by Robert on 6/16/2017.
@@ -18,6 +19,7 @@ public class InstellingenView {
     HBox hbox;
 
     InstellingenPanelController controller;
+    Stage stage;
 
     public InstellingenView(InstellingenPanelController controller){
         this.controller=controller;
@@ -41,12 +43,20 @@ public class InstellingenView {
 
         btnGeluid.setOnAction(e -> {controller.toggleVolume();});
         btnKleurenblindheid.setOnAction(e -> {controller.toggleKleurenblindModus();});
+        btnHandleiding.setOnAction(e -> {controller.showHandleiding();});
+        btnMinimaliseer.setOnAction(e -> {
+            stage.setIconified(true);
+        });
         btnAfsluiten.setOnAction(e -> {
 			try{
 				System.exit(0);
 			}catch(Exception b){
 				b.printStackTrace();
 			}});
+    }
+
+    public void registerStage(Stage stage){
+        this.stage=stage;
     }
 
     public HBox getView(){

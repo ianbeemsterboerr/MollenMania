@@ -1,5 +1,6 @@
 package controller;
 import model.InstellingenModel;
+import view.HandleidingView;
 import view.InstellingenView;
 
 /**
@@ -39,4 +40,8 @@ public class InstellingenPanelController {
         System.out.println(instellingenModel.getKleurenBlindModus());
     }
 
+    public void showHandleiding(){
+        System.out.println("InstellingenPanelController: show Handleiding.");
+        new HandleidingView();
+    }
 }

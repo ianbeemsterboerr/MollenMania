@@ -13,7 +13,7 @@ import java.io.File;
  */
 public class HervatGameView {
     public HervatGameView(SpelHervattenController ctrl) {
-
+        show();
     }
     public void show() {
         Stage stage = new Stage();

@@ -29,7 +29,7 @@ public class MainMenuController {
     public void hervatSpel(){
         System.out.println("MainMenuController: hervatSpel");
         mainMenuView.uitschakelen();
-        new hervat_game_view();
+        new SpelHervattenController();
     }
     public void closeGame(){
         System.exit(0);

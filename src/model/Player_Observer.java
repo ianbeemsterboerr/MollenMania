@@ -2,7 +2,7 @@ package model;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import controller.moluser_interface;
+import controller.Bordspel_Interface;
 
 
 public interface Player_Observer extends Remote {
@@ -14,7 +14,7 @@ public interface Player_Observer extends Remote {
 	 *             when the connection between RMI client and server is
 	 *             compromised
 	 */
-	public void modelChanged(moluser_interface playable) throws RemoteException;
+	public void modelChanged(Bordspel_Interface playable) throws RemoteException;
 
 	/**
 	 * @since 0.2

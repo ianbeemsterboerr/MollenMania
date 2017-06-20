@@ -10,9 +10,9 @@ import model.MolModel;
 public class MolController {
 
 // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
-public MolModel verplaatsMol (MolModel molModel, int [] eindpunt, int ficheNR){
-    if (zetGeldig(molModel, eindpunt, ficheNR)){
-        molModel.setCoord(eindpunt);
+public MolModel verplaatsMol (MolModel molModel, int [] eindPunt, int ficheNR){
+    if (zetGeldig(molModel, eindPunt, ficheNR)){
+        molModel.setCoord(eindPunt);
         return molModel;
     }
 return molModel;
@@ -26,6 +26,10 @@ public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
     }
     return null;
     }
+
+public boolean overMol(MolModel molModel, int [] eindPunt, int ficheNR){
+
+}
 
 
 public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){

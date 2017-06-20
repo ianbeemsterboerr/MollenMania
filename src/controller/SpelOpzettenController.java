@@ -27,7 +27,7 @@ public Spel_Model spelOpzetten( Spel_Model spelModel, Speler_Model speler, Playb
     }
 
 public Speler_Model setHandgrote(int handgrootte, Speler_Model speler) {
-    speler.setHandGrootte(handgrootte);
+    //speler.setHandGrootte(handgrootte);
     return speler;
 }
 

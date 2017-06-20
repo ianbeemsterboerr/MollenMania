@@ -25,10 +25,6 @@ public class Spel_Model implements Initializable {
         this.maxAantalObservers = maxAantalObservers;
     }
 
-
-
-
-
     public Playboard_Model getSpelbord() {
         return spelbord;
     }

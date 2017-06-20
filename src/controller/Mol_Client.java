@@ -26,7 +26,7 @@ public class Mol_Client {
 			Speler_Model sm = new Speler_Model(username, spid);
 			
 			bs_controller.checkPlayerList(4, sm);
-			bs_controller.printNaam(sm);
+			
 			new Lobby_View(userStub, bs_controller);
 		} catch (Exception e) {
 			System.out.println(e);

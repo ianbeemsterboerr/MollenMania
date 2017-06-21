@@ -1,3 +1,6 @@
-#gridPane {
-    -fx-background-image: url("../img/SpelbordKleurenblind.png");
+#moap {
+    -fx-background-image: url("../img/Spelbord_Bord1.png");
+    -fx-background-size:1920 1080;
+	-fx-background-position: center center;
+	-fx-background-repeat: stretch;
 }

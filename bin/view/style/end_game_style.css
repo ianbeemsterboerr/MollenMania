@@ -1,0 +1,17 @@
+.BorderPane{
+    -fx-background-image: url("../img/bgmol.png");
+}
+
+#grid_win{
+    -fx-background-image: url("../img/bgmol.png");
+	-fx-background-size:800 600;
+	-fx-background-position: center center;
+	-fx-background-repeat: stretch;
+}
+
+#grid_lose{
+    -fx-background-image: url("../img/bordexample.jpg");
+	-fx-background-size:800 600;
+	-fx-background-position: center center;
+	-fx-background-repeat: stretch;
+}

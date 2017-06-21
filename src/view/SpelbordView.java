@@ -182,8 +182,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 41;
+		int numCols = 29;
 
+		Button btn_close = new Button("exit");
+		Button btn_minimize = new Button("-");
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
 		for (int i = 0; i < numRows; i++) {
@@ -200,59 +202,59 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 
 		// loop voor buttons 1 t/m 5
-		for (int column = 19; column < 29; column = column + 2) {
-			VeldKnop veld = new VeldKnop((14 - ((column + 1) / 2)) , ((column + 1) / 2 - 10), -4);
+		for (int column = 13; column < 23; column = column + 2) {
+			VeldKnop veld = new VeldKnop((8 - ((column + 1) / 2)) , ((column + 1) / 2 - 4), -4);
 			root.add(veld, column, 1);
-			buttonArray[(column + 1) / 2 - 10] = veld;
-			
+			buttonArray[(column + 1) / 2 - 4] = veld;
+
 		}
 		// loop voor buttons 6 t/m 11
-		for (int column = 18; column < 30; column = column + 2) {
-			VeldKnop veld = new VeldKnop((13 - (column / 2)) , (column / 2 - 10), -3);
+		for (int column = 12; column < 24; column = column + 2) {
+			VeldKnop veld = new VeldKnop((7 - (column / 2)) , (column / 2 - 4), -3);
 			root.add(veld, column, 2);
-			buttonArray[column / 2 - 4] = veld;
+			buttonArray[column / 2 - 1] = veld;
 		}
 		// loop voor buttons 12 t/m 18
-		for (int column = 17; column < 31; column = column + 2) {
-			VeldKnop veld = new VeldKnop((13 - ((column + 1) / 2)) , ((column + 1) / 2 - 11), -2);
+		for (int column = 11; column < 25; column = column + 2) {
+			VeldKnop veld = new VeldKnop((7 - ((column + 1) / 2)) , ((column + 1) / 2 - 5), -2);
 			root.add(veld, column, 3);
-			buttonArray[(column + 1) / 2 + 2] = veld;
+			buttonArray[(column + 1) / 2 + 5] = veld;
 		}
 		// loop voor buttons 19 t/m 26
-		for (int column = 16; column < 31; column = column + 2) {
-			VeldKnop veld = new VeldKnop((12 - (column / 2)) , (column / 2 - 11), -1);
+		for (int column = 10; column < 25; column = column + 2) {
+			VeldKnop veld = new VeldKnop((6 - (column / 2)) , (column / 2 - 5), -1);
 			root.add(veld, column, 4);
-			buttonArray[column / 2 + 10] = veld;
+			buttonArray[column / 2 + 13] = veld;
 		}
 		// loop voor buttons 27 t/m 35
-		for (int column = 15; column < 32; column = column + 2) {
-			VeldKnop veld = new VeldKnop((12 - ((column + 1) / 2)) , ((column + 1) / 2 - 12), 0);
+		for (int column = 9; column < 26; column = column + 2) {
+			VeldKnop veld = new VeldKnop((6 - ((column + 1) / 2)) , ((column + 1) / 2 - 6), 0);
 			root.add(veld, column, 5);
-			buttonArray[(column + 1) / 2 + 18] = veld;
+			buttonArray[(column + 1) / 2 + 21] = veld;
 		}
 		// loop voor buttons 36 t/m 43
-		for (int column = 16; column < 31; column = column + 2) {
-			VeldKnop veld = new VeldKnop((11 - (column / 2)) , (column / 2 - 12), 1);
+		for (int column = 10; column < 25; column = column + 2) {
+			VeldKnop veld = new VeldKnop((5 - (column / 2)) , (column / 2 - 6), 1);
 			root.add(veld, column, 6);
-			buttonArray[column / 2 + 27] = veld;
+			buttonArray[column / 2 + 30] = veld;
 		}
 		// buttons 44 t/m 50
-		for (int column = 17; column < 31; column = column + 2) {
-			VeldKnop veld = new VeldKnop((11 - ((column + 1) / 2)) , ((column + 1) / 2 - 13), 2);
+		for (int column = 11; column < 25; column = column + 2) {
+			VeldKnop veld = new VeldKnop((5 - ((column + 1) / 2)) , ((column + 1) / 2 - 7), 2);
 			root.add(veld, column, 7);
-			buttonArray[(column + 1) / 2 + 34] = veld;
+			buttonArray[(column + 1) / 2 + 37] = veld;
 		}
 		// buttons 51 t/m 56
-		for (int column = 18; column < 30; column = column + 2) {
-			VeldKnop veld = new VeldKnop(10 - (column / 2) , (column / 2 - 13), 3);
+		for (int column = 12; column < 24; column = column + 2) {
+			VeldKnop veld = new VeldKnop(4 - (column / 2) , (column / 2 - 7), 3);
 			root.add(veld, column, 8);
-			buttonArray[column / 2 + 41] = veld;
+			buttonArray[column / 2 + 44] = veld;
 		}
 		// buttons 57 t/m 61
-		for (int column = 19; column < 29; column = column + 2) {
-			VeldKnop veld = new VeldKnop((10 - (column + 1) / 2) , ((column + 1) / 2 - 14), 4);
+		for (int column = 13; column < 23; column = column + 2) {
+			VeldKnop veld = new VeldKnop((4 - (column + 1) / 2) , ((column + 1) / 2 - 8), 4);
 			root.add(veld, column, 9);
-			buttonArray[(column + 1) / 2 + 46] = veld;
+			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
 		
 		return root;

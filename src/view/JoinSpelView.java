@@ -67,13 +67,13 @@ public class JoinSpelView {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setPadding(new Insets(5, 5, 5, 5));
-        grid.add(new Label("IP-ADRRESS: "), 0, 0);
+        grid.add(new Label("IP adres: "), 0, 0);
         grid.add(ipadress, 1, 0);
-        grid.add(new Label("USERNAME: "), 0, 1);
+        grid.add(new Label("Gebruikersnaam: "), 0, 1);
         grid.add(username, 1, 1);
         grid.add(btn_connect, 1, 2);
         grid.add(btn_back, 2, 2);
-        Scene connect_scene = new Scene(grid, 355, 140);
+        Scene connect_scene = new Scene(grid, 400, 140);
 
         //Make scene call up style.css for styling
         //connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());

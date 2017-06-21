@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -110,8 +111,15 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(game_table, 0, 0);
 	    grid.add(vbox_hervat_options, 1, 0);
-		
-		Scene lobby_scene = new Scene(grid, 380, 250);
+
+	    //grid in een borderpane zetten zodat knoppenpanel bovenaan kan
+		BorderPane lobbyPane = new BorderPane();
+		lobbyPane.setCenter(grid);
+		lobbyPane.setTop(instellingenView.getView());
+		Scene lobby_scene = new Scene(lobbyPane, 600, 600);
+
+		//style zetten
+		lobby_scene.getStylesheets().addAll(getClass().getResource("style/lobby_style.css").toExternalForm());
 		
 		lobbyStage.setTitle("Lobby");
 		lobbyStage.setScene(lobby_scene);

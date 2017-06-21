@@ -8,10 +8,17 @@ import view.*;
  * Created by Robert on 6/16/2017.
  */
 public class MainMenuController {
-    MainMenuView mainMenuView;
+    private MainMenuView mainMenuView;
+
+    private InstellingenView instellingenView;
 
     public MainMenuController(InstellingenView instellingenView){
+        this.instellingenView=instellingenView;
         mainMenuView=new MainMenuView(instellingenView,this);
+    }
+
+    public InstellingenView getInstellingenView() {
+        return instellingenView;
     }
 
     public void joinGame(){

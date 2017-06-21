@@ -34,7 +34,7 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
 	
-	public Stage spelbord_show(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException {
+	public void spelbord_show(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException {
 
 		try {
 			bs_interface.addObserver(this);
@@ -298,7 +298,7 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 		primaryStage.setTitle("MollenMania - Spelbord");
 		primaryStage.setScene(scene);
 
-		return primaryStage;
+		primaryStage.show();
 	}
 
 	public GridPane createUserPanel(Speler_Model sm){

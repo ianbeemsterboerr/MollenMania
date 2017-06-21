@@ -18,4 +18,6 @@ public interface Bordspel_Interface extends Remote {
 	public int getSpelerListSize() throws RemoteException;
 	
 	public ArrayList<Speler_Model> playerList() throws RemoteException;
+	
+	public Spelbord_Model spelModel() throws RemoteException;
  }

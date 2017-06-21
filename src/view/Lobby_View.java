@@ -61,7 +61,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		TableColumn<Speler_Model, String> player_name_col = new TableColumn<Speler_Model, String>("PLAYER NAME");
 		game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
-		player_name_col.setMinWidth(195.0);
+		player_name_col.setMinWidth(25.0);
 		
 		player_id_col.setCellValueFactory(
                 new PropertyValueFactory<Speler_Model, Integer>("player_id"));
@@ -77,6 +77,17 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 		vbox_hervat_options.setSpacing(5.0);
 		vbox_hervat_options.getChildren().addAll(btn_pion, btn_kleur, btn_klaar, btn_refresh);
+		
+		btn_kleur.setOnAction(e->{
+			spelbord_view test;
+			try {
+				test = new spelbord_view();
+				test.spelbord_show(bs_controller, bs_interface);
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 				
 		btn_refresh.setOnAction(e -> { 
 			try{

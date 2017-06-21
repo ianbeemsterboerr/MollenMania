@@ -48,6 +48,7 @@ public class connect_host_view {
 	    
 	    btn_back.setOnAction(e -> { 
 			try{
+				
 				connectStage.close();
 			}catch(Exception b){
 				b.printStackTrace();

@@ -18,7 +18,8 @@ public class SpelHervattenController {
     public SpelHervattenController() {
         view = new HervatGameView(this);
         filePath = view.show();
-        //spelModel = getModel(filePath);
+        spelModel = getModel(filePath);
+        startSpel(spelModel);
     }
 
     /**
@@ -38,8 +39,13 @@ public class SpelHervattenController {
             return null;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            System.out.println("Het .SAV bestand was niet van het goede type.");
         }
 
         return spelModel;
+    }
+
+    public void startSpel(Spel_Model spelModel) {
+
     }
 }

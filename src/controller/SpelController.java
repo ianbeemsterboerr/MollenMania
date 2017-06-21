@@ -1,6 +1,7 @@
 package controller;
 
 import model.Spel_Model;
+import model.Speler_Model;
 
 /**
  * Created by Wessel on 20-6-2017.
@@ -19,6 +20,10 @@ public class SpelController {
         while (!spelModel.getSpelbord().getNiveau4().getGoudenSchep().get(0).isEindeSpel());
         //Laat einde scherm zien
     }
+
+
+
+
 
 
 }

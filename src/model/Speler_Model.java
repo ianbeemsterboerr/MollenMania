@@ -12,13 +12,14 @@ public class Speler_Model implements Serializable{
 	private String username;
 	private int player_id;
 	private ArrayList<MolModel> mol_list = new ArrayList<MolModel>();
+	private int Handgrootte;
 	private Fiche_Model fiche_list = new Fiche_Model();
 	private ArrayList<Integer> fiches;
 	
 	
 
 	public Speler_Model(){
-		
+
 	}
 	
 	public Speler_Model(String user, int id){
@@ -49,6 +50,22 @@ public class Speler_Model implements Serializable{
 
 	public void setMol_list(ArrayList<MolModel> mol_list) {
 		this.mol_list = mol_list;
+	}
+
+    public int getHandgrootte() {
+        return Handgrootte;
+    }
+
+    public void setHandgrootte(int handgrootte) {
+        Handgrootte = handgrootte;
+    }
+
+    public Fiche_Model getFiche_list() {
+		return fiche_list;
+	}
+
+	public void setFiche_list(Fiche_Model fiche_list) {
+		this.fiche_list = fiche_list;
 	}
 
 	public String getUsername() {

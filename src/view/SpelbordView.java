@@ -7,32 +7,35 @@ import java.util.ArrayList;
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.Speler_Model;
+import model.Velden.VeldKnop;
 
 public class SpelbordView extends UnicastRemoteObject implements Player_Observer{
 	
 	/**
-	 * 
+	 * luhmao productions
 	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
 	private ArrayList<Speler_Model> new_players;
 	private Bordspel_Interface bs_interface;
-
+	private BorderPane spelbord_pane;
+	
 	GridPane player_1;
 	GridPane player_2;
 	GridPane player_3;
@@ -50,67 +53,22 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 		
-		VBox left = new VBox();
-		left.setPadding(new Insets(20, 20, 20, 20));
-		left.setSpacing(200.0);
-		VBox right = new VBox();
-		right.setPadding(new Insets(20, 20, 20, 20));
-		right.setSpacing(200.0);
+		spelbord_pane = this.loadPlayers(players);
+		spelbord_pane.setCenter(loadVeld());
+		spelbord_pane.setId("moap");
 		
-		if(players.size() == 2){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			left.getChildren().addAll(player_1);
-			right.getChildren().addAll(player_2);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
-		} else if(players.size() == 3){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			this.player_3 = this.createUserPanel(players.get(2));
-			
-			left.getChildren().addAll(player_1, player_3);
-			right.getChildren().addAll(player_2);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
-			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
-		} else if(players.size() == 4){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			this.player_3 = this.createUserPanel(players.get(2));
-			this.player_4 = this.createUserPanel(players.get(3));
-			
-			left.getChildren().addAll(player_1, player_3);
-			right.getChildren().addAll(player_2, player_4);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
-			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
-			this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
-		} else {
-			System.out.println("nope");
-		}
+		Scene bord = new Scene(spelbord_pane, 960,760);
+		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
+		Screen screen = Screen.getPrimary();
+		Rectangle2D bounds = screen.getVisualBounds();
 
-//		GridPane player_1 = this.createUserPanel(players.get(0));
-//		GridPane player_2 = this.createUserPanel(players.get(1));
-//		GridPane player_3 = this.createUserPanel(players.get(2));
-//		GridPane player_4 = this.createUserPanel(players.get(3));
-//		
-//		this.player_1.setAlignment(Pos.TOP_LEFT);
-//		this.player_2.setAlignment(Pos.TOP_RIGHT);
-//		this.player_3.setAlignment(Pos.BOTTOM_LEFT);
-//		this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
-	
-		
-		BorderPane moap = new BorderPane();
-		moap.setLeft(left);
-		moap.setRight(right);
-		
-		Scene bord = new Scene(moap, 800,600);
+		bordStage.setX(bounds.getMinX());
+		bordStage.setY(bounds.getMinY());
+		bordStage.setWidth(bounds.getWidth());
+		bordStage.setHeight(bounds.getHeight());
 		bordStage.setTitle("play with me");
 		bordStage.setScene(bord);
+		bordStage.setResizable(false);
 		bordStage.show();
 	}
 	
@@ -154,8 +112,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			sm.getMol_list().remove(1);
 		});
 		
-		
-		
 		grid.add(username_lbl, 0, 0);
 		grid.add(mol_btn, 0, 1);
 		grid.add(aantal_mol_lbl, 1, 1);
@@ -165,13 +121,140 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		grid.add(refresh, 0, 4);
 		grid.setHgap(10.0);
 		grid.setVgap(10.0);
-		
 	
 		return grid;
 	}
 	
-	public void changeLabels(){
+	public BorderPane loadPlayers(ArrayList<Speler_Model> players) throws RemoteException{
+		VBox left = new VBox();
+		left.setPadding(new Insets(20, 20, 20, 20));
+		left.setSpacing(350.0);
+		VBox right = new VBox();
+		right.setPadding(new Insets(20, 20, 20, 20));
+		right.setSpacing(350.0);
 		
+		if(players.size() == 2){
+			this.player_1 = this.createUserPanel(players.get(0));
+			this.player_2 = this.createUserPanel(players.get(1));
+			left.getChildren().addAll(player_1);
+			right.getChildren().addAll(player_2);
+			
+			this.player_1.setAlignment(Pos.TOP_LEFT);
+			this.player_2.setAlignment(Pos.TOP_RIGHT);
+		} else if(players.size() == 3){
+			this.player_1 = this.createUserPanel(players.get(0));
+			this.player_2 = this.createUserPanel(players.get(1));
+			this.player_3 = this.createUserPanel(players.get(2));
+			
+			left.getChildren().addAll(player_1, player_3);
+			right.getChildren().addAll(player_2);
+			
+			this.player_1.setAlignment(Pos.TOP_LEFT);
+			this.player_2.setAlignment(Pos.TOP_RIGHT);
+			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
+		} else if(players.size() == 4){
+			this.player_1 = this.createUserPanel(players.get(0));
+			this.player_2 = this.createUserPanel(players.get(1));
+			this.player_3 = this.createUserPanel(players.get(2));
+			this.player_4 = this.createUserPanel(players.get(3));
+			
+			left.getChildren().addAll(player_1, player_3);
+			right.getChildren().addAll(player_2, player_4);
+			
+			this.player_1.setAlignment(Pos.TOP_LEFT);
+			this.player_2.setAlignment(Pos.TOP_RIGHT);
+			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
+			this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
+		} else {
+			System.out.println("nope");
+		}
+	
+		
+		BorderPane moap = new BorderPane();
+		moap.setLeft(left);
+		moap.setRight(right);
+		return moap;
+	}
+	
+	public GridPane loadVeld() throws RemoteException{
+		GridPane root = new GridPane();
+		int numRows = 12;
+		int numCols = 41;
+
+		Button btn_close = new Button("exit");
+		Button btn_minimize = new Button("-");
+		VeldKnop[] buttonArray = new VeldKnop[61];
+
+		for (int i = 0; i < numRows; i++) {
+			RowConstraints rc = new RowConstraints();
+			rc.setPercentHeight(100.0 / numRows);
+			rc.setValignment(VPos.BOTTOM);
+			root.getRowConstraints().add(rc);
+		}
+		for (int i = 0; i < numCols; i++) {
+			ColumnConstraints cc = new ColumnConstraints();
+			cc.setHalignment(HPos.CENTER);
+			cc.setPercentWidth(100 / numCols);
+			root.getColumnConstraints().add(cc);
+		}
+
+		// loop voor buttons 1 t/m 5
+		for (int column = 19; column < 29; column = column + 2) {
+			VeldKnop veld = new VeldKnop((14 - ((column + 1) / 2)) , ((column + 1) / 2 - 10), -4);
+			root.add(veld, column, 1);
+			buttonArray[(column + 1) / 2 - 10] = veld;
+			
+		}
+		// loop voor buttons 6 t/m 11
+		for (int column = 18; column < 30; column = column + 2) {
+			VeldKnop veld = new VeldKnop((13 - (column / 2)) , (column / 2 - 10), -3);
+			root.add(veld, column, 2);
+			buttonArray[column / 2 - 4] = veld;
+		}
+		// loop voor buttons 12 t/m 18
+		for (int column = 17; column < 31; column = column + 2) {
+			VeldKnop veld = new VeldKnop((13 - ((column + 1) / 2)) , ((column + 1) / 2 - 11), -2);
+			root.add(veld, column, 3);
+			buttonArray[(column + 1) / 2 + 2] = veld;
+		}
+		// loop voor buttons 19 t/m 26
+		for (int column = 16; column < 31; column = column + 2) {
+			VeldKnop veld = new VeldKnop((12 - (column / 2)) , (column / 2 - 11), -1);
+			root.add(veld, column, 4);
+			buttonArray[column / 2 + 10] = veld;
+		}
+		// loop voor buttons 27 t/m 35
+		for (int column = 15; column < 32; column = column + 2) {
+			VeldKnop veld = new VeldKnop((12 - ((column + 1) / 2)) , ((column + 1) / 2 - 12), 0);
+			root.add(veld, column, 5);
+			buttonArray[(column + 1) / 2 + 18] = veld;
+		}
+		// loop voor buttons 36 t/m 43
+		for (int column = 16; column < 31; column = column + 2) {
+			VeldKnop veld = new VeldKnop((11 - (column / 2)) , (column / 2 - 12), 1);
+			root.add(veld, column, 6);
+			buttonArray[column / 2 + 27] = veld;
+		}
+		// buttons 44 t/m 50
+		for (int column = 17; column < 31; column = column + 2) {
+			VeldKnop veld = new VeldKnop((11 - ((column + 1) / 2)) , ((column + 1) / 2 - 13), 2);
+			root.add(veld, column, 7);
+			buttonArray[(column + 1) / 2 + 34] = veld;
+		}
+		// buttons 51 t/m 56
+		for (int column = 18; column < 30; column = column + 2) {
+			VeldKnop veld = new VeldKnop(10 - (column / 2) , (column / 2 - 13), 3);
+			root.add(veld, column, 8);
+			buttonArray[column / 2 + 41] = veld;
+		}
+		// buttons 57 t/m 61
+		for (int column = 19; column < 29; column = column + 2) {
+			VeldKnop veld = new VeldKnop((10 - (column + 1) / 2) , ((column + 1) / 2 - 14), 4);
+			root.add(veld, column, 9);
+			buttonArray[(column + 1) / 2 + 46] = veld;
+		}
+		
+		return root;
 	}
 	
 	@Override

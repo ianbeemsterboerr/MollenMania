@@ -98,9 +98,6 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 //		this.player_3.setAlignment(Pos.BOTTOM_LEFT);
 //		this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
 
-		BorderPane moap = new BorderPane();
-		moap.setLeft(left);
-		moap.setRight(right);
 
 		int numRows = 12;
 		int numCols = 41;
@@ -180,6 +177,8 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 		
 		root.add(btn_close, 41, 0);
 		root.add(btn_minimize, 40, 0);
+		root.add(left, 0, 0);
+		root.add(right, 45, 0);
 
 		//assign actions to each button (61 buttons) that is pulled out of the array
 

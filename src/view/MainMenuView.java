@@ -15,13 +15,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sun.applet.Main;
 import view.host_controls_view;
 import view.connect_host_view;
+import view.spelbord_view;
+import controller.Bordspel_Interface;
+import controller.Bordspel_Controller;
 
 public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
+	private controller.Bordspel_Controller bs_controller;
+	private controller.Bordspel_Interface bs_interface;
 
 	private Button btn_joinSpel;
 	private Button btn_hostSpel;
@@ -77,9 +81,12 @@ public class MainMenuView {
 		//btn_minimize.setId("btn_minimize");
 
 		btn_spelSpelen.setOnAction(e->{
-			//spelbord_view spelBordView = new spelbord_view();
-			//spelBordView.spelbord_show().show();
-		});
+			try{
+				spelbord_view spelBordView = new spelbord_view();
+				spelBordView.spelbord_show(bs_controller, bs_interface);
+			}catch(Exception b){
+				b.printStackTrace();
+			}});
 
 		// Button actions
 		btn_joinSpel.setOnAction(e -> {

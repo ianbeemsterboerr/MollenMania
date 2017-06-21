@@ -24,7 +24,6 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 		// TODO Auto-generated constructor stub
 	}
 
-
 	int[] intArray1;
 	int[] intArray2;
 	GridPane player_1;
@@ -99,32 +98,12 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 //		this.player_3.setAlignment(Pos.BOTTOM_LEFT);
 //		this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
 
-
 		BorderPane moap = new BorderPane();
 		moap.setLeft(left);
 		moap.setRight(right);
 
-
 		int numRows = 12;
 		int numCols = 41;
-		int ficheRowStart = 12;
-		int ficheRowEnd = 14;
-		Label speler1 = new Label();
-		Label speler2 = new Label();
-		Label speler3 = new Label();
-		Label speler4 = new Label();
-		Button fiches1 = new Button();
-		Button fiches2 = new Button();
-		Button fiches3 = new Button();
-		Button fiches4 = new Button();
-		Button molSpeler1 = new Button();
-		Button molSpeler2 = new Button();
-		Button molSpeler3 = new Button();
-		Button molSpeler4 = new Button();
-		Label naamSpeler1 = new Label(); 
-		Label naamSpeler2 = new Label(); 
-		Label naamSpeler3 = new Label(); 
-		Label naamSpeler4 = new Label(); 
 
 		Button btn_close = new Button("exit");
 		Button btn_minimize = new Button("-");
@@ -201,7 +180,9 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 		
 		root.add(btn_close, 41, 0);
 		root.add(btn_minimize, 40, 0);
-		
+
+		//assign actions to each button (61 buttons) that is pulled out of the array
+
 		buttonArray[0 ].setOnAction(e -> {System.out.println(buttonArray[0 ].getX()+" "+buttonArray[0 ].getY()+" "+buttonArray[0 ].getZ());});
 		buttonArray[1 ].setOnAction(e -> {System.out.println(buttonArray[1 ].getX()+" "+buttonArray[1 ].getY()+" "+buttonArray[1 ].getZ());});
 		buttonArray[2 ].setOnAction(e -> {System.out.println(buttonArray[2 ].getX()+" "+buttonArray[2 ].getY()+" "+buttonArray[2 ].getZ());});

@@ -35,6 +35,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private ArrayList<Speler_Model> new_players;
 	private Bordspel_Interface bs_interface;
 	private BorderPane spelbord_pane;
+	private GridPane veld_pane;
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -54,8 +55,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.bs_interface = bs_interface;
 		
 		spelbord_pane = this.loadPlayers(players);
-		spelbord_pane.setCenter(loadVeld());
+		veld_pane = this.loadVeld();
+		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
+		veld_pane.setId("moap");
 		
 		Scene bord = new Scene(spelbord_pane, 960,760);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
@@ -181,8 +184,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		int numRows = 12;
 		int numCols = 41;
 
-		Button btn_close = new Button("exit");
-		Button btn_minimize = new Button("-");
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
 		for (int i = 0; i < numRows; i++) {

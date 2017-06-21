@@ -1,6 +1,8 @@
 package controller;
 
+import model.Spel_Model;
 import model.Speler_Model;
+import model.Velden.VeldKnop;
 import view.MolKnop;
 import model.MolModel;
 
@@ -8,6 +10,23 @@ import model.MolModel;
  * Created by Wessel on 15-6-2017.
  */
 public class MolController {
+    // In deze method worden de mollen neergezet aan het start van het spel
+ public Spel_Model mollenNeerzetten (VeldKnop veldKnop, Spel_Model spelModel, int spelerIndex) {
+
+        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
+            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()){
+                return null;
+            }
+        for(Speler_Model speler : spelModel.getSpeler()){
+            for (MolModel mollen : speler.getMol_list()){
+                if (mollen.getCoord() == veldKnop.getCoordinaten()){
+                    return null;
+                }
+            }
+        }
+        spelModel.getSpeler().get(spelerIndex).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
+        return spelModel;
+    }
 
 // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
 public MolModel verplaatsMol (MolModel molModel, int [] eindPunt, int ficheNR){

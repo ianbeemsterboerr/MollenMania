@@ -112,12 +112,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		String speler_naam = sm.getUsername();
 		String mol_count = Integer.toString(sm.getMol_list().size());
-		// int fiche_count = sm.getFicheList().size();
+		String fiche_count = Integer.toString(sm.getFiches().size());
 		
 		GridPane grid = new GridPane();
 		
 		Label username_lbl = new Label(speler_naam);
-		Label aantal_fiche_lbl = new Label("5"); 
+		Label aantal_fiche_lbl = new Label(fiche_count); 
 		Label aantal_mol_lbl = new Label(mol_count);
 		
 		Button fiche_btn = new Button("Fiche");

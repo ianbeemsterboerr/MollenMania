@@ -77,8 +77,8 @@ public class MainMenuView {
 		//btn_minimize.setId("btn_minimize");
 
 		btn_spelSpelen.setOnAction(e->{
-			spelbord_view spelBordView = new spelbord_view();
-			spelBordView.spelbord_show().show();
+			//spelbord_view spelBordView = new spelbord_view();
+			//spelBordView.spelbord_show().show();
 		});
 
 		// Button actions

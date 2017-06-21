@@ -12,8 +12,11 @@ public class Speler_Model implements Serializable{
 	private String username;
 	private int player_id;
 	private ArrayList<MolModel> mol_list = new ArrayList<MolModel>();
-	private Fiche_Model fiche_list;
+	private Fiche_Model fiche_list = new Fiche_Model();
+	private ArrayList<Integer> fiches;
 	
+	
+
 	public Speler_Model(){
 		
 	}
@@ -22,7 +25,15 @@ public class Speler_Model implements Serializable{
 		this.username = user;
 		this.player_id = id;
 		fillPawnList(6);
-		//fiche_list = new Fiche_Model();
+		this.setFiches(fiche_list.getGeslotenFiche());
+	}
+	
+	public ArrayList<Integer> getFiches() {
+		return fiches;
+	}
+
+	public void setFiches(ArrayList<Integer> fiches) {
+		this.fiches = fiches;
 	}
 	
 	public void fillPawnList(int aantal){
@@ -38,15 +49,6 @@ public class Speler_Model implements Serializable{
 
 	public void setMol_list(ArrayList<MolModel> mol_list) {
 		this.mol_list = mol_list;
-	}
-	
-
-	public Fiche_Model getFiche_list() {
-		return fiche_list;
-	}
-
-	public void setFiche_list(Fiche_Model fiche_list) {
-		this.fiche_list = fiche_list;
 	}
 
 	public String getUsername() {

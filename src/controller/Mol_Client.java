@@ -3,7 +3,6 @@ package controller;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import model.Fiche_Model;
 import model.Speler_Model;
 import view.Lobby_View;
 
@@ -21,8 +20,7 @@ public class Mol_Client {
 			Bordspel_Controller bs_controller = new Bordspel_Controller(userStub);
 			
 			int spid = userStub.getSpelerListSize()+1;
-			Fiche_Model fm = new Fiche_Model();
-			
+
 			Speler_Model sm = new Speler_Model(username, spid);
 			
 			bs_controller.checkPlayerList(4, sm);

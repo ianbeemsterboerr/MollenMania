@@ -15,12 +15,16 @@ import model.Speler_Model;
 import model.Velden.VeldKnop;
 
 import java.rmi.RemoteException;
-import java.rmi.server.RMIClientSocketFactory;
-import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class spelbord_view extends UnicastRemoteObject implements Player_Observer {
+	protected spelbord_view() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	int[] intArray1;
 	int[] intArray2;
 	GridPane player_1;
@@ -29,51 +33,8 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 	GridPane player_4;
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
-
-	protected spelbord_view(int port) throws RemoteException {
-		super(port);
-	}
-
-	protected spelbord_view(int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException {
-		super(port, csf, ssf);
-	}
-
-	@Override
-	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-
-	}
-
-	@Override
-	public boolean isEnabled() throws RemoteException {
-		return false;
-	}
-
-	@Override
-	public void setEnabled(boolean enabled) throws RemoteException {
-
-	}
-
-	public int[] getIntArray1() {
-		return intArray1;
-	}
-
-
-	public void setIntArray1(int[] intArray1) {
-		this.intArray1 = intArray1;
-	}
-
-
-	public int[] getIntArray2() {
-		return intArray2;
-	}
-
-
-	public void setIntArray2(int[] intArray2) {
-		this.intArray2 = intArray2;
-	}
-
-
-	public Stage spelbord_show(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException{
+	
+	public Stage spelbord_show(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException {
 
 		try {
 			bs_interface.addObserver(this);
@@ -372,4 +333,38 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 	}
 
 	// TODO Auto-generated method stub
+
+	@Override
+	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
+
+	}
+
+	@Override
+	public boolean isEnabled() throws RemoteException {
+		return false;
+	}
+
+	@Override
+	public void setEnabled(boolean enabled) throws RemoteException {
+
+	}
+
+	public int[] getIntArray1() {
+		return intArray1;
+	}
+
+
+	public void setIntArray1(int[] intArray1) {
+		this.intArray1 = intArray1;
+	}
+
+
+	public int[] getIntArray2() {
+		return intArray2;
+	}
+
+
+	public void setIntArray2(int[] intArray2) {
+		this.intArray2 = intArray2;
+	}
 }

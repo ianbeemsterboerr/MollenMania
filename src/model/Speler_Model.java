@@ -17,6 +17,7 @@ public class Speler_Model implements Serializable{
 	private ArrayList<Integer> fiches;
 	private int fichesSize;
 	private int molSize;
+	private Speler_Model myself;
 
 	public Speler_Model(){
 
@@ -25,7 +26,7 @@ public class Speler_Model implements Serializable{
 	public Speler_Model(String user, int id){
 		this.username = user;
 		this.player_id = id;
-		
+		this.myself = this;
 		fillPawnList(6);
 		this.setFiches(fiche_list.getGeslotenFiche());
 		
@@ -86,5 +87,10 @@ public class Speler_Model implements Serializable{
 
 	public void setPlayer_id(int player_id) {
 		this.player_id = player_id;
-	}	
+	}
+
+	public Speler_Model getMyself() {
+		return myself;
+	}
+
 }

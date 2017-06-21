@@ -10,18 +10,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
+	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
 
 	public Spelbord_Model(){
 		
 	}
-
-	private void notifyPlayers() throws RemoteException {
-		for(Player_Observer mop_o : bord_observers){
-			mop_o.modelChanged(this);
-		}
-	}
-
-
+	
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;
 	}
@@ -74,10 +68,14 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public String getClientHost() throws RemoteException {
+	public void addSpelerReady(Speler_Model sm) throws RemoteException {
 		// TODO Auto-generated method stub
-		return this.getClientHost();
+		this.ready_list.add(sm);
 	}
 
-
+	@Override
+	public ArrayList<Speler_Model> readyList() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.ready_list;
+	}
 }

@@ -20,6 +20,8 @@ public interface Bordspel_Interface extends Remote {
 	
 	public Spelbord_Model spelModel() throws RemoteException;
 	
-	public String getClientHost() throws RemoteException;
+	public void addSpelerReady(Speler_Model sm) throws RemoteException;
+	
+	public ArrayList<Speler_Model> readyList() throws RemoteException;
 	
  }

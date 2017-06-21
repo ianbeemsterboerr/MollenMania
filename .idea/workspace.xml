@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c14f0-734d-42da-8096-d7087ed0379c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MainMenuController.java" afterPath="$PROJECT_DIR$/src/controller/MainMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainMenuView.java" afterPath="$PROJECT_DIR$/src/view/MainMenuView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/controller/SpelHervattenController.class" afterPath="$PROJECT_DIR$/bin/controller/SpelHervattenController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/controller/start_game_control.class" afterPath="$PROJECT_DIR$/bin/controller/start_game_control.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/model/Velden/VeldKnop.class" afterPath="$PROJECT_DIR$/bin/model/Velden/VeldKnop.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/view/HervatGameView.class" afterPath="$PROJECT_DIR$/bin/view/HervatGameView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/production/mollenmania/view/img/OverlayTemplate.png" afterPath="$PROJECT_DIR$/src/out/production/mollenmania/view/img/OverlayTemplate.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/img/OverlayTemplate.png" afterPath="$PROJECT_DIR$/src/view/img/OverlayTemplate.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SpelHervattenController.java" afterPath="$PROJECT_DIR$/src/controller/SpelHervattenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/HervatGameView.java" afterPath="$PROJECT_DIR$/src/view/HervatGameView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/JoinSpelView.java" afterPath="$PROJECT_DIR$/src/view/JoinSpelView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,21 +24,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="run.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/run.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenuView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainMenuView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/MainMenuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="87" column="44" lean-forward="false" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
+              <folding>
+                <marker date="1498054326204" expanded="true" signature="3344:4238" ph="{...}" />
+                <marker date="1498054326204" expanded="true" signature="3347:3501" ph="//..." />
+                <marker date="1498054326204" expanded="true" signature="4266:4404" ph="{...}" />
+                <marker date="1498054326204" expanded="true" signature="4431:4573" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mol_Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/Mol_Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,24 +51,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spelbord_view.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/spelbord_view.java">
+      <file leaf-file-name="SpelHervattenController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/SpelHervattenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="715">
+              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HandleidingView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/HandleidingView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="46" column="88" lean-forward="false" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -63,12 +66,39 @@
       <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/MainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
-              <folding>
-                <element signature="e#1092#1093#0" expanded="true" />
-                <element signature="e#1156#1157#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HervatGameView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/HervatGameView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpelbordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-32">
+              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpelJoinController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/SpelJoinController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,8 +151,9 @@
         <option value="$PROJECT_DIR$/src/controller/Mol_Controller.java" />
         <option value="$PROJECT_DIR$/src/controller/Spelbord_Controller.java" />
         <option value="$PROJECT_DIR$/src/controller/hervatten_game_control.java" />
-        <option value="$PROJECT_DIR$/src/view/HervatGameView.java" />
         <option value="$PROJECT_DIR$/src/controller/TestMain.java" />
+        <option value="$PROJECT_DIR$/src/model/Spel_Model.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelController.java" />
         <option value="$PROJECT_DIR$/src/model/Niveau_Model.java" />
         <option value="$PROJECT_DIR$/src/model/Playboard_Model.java" />
         <option value="$PROJECT_DIR$/src/view/lobby_view.java" />
@@ -132,29 +163,28 @@
         <option value="$PROJECT_DIR$/src/model/Mol_Model.java" />
         <option value="$PROJECT_DIR$/src/model/Pawn_Model.java" />
         <option value="$PROJECT_DIR$/src/view/Lobby_View.java" />
-        <option value="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
+        <option value="$PROJECT_DIR$/src/controller/Bordspel_Controller.java" />
+        <option value="$PROJECT_DIR$/src/model/Speler_Model.java" />
+        <option value="$PROJECT_DIR$/src/view/MainMenuView.java" />
         <option value="$PROJECT_DIR$/src/model/VeldKnop.java" />
+        <option value="$PROJECT_DIR$/src/model/MolModel.java" />
         <option value="$PROJECT_DIR$/src/model/MolKnop.java" />
-        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
+        <option value="$PROJECT_DIR$/src/model/Velden/GoudenSchep_Veld.java" />
         <option value="$PROJECT_DIR$/src/controller/Fiche_Controller.java" />
         <option value="$PROJECT_DIR$/src/controller/run.java" />
         <option value="$PROJECT_DIR$/src/view/MolKnop.java" />
-        <option value="$PROJECT_DIR$/src/model/MolModel.java" />
         <option value="$PROJECT_DIR$/src/controller/MolController.java" />
-        <option value="$PROJECT_DIR$/src/controller/Bordspel_Controller.java" />
-        <option value="$PROJECT_DIR$/src/controller/Mol_Client.java" />
-        <option value="$PROJECT_DIR$/src/model/Spel_Model.java" />
-        <option value="$PROJECT_DIR$/src/model/Speler_Model.java" />
-        <option value="$PROJECT_DIR$/src/view/spelbord_view.java" />
-        <option value="$PROJECT_DIR$/src/view/connect_host_view.java" />
-        <option value="$PROJECT_DIR$/src/model/Velden/VeldKnop.java" />
-        <option value="$PROJECT_DIR$/src/view/JoinSpelView.java" />
-        <option value="$PROJECT_DIR$/src/model/Player_Observer.java" />
-        <option value="$PROJECT_DIR$/src/model/Velden/GoudenSchep_Veld.java" />
-        <option value="$PROJECT_DIR$/src/controller/SpelController.java" />
-        <option value="$PROJECT_DIR$/src/view/HandleidingView.java" />
         <option value="$PROJECT_DIR$/src/controller/MainMenuController.java" />
-        <option value="$PROJECT_DIR$/src/view/MainMenuView.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelOpzettenController.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelbordController.java" />
+        <option value="$PROJECT_DIR$/src/view/spelbord_view.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelJoinController.java" />
+        <option value="$PROJECT_DIR$/src/view/connect_host_view.java" />
+        <option value="$PROJECT_DIR$/src/view/main_menu_style.css" />
+        <option value="$PROJECT_DIR$/src/view/JoinSpelView.java" />
+        <option value="$PROJECT_DIR$/src/view/HervatGameView.java" />
+        <option value="$PROJECT_DIR$/src/controller/Mol_Client.java" />
+        <option value="$PROJECT_DIR$/src/controller/SpelHervattenController.java" />
       </list>
     </option>
   </component>
@@ -165,14 +195,14 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="58" />
-    <option name="y" value="-8" />
-    <option name="width" value="1870" />
-    <option name="height" value="1096" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -186,11 +216,103 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
+              <option name="myItemId" value="Mollenmania" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MolServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mollenmania" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -200,7 +322,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
+              <option name="myItemId" value="Mollenmania" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -214,25 +336,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MollenTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
+              <option name="myItemId" value="Mollenmania" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -246,7 +350,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
+              <option name="myItemId" value="Mollenmania" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -264,7 +368,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
+              <option name="myItemId" value="Mollenmania" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -278,34 +382,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mollenmania" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -315,7 +391,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="spelbor&#9;FILE&#9;file://C:/Users/Wessel/GIT/mollenmania/MolServer/src/controller/Spelbord_Model.java&#10;sun&#9;PSI&#9;JAVA://sun.security.provider.certpath.SunCertPathBuilder" />
+    <property name="SearchEverywhereHistoryKey" value="sun&#9;PSI&#9;JAVA://sun.security.provider.certpath.SunCertPathBuilder" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -327,6 +403,375 @@
       <recent name="C:\Users\Wessel\GIT\mollenmania\MolServer\src\ServerController" />
       <recent name="C:\Users\Wessel\GIT\mollenmania\MolServer\src\Model" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/HostSpelController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/MainMenuController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/Mol_Client.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/SpelController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/SpelHervattenController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/SpelJoinController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/controller/run.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/model/Speler_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/model/Velden/GoudenSchep_Veld.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/model/player_observer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/HandleidingView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/HervatGameView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/HostSpelView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/JoinSpelView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/MainMenuView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/SpelbordView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/connect_host_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/host_controls_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/lobby_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/spelbord_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/MainMenuController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/MolController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/Mol_Client.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/MolModel.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Speler_Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/MainMenuView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/SpelbordView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/connect_host_view.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/spelbord_view.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/LobbyController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/mollenmania.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/Bordspel_Controller.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/Bordspel_Interface.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/Fiche_Controller.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/HostSpelController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/InstellingenPanelController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/MainMenuController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/MolController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/Mol_Client.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/Player_Observer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelHervattenController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelJoinController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelOpzettenController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelSaveController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/SpelbordController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/hervatten_game_control.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/run.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/controller/start_game_control.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Fiche_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/InstellingenModel.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/MolModel.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Niveau_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Playboard_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Player_Observer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Spel_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Speler_Model.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/GoudenSchep_Veld.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/Molshoop_Veld.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/Normaalveld_Veld.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/SpeciaalVeld_Veld.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/VeldInterface.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/model/Velden/VeldKnop.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/mollenmania.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/HandleidingView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/HervatGameView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/HostSpelView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/InstellingenView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/JoinSpelView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/Lobby_View.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/MainMenuView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/MolKnop.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/MolView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/SpelSaveView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/SpelbordStyle.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/SpelbordView.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/Spelbord_Colourblind+Kleur.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/bgmol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/bordexample.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/connect_host_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/end_game_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/end_game_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/focus.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/hervat_game_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/host_controls_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Button_Exit.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Button_HervatSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Button_HostSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Button_JoinSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDFicheBlauw0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDFicheGeel0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDFicheGroen0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDFicheRood0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDPionBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDPionGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDPionGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDPionRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDSpelerBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDSpelerGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDSpelerGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/CLBDSpelerRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheBlauw0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheBlauw1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheBlauw2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheBlauw3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheBlauw4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGeel0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGeel1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGeel2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGeel3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGeel4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGroen0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGroen1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGroen2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGroen3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheGroen4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheRood0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheRood1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheRood2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheRood3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/FicheRood4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_Blauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_BlauwCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_Geel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_GeelCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_Groen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_GroenCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_Rood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Fische_RoodCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_Kruisje.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_LuidsprekerHalf.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_LuidsprekerLeeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_LuidsprekerVol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_Minnetje.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_Oog.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_SaveGame.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Icon_Spelregels.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/KeuzemenuLeeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/OverlayTemplate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/OverlayTemplateRechthoek.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/PionBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/PionGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/PionGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/PionRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Achtergrond_Leeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Bord1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Bord2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Bord3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Bord4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Bord5.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/Spelbord_Fischevakken.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/SpelerBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/SpelerGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/SpelerGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/SpelerRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/bgmol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/bordexample.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/handleiding_pag1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/handleiding_pag2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/handleiding_pag3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/img/handleiding_pag4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/main_menu_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/sound/TestSound.mp3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/speaker.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/spelbord_view.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/style/SpelbordStyle.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/style/end_game_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/style/main_menu_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/out/production/mollenmania/view/substract.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/LobbyView.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/SpelbordStyle.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/bgmol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/bordexample.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/end_game_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/focus.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Button_Exit.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Button_HervatSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Button_HostSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Button_JoinSpel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDFicheBlauw0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDFicheGeel0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDFicheGroen0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDFicheRood0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDPionBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDPionGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDPionGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDPionRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDSpelerBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDSpelerGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDSpelerGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/CLBDSpelerRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheBlauw0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheBlauw1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheBlauw2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheBlauw3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheBlauw4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGeel0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGeel1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGeel2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGeel3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGeel4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGroen0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGroen1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGroen2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGroen3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheGroen4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheRood0.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheRood1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheRood2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheRood3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/FicheRood4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_Blauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_BlauwCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_Geel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_GeelCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_Groen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_GroenCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_Rood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Fische_RoodCBLND.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_Kruisje.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_LuidsprekerHalf.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_LuidsprekerLeeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_LuidsprekerVol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_Minnetje.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_Oog.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_SaveGame.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Icon_Spelregels.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/KeuzemenuLeeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/OverlayTemplate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/OverlayTemplateRechthoek.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/PionBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/PionGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/PionGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/PionRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Achtergrond_Leeg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Bord1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Bord2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Bord3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Bord4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Bord5.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/Spelbord_Fischevakken.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/SpelerBlauw.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/SpelerGeel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/SpelerGroen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/SpelerRood.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/bgmol.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/bordexample.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/handleiding_pag1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/handleiding_pag2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/handleiding_pag3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/img/handleiding_pag4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/sound/TestSound.mp3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/speaker.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/style/SpelbordStyle.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/style/end_game_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/style/main_menu_style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/view/substract.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -704,6 +1149,9 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -762,6 +1210,19 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
       <method />
     </configuration>
@@ -807,9 +1268,11 @@
       <workItem from="1497612568250" duration="1771000" />
       <workItem from="1497616233314" duration="3863000" />
       <workItem from="1497865427804" duration="11717000" />
-      <workItem from="1497946579406" duration="8396000" />
-      <workItem from="1497958438960" duration="566000" />
-      <workItem from="1497959474609" duration="2739000" />
+      <workItem from="1497946579406" duration="3739000" />
+      <workItem from="1497950681538" duration="4816000" />
+      <workItem from="1498041861148" duration="81000" />
+      <workItem from="1498041960707" duration="4041000" />
+      <workItem from="1498054297822" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="Fiche_Model toegevoegd">
       <created>1496049727757</created>
@@ -902,69 +1365,59 @@
       <option name="project" value="LOCAL" />
       <updated>1497618842928</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="PlayboardModel aangemaakt">
+      <created>1497953890941</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1497953890941</updated>
+    </task>
+    <task id="LOCAL-00015" summary="SpelHervattenController en View werkend. nog niet volledig geimplementeerd.">
+      <created>1497964756055</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1497964756055</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68801000" />
+    <option name="totallyTimeSpent" value="70649000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="58" y="-8" width="1870" height="1096" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37626776" sideWeight="0.49137002" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22312373" sideWeight="0.50647247" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1481888" sideWeight="0.51458335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22312373" sideWeight="0.4935275" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1481888" sideWeight="0.48541668" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17124039" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13430421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02535497" sideWeight="0.50863" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5042424" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.49575758" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.48125" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17124039" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22392975" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -972,7 +1425,7 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5042424" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1481888" sideWeight="0.51458335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -982,18 +1435,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.49575758" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.48125" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1273326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1481888" sideWeight="0.48541668" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17124039" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22392975" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1009,7 +1462,8 @@
     <MESSAGE value="FicheModel verengelst" />
     <MESSAGE value="Pion_Model aangemaakt" />
     <MESSAGE value="PlayboardModel aangemaakt" />
-    <option name="LAST_COMMIT_MESSAGE" value="PlayboardModel aangemaakt" />
+    <MESSAGE value="SpelHervattenController en View werkend. nog niet volledig geimplementeerd." />
+    <option name="LAST_COMMIT_MESSAGE" value="SpelHervattenController en View werkend. nog niet volledig geimplementeerd." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1022,11 +1476,17 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/model/Velden/Molshoop_Veld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Velden/SpeciaalVeld_Veld.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,17 +1513,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/main_menu.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/security/provider/certpath/SunCertPathBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/security/provider/certpath/SunCertPathBuilder.class" />
     <entry file="file://$PROJECT_DIR$/src/view/hervat_game_view.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1071,17 +1526,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/HervatGameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelController.java" />
     <entry file="file://$PROJECT_DIR$/src/controller/InstellingenPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,24 +1542,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MolServer/src/controller/Spelbord_Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="27" lean-forward="false" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Bordspel_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/molclient.java" />
     <entry file="file://$PROJECT_DIR$/src/view/Lobby_View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
           <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/com/sun/javafx/event/BasicEventDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="82" column="43" lean-forward="true" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/com/sun/javafx/event/BasicEventDispatcher.java" />
     <entry file="file://$PROJECT_DIR$/src/model/Fiche_Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
@@ -1129,6 +1584,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#397#398#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,6 +1597,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Player_Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/VeldKnop.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/MolModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Velden/GoudenSchep_Veld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Playboard_Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Fiche_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1146,205 +1633,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/VeldKnop.java" />
     <entry file="file://$PROJECT_DIR$/src/view/MolKnop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="273">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/MolModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/run.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/VeldKnop.java" />
-    <entry file="file://$PROJECT_DIR$/src/controller/Bordspel_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Bordspel_Interface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MolServer/src/controller/Spelbord_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelOpzettenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Playboard_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#908#909#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/connect_host_view.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="30" column="46" lean-forward="false" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Spel_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Speler_Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="38" column="51" lean-forward="false" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+        <state relative-caret-position="252">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/event/EventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/MolController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        <state relative-caret-position="241">
+          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Player_Model.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/JoinSpelView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Mol_Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Velden/VeldKnop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state relative-caret-position="84">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Player_Observer.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Spel_Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="483">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SpelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/HandleidingView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="46" column="88" lean-forward="false" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
-          <folding>
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Velden/GoudenSchep_Veld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SpelbordView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1716">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Player_Model.java" />
     <entry file="file://$PROJECT_DIR$/src/view/spelbord_view.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="195">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/connect_host_view.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1498054326206" expanded="true" signature="1145:1279" ph="{...}" />
+            <marker date="1498054326206" expanded="true" signature="1319:1409" ph="{...}" />
+            <marker date="1498054326206" expanded="false" signature="2128:2132" ph=" { " />
+            <marker date="1498054326206" expanded="false" signature="2163:2166" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/MainMenuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="87" column="44" lean-forward="false" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
+          <folding>
+            <marker date="1498054326204" expanded="true" signature="3344:4238" ph="{...}" />
+            <marker date="1498054326204" expanded="true" signature="3347:3501" ph="//..." />
+            <marker date="1498054326204" expanded="true" signature="4266:4404" ph="{...}" />
+            <marker date="1498054326204" expanded="true" signature="4431:4573" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelJoinController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Mol_Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelOpzettenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/HervatGameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/main_menu_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="54" column="1" lean-forward="false" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/JoinSpelView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1498054327429" expanded="true" signature="2944:2981" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelbordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SpelHervattenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

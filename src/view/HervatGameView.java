@@ -27,6 +27,9 @@ public class HervatGameView {
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
 
+        //geef de filechooser een duidelijke naam zodat de gebruiker weet wat hij/zij  moet doen.
+        fc.setTitle("Selecteer een eerder opgeslagen .SAV bestand.");
+
         //zorg dat de filechooser alleen .sav files accepteert.
         FileChooser.ExtensionFilter extentionFilter = new FileChooser.ExtensionFilter("SAV files .sav", "*.sav");
         fc.getExtensionFilters().add(extentionFilter);

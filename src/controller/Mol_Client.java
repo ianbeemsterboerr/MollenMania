@@ -4,11 +4,15 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import model.Speler_Model;
+import view.InstellingenView;
 import view.Lobby_View;
 
 public class Mol_Client {
+
+	private InstellingenView instellingenView;
 	
-	public Mol_Client(String username){
+	public Mol_Client(String username, InstellingenView instellingenView){
+		this.instellingenView=instellingenView;
 		try {
 			// get access to the RMI registry on the remote server	
 			// if server on another machine: provide that machine's IP address. Default port  1099
@@ -25,7 +29,7 @@ public class Mol_Client {
 			
 			bs_controller.checkPlayerList(4, sm);
 			
-			new Lobby_View(userStub, bs_controller);
+			new Lobby_View(userStub, bs_controller, instellingenView);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

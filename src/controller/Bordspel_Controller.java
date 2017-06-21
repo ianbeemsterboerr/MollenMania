@@ -13,7 +13,7 @@ public class Bordspel_Controller {
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
-		int listSize = this.bs_interface.getSpelerListSize();
+		int listSize = this.bs_interface.playerList().size();
 		if(listSize < max){
 			this.bs_interface.addSpeler(sm);
 		} else {

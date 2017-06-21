@@ -14,11 +14,12 @@ public interface Bordspel_Interface extends Remote {
 	
 	public void addSpeler(Speler_Model sm) throws RemoteException;
 	
-	public void getSpelerName() throws RemoteException;
-	
-	public int getSpelerListSize() throws RemoteException;
+	public ArrayList<Player_Observer> observer_list() throws RemoteException;
 	
 	public ArrayList<Speler_Model> playerList() throws RemoteException;
 	
 	public Spelbord_Model spelModel() throws RemoteException;
-}
+	
+	public String getClientHost() throws RemoteException;
+	
+ }

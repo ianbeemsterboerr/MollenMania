@@ -47,6 +47,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		try {
 			bs_interface.addObserver(this);
+			System.out.println(bs_interface.observer_list().size());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

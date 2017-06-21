@@ -14,9 +14,9 @@ public class SpelController {
         //spelervolgorde wordt bepaalt
         int spelerAanBeurt = 0;
         //Mollen worden neergezet
-         while (spelModel.getSpeler().get(spelerAanBeurt).getMol_list().size() < molController.aantalMollen(spelModel)){
+         //while (spelModel.getSpeler().get(spelerAanBeurt).getMol_list().size() < molController.aantalMollen(spelModel)){
 
-         }
+        // }
         //Hierin wordt de beurt logica herhaald
         do {
 

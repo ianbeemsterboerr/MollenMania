@@ -19,8 +19,8 @@ public class Mol_Client {
 			Bordspel_Interface userStub = (Bordspel_Interface) registry.lookup("Spelbord_Model");
 			Bordspel_Controller bs_controller = new Bordspel_Controller(userStub);
 			
-			int spid = userStub.getSpelerListSize()+1;
-
+			int spid = userStub.playerList().size()+1;
+			System.out.println(userStub.getClientHost());
 			Speler_Model sm = new Speler_Model(username, spid);
 			
 			bs_controller.checkPlayerList(4, sm);

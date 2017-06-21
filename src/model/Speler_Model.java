@@ -56,7 +56,7 @@ public class Speler_Model implements Serializable{
 		this.mol_list = mol_list;
 	}
 
-    public int getHandgrootte() {
+    public int getHandgrootte() {   
         return Handgrootte;
     }
 

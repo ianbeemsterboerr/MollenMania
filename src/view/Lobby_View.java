@@ -14,15 +14,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Speler_Model;
 
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
-
-	private InstellingenView instellingenView;
 	
 	//what do i need??!?!?!?
 	
@@ -38,8 +35,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 	}
 	
-	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, InstellingenView instellingenView) throws RemoteException{
-		this.instellingenView=instellingenView;
+	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
+		
 		//Add this view to observer list
 		
 		this.bs_interface = bs_interface;
@@ -65,7 +62,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
-		game_table.setMaxWidth(175.0);
+		game_table.setMaxWidth(170.0);
 		game_table.setMaxHeight(125.0);
 		
 		player_id_col.setCellValueFactory(
@@ -113,15 +110,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(game_table, 0, 0);
 	    grid.add(vbox_hervat_options, 1, 0);
-
-	    //grid in een borderpane zetten zodat knoppenpanel bovenaan kan
-		BorderPane lobbyPane = new BorderPane();
-		lobbyPane.setCenter(grid);
-		lobbyPane.setTop(instellingenView.getView());
-		Scene lobby_scene = new Scene(lobbyPane, 600, 600);
-
-		//style zetten
-		lobby_scene.getStylesheets().addAll(getClass().getResource("style/lobby_style.css").toExternalForm());
+		
+		Scene lobby_scene = new Scene(grid, 380, 250);
 		
 		lobbyStage.setTitle("Lobby");
 		lobbyStage.setScene(lobby_scene);

@@ -62,8 +62,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
-		game_table.setMaxWidth(170.0);
-		game_table.setMaxHeight(125.0);
+		game_table.setMaxWidth(175.0);
+		game_table.setMaxHeight(135.0);
 		
 		player_id_col.setCellValueFactory(
                 new PropertyValueFactory<Speler_Model, Integer>("player_id"));

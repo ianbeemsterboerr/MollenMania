@@ -48,6 +48,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		try {
 			bs_interface.addObserver(this);
 			System.out.println(bs_interface.observer_list().size());
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -102,14 +103,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		refresh.setOnAction(e->{
 //			this.new_players = this.bs_interface.playerList();
-			System.out.println(Integer.toString(sm.getFiches().size()));
 			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
 		});
 		
 		fiche_btn.setOnAction(e->{
 			sm.getFiches().remove(1);
-			System.out.println(sm.getFiches().size());
 		});
 		
 		mol_btn.setOnAction(e->{
@@ -185,8 +184,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		int numRows = 12;
 		int numCols = 29;
 
-		Button btn_close = new Button("exit");
-		Button btn_minimize = new Button("-");
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
 		for (int i = 0; i < numRows; i++) {
@@ -264,7 +261,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		playable.addObserver(this);
 	}
 
 	@Override

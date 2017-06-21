@@ -7,11 +7,16 @@ import java.util.ArrayList;
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -25,6 +30,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
+	private ArrayList<Speler_Model> new_players;
+	private Bordspel_Interface bs_interface;
+
 	GridPane player_1;
 	GridPane player_2;
 	GridPane player_3;
@@ -40,13 +48,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 		
 		players = bs_interface.playerList();
+		this.bs_interface = bs_interface;
 		
 		VBox left = new VBox();
 		left.setPadding(new Insets(20, 20, 20, 20));
-		left.setSpacing(300.0);
+		left.setSpacing(200.0);
 		VBox right = new VBox();
 		right.setPadding(new Insets(20, 20, 20, 20));
-		right.setSpacing(300.0);
+		right.setSpacing(200.0);
 		
 		if(players.size() == 2){
 			this.player_1 = this.createUserPanel(players.get(0));
@@ -93,7 +102,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //		this.player_2.setAlignment(Pos.TOP_RIGHT);
 //		this.player_3.setAlignment(Pos.BOTTOM_LEFT);
 //		this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
-		
+	
 		
 		BorderPane moap = new BorderPane();
 		moap.setLeft(left);
@@ -105,7 +114,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.show();
 	}
 	
-	public GridPane createUserPanel(Speler_Model sm){
+	public GridPane createUserPanel(Speler_Model sm) throws RemoteException{
 		/*
 		 * maybe each panel should be owned by a user?! watcha think dog.
 		 */
@@ -120,9 +129,32 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Label aantal_fiche_lbl = new Label(fiche_count); 
 		Label aantal_mol_lbl = new Label(mol_count);
 		
+		username_lbl.setStyle("-fx-font-weight:bold;");
+		aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
+		aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
+		
 		Button fiche_btn = new Button("Fiche");
 		Button mol_btn = new Button("Mol");
 		Button klaar_btn = new Button("Klaar");
+		Button refresh = new Button("Refresh");
+		
+		refresh.setOnAction(e->{
+//			this.new_players = this.bs_interface.playerList();
+			System.out.println(Integer.toString(sm.getFiches().size()));
+			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
+			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+		});
+		
+		fiche_btn.setOnAction(e->{
+			sm.getFiches().remove(1);
+			System.out.println(sm.getFiches().size());
+		});
+		
+		mol_btn.setOnAction(e->{
+			sm.getMol_list().remove(1);
+		});
+		
+		
 		
 		grid.add(username_lbl, 0, 0);
 		grid.add(mol_btn, 0, 1);
@@ -130,12 +162,18 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		grid.add(fiche_btn, 0, 2);
 		grid.add(aantal_fiche_lbl, 1, 2);
 		grid.add(klaar_btn, 0, 3);
+		grid.add(refresh, 0, 4);
 		grid.setHgap(10.0);
 		grid.setVgap(10.0);
+		
 	
 		return grid;
 	}
-
+	
+	public void changeLabels(){
+		
+	}
+	
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		// TODO Auto-generated method stub

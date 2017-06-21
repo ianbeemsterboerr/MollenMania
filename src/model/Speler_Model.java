@@ -15,8 +15,8 @@ public class Speler_Model implements Serializable{
 	private int Handgrootte;
 	private Fiche_Model fiche_list = new Fiche_Model();
 	private ArrayList<Integer> fiches;
-	
-	
+	private int fichesSize;
+	private int molSize;
 
 	public Speler_Model(){
 
@@ -25,8 +25,12 @@ public class Speler_Model implements Serializable{
 	public Speler_Model(String user, int id){
 		this.username = user;
 		this.player_id = id;
+		
 		fillPawnList(6);
 		this.setFiches(fiche_list.getGeslotenFiche());
+		
+		this.fichesSize = this.fiches.size();
+		this.molSize = this.mol_list.size();
 	}
 	
 	public ArrayList<Integer> getFiches() {

@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import model.Speler_Model;
 
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
+
+	private InstellingenView instellingenView;
 	
 	//what do i need??!?!?!?
 	
@@ -35,8 +37,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 	}
 	
-	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
-		
+	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, InstellingenView instellingenView) throws RemoteException{
+		this.instellingenView=instellingenView;
 		//Add this view to observer list
 		
 		this.bs_interface = bs_interface;

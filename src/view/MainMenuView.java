@@ -82,6 +82,7 @@ public class MainMenuView {
 
 		btn_spelSpelen.setOnAction(e->{
 			try{
+				//bs_controller en bs_interface moeten nog geinstanieerd worden.
 				spelbord_view spelBordView = new spelbord_view();
 				spelBordView.spelbord_show(bs_controller, bs_interface);
 			}catch(Exception b){

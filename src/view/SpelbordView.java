@@ -40,12 +40,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
-<<<<<<< HEAD
+
 	private VeldKnop[] buttonArray;
-=======
+
 	private Button rmiTest = new Button("RMI Test!");
->>>>>>> f25d7b7ce52ebcf38d07b80f14d3b5bfa6285298
-	
+
 	GridPane player_1;
 	GridPane player_2;
 	GridPane player_3;
@@ -283,7 +282,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void changeLabels(Label lbl, String str){
 		lbl.setText(str);
 	}
-//	@Override
+//	@OverrideV
 //	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 //		// TODO Auto-generated method stub
 //		//
@@ -317,5 +316,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+
 }

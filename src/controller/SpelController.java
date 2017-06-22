@@ -27,7 +27,15 @@ public class SpelController {
         //Laat einde scherm zien
     }
 
-
+//public void maakVeldknoppen (VeldKnop[] veldknoppen, Spel_Model spelModel){
+//    for(int i = 0; i < veldknoppen.length; i++ ){
+//        final VeldKnop knop = veldknoppen[i];
+//        veldknoppen[i].setOnAction(e -> {
+//            new MolController().mollenNeerzetten(knop,spelModel,1);
+//
+//        });
+//    }
+//}
 
 
 

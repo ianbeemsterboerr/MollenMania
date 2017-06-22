@@ -79,6 +79,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.ready_list;
 	}
 
+	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
+		return this.players;
+	}
+
 	public void veranderBeurt(){
 		int nextIndex=0;
 		for (Speler_Model speler: players) {

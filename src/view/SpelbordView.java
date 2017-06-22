@@ -39,6 +39,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private GridPane veld_pane;
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
+	private Bordspel_Controller bordspel_controller;
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -46,6 +47,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	GridPane player_4;
 	
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException{
+		this.bordspel_controller=bs_controller;
 		Stage bordStage = new Stage();
 		
 		try {
@@ -108,6 +110,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //			this.new_players = this.bs_interface.playerList();
 			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+			try {
+				bordspel_controller.refresh();
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
 		});
 		
 		fiche_btn.setOnAction(e->{
@@ -189,7 +196,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 27;
+		int numCols = 29;
 
 		VeldKnop[] buttonArray = new VeldKnop[61];
 

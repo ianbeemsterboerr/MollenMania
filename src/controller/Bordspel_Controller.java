@@ -16,7 +16,6 @@ public class Bordspel_Controller {
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
 		this.bs_interface = bs;
-		this.spelbordView=new SpelbordView(this, bs_interface);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -28,12 +27,13 @@ public class Bordspel_Controller {
 		}
 	}
 	
-	public void spelerReady() throws RemoteException{
-		int players_ready = this.bs_interface.readyList().size();
+	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
+		int players_ready = rlist.size();
 		
 		if(players_ready == 2){
 			new SpelbordView(this, this.bs_interface);
 		} else{
+			System.out.println(players_ready);
 			System.out.println("Waiting for players");
 		}
 	}

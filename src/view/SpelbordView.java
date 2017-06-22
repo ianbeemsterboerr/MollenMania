@@ -82,7 +82,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		/*
 		 * maybe each panel should be owned by a user?! watcha think dog.
 		 */
-		
+		int ficheNR;
+        String openFiches = "";
 		String speler_naam = sm.getUsername();
 		String mol_count = Integer.toString(sm.getMol_list().size());
 		String fiche_count = Integer.toString(sm.getFiches().size());
@@ -92,7 +93,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Label username_lbl = new Label(speler_naam);
 		Label aantal_mol_lbl = new Label(mol_count);
 		Label aantal_fiche_lbl = new Label(fiche_count);
-		
+		Label open_Fiches = new Label(openFiches);
+
 		username_lbl.setStyle("-fx-font-weight:bold;");
 		aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
 		aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
@@ -109,7 +111,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		});
 		
 		fiche_btn.setOnAction(e->{
-            new Fiche_Controller().kiesFiche(sm.getFiche_list());
+		    sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
+            System.out.println("SpelbordView.createUserPanel" +ficheNR);
+            open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
             new Fiche_Controller().fichesCheck(sm.getFiche_list());
 		});
 		
@@ -122,6 +126,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		grid.add(aantal_mol_lbl, 1, 1);
 		grid.add(fiche_btn, 0, 2);
 		grid.add(aantal_fiche_lbl, 1, 2);
+		grid.add(open_Fiches,1,3);
 		grid.add(klaar_btn, 0, 3);
 		grid.add(refresh, 0, 4);
 		grid.setHgap(10.0);
@@ -257,18 +262,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
 
-<<<<<<< HEAD
-//		for(VeldKnop veldKnop : buttonArray){
-//			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();
-//				System.out.println(veldKnop.getCoordinaten());});
-=======
-//		for(VeldKnop veldKnop: buttonArray){
-//			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
->>>>>>> master
-//
-//		}
 
-		return root;
+////		for(VeldKnop veldKnop: buttonArray){
+////			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+//	}
+//
+    	return root;
 	}
 	
 	public void changeLabels(Label lbl, String str){

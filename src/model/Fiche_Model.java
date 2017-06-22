@@ -12,6 +12,7 @@ public class Fiche_Model implements Serializable{
 
     private ArrayList<Integer> openFiche = new ArrayList<Integer>();
     private ArrayList<Integer> geslotenFiche = new ArrayList<Integer>();
+    private int ficheNR;
 
 
     public Fiche_Model() {
@@ -24,6 +25,13 @@ public class Fiche_Model implements Serializable{
 
     }
 
+    public int getFicheNR() {
+        return ficheNR;
+    }
+
+    public void setFicheNR(int ficheNR) {
+        this.ficheNR = ficheNR;
+    }
 
     public ArrayList<Integer> getOpenFiche() {
         return openFiche;

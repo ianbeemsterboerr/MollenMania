@@ -47,6 +47,7 @@ public class Bordspel_Controller {
 	}
 
 	public void refresh() throws RemoteException{
-		spelbordView.modelChanged(bs_interface.spelModel());
+		spelbordView.playerDataTest(bs_interface.playerList());
 	}
+
 }

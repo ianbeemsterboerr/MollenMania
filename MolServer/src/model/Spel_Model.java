@@ -1,7 +1,7 @@
 package model;
 
 import javafx.fxml.Initializable;
-
+import controller.Player_Observer;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ArrayList;

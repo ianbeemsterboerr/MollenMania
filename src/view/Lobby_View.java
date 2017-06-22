@@ -102,11 +102,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		
 		btn_klaar.setOnAction(e -> { 
 			try{
-				//new SpelbordView(this.bs_controller, this.bs_interface);
-				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-//				this.bs_controller.spelerReady();
-//				System.out.println("Player: " + game_table.getSelectionModel().getSelectedItem().getPlayer_id() + " is ready.");
-//				System.out.println(this.bs_interface.readyList().size());
+				new SpelbordView(this.bs_controller, this.bs_interface);
+				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
 			}catch(Exception b){
 				b.printStackTrace();
 		}});

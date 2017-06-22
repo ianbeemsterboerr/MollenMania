@@ -48,9 +48,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Stage bordStage = new Stage();
 		
 		try {
-			bs_interface.addObserver(this);
-			System.out.println(bs_interface.observer_list().size());
-			
+			//bs_interface.addObserver(this);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -91,6 +89,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		GridPane grid = new GridPane();
 		
 		Label username_lbl = new Label(speler_naam);
+		Label aantal_mol_lbl = new Label(mol_count);
+		Label aantal_fiche_lbl = new Label(fiche_count);
 		
 		username_lbl.setStyle("-fx-font-weight:bold;");
 		aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
@@ -264,6 +264,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		// TODO Auto-generated method stub
+		//
+		
 		playable.addObserver(this);
 	}
 

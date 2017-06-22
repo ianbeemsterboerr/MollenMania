@@ -257,9 +257,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
 
+<<<<<<< HEAD
 //		for(VeldKnop veldKnop : buttonArray){
 //			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();
 //				System.out.println(veldKnop.getCoordinaten());});
+=======
+//		for(VeldKnop veldKnop: buttonArray){
+//			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+>>>>>>> master
 //
 //		}
 
@@ -279,7 +284,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-
+		ArrayList<Speler_Model> spelers = playable.spelModel().getPlayers();
+		for (Speler_Model speler:spelers) {
+			System.out.println(speler.getPlayer_id());
+		}
 	}
 
 	@Override

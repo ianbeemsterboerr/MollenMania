@@ -12,17 +12,34 @@ public class Speler_Model implements Serializable{
 	private String username;
 	private int player_id;
 	private ArrayList<MolModel> mol_list = new ArrayList<MolModel>();
-	private Fiche_Model fiche_list;
-	
+	private int Handgrootte;
+	private Fiche_Model fiche_list = new Fiche_Model();
+	private ArrayList<Integer> fiches;
+	private int fichesSize;
+	private int molSize;
+	private Speler_Model myself;
+
 	public Speler_Model(){
-		
+
 	}
 	
 	public Speler_Model(String user, int id){
 		this.username = user;
 		this.player_id = id;
-		fillPawnList(4);
-		//fiche_list = new Fiche_Model();
+		this.myself = this;
+		fillPawnList(6);
+		this.setFiches(fiche_list.getGeslotenFiche());
+		
+		this.fichesSize = this.fiches.size();
+		this.molSize = this.mol_list.size();
+	}
+	
+	public ArrayList<Integer> getFiches() {
+		return fiches;
+	}
+
+	public void setFiches(ArrayList<Integer> fiches) {
+		this.fiches = fiches;
 	}
 	
 	public void fillPawnList(int aantal){
@@ -39,9 +56,16 @@ public class Speler_Model implements Serializable{
 	public void setMol_list(ArrayList<MolModel> mol_list) {
 		this.mol_list = mol_list;
 	}
-	
 
-	public Fiche_Model getFiche_list() {
+    public int getHandgrootte() {   
+        return Handgrootte;
+    }
+
+    public void setHandgrootte(int handgrootte) {
+        Handgrootte = handgrootte;
+    }
+
+    public Fiche_Model getFiche_list() {
 		return fiche_list;
 	}
 
@@ -63,5 +87,10 @@ public class Speler_Model implements Serializable{
 
 	public void setPlayer_id(int player_id) {
 		this.player_id = player_id;
-	}	
+	}
+
+	public Speler_Model getMyself() {
+		return myself;
+	}
+
 }

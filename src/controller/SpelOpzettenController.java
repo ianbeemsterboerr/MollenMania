@@ -5,6 +5,7 @@ import model.Playboard_Model;
 import model.Spel_Model;
 import model.Speler_Model;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
@@ -19,10 +20,26 @@ ArrayList<Speler_Model> spelerList = new ArrayList<>();
 
 //Mist de OBSERVERS
 public Spel_Model spelOpzetten( Spel_Model spelModel, Speler_Model speler, Playboard_Model spelBord){
-    spelModel.setSpelbord(spelBord);
-    spelModel.setSpelers(spelerList);
-    spelModel.setHuidigNiveau(1);
-    spelModel.setMaxAantalObservers(spelerList.size());
+    try {
+        spelModel.setSpelbord(spelBord);
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
+    try {
+        spelModel.setSpelers(spelerList);
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
+    try {
+        spelModel.setHuidigNiveau(1);
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
+    try {
+        spelModel.setMaxAantalObservers(spelerList.size());
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
     return spelModel;
     }
 

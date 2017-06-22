@@ -189,7 +189,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 27;
+		int numCols = 29;
 
 		VeldKnop[] buttonArray = new VeldKnop[61];
 

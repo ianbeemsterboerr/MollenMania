@@ -19,14 +19,16 @@ public class Speler_Model implements Serializable{
 	private int molSize;
 	private Speler_Model myself;
 	private boolean aanDeBeurt=false;
+	private int beurtSpeler;
 
 	public Speler_Model(){
 
 	}
 	
-	public Speler_Model(String user, int id){
+	public Speler_Model(String user, int id, int beurtSpeler){
 		this.username = user;
 		this.player_id = id;
+		this.beurtSpeler = beurtSpeler;
 		this.myself = this;
 		fillPawnList(6);
 		this.setFiches(fiche_list.getGeslotenFiche());
@@ -100,5 +102,8 @@ public class Speler_Model implements Serializable{
 	public void setAanDeBeurt(boolean isAanDeBeurt){
 		this.aanDeBeurt=aanDeBeurt;
 	}
+
+	public int getBeurtSpeler() { return beurtSpeler; }
+	public void setBeurtSpeler(int beurtSpeler) { this.beurtSpeler = beurtSpeler; }
 
 }

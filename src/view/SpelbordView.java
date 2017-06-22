@@ -40,7 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
-	private Button rmiTest = new Button("RMI Test!")
+	private Button rmiTest = new Button("RMI Test!");
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -129,7 +129,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		});
 		
 		fiche_btn.setOnAction(e->{
-		    sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
+		    //sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
             System.out.println("SpelbordView.createUserPanel" +ficheNR);
             open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
             new Fiche_Controller().fichesCheck(sm.getFiche_list());
@@ -306,6 +306,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			System.out.println(speler.getPlayer_id());
 		}
 	}
+
+	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{
+		for (Speler_Model speler:spelers) {
+			System.out.println(speler.getPlayer_id());
+		}
+	}
+
 
 	@Override
 	public boolean isEnabled() throws RemoteException {

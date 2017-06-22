@@ -182,7 +182,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 29;
+		int numCols = 27;
 
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
@@ -254,19 +254,32 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
-		
+
+		for(VeldKnop veldKnop: buttonArray){
+			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+
+		}
+
 		return root;
 	}
 	
 	public void changeLabels(Label lbl, String str){
 		lbl.setText(str);
 	}
+//	@Override
+//	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
+//		// TODO Auto-generated method stub
+//		//
+//
+//		playable.addObserver(this);
+//	}
+
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		// TODO Auto-generated method stub
-		//
-		
-		playable.addObserver(this);
+		ArrayList<Speler_Model> spelers = playable.spelModel().getPlayers();
+		for (Speler_Model speler:spelers) {
+			System.out.println(speler.getPlayer_id());
+		}
 	}
 
 	@Override

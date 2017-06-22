@@ -1,15 +1,12 @@
 package model;
 
-import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
-import javafx.fxml.Initializable;
 
-public class Spelbord_Model implements Bordspel_Interface, Initializable{
+public class Spelbord_Model implements Bordspel_Interface{
 
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
@@ -82,8 +79,19 @@ public class Spelbord_Model implements Bordspel_Interface, Initializable{
 		return this.ready_list;
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
+		return this.players;
+	}
 
+	public void veranderBeurt(){
+		int nextIndex=0;
+		for (Speler_Model speler: players) {
+			if(speler.isAanDeBeurt()){
+				speler.setAanDeBeurt(false);
+				nextIndex=players.indexOf(speler)+1;
+			}
+			break;
+		}
+		players.get(nextIndex).setAanDeBeurt(true);
 	}
 }

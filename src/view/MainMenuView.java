@@ -11,17 +11,17 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Spel_Model;
 import view.host_controls_view;
 import view.connect_host_view;
 import view.spelbord_view;
 import controller.Bordspel_Interface;
 import controller.Bordspel_Controller;
-
-import java.rmi.RemoteException;
 
 public class MainMenuView {
 	private InstellingenView instellingenView;
@@ -58,10 +58,7 @@ public class MainMenuView {
 		btn_hervatSpel = new Button();
 		btn_spelSpelen = new Button("test");
 
-		btn_spelSpelen.setOnAction(a->{
 
-
-		});
 		//Button btn_oog = new Button();
 		//Button btn_close = new Button();
 		//Button btn_loudspeaker = new Button();

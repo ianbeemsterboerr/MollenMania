@@ -18,6 +18,7 @@ public class Speler_Model implements Serializable{
 	private int fichesSize;
 	private int molSize;
 	private Speler_Model myself;
+	private boolean aanDeBeurt=false;
 
 	public Speler_Model(){
 
@@ -91,6 +92,13 @@ public class Speler_Model implements Serializable{
 
 	public Speler_Model getMyself() {
 		return myself;
+	}
+
+	public boolean isAanDeBeurt(){
+		return aanDeBeurt;
+	}
+	public void setAanDeBeurt(boolean isAanDeBeurt){
+		this.aanDeBeurt=aanDeBeurt;
 	}
 
 }

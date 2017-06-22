@@ -78,4 +78,20 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		return this.ready_list;
 	}
+
+	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
+		return this.players;
+	}
+
+	public void veranderBeurt(){
+		int nextIndex=0;
+		for (Speler_Model speler: players) {
+			if(speler.isAanDeBeurt()){
+				speler.setAanDeBeurt(false);
+				nextIndex=players.indexOf(speler)+1;
+			}
+			break;
+		}
+		players.get(nextIndex).setAanDeBeurt(true);
+	}
 }

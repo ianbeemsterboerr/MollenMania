@@ -1,16 +1,22 @@
 package controller;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
+import model.MolModel;
 import model.Speler_Model;
 import view.SpelbordView;
 
 public class Bordspel_Controller {
 	
 	Bordspel_Interface bs_interface;
+	SpelbordView spelbordView;
+	private String bijnaam;
 	
-	public Bordspel_Controller(Bordspel_Interface bs) throws RemoteException{
+	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
+		this.bijnaam=bijnaam;
 		this.bs_interface = bs;
+		this.spelbordView=new SpelbordView(this, bs_interface);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -30,5 +36,13 @@ public class Bordspel_Controller {
 		} else{
 			System.out.println("Waiting for players");
 		}
+	}
+
+	public void checkZetValid(int[] positie){
+
+	}
+
+	public void refresh() throws RemoteException{
+		spelbordView.modelChanged(bs_interface.spelModel());
 	}
 }

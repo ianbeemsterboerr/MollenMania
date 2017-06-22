@@ -23,5 +23,7 @@ public interface Bordspel_Interface extends Remote {
 	public void addSpelerReady(Speler_Model sm) throws RemoteException;
 	
 	public ArrayList<Speler_Model> readyList() throws RemoteException;
+
+	public void veranderBeurt() throws  RemoteException;
 	
  }

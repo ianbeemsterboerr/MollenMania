@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import model.Spelbord_Model;
 
 public class Mol_Server extends UnicastRemoteObject{
 	

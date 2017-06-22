@@ -8,9 +8,11 @@ import view.SpelbordView;
 public class Bordspel_Controller {
 	
 	Bordspel_Interface bs_interface;
+	SpelbordView spelbordView;
 	
 	public Bordspel_Controller(Bordspel_Interface bs) throws RemoteException{
 		this.bs_interface = bs;
+		this.spelbordView=new SpelbordView(this, bs_interface);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -30,5 +32,9 @@ public class Bordspel_Controller {
 		} else{
 			System.out.println("Waiting for players");
 		}
+	}
+
+	public boolean checkIsMijnMol(){
+		bs_interface
 	}
 }

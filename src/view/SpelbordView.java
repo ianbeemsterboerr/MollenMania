@@ -184,7 +184,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 29;
+		int numCols = 27;
 
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
@@ -269,12 +269,17 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void changeLabels(Label lbl, String str){
 		lbl.setText(str);
 	}
+//	@Override
+//	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
+//		// TODO Auto-generated method stub
+//		//
+//
+//		playable.addObserver(this);
+//	}
+
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		// TODO Auto-generated method stub
-		//
-		
-		playable.addObserver(this);
+
 	}
 
 	@Override

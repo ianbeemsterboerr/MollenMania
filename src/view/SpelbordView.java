@@ -40,7 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
-	private Button rmiTest = new Button("RMI Test!")
+	private VeldKnop[] buttonArray;
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -60,17 +60,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 
-		rmiTest.setOnAction(e->{
-			try {
-				bs_controller.refresh();
-			} catch (RemoteException e1) {
-				e1.printStackTrace();
-			}
-		});
-
-		rmiTest.setAlignment(Pos.CENTER);
 		spelbord_pane = this.loadPlayers(players);
-		spelbord_pane.setRight(rmiTest);
 		veld_pane = this.loadVeld();
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
@@ -137,6 +127,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		mol_btn.setOnAction(e->{
 			sm.getMol_list().remove(1);
+			
+			int size = this.buttonArray.length;
+			System.out.println(this.buttonArray[1].getCoordinaten());
 		});
 		
 		grid.add(username_lbl, 0, 0);
@@ -209,7 +202,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		int numRows = 12;
 		int numCols = 29;
 
-		VeldKnop[] buttonArray = new VeldKnop[61];
+		buttonArray = new VeldKnop[61];
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();
@@ -217,6 +210,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			rc.setValignment(VPos.BOTTOM);
 			root.getRowConstraints().add(rc);
 		}
+		
 		for (int i = 0; i < numCols; i++) {
 			ColumnConstraints cc = new ColumnConstraints();
 			cc.setHalignment(HPos.CENTER);
@@ -228,8 +222,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		for (int column = 13; column < 23; column = column + 2) {
 			VeldKnop veld = new VeldKnop((8 - ((column + 1) / 2)) , ((column + 1) / 2 - 4), -4);
 			root.add(veld, column, 1);
-			buttonArray[(column + 1) / 2 - 4] = veld;
-
+			buttonArray[(column + 1) / 2 - 7] = veld;
 		}
 		// loop voor buttons 6 t/m 11
 		for (int column = 12; column < 24; column = column + 2) {
@@ -279,12 +272,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
-
-
-////		for(VeldKnop veldKnop: buttonArray){
-////			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
-//	}
-//
+	
     	return root;
 	}
 	

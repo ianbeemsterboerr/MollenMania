@@ -20,6 +20,10 @@ public class Bordspel_Controller {
 
 	public void showSpelBordView() throws RemoteException{
 		this.spelbordView=new SpelbordView(this, bs_interface);
+<<<<<<< HEAD
+
+=======
+>>>>>>> bee64fd7922f14c1348f87f60286e1ff8e4515b7
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -33,8 +37,8 @@ public class Bordspel_Controller {
 	
 	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
 		int players_ready = rlist.size();
-		
-		if(players_ready == 2){
+		int max = this.bs_interface.maxSpelers();
+		if(players_ready == max){
 			new SpelbordView(this, this.bs_interface);
 		} else{
 			System.out.println(players_ready);

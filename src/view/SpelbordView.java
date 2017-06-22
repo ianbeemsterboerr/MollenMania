@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
+import controller.Fiche_Controller;
 import controller.Player_Observer;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -39,6 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
+	private Button rmiTest = new Button("RMI Test!")
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -58,18 +60,18 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 
-		//Puur om te kijken of de view shit uit de model kan halen
-		Button testRefresh = new Button("Test Refresh!");
-		testRefresh.setOnAction(e->{
+		rmiTest.setOnAction(e->{
 			try {
-			bordspel_controller.refresh();
-		} catch (RemoteException e1) {
-			e1.printStackTrace();
-		}});
+				bs_controller.refresh();
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
+		});
 
+		rmiTest.setAlignment(Pos.CENTER);
 		spelbord_pane = this.loadPlayers(players);
+		spelbord_pane.setRight(rmiTest);
 		veld_pane = this.loadVeld();
-		spelbord_pane.setRight(testRefresh);
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
@@ -93,7 +95,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		/*
 		 * maybe each panel should be owned by a user?! watcha think dog.
 		 */
-		
+		int ficheNR=0;
+        String openFiches = "";
 		String speler_naam = sm.getUsername();
 		String mol_count = Integer.toString(sm.getMol_list().size());
 		String fiche_count = Integer.toString(sm.getFiches().size());
@@ -103,7 +106,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Label username_lbl = new Label(speler_naam);
 		Label aantal_mol_lbl = new Label(mol_count);
 		Label aantal_fiche_lbl = new Label(fiche_count);
-		
+		Label open_Fiches = new Label(openFiches);
+
 		username_lbl.setStyle("-fx-font-weight:bold;");
 		aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
 		aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
@@ -117,10 +121,18 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //			this.new_players = this.bs_interface.playerList();
 			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+			try {
+				bordspel_controller.refresh();
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
 		});
 		
 		fiche_btn.setOnAction(e->{
-			sm.getFiches().remove(1);
+		    sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
+            System.out.println("SpelbordView.createUserPanel" +ficheNR);
+            open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
+            new Fiche_Controller().fichesCheck(sm.getFiche_list());
 		});
 		
 		mol_btn.setOnAction(e->{
@@ -132,6 +144,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		grid.add(aantal_mol_lbl, 1, 1);
 		grid.add(fiche_btn, 0, 2);
 		grid.add(aantal_fiche_lbl, 1, 2);
+		grid.add(open_Fiches,1,3);
 		grid.add(klaar_btn, 0, 3);
 		grid.add(refresh, 0, 4);
 		grid.setHgap(10.0);
@@ -194,7 +207,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public GridPane loadVeld() throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
-		int numCols = 27;
+		int numCols = 29;
 
 		VeldKnop[] buttonArray = new VeldKnop[61];
 
@@ -267,12 +280,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
 
-//		for(VeldKnop veldKnop: buttonArray){
-//			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
-//
-//		}
 
-		return root;
+////		for(VeldKnop veldKnop: buttonArray){
+////			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+//	}
+//
+    	return root;
 	}
 	
 	public void changeLabels(Label lbl, String str){

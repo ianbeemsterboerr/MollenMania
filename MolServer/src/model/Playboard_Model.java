@@ -1,8 +1,8 @@
 package model;
 
-import model.Velden.GoudenSchep_Veld;
-import model.Velden.Molshoop_Veld;
-import model.Velden.SpeciaalVeld_Veld;
+import model.GoudenSchep_Veld;
+import model.Molshoop_Veld;
+import model.SpeciaalVeld_Veld;
 
 import java.util.ArrayList;
 
@@ -80,16 +80,6 @@ public class Playboard_Model {
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-2,3,-1));
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(2,-3,1));
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-4,0,4));
-
-
-
-
-
-
-
-
-
-
 
     }
 

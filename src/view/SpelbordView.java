@@ -57,9 +57,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-		
+
+		//Puur om te kijken of de view shit uit de model kan halen
+		Button testRefresh = new Button("Test Refresh!");
+		testRefresh.setOnAction(e->{
+			try {
+			bordspel_controller.refresh();
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}});
+
 		spelbord_pane = this.loadPlayers(players);
 		veld_pane = this.loadVeld();
+		spelbord_pane.setRight(testRefresh);
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
@@ -107,11 +117,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //			this.new_players = this.bs_interface.playerList();
 			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
-			try {
-				bordspel_controller.refresh();
-			} catch (RemoteException e1) {
-				e1.printStackTrace();
-			}
 		});
 		
 		fiche_btn.setOnAction(e->{

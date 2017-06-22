@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import controller.Bordspel_Interface;
-import controller.Mol_Client;
 import controller.Player_Observer;
 import controller.Bordspel_Controller;
 import javafx.collections.FXCollections;
@@ -30,15 +29,14 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private static final long serialVersionUID = 1L;
 	Bordspel_Controller bs_controller;
 	Bordspel_Interface bs_interface;
-	private Mol_Client mol_client;
 	ObservableList<Speler_Model> data;
 
 	public Lobby_View() throws RemoteException{
 
 	}
 
-	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, Mol_Client mol_client) throws RemoteException{
-		this.mol_client=mol_client;
+	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
+
 		//Add this view to observer list
 
 		this.bs_interface = bs_interface;
@@ -68,9 +66,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		game_table.setMaxHeight(135.0);
 
 		player_id_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, Integer>("player_id"));
+                new PropertyValueFactory<Speler_Model, Integer>("player_id"));
 		player_name_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, String>("username"));
+                new PropertyValueFactory<Speler_Model, String>("username"));
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 
@@ -97,25 +95,23 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
 				game_table.setItems(data_new);
+				this.bs_controller.spelerReady();
 			}catch(Exception b){
 				b.printStackTrace();
-			}});
+		}});
 
 		btn_klaar.setOnAction(e -> {
 			try{
-				//new SpelbordView(this.bs_controller, this.bs_interface);
+				new SpelbordView(this.bs_controller, this.bs_interface);
 				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-				//System.out.println("Player: " + game_table.getSelectionModel().getSelectedItem().getPlayer_id() + " is ready.");
-				this.mol_client.notifyKlaar();
-				System.out.println(this.bs_interface.readyList().size());
 			}catch(Exception b){
 				b.printStackTrace();
-			}});
+		}});
 
 		grid.setHgap(10);
-		grid.setPadding(new Insets(5, 5, 5, 5));
-		grid.add(game_table, 0, 0);
-		grid.add(vbox_hervat_options, 1, 0);
+	    grid.setPadding(new Insets(5, 5, 5, 5));
+	    grid.add(game_table, 0, 0);
+	    grid.add(vbox_hervat_options, 1, 0);
 
 		Scene lobby_scene = new Scene(grid, 380, 250);
 

@@ -11,6 +11,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
+	private int bordMax;
 
 	public Spelbord_Model(){
 		
@@ -83,15 +84,31 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.players;
 	}
 
-	public void veranderBeurt(){
-		int nextIndex=0;
-		for (Speler_Model speler: players) {
-			if(speler.isAanDeBeurt()){
-				speler.setAanDeBeurt(false);
-				nextIndex=players.indexOf(speler)+1;
-			}
-			break;
-		}
-		players.get(nextIndex).setAanDeBeurt(true);
+//	public void veranderBeurt(){
+//		int nextIndex=0;
+//		for (Speler_Model speler: players) {
+//			if(speler.isAanDeBeurt()){
+//				speler.setAanDeBeurt(false);
+//				nextIndex=players.indexOf(speler)+1;
+//			}
+//			break;
+//		}
+//		players.get(nextIndex).setAanDeBeurt(true);
+//	}
+
+	@Override
+	public void veranderBeurt() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setBordMax(int m){
+		this.bordMax = m;
+	}
+	
+	@Override
+	public int maxSpelers() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.bordMax;
 	}
 }

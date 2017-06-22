@@ -40,6 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
+	private Button rmiTest = new Button("RMI Test!")
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -58,8 +59,18 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-		
+
+		rmiTest.setOnAction(e->{
+			try {
+				bs_controller.refresh();
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
+		});
+
+		rmiTest.setAlignment(Pos.CENTER);
 		spelbord_pane = this.loadPlayers(players);
+		spelbord_pane.setRight(rmiTest);
 		veld_pane = this.loadVeld();
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
@@ -84,7 +95,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		/*
 		 * maybe each panel should be owned by a user?! watcha think dog.
 		 */
-		int ficheNR;
+		int ficheNR=0;
         String openFiches = "";
 		String speler_naam = sm.getUsername();
 		String mol_count = Integer.toString(sm.getMol_list().size());

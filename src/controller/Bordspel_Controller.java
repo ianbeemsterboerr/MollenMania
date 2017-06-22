@@ -16,14 +16,10 @@ public class Bordspel_Controller {
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
 		this.bs_interface = bs;
-<<<<<<< HEAD
-=======
-
 	}
 
 	public void showSpelBordView() throws RemoteException{
 		this.spelbordView=new SpelbordView(this, bs_interface);
->>>>>>> 47b0d2a246526f631958eba0d1cefc9c8faeaa6c
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{

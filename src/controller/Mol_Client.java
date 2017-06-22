@@ -21,7 +21,7 @@ public class Mol_Client {
             //CALL OBJECT FROM INTERFACE IMPLEMENTATIONNN
 			// get remote interface object from registry
 			Bordspel_Interface userStub = (Bordspel_Interface) registry.lookup("Spelbord_Model");
-			Bordspel_Controller bs_controller = new Bordspel_Controller(userStub);
+			Bordspel_Controller bs_controller = new Bordspel_Controller(userStub, username);
 
 			int spid = userStub.playerList().size()+1;
 			//System.out.println(userStub.getClientHost());

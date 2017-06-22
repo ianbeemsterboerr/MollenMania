@@ -276,7 +276,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-
+		ArrayList<Speler_Model> spelers = playable.spelModel().getPlayers();
+		for (Speler_Model speler:spelers) {
+			System.out.println(speler.getPlayer_id());
+		}
 	}
 
 	@Override

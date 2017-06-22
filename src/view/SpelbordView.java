@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
+import controller.Fiche_Controller;
 import controller.Player_Observer;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -108,7 +109,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		});
 		
 		fiche_btn.setOnAction(e->{
-			sm.getFiches().remove(1);
+            new Fiche_Controller().kiesFiche(sm.getFiche_list());
+            new Fiche_Controller().fichesCheck(sm.getFiche_list());
 		});
 		
 		mol_btn.setOnAction(e->{
@@ -256,7 +258,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 
 		for(VeldKnop veldKnop: buttonArray){
-			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();
+				System.out.println(veldKnop.getCoordinaten());});
 
 		}
 

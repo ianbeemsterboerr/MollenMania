@@ -254,7 +254,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
-		
+
+		for(VeldKnop veldKnop: buttonArray){
+			veldKnop.setOnAction( e-> {veldKnop.getCoordinaten();});
+
+		}
+
 		return root;
 	}
 	

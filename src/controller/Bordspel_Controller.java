@@ -20,7 +20,10 @@ public class Bordspel_Controller {
 
 	public void showSpelBordView() throws RemoteException{
 		this.spelbordView=new SpelbordView(this, bs_interface);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bee64fd7922f14c1348f87f60286e1ff8e4515b7
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{

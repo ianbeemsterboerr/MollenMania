@@ -38,6 +38,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private GridPane veld_pane;
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
+	private Bordspel_Controller bordspel_controller;
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -45,6 +46,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	GridPane player_4;
 	
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException{
+		this.bordspel_controller=bs_controller;
 		Stage bordStage = new Stage();
 		
 		try {
@@ -55,9 +57,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-		
+
+		//Puur om te kijken of de view shit uit de model kan halen
+		Button testRefresh = new Button("Test Refresh!");
+		testRefresh.setOnAction(e->{
+			try {
+			bordspel_controller.refresh();
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}});
+
 		spelbord_pane = this.loadPlayers(players);
 		veld_pane = this.loadVeld();
+		spelbord_pane.setRight(testRefresh);
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");

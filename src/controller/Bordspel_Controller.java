@@ -1,9 +1,9 @@
 package controller;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import model.Speler_Model;
+import view.SpelbordView;
 
 public class Bordspel_Controller {
 	
@@ -23,11 +23,11 @@ public class Bordspel_Controller {
 	}
 	
 	public void spelerReady() throws RemoteException{
-		int players_ready = 0;
+		int players_ready = this.bs_interface.readyList().size();
 		if(players_ready < 4){
-			
-		} else {
-			System.out.println("Player list is full.");
+			System.out.println("Waiting for players");
+		} else{
+			new SpelbordView(this, this.bs_interface);
 		}
 	}
 }

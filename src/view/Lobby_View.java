@@ -95,6 +95,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
 				game_table.setItems(data_new);
+				this.bs_controller.spelerReady();
 			}catch(Exception b){
 				b.printStackTrace();
 		}});
@@ -103,8 +104,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				//new SpelbordView(this.bs_controller, this.bs_interface);
 				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-				System.out.println("Player: " + game_table.getSelectionModel().getSelectedItem().getPlayer_id() + " is ready.");
-				System.out.println(this.bs_interface.readyList().size());
+//				this.bs_controller.spelerReady();
+//				System.out.println("Player: " + game_table.getSelectionModel().getSelectedItem().getPlayer_id() + " is ready.");
+//				System.out.println(this.bs_interface.readyList().size());
 			}catch(Exception b){
 				b.printStackTrace();
 		}});

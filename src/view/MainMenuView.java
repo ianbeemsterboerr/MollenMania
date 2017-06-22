@@ -21,6 +21,8 @@ import view.spelbord_view;
 import controller.Bordspel_Interface;
 import controller.Bordspel_Controller;
 
+import java.rmi.RemoteException;
+
 public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
@@ -55,6 +57,11 @@ public class MainMenuView {
 		btn_exitSpel = new Button();
 		btn_hervatSpel = new Button();
 		btn_spelSpelen = new Button("test");
+
+		btn_spelSpelen.setOnAction(a->{
+
+
+		});
 		//Button btn_oog = new Button();
 		//Button btn_close = new Button();
 		//Button btn_loudspeaker = new Button();

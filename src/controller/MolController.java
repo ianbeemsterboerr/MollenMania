@@ -68,5 +68,22 @@ public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){
     }
         return false;
 
+
 }
+
+public int aantalMollen (Spel_Model spelModel){
+    int aantalSpelers = spelModel.getSpeler().size();
+
+    if (aantalSpelers == 2){
+        return 10;
+    }
+    else if (aantalSpelers == 3){
+        return 8;
+    }
+    else {
+        return 6;
+    }
+
+}
+
 }

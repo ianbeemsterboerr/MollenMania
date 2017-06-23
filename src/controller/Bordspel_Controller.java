@@ -15,6 +15,11 @@ public class Bordspel_Controller {
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
+
+	private int kerenGeweest;
+	private int[] geselecteerdeMolPos;
+	private int gedraaideFicheWaarde;
+
 	
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
@@ -53,6 +58,7 @@ public class Bordspel_Controller {
 	 * @param position
 	 */
 	public void clickAction(int[] position){
+
 	}
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){

@@ -4,6 +4,9 @@ import model.Spel_Model;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 import view.MolKnop;
+
+import java.util.ArrayList;
+
 import model.MolModel;
 import model.Spel_Interface;
 

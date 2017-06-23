@@ -11,6 +11,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
+	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
+	private int[] specialPos;
 	private int bordMax;
 
 	public Spelbord_Model(){
@@ -110,5 +112,29 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public int maxSpelers() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bordMax;
+	}
+
+	public void setMol_onbord(ArrayList<MolModel> mol_onbord) {
+		this.mol_onbord = mol_onbord;
+	}
+
+	public int[] getSpecialPos() {
+		return specialPos;
+	}
+
+	public void setSpecialPos(int[] specialPos) {
+		this.specialPos = specialPos;
+	}
+
+	@Override
+	public ArrayList<MolModel> molOnField() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.mol_onbord;
+	}
+
+	@Override
+	public void addMolField(MolModel mol) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.mol_onbord.add(mol);
 	}
 }

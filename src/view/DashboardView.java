@@ -1,5 +1,6 @@
 package view;
 
+import controller.Bordspel_Controller;
 import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -7,28 +8,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import model.Speler_Model;
 
-import java.rmi.RemoteException;
-
 /**
  * Created by Robert on 6/22/2017.
  *
  * Heeft nog een manier nodig om te zeggen tegen Bordspel_COntroller of SpelController dat model veranderd is.
- * Moet ook 6 fiches krijgen ipv 1 knop. Elke krijgt een aciotnlistener die naar fiche_controller verwijst.
+ * Moet ook 6 fiches krijgen ipv 1 knop. Elke krijgt een aciotnlistener die naar bordspel_controller verwijst.
  * Mss moet deze klasse STring bijnaam krijgen zodat deze aan Fiche_controller meegegeven kan worden op hetmoment
  * dat je iets verandert, als bewijs van wie je bent?
  *
  * En wtf is dit buttonarray thingy?
  */
 public class DashboardView {
-    private Fiche_Controller fiche_controller;
+    private Bordspel_Controller bordspel_controller;
     private GridPane grid;
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
 
-    public DashboardView(Speler_Model sm, Fiche_Controller fiche_controller, Pos alignment, String bijnaam){
+    public DashboardView(Speler_Model sm, Bordspel_Controller bs_controller, Pos alignment, String bijnaam){
         this.alignment=alignment;
-        this.fiche_controller=fiche_controller;
+        this.bordspel_controller = bordspel_controller;
         this.speler_model=sm;
 
         System.out.println("DashboardView: bijnaam = "+bijnaam+" sm.getUserName = "+sm.getUsername());

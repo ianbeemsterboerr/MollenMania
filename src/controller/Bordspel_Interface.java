@@ -11,7 +11,11 @@ import model.Spelbord_Model;
 import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
-	
+
+	public Spelbord_Model.SpelState getSpelState() throws RemoteException;
+
+	public void setSpelState(Spelbord_Model.SpelState spelState) throws RemoteException;
+
 	public void addObserver(Player_Observer po) throws RemoteException;
 	
 	public void addSpeler(Speler_Model sm) throws RemoteException;

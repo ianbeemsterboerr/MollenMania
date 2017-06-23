@@ -15,6 +15,11 @@ public class Bordspel_Controller {
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
+
+	private int kerenGeweest;
+	private int[] geselecteerdeMolPos;
+	private int gedraaideFicheWaarde;
+
 	
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
@@ -22,10 +27,10 @@ public class Bordspel_Controller {
 	}
 
 	public void showSpelBordView() throws RemoteException{
-		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface
-		this.molController = new MolController(); //krijgt bs_interface
+		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface ?
+		this.molController = new MolController(); //krijgt bs_interface ?
 
-		this.spelbordView=new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
+		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -41,13 +46,23 @@ public class Bordspel_Controller {
 		int players_ready = rlist.size();
 		int max = this.bs_interface.maxSpelers();
 		if(players_ready == max){
-			new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
+			new SpelbordView(this, bs_interface, this.bijnaam);
 		} else{
 			System.out.println(players_ready);
 			System.out.println("Waiting for players");
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Deze method geeft aan dat er op een veld
+	 * @param position
+	 */
+	public void clickAction(int[] position){
+
+	}
+>>>>>>> c4a1d28b3472afa306105e8681889fbdc63e6c77
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){
 		int [] mollist = molcheck.getCoord();
@@ -57,6 +72,7 @@ public class Bordspel_Controller {
 		} else {
 			return false;
 		}
+<<<<<<< HEAD
 	}
 	/**
 	 * Deze method geeft aan dat er op een veld
@@ -67,6 +83,8 @@ public class Bordspel_Controller {
 
 	private void checkZetValid(int[] positie){
 
+=======
+>>>>>>> c4a1d28b3472afa306105e8681889fbdc63e6c77
 	}
 
 	public void refresh() throws RemoteException{

@@ -42,17 +42,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
-<<<<<<< HEAD
 	private VeldKnop[] buttonArray;
 
-	
-=======
+	//private Button rmiTest = new Button("RMI Test!");
 
-	private VeldKnop[] buttonArray;
-
-	private Button rmiTest = new Button("RMI Test!");
-
->>>>>>> 2936c729f97a55815ae28f33e2fd31e0b45ba567
 	GridPane player_1;
 	GridPane player_2;
 	GridPane player_3;

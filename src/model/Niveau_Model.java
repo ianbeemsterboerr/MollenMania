@@ -1,21 +1,24 @@
+package model;
 
+import model.Velden.GoudenSchep_Veld;
+import model.Velden.Molshoop_Veld;
+import model.Velden.Normaalveld_Veld;
+import model.Velden.SpeciaalVeld_Veld;
+import model.Velden.GoudenSchep_Veld;
 
-        package model;
-
-        import model.Velden.GoudenSchep_Veld;
-        import model.Velden.Molshoop_Veld;
-        import model.Velden.Normaalveld_Veld;
-        import model.Velden.SpeciaalVeld_Veld;
-        import model.Velden.GoudenSchep_Veld;
-
-        import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Wessel on 6-6-2017.
  */
-public class Niveau_Model  {
+public class Niveau_Model implements Serializable {
 
-    ArrayList<Molshoop_Veld> molshoop;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	ArrayList<Molshoop_Veld> molshoop;
     ArrayList<Normaalveld_Veld> normaal;
     ArrayList<SpeciaalVeld_Veld> speciaal;
     ArrayList<GoudenSchep_Veld> goudenSchep;

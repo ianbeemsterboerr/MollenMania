@@ -13,6 +13,8 @@ public class Bordspel_Controller {
 	Bordspel_Interface bs_interface;
 	SpelbordView spelbordView;
 	private String bijnaam;
+	MolController molController;
+	Fiche_Controller fiche_controller;
 	
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
@@ -20,7 +22,10 @@ public class Bordspel_Controller {
 	}
 
 	public void showSpelBordView() throws RemoteException{
-		this.spelbordView=new SpelbordView(this, bs_interface);
+		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface
+		this.molController = new MolController(); //krijgt bs_interface
+
+		this.spelbordView=new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -36,12 +41,13 @@ public class Bordspel_Controller {
 		int players_ready = rlist.size();
 		int max = this.bs_interface.maxSpelers();
 		if(players_ready == max){
-			new SpelbordView(this, this.bs_interface);
+			new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
 		} else{
 			System.out.println(players_ready);
 			System.out.println("Waiting for players");
 		}
 	}
+
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){
 		int [] mollist = molcheck.getCoord();
@@ -51,6 +57,16 @@ public class Bordspel_Controller {
 		} else {
 			return false;
 		}
+	}
+	/**
+	 * Deze method geeft aan dat er op een veld
+	 * @param position
+	 */
+	public void clickAction(int[] position){
+	}
+
+	private void checkZetValid(int[] positie){
+
 	}
 
 	public void refresh() throws RemoteException{

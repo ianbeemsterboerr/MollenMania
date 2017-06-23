@@ -82,10 +82,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		vbox_hervat_options.getChildren().addAll(btn_pion, btn_kleur, btn_klaar, btn_refresh);
 
 		btn_kleur.setOnAction(e->{
-			spelbord_view test;
+			
 			try {
-				test = new spelbord_view();
-				test.spelbord_show(bs_controller, bs_interface);
+				System.out.println(bs_interface.pm().test());
 			} catch (RemoteException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

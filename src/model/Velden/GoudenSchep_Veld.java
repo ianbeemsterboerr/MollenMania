@@ -1,11 +1,17 @@
 package model.Velden;
 
+import java.io.Serializable;
+
 /**
  * Created by Wessel on 6-6-2017.
  */
-public class GoudenSchep_Veld {
+public class GoudenSchep_Veld implements Serializable {
 
-    private int[] positie;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int[] positie;
     private boolean eindeSpel = false;
 
     public void spelAfgelopen(){

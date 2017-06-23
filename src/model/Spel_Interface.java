@@ -19,4 +19,5 @@ public interface Spel_Interface extends Remote {
     public void setPlayerObservers(ArrayList<Player_Observer> playerObservers) throws RemoteException;
     public int getMaxAantalObservers() throws RemoteException;
     public void setMaxAantalObservers(int maxAantalObservers) throws RemoteException;
+ 
 }

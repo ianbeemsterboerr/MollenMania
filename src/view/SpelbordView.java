@@ -5,10 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import controller.Bordspel_Controller;
-import controller.Bordspel_Interface;
-import controller.Fiche_Controller;
-import controller.Player_Observer;
+import controller.*;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -42,16 +39,20 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
+
+	private MolController molController;
+
 	private VeldKnop[] buttonArray;
 
 	//private Button rmiTest = new Button("RMI Test!");
 
-	GridPane player_1;
-	GridPane player_2;
-	GridPane player_3;
-	GridPane player_4;
+	DashboardView player_1;
+	DashboardView player_2;
+	DashboardView player_3;
+	DashboardView player_4;
 	
-	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface) throws RemoteException{
+	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, MolController molController, Fiche_Controller fiche_controller, String bijnaam) throws RemoteException{
+		this.molController=molController;
 		this.bordspel_controller=bs_controller;
 		Stage bordStage = new Stage();
 		
@@ -64,8 +65,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 
-		spelbord_pane = this.loadPlayers(players);
+		//spelbord_pane = this.loadPlayers(players);
 		veld_pane = this.loadVeld(players);
+
+		spelbord_pane = this.loadPlayers(players, fiche_controller, bijnaam);
+		//veld_pane = this.loadVeld();
+
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
@@ -148,8 +153,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	
 		return grid;
 	}
-	
-	public BorderPane loadPlayers(ArrayList<Speler_Model> players) throws RemoteException{
+
+	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Fiche_Controller fiche_controller, String bijnaam) throws RemoteException{
+
 		VBox left = new VBox();
 		left.setPadding(new Insets(20, 20, 20, 20));
 		left.setSpacing(350.0);
@@ -158,37 +164,23 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		right.setSpacing(350.0);
 		
 		if(players.size() == 2){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			left.getChildren().addAll(player_1);
-			right.getChildren().addAll(player_2);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
+			this.player_1 = new DashboardView(players.get(0),fiche_controller, Pos.TOP_LEFT, bijnaam);
+			this.player_2 = new DashboardView(players.get(1),fiche_controller, Pos.TOP_RIGHT, bijnaam);
+			left.getChildren().addAll(player_1.get());
+			right.getChildren().addAll(player_2.get());
 		} else if(players.size() == 3){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			this.player_3 = this.createUserPanel(players.get(2));
-			
-			left.getChildren().addAll(player_1, player_3);
-			right.getChildren().addAll(player_2);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
-			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
+			this.player_1 = new DashboardView(players.get(0),fiche_controller, Pos.TOP_LEFT, bijnaam);
+			this.player_2 = new DashboardView(players.get(1),fiche_controller, Pos.TOP_RIGHT, bijnaam);
+			this.player_3 = new DashboardView(players.get(2),fiche_controller, Pos.BOTTOM_LEFT, bijnaam);
+			left.getChildren().addAll(player_1.get(), player_3.get());
+			right.getChildren().addAll(player_2.get());
 		} else if(players.size() == 4){
-			this.player_1 = this.createUserPanel(players.get(0));
-			this.player_2 = this.createUserPanel(players.get(1));
-			this.player_3 = this.createUserPanel(players.get(2));
-			this.player_4 = this.createUserPanel(players.get(3));
-			
-			left.getChildren().addAll(player_1, player_3);
-			right.getChildren().addAll(player_2, player_4);
-			
-			this.player_1.setAlignment(Pos.TOP_LEFT);
-			this.player_2.setAlignment(Pos.TOP_RIGHT);
-			this.player_3.setAlignment(Pos.BOTTOM_LEFT);
-			this.player_4.setAlignment(Pos.BOTTOM_RIGHT);
+			this.player_1 = new DashboardView(players.get(0),fiche_controller, Pos.TOP_LEFT, bijnaam);
+			this.player_2 = new DashboardView(players.get(1),fiche_controller, Pos.TOP_RIGHT, bijnaam);
+			this.player_3 = new DashboardView(players.get(2),fiche_controller, Pos.BOTTOM_LEFT, bijnaam);
+			this.player_4 = new DashboardView(players.get(3),fiche_controller, Pos.BOTTOM_RIGHT, bijnaam);
+			left.getChildren().addAll(player_1.get(), player_3.get());
+			right.getChildren().addAll(player_2.get(), player_4.get());
 		} else {
 			System.out.println("nope");
 		}

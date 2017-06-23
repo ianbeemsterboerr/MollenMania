@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import model.MolModel;
+import model.Playboard_Model;
 import model.Spelbord_Model;
 import model.Speler_Model;
 
@@ -34,4 +35,6 @@ public interface Bordspel_Interface extends Remote {
 	public ArrayList<MolModel> molOnField() throws RemoteException;
 	
 	public void addMolField(MolModel mol) throws RemoteException;
+	
+	public Playboard_Model pm() throws RemoteException;
 }

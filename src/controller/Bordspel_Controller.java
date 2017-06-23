@@ -22,10 +22,10 @@ public class Bordspel_Controller {
 	}
 
 	public void showSpelBordView() throws RemoteException{
-		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface
-		this.molController = new MolController(); //krijgt bs_interface
+		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface ?
+		this.molController = new MolController(); //krijgt bs_interface ?
 
-		this.spelbordView=new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
+		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -41,7 +41,7 @@ public class Bordspel_Controller {
 		int players_ready = rlist.size();
 		int max = this.bs_interface.maxSpelers();
 		if(players_ready == max){
-			new SpelbordView(this, bs_interface, molController, fiche_controller, this.bijnaam);
+			new SpelbordView(this, bs_interface, this.bijnaam);
 		} else{
 			System.out.println(players_ready);
 			System.out.println("Waiting for players");

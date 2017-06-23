@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
 import controller.Bordspel_Controller;
-import controller.SpelController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

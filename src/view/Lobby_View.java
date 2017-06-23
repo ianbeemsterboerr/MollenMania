@@ -104,17 +104,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				//new SpelbordView(this.bs_controller, this.bs_interface);
 				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-<<<<<<< HEAD
+				//this.bs_controller.showSpelBordView();
 
-				//this.bs_controller.showSpelBordView();
-				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-
-				//this.bs_controller.showSpelBordView();
-=======
-				//this.bs_controller.showSpelBordView();
-				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-				this.bs_controller.showSpelBordView();
->>>>>>> f25d7b7ce52ebcf38d07b80f14d3b5bfa6285298
 				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
 			}catch(Exception b){
 				b.printStackTrace();

@@ -3,6 +3,7 @@ package view;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
@@ -23,6 +24,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.MolModel;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 
@@ -40,11 +42,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	Label aantal_fiche_lbl = new Label(); 
 	Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
-<<<<<<< HEAD
 	private VeldKnop[] buttonArray;
-=======
-	private Button rmiTest = new Button("RMI Test!");
->>>>>>> f25d7b7ce52ebcf38d07b80f14d3b5bfa6285298
+
 	
 	GridPane player_1;
 	GridPane player_2;
@@ -65,7 +64,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.bs_interface = bs_interface;
 
 		spelbord_pane = this.loadPlayers(players);
-		veld_pane = this.loadVeld();
+		veld_pane = this.loadVeld(players);
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
@@ -132,8 +131,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		mol_btn.setOnAction(e->{
 			sm.getMol_list().remove(1);
 			
-			int size = this.buttonArray.length;
-			System.out.println(this.buttonArray[1].getCoordinaten());
+			
 		});
 		
 		grid.add(username_lbl, 0, 0);
@@ -193,7 +191,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		} else {
 			System.out.println("nope");
 		}
-	
 		
 		BorderPane moap = new BorderPane();
 		moap.setLeft(left);
@@ -201,7 +198,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		return moap;
 	}
 	
-	public GridPane loadVeld() throws RemoteException{
+	public GridPane loadVeld(ArrayList<Speler_Model> players) throws RemoteException{
 		GridPane root = new GridPane();
 		int numRows = 12;
 		int numCols = 29;
@@ -276,7 +273,53 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
-	
+		
+		/*
+		 * final used to be used inside lamba. reason: jah knows.
+		 */
+		for(int i=0;i<this.buttonArray.length;i++){
+			final VeldKnop buttonBox;
+			buttonBox = buttonArray[i];
+			buttonBox.setOnAction(e->{
+				/*
+				 * button changes
+				 */
+				//buttonBox.setDisable(true);
+				buttonBox.setBezet(true);
+				buttonBox.setStyle("-fx-background-color: #ff0000;");
+				
+				/*
+				 * model changes
+				 * to be done:
+				 * 		1. whose turn is it?
+				 */
+				int mol_index = 0;
+				Speler_Model empty = new Speler_Model();
+				MolModel holdme = new MolModel();
+				empty = players.get(0); // replace 0 with index aan de beurt.
+				holdme = empty.getMol_list().get(mol_index); // index is always 0 -> always take first mol
+				
+				try {
+					if(Arrays.equals(holdme.getCoord(), buttonBox.getCoordinaten())){
+						System.out.println("you can't do that silly.");
+					} else{
+						System.out.println("mol added");
+						holdme.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, MOVE
+						this.bs_interface.addMolField(holdme);
+						mol_index++;
+					}
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			});
+		}
+		
+//		buttonArray[0].setOnAction(e->{
+//			buttonArray[0]
+//			System.out.println("fail");
+//		});
+		
     	return root;
 	}
 	

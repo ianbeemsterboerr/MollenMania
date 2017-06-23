@@ -2,6 +2,7 @@ package controller;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import model.MolModel;
 import model.Speler_Model;
@@ -42,12 +43,25 @@ public class Bordspel_Controller {
 		}
 	}
 
-	public void checkZetValid(int[] positie){
-
+	public boolean checkZetValid(MolModel molcheck, int[] positie){
+		int [] mollist = molcheck.getCoord();
+		
+		if(Arrays.equals(mollist, positie)){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void refresh() throws RemoteException{
 		spelbordView.playerDataTest(bs_interface.playerList());
+	}
+	
+	public void assignMolCoord(Speler_Model sm, int[] coord){
+		ArrayList<MolModel> mols = new ArrayList<MolModel>();
+		mols = sm.getMol_list();
+		mols.get(0).setCoord(coord);
+		System.out.println(mols.get(0).getCoord());
 	}
 
 }

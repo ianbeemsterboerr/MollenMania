@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 public class VeldKnop extends Button {
 	
 	private int[] coordinaten;
+	private boolean isBezet;
+	private boolean isSpeciaal;
 	
 	public VeldKnop(int x, int y, int z){
 		this.coordinaten = new int[]{x, y, z};
@@ -27,6 +29,22 @@ public class VeldKnop extends Button {
 
 	public void setCoordinaten(int x, int y, int z) {
 		this.coordinaten = new int[]{x, y, z};
+	}
+
+	public boolean isBezet() {
+		return isBezet;
+	}
+
+	public void setBezet(boolean isBezet) {
+		this.isBezet = isBezet;
+	}
+
+	public boolean isSpeciaal() {
+		return isSpeciaal;
+	}
+
+	public void setSpeciaal(boolean isSpeciaal) {
+		this.isSpeciaal = isSpeciaal;
 	}
 	
 }

@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 public interface Player_Observer extends Remote {
 	/**
 	 * @since 0.1
-	 * @param t
+	 * @param playable
 	 *            the model that is changed
 	 * @throws RemoteException
 	 *             when the connection between RMI client and server is

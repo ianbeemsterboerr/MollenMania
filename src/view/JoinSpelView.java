@@ -43,8 +43,7 @@ public class JoinSpelView {
         hbox_connect.setAlignment(Pos.CENTER);
         hbox_connect.setSpacing(10.0);
 
-        btn_connect.setId("btn_hervatspel");
-        btn_back.setId("btn_hervatspel");
+
 
         btn_connect.setOnAction(e -> {
             try{

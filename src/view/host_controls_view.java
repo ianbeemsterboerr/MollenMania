@@ -60,7 +60,7 @@ public class host_controls_view {
 
 		Scene connect_scene = new Scene(grid, 250, 85);
 		//Make scene call up style.css for styling
-		connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+		connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
 		connectStage.setTitle("Host een spel");
 		connectStage.setScene(connect_scene);
 		connectStage.show();

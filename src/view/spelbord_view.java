@@ -264,7 +264,7 @@ public class spelbord_view extends UnicastRemoteObject implements Player_Observe
 		Scene scene = new Scene(root, 1000, 600);
 		root.setId("root");
 
-		scene.getStylesheets().addAll(this.getClass().getResource("SpelbordStyle.css").toExternalForm());
+		scene.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 		/**for (int i = 0; i < buttonArray.length; i++) {

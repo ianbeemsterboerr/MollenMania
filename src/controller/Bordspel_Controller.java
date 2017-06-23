@@ -50,4 +50,5 @@ public class Bordspel_Controller {
 		spelbordView.playerDataTest(bs_interface.playerList());
 	}
 
+
 }

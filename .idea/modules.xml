@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MolServer/MolServer.iml" filepath="$PROJECT_DIR$/MolServer/MolServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MollenTest.iml" filepath="$PROJECT_DIR$/MollenTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mol_server/Mol_server.iml" filepath="$PROJECT_DIR$/Mol_server/Mol_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mollenmania.iml" filepath="$PROJECT_DIR$/mollenmania.iml" />
     </modules>
   </component>
 </project>

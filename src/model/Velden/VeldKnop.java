@@ -7,9 +7,10 @@ public class VeldKnop extends Button {
 	private boolean isBezet;
 	private boolean isSpeciaal;
 	
-	public VeldKnop(int x, int y, int z){
+	public VeldKnop(int x, int y, int z){//, boolean isBezet, String kleur moeten teruggezet worden
 		this.coordinaten = new int[]{x, y, z};
 	}
+
 
 	public int[] getCoordinaten() {
 		return coordinaten;

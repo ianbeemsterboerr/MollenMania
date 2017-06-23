@@ -3,13 +3,14 @@ package model;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * Created by Wessel on 15-6-2017.
  */
-public class Spel_Model implements Initializable {
+public class Spel_Model implements Initializable, Spel_Interface {
 
     private Playboard_Model spelbord;
     private ArrayList<Speler_Model> spelerModels;
@@ -25,47 +26,58 @@ public class Spel_Model implements Initializable {
         this.maxAantalObservers = maxAantalObservers;
     }
 
-    public Playboard_Model getSpelbord() {
+    @Override
+    public Playboard_Model getSpelbord() throws RemoteException {
         return spelbord;
     }
 
-    public void setSpelbord(Playboard_Model spelbord) {
+    @Override
+    public void setSpelbord(Playboard_Model spelbord) throws RemoteException {
         this.spelbord = spelbord;
     }
 
-    public void setSpelbord(ArrayList<Playboard_Model> spelbord) {
+    @Override
+    public void setSpelbord(ArrayList<Playboard_Model> spelbord)  throws RemoteException{
         spelbord = spelbord;
     }
 
-    public ArrayList<Speler_Model> getSpeler() {
+    @Override
+    public ArrayList<Speler_Model> getSpeler()  throws RemoteException{
         return spelerModels;
     }
 
-    public void setSpelers(ArrayList<Speler_Model> spelers) {
+    @Override
+    public void setSpelers(ArrayList<Speler_Model> spelers)  throws RemoteException{
         this.spelerModels = spelerModels;
     }
 
-    public int getHuidigNiveau() {
+    @Override
+    public int getHuidigNiveau() throws RemoteException{
         return huidigNiveau;
     }
 
-    public void setHuidigNiveau(int huidigNiveau) {
+    @Override
+    public void setHuidigNiveau(int huidigNiveau) throws RemoteException {
         this.huidigNiveau = huidigNiveau;
     }
 
-    public ArrayList<Player_Observer> getPlayerObservers() {
+    @Override
+    public ArrayList<Player_Observer> getPlayerObservers()  throws RemoteException{
         return playerObservers;
     }
 
-    public void setPlayerObservers(ArrayList<Player_Observer> playerObservers) {
+    @Override
+    public void setPlayerObservers(ArrayList<Player_Observer> playerObservers) throws RemoteException{
         this.playerObservers = playerObservers;
     }
 
-    public int getMaxAantalObservers() {
+    @Override
+    public int getMaxAantalObservers() throws RemoteException {
         return maxAantalObservers;
     }
 
-    public void setMaxAantalObservers(int maxAantalObservers) {
+    @Override
+    public void setMaxAantalObservers(int maxAantalObservers)  throws RemoteException{
         this.maxAantalObservers = maxAantalObservers;
     }
 

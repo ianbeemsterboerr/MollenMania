@@ -8,27 +8,50 @@ import view.MolKnop;
 import java.util.ArrayList;
 
 import model.MolModel;
+import model.Spel_Interface;
+
+import java.rmi.RemoteException;
 
 /**
  * Created by Wessel on 15-6-2017.
  */
 public class MolController {
     // In deze method worden de mollen neergezet aan het start van het spel
- public Spel_Model mollenNeerzetten (VeldKnop veldKnop, Spel_Model spelModel, int spelerIndex) {
 
-        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
-            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()){
-                return null;
-            }
-        for(Speler_Model speler : spelModel.getSpeler()){
-            for (MolModel mollen : speler.getMol_list()){
-                if (mollen.getCoord() == veldKnop.getCoordinaten()){
-                    return null;
+    //Robert: Spel_Model in Spel_Interface veranderd om errors te voorkomen.
+ public Spel_Interface mollenNeerzetten(VeldKnop veldKnop, Spel_Interface spelModel, int spelerIndex) {
+
+     //Robert: heb try/catch toegevoegd om RemoteException Bullshit te voorkomen
+     try {
+         for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
+             if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()){
+                 return null;
+             }
+     } catch (RemoteException e) {
+         e.printStackTrace();
+     }
+
+     //Robert: heb try/catch toegevoegd om RemoteException Bullshit te voorkomen
+     try {
+         for(Speler_Model speler : spelModel.getSpeler()){
+                for (MolModel mollen : speler.getMol_list()){
+                    if (mollen.getCoord() == veldKnop.getCoordinaten()){
+                        return null;
+                    }
                 }
             }
-        }
-        spelModel.getSpeler().get(spelerIndex).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
-        return spelModel;
+     } catch (RemoteException e) {
+         e.printStackTrace();
+     }
+
+     //Robert: heb try/catch toegevoegd om RemoteException Bullshit te voorkomen
+     try {
+         spelModel.getSpeler().get(spelerIndex).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
+     } catch (RemoteException e) {
+         e.printStackTrace();
+     }
+
+     return spelModel;
     }
 
 // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
@@ -74,8 +97,13 @@ public boolean zetGeldig(MolModel mol, int [] eindPunt, int ficheNR){
 
 }
 
-public int aantalMollen (Spel_Model spelModel){
-    int aantalSpelers = spelModel.getSpeler().size();
+public int aantalMollen (Spel_Interface spelModel){
+    int aantalSpelers = 0;
+    try {
+        aantalSpelers = spelModel.getSpeler().size();
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
 
     if (aantalSpelers == 2){
         return 10;

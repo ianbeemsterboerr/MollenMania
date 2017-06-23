@@ -6,6 +6,7 @@ import java.rmi.server.UnicastRemoteObject;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
 import controller.Bordspel_Controller;
+import controller.SpelController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -104,8 +105,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				//new SpelbordView(this.bs_controller, this.bs_interface);
 				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
+				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
+				this.bs_controller.showSpelBordView();
 				//this.bs_controller.showSpelBordView();
-
 				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
 			}catch(Exception b){
 				b.printStackTrace();

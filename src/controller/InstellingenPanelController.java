@@ -27,9 +27,6 @@ public class InstellingenPanelController {
         System.out.println(instellingenModel.getSoundState());
     }
 
-    public void openHandleiding(){
-
-    }
 
     public void toggleKleurenblindModus(){
         if(instellingenModel.getKleurenBlindModus()){

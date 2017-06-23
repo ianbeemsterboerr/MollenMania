@@ -17,7 +17,8 @@ import java.awt.*;
 public class HandleidingView {
     private Image[] paginas = new Image[4];
     private int huidigePagina=0;
-    ImageView imgPane;
+    private ImageView imgPane;
+    private Stage handleidingStage;
 
 
     public HandleidingView(){
@@ -27,7 +28,7 @@ public class HandleidingView {
         paginas[3] = new Image(getClass().getResource("img/handleiding_pag4.png").toString());
 
         double button_width = 150.0;
-        Stage handleidingStage = new Stage();
+        handleidingStage = new Stage();
         HBox hbox_handleiding = new HBox();
 
         Button btn_volgende = new Button("Volgende >>");
@@ -55,6 +56,9 @@ public class HandleidingView {
         Scene handleiding_scene = new Scene(borderPane, 800, height);
         handleidingStage.setScene(handleiding_scene);
         handleidingStage.setTitle("Mollenmania - handleiding");
+    }
+
+    public void show(){
         handleidingStage.show();
     }
 

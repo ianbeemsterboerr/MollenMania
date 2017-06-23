@@ -17,6 +17,7 @@ public class InstellingenModel {
     public InstellingenModel(){
         try {
             this.clip= AudioSystem.getClip();
+            playMusic();
         } catch (LineUnavailableException e) {
             e.printStackTrace();
         }
@@ -50,6 +51,7 @@ public class InstellingenModel {
                 ex.printStackTrace();
             }
         } else {
+            clip.close();
             clip.stop();
         }
     }

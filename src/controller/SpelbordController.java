@@ -2,11 +2,13 @@ package controller;
 
 import model.Niveau_Model;
 import model.Playboard_Model;
+import model.Spel_Interface;
 import model.Spel_Model;
 import model.Velden.VeldKnop;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -14,15 +16,27 @@ import java.util.ArrayList;
  */
 public class SpelbordController {
 
-    public Niveau_Model switchNiveau(Spel_Model spelModel, int huidigNiveau, Playboard_Model spelbord) {
+    public Niveau_Model switchNiveau(Spel_Interface spelModel, int huidigNiveau, Playboard_Model spelbord) {
         if (huidigNiveau == 1) {
-            spelModel.setHuidigNiveau(huidigNiveau++);
+            try {
+                spelModel.setHuidigNiveau(huidigNiveau++);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             return spelbord.getNiveau2();
         } else if (huidigNiveau == 2) {
-            spelModel.setHuidigNiveau(huidigNiveau++);
+            try {
+                spelModel.setHuidigNiveau(huidigNiveau++);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             return spelbord.getNiveau3();
         } else {
-            spelModel.setHuidigNiveau(huidigNiveau++);
+            try {
+                spelModel.setHuidigNiveau(huidigNiveau++);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             return spelbord.getNiveau4();
         }
     }

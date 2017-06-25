@@ -18,8 +18,7 @@ public class Mol_Server extends UnicastRemoteObject{
 	public Mol_Server(int max) throws RemoteException{
 		try {
 			//object to work in
-			Spelbord_Model bordmodel = new Spelbord_Model();
-			bordmodel.setBordMax(max);
+			Spelbord_Model bordmodel = new Spelbord_Model(max);
 			// cast to remote object
 			Bordspel_Interface userSkeleton = (Bordspel_Interface) UnicastRemoteObject.exportObject(bordmodel, 0);
 			

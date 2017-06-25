@@ -12,6 +12,8 @@ import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
 
+	public int getMaxMollen() throws RemoteException;
+
 	public BeurtStatus getBeurtStatus() throws RemoteException;
 
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException;

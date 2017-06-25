@@ -14,10 +14,39 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
 	private int[] specialPos;
 	private int bordMax;
+	private int maxMollen;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 
 	private BeurtStatus beurtStatus;
+
+	public Spelbord_Model(int maxSpelers){
+		this.bordMax=maxSpelers;
+		switch (maxSpelers){
+			case 2:
+				this.maxMollen =10;
+				break;
+			case 3:
+				this.maxMollen =8;
+				break;
+			case 4:
+				this.maxMollen =6;
+				break;
+			case 1:
+				System.out.println(this.getClass().toString()+": max spelers te laag. Setup failed.");
+				break;
+			default:
+				System.out.println(this.getClass().toString()+": max spelers te hoog: "+maxSpelers+", mag niet meer zijn dan 4. Setup failed.");
+		}
+	}
+
+	public Spelbord_Model(String saveNaam){
+		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
+	}
+
+	public int getMaxMollen() throws RemoteException{
+		return this.maxMollen;
+	}
 
 	public BeurtStatus getBeurtStatus() throws RemoteException {
 		return beurtStatus;
@@ -44,7 +73,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		this.players.add(sm);
 	}
-
 
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
@@ -114,10 +142,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
 
-	}
-
-	public void setBordMax(int m){
-		this.bordMax = m;
 	}
 
 	@Override

@@ -16,20 +16,18 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int bordMax;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
+	private BeurtStatus beurtStatus;
 
-	public enum SpelState {LOBBY, NEERZETTEN, FICHEDRAAIEN, SELECTEREN, VERPLAATSEN, EINDE};
-	private SpelState spelState;
-
-	public SpelState getSpelState() throws RemoteException {
-		return spelState;
+	public BeurtStatus getBeurtStatus() throws RemoteException {
+		return beurtStatus;
 	}
 
-	public void setSpelState(SpelState spelState) throws RemoteException {
-		this.spelState = spelState;
+	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
+		this.beurtStatus = beurtStatus;
 	}
 
 	public Spelbord_Model(){
-		this.spelState=SpelState.LOBBY;
+		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 	
 	public ArrayList<Speler_Model> getPlayers() {

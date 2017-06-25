@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import model.BeurtStatus;
 import model.MolModel;
 import model.Spelbord_Model;
 import model.Speler_Model;
@@ -59,7 +60,7 @@ public class Bordspel_Controller {
 	 * @param position
 	 */
 	public void clickAction(int[] position) throws RemoteException{
-		if(bs_interface.getSpelState()== Spelbord_Model.SpelState.NEERZETTEN){
+		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
 			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
 			ArrayList<Speler_Model>  spelers = bs_interface.getSpelers();
 			Speler_Model spelerIk = new Speler_Model();
@@ -69,19 +70,20 @@ public class Bordspel_Controller {
 					spelerIk=speler;
 				}
 			}
+
 			if(bs_interface.maxSpelers()!=spelerIk.getMol_list().size()){
 				//Hier kijk je of het veld een molshoop is of niet
 			}
-			bs_interface.setSpelState(Spelbord_Model.SpelState.FICHEDRAAIEN);
-		} else if(bs_interface.getSpelState()==Spelbord_Model.SpelState.FICHEDRAAIEN){
+			bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
+		} else if(bs_interface.getBeurtStatus()== BeurtStatus.FICHEDRAAIEN){
 			System.out.println("Bordspel_Controller: clickAction FICHEDRAAIEN");
 
 
-		} else if (bs_interface.getSpelState()== Spelbord_Model.SpelState.SELECTEREN){
+		} else if (bs_interface.getBeurtStatus()== BeurtStatus.SELECTEREN){
 			System.out.println("Bordspel_Controller: clickAction SELECTERE");
 
 
-		} else if (bs_interface.getSpelState()== Spelbord_Model.SpelState.VERPLAATSEN){
+		} else if (bs_interface.getBeurtStatus()== BeurtStatus.VERPLAATSEN){
 			System.out.println("Bordspel_Controller: clickAction VERPLAATSEN");
 
 

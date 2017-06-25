@@ -5,15 +5,16 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import model.BeurtStatus;
 import model.MolModel;
 import model.Spelbord_Model;
 import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
 
-	public Spelbord_Model.SpelState getSpelState() throws RemoteException;
+	public BeurtStatus getBeurtStatus() throws RemoteException;
 
-	public void setSpelState(Spelbord_Model.SpelState spelState) throws RemoteException;
+	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException;
 
 	public void addObserver(Player_Observer po) throws RemoteException;
 

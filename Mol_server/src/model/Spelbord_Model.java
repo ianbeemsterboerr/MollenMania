@@ -15,10 +15,23 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int[] specialPos;
 	private int bordMax;
 
-	public Spelbord_Model(){
-		
+	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
+
+	public enum SpelState {LOBBY, NEERZETTEN, FICHEDRAAIEN, SELECTEREN, VERPLAATSEN, EINDE};
+	private SpelState spelState;
+
+	public SpelState getSpelState() throws RemoteException {
+		return spelState;
 	}
-	
+
+	public void setSpelState(SpelState spelState) throws RemoteException {
+		this.spelState = spelState;
+	}
+
+	public Spelbord_Model(){
+		this.spelState=SpelState.LOBBY;
+	}
+
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;
 	}
@@ -39,13 +52,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		return this.players;
 	}
-	
+
 	public void notifyObservers() throws RemoteException {
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
 		}
 	}
-	
+
 	@Override
 	public void addObserver(Player_Observer po) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -101,13 +114,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	public void setBordMax(int m){
 		this.bordMax = m;
 	}
-	
+
 	@Override
 	public int maxSpelers() throws RemoteException {
 		// TODO Auto-generated method stub

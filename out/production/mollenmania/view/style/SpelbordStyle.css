@@ -1,6 +1,16 @@
 #moap {
-    -fx-background-image: url("../img/Spelbord_Bord1.png");
-    -fx-background-size:1920 1080;
+    -fx-background-image: url("../img/Spelbord_Bord1_HD.png");
+    -fx-background-size: 80vh;
 	-fx-background-position: center center;
-	-fx-background-repeat: stretch;
 }
+
+#panel_win{
+    -fx-background-image: url("../img/Spelbord_Bord5.png");
+    -fx-background-position: center center;
+    -fx-background-size: 300%;
+    -fx-background-color: rgba(0,0,0,0.7);
+}
+    #text_win{
+        -fx-text-fill: white;
+        -fx-font-size: 30px;
+    }

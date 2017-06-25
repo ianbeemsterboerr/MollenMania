@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import model.MolModel;
+import model.Spelbord_Model;
 import model.Speler_Model;
 import view.SpelbordView;
 
@@ -15,6 +16,11 @@ public class Bordspel_Controller {
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
+
+	private int kerenGeweest;
+	private int[] geselecteerdeMolPos;
+	private int gedraaideFicheWaarde;
+
 	
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
@@ -52,7 +58,36 @@ public class Bordspel_Controller {
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 */
-	public void clickAction(int[] position){
+	public void clickAction(int[] position) throws RemoteException{
+		if(bs_interface.getSpelState()== Spelbord_Model.SpelState.NEERZETTEN){
+			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
+			ArrayList<Speler_Model>  spelers = bs_interface.getSpelers();
+			Speler_Model spelerIk = new Speler_Model();
+
+			for (Speler_Model speler: spelers) {
+				if(speler.getUsername().trim().equals(this.bijnaam.trim())){
+					spelerIk=speler;
+				}
+			}
+			if(bs_interface.maxSpelers()!=spelerIk.getMol_list().size()){
+				//Hier kijk je of het veld een molshoop is of niet
+			}
+			bs_interface.setSpelState(Spelbord_Model.SpelState.FICHEDRAAIEN);
+		} else if(bs_interface.getSpelState()==Spelbord_Model.SpelState.FICHEDRAAIEN){
+			System.out.println("Bordspel_Controller: clickAction FICHEDRAAIEN");
+
+
+		} else if (bs_interface.getSpelState()== Spelbord_Model.SpelState.SELECTEREN){
+			System.out.println("Bordspel_Controller: clickAction SELECTERE");
+
+
+		} else if (bs_interface.getSpelState()== Spelbord_Model.SpelState.VERPLAATSEN){
+			System.out.println("Bordspel_Controller: clickAction VERPLAATSEN");
+
+
+		} else {
+			System.out.println("Bordspel_Controller: clickAction niet afgehandeld");
+		}
 	}
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){

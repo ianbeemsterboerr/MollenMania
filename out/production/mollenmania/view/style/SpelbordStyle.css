@@ -2,6 +2,7 @@
     -fx-background-image: url("../img/Spelbord_Bord1_HD.png");
     -fx-background-size: 80vh;
 	-fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 #panel_win{

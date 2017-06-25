@@ -1,10 +1,14 @@
 package model;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Robert on 6/15/2017.
@@ -13,6 +17,8 @@ public class InstellingenModel {
     private boolean kleurenBlindModus=false;
     private boolean soundState=true;
     private Clip clip;
+    String musicFile = "src/view/sound/TestSound.mp3";
+    Media sound = new Media(new File(musicFile).toURI().toString());
 
     public InstellingenModel(){
         try {
@@ -43,10 +49,9 @@ public class InstellingenModel {
     private void playMusic(){
         if(soundState){
             try{
-                //deze moet nog veranderd
-                AudioInputStream stream = AudioSystem.getAudioInputStream(new File("C:\\Users\\Robert\\Music\\sabaton\\sparta.wav"));
-                clip.open(stream);
-                clip.start();
+
+                MediaPlayer mp = new MediaPlayer(sound);
+                mp.play();
             } catch (Exception ex){
                 ex.printStackTrace();
             }

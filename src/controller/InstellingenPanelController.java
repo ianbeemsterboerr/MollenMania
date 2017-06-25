@@ -21,13 +21,12 @@ public class InstellingenPanelController {
         return instellingenView;
     }
 
-    public void toggleVolume(){
-        if(instellingenModel.getSoundState()){
-            instellingenModel.setSoundState(false);
-        } else {
-            instellingenModel.setSoundState(true);
+    public void toggleMute(){
+        if (instellingenModel.getSoundState())
+        instellingenModel.muteSound();
+        else{
+            instellingenModel.unmuteSound();
         }
-        System.out.println(instellingenModel.getSoundState());
     }
 
 

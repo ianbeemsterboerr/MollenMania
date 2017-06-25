@@ -15,28 +15,22 @@ import java.io.FileNotFoundException;
  */
 public class InstellingenModel {
     private boolean kleurenBlindModus=false;
-    private boolean soundState=true;
+    private boolean soundState;
     private Clip clip;
     String musicFile = "src/view/sound/TestSound.mp3";
     Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mp = new MediaPlayer(sound);
 
     public InstellingenModel(){
-        try {
-            this.clip= AudioSystem.getClip();
+
             playMusic();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public boolean getSoundState() {
         return soundState;
     }
 
-    public void setSoundState(boolean soundState) {
-        this.soundState = soundState;
-        playMusic();
-    }
 
     public boolean getKleurenBlindModus() {
         return kleurenBlindModus;
@@ -45,19 +39,16 @@ public class InstellingenModel {
     public void setKleurenBlindModus(boolean kleurenBlindModus) {
         this.kleurenBlindModus = kleurenBlindModus;
     }
-
+    public void muteSound(){
+        mp.setMute(true);
+        soundState = false;
+    }
+    public void unmuteSound(){
+        mp.setMute(false);
+        soundState = true;
+    }
     private void playMusic(){
-        if(soundState){
-            try{
-
-                MediaPlayer mp = new MediaPlayer(sound);
                 mp.play();
-            } catch (Exception ex){
-                ex.printStackTrace();
-            }
-        } else {
-            clip.close();
-            clip.stop();
-        }
+                soundState = true;
     }
 }

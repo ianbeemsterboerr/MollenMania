@@ -84,14 +84,6 @@ public class MainMenuView {
 		btn_hervatSpel.setId("btn_hervatspel");
 		//btn_minimize.setId("btn_minimize");
 
-		btn_spelSpelen.setOnAction(e->{
-			try{
-				//bs_controller en bs_interface moeten nog geinstanieerd worden.
-				spelbord_view spelBordView = new spelbord_view();
-				spelBordView.spelbord_show(bs_controller, bs_interface);
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
 
 		// Button actions
 		btn_joinSpel.setOnAction(e -> {

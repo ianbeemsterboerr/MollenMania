@@ -1,9 +1,11 @@
 package model;
 
+import javafx.scene.paint.Color;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Speler_Model implements Serializable{
+public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	
 	/**
 	 * 
@@ -13,6 +15,7 @@ public class Speler_Model implements Serializable{
 	private int player_id;
 	private ArrayList<MolModel> mol_list = new ArrayList<MolModel>();
 	private int Handgrootte;
+	private String kleur;
 	private Fiche_Model fiche_list = new Fiche_Model();
 	private ArrayList<Integer> fiches;
 	private int fichesSize;
@@ -93,4 +96,16 @@ public class Speler_Model implements Serializable{
 		return myself;
 	}
 
+	public String getKleur() {
+		return kleur;
+	}
+
+	public void setKleur(String kleur) {
+		this.kleur = kleur;
+	}
+	@Override
+	public int compareTo(Speler_Model sm) {
+		int val  = ((Speler_Model) sm).getHandgrootte();
+		return val-this.getHandgrootte();
+	}
 }

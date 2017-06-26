@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.Speler_Model;
 
@@ -25,7 +26,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	Button btn_groen = new Button("Groen");
 	Button btn_geel = new Button("Geel");
 	Label meldingen = new Label();
-	String geselecteerdeKleur;
+	Color geselecteerdeKleur;
 
 	/**
 	 *
@@ -65,12 +66,14 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
 
 
-		slider_hand.setMaxWidth(button_width);
-		kleurOpties.setMaxWidth(button_width);
-		btn_klaar.setMaxWidth(button_width);
+//		slider_hand.setMaxWidth(button_width);
+//		kleurOpties.setMaxWidth(button_width);
+//		btn_klaar.setMaxWidth(button_width);
 		slider_hand.setMin(5);
 		slider_hand.setMax(25);
 		slider_hand.setValue(15);
+		slider_hand.setShowTickLabels(true);
+		slider_hand.setShowTickMarks(true);
 
 		data = FXCollections.observableArrayList(bs_interface.playerList());
 
@@ -96,26 +99,26 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
 
 		btn_blauw.setOnAction(e->{
-			geselecteerdeKleur="blauw";
+			geselecteerdeKleur=Color.BLUE;
 		});
 		btn_geel.setOnAction(e->{
-			geselecteerdeKleur="geel";
+			geselecteerdeKleur=Color.YELLOW;
 		});
 		btn_groen.setOnAction(e->{
-			geselecteerdeKleur="groen";
+			geselecteerdeKleur=Color.GREEN;
 		});
 		btn_rood.setOnAction(e->{
-			geselecteerdeKleur="rood";
+			geselecteerdeKleur=Color.RED;
 		});
 
 		btn_klaar.setOnAction(e -> {
 			if(geselecteerdeKleur!=null){
 				try{
-					//new SpelbordView(this.bs_controller, this.bs_interface);
+					System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 					Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
 					speler_model.setHandgrootte((int)slider_hand.getValue());
-					//speler_model.setK
-					//this.bs_interface.addSpelerReady();
+					speler_model.setKleur(geselecteerdeKleur.toString());
+					this.bs_interface.addSpeler(speler_model);
 					this.bs_controller.showSpelBordView();
 
 				}catch(Exception b){

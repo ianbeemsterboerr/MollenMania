@@ -30,8 +30,6 @@ public interface Bordspel_Interface extends Remote {
 	
 	public void addMolField(MolModel mol) throws RemoteException;
 	
-	public void addSpelerReady(Speler_Model sm) throws RemoteException;
-	
 	/*
 	 * LISTS
 	 */
@@ -39,8 +37,6 @@ public interface Bordspel_Interface extends Remote {
 	public ArrayList<Player_Observer> observer_list() throws RemoteException;
 	
 	public ArrayList<Speler_Model> playerList() throws RemoteException;
-	
-	public ArrayList<Speler_Model> readyList() throws RemoteException;
 	
 	public ArrayList<MolModel> molOnField() throws RemoteException;
 	

@@ -325,7 +325,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 1);
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.

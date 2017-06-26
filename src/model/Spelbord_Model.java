@@ -87,6 +87,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	 * @author	Robert
 	 */
 	public void setSpelerReady(Speler_Model sm) throws RemoteException{
+		System.out.println(this.getClass().toString()+" setSpelerReady()");
 		int spelerIndex=0;
 		for (Speler_Model speler:players) {
 			if(speler.getUsername().trim().equals(sm.getUsername().trim())){

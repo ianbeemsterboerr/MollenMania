@@ -68,10 +68,6 @@ public class Spelbord_Model implements Bordspel_Interface {
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
 		this.players.add(sm);
-		Collections.sort(players);
-		for (Speler_Model speler:players) {
-			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
-		}
 		notifyObservers();
 	}
 
@@ -91,7 +87,13 @@ public class Spelbord_Model implements Bordspel_Interface {
 		}
 		this.players.set(spelerIndex,sm);
 		this.players.get(spelerIndex).setReady(true);
+
+		Collections.sort(players);
+		for (Speler_Model speler:players) {
+			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+		}
 		this.beurtStatus=BeurtStatus.NEERZETTEN;
+		notifyObservers();
 	}
 
 

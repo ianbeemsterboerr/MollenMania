@@ -8,15 +8,15 @@ import controller.Player_Observer;
 
 public class Spelbord_Model implements Bordspel_Interface{
 
-	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
-	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
-	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
-	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
+	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
+	private ArrayList<Speler_Model> players = new ArrayList<>();
+	private ArrayList<Speler_Model> ready_list = new ArrayList<>();
+	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
+
 	private int aanDeBeurt;
 	private int bordMax;
-<<<<<<< HEAD
-=======
+
 	private int maxMollen;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
@@ -48,10 +48,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 
-	public int getMaxMollen() throws RemoteException{
-		return this.maxMollen;
-	}
-
 	public BeurtStatus getBeurtStatus() throws RemoteException {
 		return beurtStatus;
 	}
@@ -59,7 +55,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
 	}
->>>>>>> 3b07f3184ea2fe2d11ab3128987ec51d7fe4714a
 
 	public Spelbord_Model(){
 		
@@ -69,14 +64,16 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return players;
 	}
 
-	public void setPlayers(ArrayList<Speler_Model> players) {
+	public void setPlayers(ArrayList<Speler_Model> players)throws RemoteException {
 		this.players = players;
+		notifyObservers();
 	}
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.players.add(sm);
+		notifyObservers();
 	}
 
 
@@ -99,8 +96,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Spelbord_Model.addObserver");
 		}
 	}
 
@@ -122,6 +119,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void addSpelerReady(Speler_Model sm) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.ready_list.add(sm);
+		notifyObservers();
 	}
 
 	@Override

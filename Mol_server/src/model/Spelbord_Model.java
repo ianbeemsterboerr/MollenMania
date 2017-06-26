@@ -15,6 +15,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int[] specialPos;
 	private int bordMax;
 	private int maxMollen;
+	private  int beurtIndex=0;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 
@@ -172,5 +173,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
+	}
+
+	public int getBeurtIndex() {
+		return beurtIndex;
+	}
+
+	public void setBeurtIndex(int beurtIndex) {
+		this.beurtIndex = beurtIndex;
 	}
 }

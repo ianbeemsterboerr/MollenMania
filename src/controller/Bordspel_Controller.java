@@ -8,6 +8,7 @@ import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
 import view.InstInGameView;
 import view.SpelbordView;
+import view.WinView;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -266,11 +267,16 @@ public class Bordspel_Controller {
 		System.out.println(mols.get(0).getCoord());
 	}
 
+	public void showWinner(){
+		System.out.println(this.getClass().toString()+": show winner");
+		WinView winView = new WinView(instellingenPanelController.createInstInGameView(this));
+	}
+
 	public void opslaan(){
 		System.out.println(this.getClass().toString()+": opslaan");
 	}
 
-	public void afsluiten(){
-		System.out.println(this.getClass().toString()+": afsluiten");
+	public void spelVerlaten(){
+		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
 }

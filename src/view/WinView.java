@@ -15,18 +15,21 @@ import javafx.stage.StageStyle;
  * Hij hoeft niet per se in een aparte klasse te blijven, I think.
  *
  */
-public class WinView_Tijdelijk {
+public class WinView {
     private Label message = new Label("A WINNER IS YOU");
-
-    public WinView_Tijdelijk(){
+    private InstInGameView instInGameView;
+    public WinView(InstInGameView instInGameView){
+        this.instInGameView=instInGameView;
         message.setId("text_win");
         BorderPane borderPane = new BorderPane();
+        borderPane.setTop(instInGameView.getView());
         borderPane.setCenter(message);
         borderPane.setId("panel_win");
         Scene winScene = new Scene(borderPane, 1080, 720);
         winScene.setFill(Color.TRANSPARENT);
         winScene.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
         Stage winStage = new Stage();
+        instInGameView.registerStage(winStage);
         winStage.initStyle(StageStyle.TRANSPARENT);
         winStage.setScene(winScene);
         winStage.show();

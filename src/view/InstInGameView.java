@@ -58,7 +58,7 @@ public class InstInGameView {
             stage.setIconified(true);
         });
         btnAfsluiten.setOnAction(e -> {
-            this.bordspel_controller.afsluiten();
+            this.bordspel_controller.spelVerlaten();
         });
     }
 

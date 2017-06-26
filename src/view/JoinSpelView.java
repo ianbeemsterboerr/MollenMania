@@ -80,7 +80,7 @@ public class JoinSpelView {
         connectStage.setScene(connect_scene);
         connectStage.initStyle(StageStyle.UNDECORATED);
         connectStage.show();
-        //WinView_Tijdelijk winView = new WinView_Tijdelijk();
+        //WinView winView = new WinView();
     }
 
     public String textBoxUsername(){

@@ -149,7 +149,11 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
-		game_table.setItems(data_new);
+		try{
+			game_table.setItems(data_new);
+		} catch(NullPointerException e){
+
+		}
 //		boolean benKlaar = false;
 //		for (Speler_Model speler:playable.playerList()) {
 //			if(speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){

@@ -21,6 +21,7 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	private int fichesSize;
 	private int molSize;
 	private Speler_Model myself;
+	private boolean isReady;
 
 	public Speler_Model(){
 
@@ -107,5 +108,13 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	public int compareTo(Speler_Model sm) {
 		int val  = ((Speler_Model) sm).getHandgrootte();
 		return val-this.getHandgrootte();
+	}
+
+	public boolean isReady() {
+		return isReady;
+	}
+
+	public void setReady(boolean ready) {
+		isReady = ready;
 	}
 }

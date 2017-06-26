@@ -75,6 +75,25 @@ public class Spelbord_Model implements Bordspel_Interface {
 		notifyObservers();
 	}
 
+	/**
+	 * Zet speler data, geeft aan dat ie ready is.
+	 *
+	 * @param sm
+	 * @throws RemoteException
+	 * @author	Robert
+	 */
+	public void setSpelerReady(Speler_Model sm) throws RemoteException{
+		int spelerIndex=0;
+		for (Speler_Model speler:players) {
+			if(speler.getUsername().trim().equals(sm.getUsername().trim())){
+				spelerIndex=players.indexOf(speler);
+			}
+		}
+		this.players.set(spelerIndex,sm);
+		this.players.get(spelerIndex).setReady(true);
+		this.beurtStatus=BeurtStatus.NEERZETTEN;
+	}
+
 
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {

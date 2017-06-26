@@ -118,7 +118,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 					Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
 					speler_model.setHandgrootte((int)slider_hand.getValue());
 					speler_model.setKleur(geselecteerdeKleur.toString());
-					this.bs_interface.addSpeler(speler_model);
+					this.bs_interface.setSpelerReady(speler_model);
 					this.bs_controller.showSpelBordView();
 
 				}catch(Exception b){

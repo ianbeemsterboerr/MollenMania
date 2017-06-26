@@ -30,6 +30,8 @@ public interface Bordspel_Interface extends Remote {
 	public void addSpeler(Speler_Model sm) throws RemoteException;
 	
 	public void addMolField(MolModel mol) throws RemoteException;
+
+	public void setSpelerReady(Speler_Model sm) throws RemoteException;
 	
 	/*
 	 * LISTS

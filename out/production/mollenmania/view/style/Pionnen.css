@@ -1,0 +1,12 @@
+#PionRood {          
+    -fx-graphic: url("../img/PionRood.png");
+}
+#PionGroen {          
+    -fx-graphic: url("../img/PionGroen.png");
+}
+#PionBlauw {          
+    -fx-graphic: url("../img/PionBlauw.png");
+}
+#PionGeel {          
+    -fx-graphic: url("../img/PionGeel.png");
+}

@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -53,8 +54,17 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		Button btn_pion = new Button("KIES PION");
 		Button btn_kleur = new Button("KIES KLEUR");
+		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button("KLAAR");
 		Button btn_refresh = new Button("REFRESH");
+
+		btn_pion.setMaxWidth(button_width);
+		btn_kleur.setMaxWidth(button_width);
+		btn_refresh.setMaxWidth(button_width);
+		btn_klaar.setMaxWidth(button_width);
+		slider_hand.setMin(5);
+		slider_hand.setMax(25);
+		slider_hand.setValue(15);
 
 		data = FXCollections.observableArrayList(bs_interface.playerList());
 
@@ -75,13 +85,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 
-		btn_pion.setMaxWidth(button_width);
-		btn_kleur.setMaxWidth(button_width);
-		btn_refresh.setMaxWidth(button_width);
-		btn_klaar.setMaxWidth(button_width);
 
 		vbox_hervat_options.setSpacing(5.0);
-		vbox_hervat_options.getChildren().addAll(btn_pion, btn_kleur, btn_klaar, btn_refresh);
+		vbox_hervat_options.getChildren().addAll(btn_pion, btn_kleur, slider_hand, btn_klaar, btn_refresh);
 
 		btn_kleur.setOnAction(e->{
 			

@@ -38,7 +38,7 @@ public class MolController {
 
     // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
     public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{
-        if (zetGeldig(sm, eindPunt, ficheNR, molIndex)) {
+        if (zetGeldig(sm.getPlayers(), eindPunt, ficheNR, molIndex, sm.beurtIndex()) {
             sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
             return sm;
         }
@@ -56,10 +56,11 @@ public class MolController {
 
 
 
-       public boolean zetGeldig(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{
+       public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException{
+       //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
-        int beginpunt[] = sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).getCoord();
+        int beginpunt[] = sm.get(beurtIndex).getMol_list().get(molIndex).getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
         }
@@ -67,7 +68,7 @@ public class MolController {
         //Hierin wordt bepaalt of de mol over een andere mol heen wordt gezet.
         for (int j = 0; j < beginpunt.length; j++) {
             beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
-            for (Speler_Model speler : sm.getPlayers())
+            for (Speler_Model speler : sm)
                 for (MolModel mol : speler.getMol_list()) {
                     if (beginpunt == mol.getCoord()) {
                         return false;
@@ -85,8 +86,8 @@ public class MolController {
         return false;
     }
 
-public int aantalMollen (Spelbord_Model spelModel) throws RemoteException{
-    int  aantalSpelers = spelModel.getSpelers().size();
+public int aantalMollen (Bordspel_Interface bs_interface) throws RemoteException{
+    int aantalSpelers = bs_interface.maxSpelers();
     if (aantalSpelers == 2){
         return 10;
     }

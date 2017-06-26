@@ -23,8 +23,8 @@ public class InstellingenModel {
 
     public InstellingenModel(){
 
-            playMusic();
-
+        playMusic();
+        mp.setMute(true); //COMMENT DEZE UIT VOOR DE RELEASE!!
     }
 
     public boolean getSoundState() {

@@ -16,6 +16,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
+	private int beurtIndex=0;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
@@ -162,7 +163,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public int beurtIndex() throws RemoteException {
+	public int getBeurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.aanDeBeurt;
 	}

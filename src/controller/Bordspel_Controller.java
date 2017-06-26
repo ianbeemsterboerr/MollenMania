@@ -65,9 +65,7 @@ public class Bordspel_Controller {
 	 * @param position
 	 */
 	public void clickAction(int[] position) throws RemoteException{
-		for (int coord:position) {
-			System.out.println(this.getClass().toString()+": "+coord);
-		}
+		System.out.println(this.getClass().toString()+": x: "+position[0]+" y:"+position[1]+" z:"+position[2]);
 //		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
 //			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
 //			ArrayList<Speler_Model>  spelers = bs_interface.getSpelers();

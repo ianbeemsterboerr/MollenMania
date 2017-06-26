@@ -323,10 +323,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class.
 		 */
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e4e9315bdf1e8c8585f42177599fc5986a8e5225
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 		
 		/*

@@ -126,7 +126,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
 			try {
 				bordspel_controller.refresh();
-				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 1);
+				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 2);
 			} catch (RemoteException e1) {
 				e1.printStackTrace();
 			}
@@ -322,7 +322,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * check niveau to determine list to be added.
 		 * should be rewritten in a better function outside of this class.
 		 */
+
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 1);
+
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.

@@ -64,12 +64,14 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
 
 
-		slider_hand.setMaxWidth(button_width);
-		kleurOpties.setMaxWidth(button_width);
-		btn_klaar.setMaxWidth(button_width);
+//		slider_hand.setMaxWidth(button_width);
+//		kleurOpties.setMaxWidth(button_width);
+//		btn_klaar.setMaxWidth(button_width);
 		slider_hand.setMin(5);
 		slider_hand.setMax(25);
 		slider_hand.setValue(15);
+		slider_hand.setShowTickLabels(true);
+		slider_hand.setShowTickMarks(true);
 
 		data = FXCollections.observableArrayList(bs_interface.playerList());
 
@@ -110,6 +112,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		btn_klaar.setOnAction(e -> {
 			if(geselecteerdeKleur!=null){
 				try{
+					System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 					//new SpelbordView(this.bs_controller, this.bs_interface);
 					Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
 					speler_model.setHandgrootte((int)slider_hand.getValue());

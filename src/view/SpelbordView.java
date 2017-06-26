@@ -77,15 +77,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
 		
-		Scene bord = new Scene(spelbord_pane, 960,760);
+		Scene bord = new Scene(spelbord_pane, 1440,900);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 
-		bordStage.setX(bounds.getMinX());
-		bordStage.setY(bounds.getMinY());
-		bordStage.setWidth(bounds.getWidth());
-		bordStage.setHeight(bounds.getHeight());
+		//bordStage.setX(bounds.getMinX());
+		//bordStage.setY(bounds.getMinY());
+		//bordStage.setWidth(bounds.getWidth());
+		//bordStage.setHeight(bounds.getHeight());
 		bordStage.setTitle("play with me");
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);

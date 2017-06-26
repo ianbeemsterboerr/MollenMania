@@ -25,7 +25,7 @@ public class WinView {
         borderPane.setTop(instInGameView.getView());
         borderPane.setCenter(message);
         borderPane.setId("panel_win");
-        Scene winScene = new Scene(borderPane, 1080, 720);
+        Scene winScene = new Scene(borderPane, 1440, 900);
         winScene.setFill(Color.TRANSPARENT);
         winScene.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
         Stage winStage = new Stage();

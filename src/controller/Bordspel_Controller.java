@@ -1,12 +1,9 @@
 package controller;
 
-import model.MolModel;
-import model.Playboard_Model;
-import model.Speler_Model;
+import model.*;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
-import view.InstInGameView;
 import view.SpelbordView;
 import view.WinView;
 
@@ -68,36 +65,48 @@ public class Bordspel_Controller {
 	 */
 	public void clickAction(int[] position) throws RemoteException{
 		System.out.println(this.getClass().toString()+": x: "+position[0]+" y:"+position[1]+" z:"+position[2]);
-//		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
-//			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
-//			ArrayList<Speler_Model>  spelers = bs_interface.getSpelers();
-//			Speler_Model spelerIk = new Speler_Model();
+		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
+			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
+
+			//Een verzameling aan onnodige check die ik voor de zekerheid wil bewaren.
+//			//persoon die nu aan de beurt is
+//			Speler_Model huidigeSpeler = bs_interface.playerList().get(bs_interface.beurtIndex());
 //
-//			for (Speler_Model speler: spelers) {
-//				if(speler.getUsername().trim().equals(this.bijnaam.trim())){
-//					spelerIk=speler;
+//			//check of die persoon nog mollen op het bord mag zetten
+//			if(huidigeSpeler.getMol_list().size()<bs_interface.getMaxMollen()){
+//
+//				//kijken of de plek geen molshoop is: eerst huidig niveau index
+//				int huidigNiveau = bs_interface.getHuidigeNiveauIndex();
+//
+//				//daarna het niveau echt pakken
+//				Niveau_Model niveau=bs_interface.pm().getHuidigNiveau(huidigNiveau);
+//
+//				//daarna de molshopen pakken
+//				ArrayList<Molshoop_Veld> molshopen = niveau.getMolshoop();
+//
+//				//Itereer door de molshopen er een is met dezelfde positie als de mol die de speler wilt plaatsen.
+//				for (Molshoop_Veld molshoop:molshopen) {
+//					if(Arrays.equals(molshoop.getPositie(),position)){
+//						System.out.println();
+//					}
 //				}
 //			}
-//
-//			if(bs_interface.maxSpelers()!=spelerIk.getMol_list().size()){
-//				//Hier kijk je of het veld een molshoop is of niet
-//			}
 //			bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
-//		} else if(bs_interface.getBeurtStatus()== BeurtStatus.FICHEDRAAIEN){
-//			System.out.println("Bordspel_Controller: clickAction FICHEDRAAIEN");
-//
-//
-//		} else if (bs_interface.getBeurtStatus()== BeurtStatus.SELECTEREN){
-//			System.out.println("Bordspel_Controller: clickAction SELECTERE");
-//
-//
-//		} else if (bs_interface.getBeurtStatus()== BeurtStatus.VERPLAATSEN){
-//			System.out.println("Bordspel_Controller: clickAction VERPLAATSEN");
-//
-//
-//		} else {
-//			System.out.println("Bordspel_Controller: clickAction niet afgehandeld");
-//		}
+		} else if(bs_interface.getBeurtStatus()== BeurtStatus.FICHEDRAAIEN){
+			System.out.println("Bordspel_Controller: clickAction FICHEDRAAIEN");
+
+
+		} else if (bs_interface.getBeurtStatus()== BeurtStatus.SELECTEREN){
+			System.out.println("Bordspel_Controller: clickAction SELECTERE");
+
+
+		} else if (bs_interface.getBeurtStatus()== BeurtStatus.VERPLAATSEN){
+			System.out.println("Bordspel_Controller: clickAction VERPLAATSEN");
+
+
+		} else {
+			System.out.println("Bordspel_Controller: clickAction niet afgehandeld");
+		}
 	}
 	
 	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm, int niveau){

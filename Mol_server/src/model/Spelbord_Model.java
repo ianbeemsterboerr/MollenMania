@@ -14,7 +14,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
 	private int[] specialPos;
-	private int aanDeBeurt;
+	private int aanDeBeurt=0;
 	private int huidigeNiveau = 1;
 	private int bordMax;
 
@@ -143,12 +143,13 @@ public class Spelbord_Model implements Bordspel_Interface {
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
-		// TODO Auto-generated method stub
-		if(aanDeBeurt>=bordMax){
-			aanDeBeurt=0;
-		} else{
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
+		if(aanDeBeurt<(bordMax-1)){
 			aanDeBeurt++;
+		} else{
+			aanDeBeurt=0;
 		}
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
 	}
 
 	public void setBordMax(int m){
@@ -196,7 +197,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 	@Override
-	public int getHuidigeNiveau() throws RemoteException {
+	public int getHuidigeNiveauIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
 	}

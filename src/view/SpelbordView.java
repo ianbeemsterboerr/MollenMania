@@ -3,7 +3,6 @@ package view;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import controller.*;
 import javafx.geometry.HPos;
@@ -12,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -23,7 +21,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.MolModel;
 import model.Speler_Model;
-import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;
 
 public class SpelbordView extends UnicastRemoteObject implements Player_Observer{
@@ -258,7 +255,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class.
 		 */
 		
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.
@@ -296,7 +293,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 */
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
-					System.out.println("Player " + bs_interface.beurtIndex() + " is aan de beurt.");
+					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
 					player_aanDeBeurt = players.get(bs_interface.beurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -327,7 +324,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{

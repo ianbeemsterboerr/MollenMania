@@ -109,7 +109,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
 			readyCount++;
 		}
-		notifyObservers();
 		if(readyCount==bordMax){
 			this.beurtStatus=BeurtStatus.NEERZETTEN;
 		}

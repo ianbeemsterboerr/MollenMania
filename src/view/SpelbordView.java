@@ -37,11 +37,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private Bordspel_Interface bs_interface;
 	private BorderPane spelbord_pane;
 	private GridPane veld_pane;
-	Label aantal_fiche_lbl = new Label(); 
-	Label aantal_mol_lbl = new Label();
+	private Label aantal_fiche_lbl = new Label();
+	private Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
 	private int mol_index = 0;
-
 	private MolController molController;
 
 	private VeldKnop[] buttonArray;
@@ -374,7 +373,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
+				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max);
 				mol_index++;
 				
 			});
@@ -414,5 +413,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 	}
 
+    public VeldKnop[] getButtonArray() {
+        return buttonArray;
+    }
 
+    public void setButtonArray(VeldKnop[] buttonArray) {
+        this.buttonArray = buttonArray;
+    }
 }

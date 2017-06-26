@@ -6,12 +6,9 @@ import java.util.Arrays;
 
 import model.BeurtStatus;
 import model.MolModel;
-<<<<<<< HEAD
 import model.Niveau_Model;
 import model.Playboard_Model;
-=======
 import model.Spelbord_Model;
->>>>>>> ac4aaa80ee4a863d4405350f7c4aa1f26a7fa687
 import model.Speler_Model;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;

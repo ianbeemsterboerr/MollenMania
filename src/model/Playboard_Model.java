@@ -10,7 +10,6 @@ import java.util.ArrayList;
 /**
  * Created by Wessel on 29-5-2017.
  */
-
 public class Playboard_Model implements Serializable {
 
    /**

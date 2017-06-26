@@ -4,6 +4,7 @@ import model.MolModel;
 import model.Playboard_Model;
 import model.Speler_Model;
 import model.Velden.Molshoop_Veld;
+import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
 import view.SpelbordView;
 
@@ -96,6 +97,18 @@ public class Bordspel_Controller {
 	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm){
 		loadSpelerMols(buttonArray, mol);
 		loadMolsHoop(buttonArray, pm);
+		loadSpecial(buttonArray, pm);
+	}
+	
+	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm){
+		for(SpeciaalVeld_Veld m : pm.getNiveau2().getSpeciaal()){
+			for(int x = 0; x < buttonArray.length; x++){
+				if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+					buttonArray[x].setDisable(true);
+					buttonArray[x].setStyle("-fx-background-color: yellow;");
+				}
+			}
+		}
 	}
 	
 	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<MolModel> mol){

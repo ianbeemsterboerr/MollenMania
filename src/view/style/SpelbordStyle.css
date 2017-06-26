@@ -16,6 +16,15 @@
     -fx-font-size: 30px;
 }
 
-#mol_zet_rood{
-	-fx-graphic:url("../img/PionRood.png");
+#PionRood {          
+    -fx-graphic: url("../img/PionRood.png");
+}
+#PionGroen {          
+    -fx-graphic: url("../img/PionGroen.png");
+}
+#PionBlauw {          
+    -fx-graphic: url("../img/PionBlauw.png");
+}
+#PionGeel {          
+    -fx-graphic: url("../img/PionGeel.png");
 }

@@ -123,7 +123,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
 		game_table.setItems(data_new);
-
 	}
 
 	@Override

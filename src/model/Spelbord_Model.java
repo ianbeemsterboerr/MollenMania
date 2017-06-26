@@ -73,16 +73,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		this.players.add(sm);
-	}
-
-=======
-		if(players.size()<bordMax){
-			this.players.add(sm);
-			notifyObservers();
-		}
 	}
 
 	/**
@@ -114,7 +106,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 		notifyObservers();
 	}
->>>>>>> e4e9315bdf1e8c8585f42177599fc5986a8e5225
+
 
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
@@ -218,12 +210,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public int getHuidigeNiveau() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
-	}
-
-	@Override
-	public void setSpelerReady(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

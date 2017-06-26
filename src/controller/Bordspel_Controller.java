@@ -100,6 +100,7 @@ public class Bordspel_Controller {
 		loadSpelerMols(buttonArray, mol);
 		loadMolsHoop(buttonArray, pm, niveau);
 		loadSpecial(buttonArray, pm, niveau);
+		
 	}
 	
 	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau){
@@ -217,7 +218,7 @@ public class Bordspel_Controller {
 	 * it is time to switch turn
 	 * 
 	 */
-	public void setMolCoords(Speler_Model sm, VeldKnop buttonBox, int mol_max){
+	public void setMolCoords(Speler_Model sm, MolModel mol_placeholder, VeldKnop buttonBox, int mol_max, int mol_index){
 		//starts at 0 -> how many mols am I going to have? to avoid list exceptions.
 		/*
 		 * mol dinges. here we get the mol that is not yet in play and we give it coords.
@@ -230,9 +231,9 @@ public class Bordspel_Controller {
 		if(sm.getMol_list().size() == mol_max){
 			System.out.println("max");
 		} else {
-			sm.getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
-//			mol_placeholder = sm.getMol_list().get(mol_index);
-//			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
+			//sm.getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
+			mol_placeholder = sm.getMol_list().get(mol_index);
+			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
 
 			System.out.println("Current mol index: " + sm.getMol_list().size());
 		}
@@ -242,7 +243,7 @@ public class Bordspel_Controller {
 		 * model has new mol + it's coords -> register it for all to see.
 		 */
 		try {
-			//this.bs_interface.addMolField(mol_placeholder);
+			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block

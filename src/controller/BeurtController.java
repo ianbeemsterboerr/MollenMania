@@ -32,17 +32,17 @@ public class BeurtController {
     }
 
 
-    public void setKnoppenNeerzetten(SpelbordView sbv, Bordspel_Controller bsController, Bordspel_Interface bsInterface) throws RemoteException {
-        for (int i = 0; i < sbv.getButtonArray().length; i++) {
-            final VeldKnop buttonBox = sbv.getButtonArray()[i];
-            buttonBox.setOnAction(e -> {
-                try {
-                    bsController.setMolCoords(bsInterface.playerList().get(bsInterface.beurtIndex()),buttonBox,molController.aantalMollen(bsInterface));
-                } catch (RemoteException e1) {
-                    e1.printStackTrace();
-                }
-            });
-        }
-    }
+//    public void setKnoppenNeerzetten(SpelbordView sbv, Bordspel_Controller bsController, Bordspel_Interface bsInterface) throws RemoteException {
+//        for (int i = 0; i < sbv.getButtonArray().length; i++) {
+//            final VeldKnop buttonBox = sbv.getButtonArray()[i];
+//            buttonBox.setOnAction(e -> {
+//                try {
+//                    bsController.setMolCoords(bsInterface.playerList().get(bsInterface.beurtIndex()),buttonBox,molController.aantalMollen(bsInterface));
+//                } catch (RemoteException e1) {
+//                    e1.printStackTrace();
+//                }
+//            });
+//        }
+//    }
 
 }

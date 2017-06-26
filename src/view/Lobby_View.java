@@ -50,7 +50,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			e.printStackTrace();
 		}
 		
-
 		this.bs_controller = bs_controller;
 
 		//view bullshit

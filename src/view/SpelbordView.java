@@ -37,8 +37,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private Bordspel_Interface bs_interface;
 	private BorderPane spelbord_pane;
 	private GridPane veld_pane;
-	private Label aantal_fiche_lbl = new Label();
-	private Label aantal_mol_lbl = new Label();
 	private Bordspel_Controller bordspel_controller;
 	private int mol_index = 0;
 	private MolController molController;
@@ -92,69 +90,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.show();
 	}
 
-	
-	public GridPane createUserPanel(Speler_Model sm) throws RemoteException{
-		/*
-		 * maybe each panel should be owned by a user?! watcha think dog.
-		 */
-		int ficheNR=0;
-        String openFiches = "";
-		String speler_naam = sm.getUsername();
-		String mol_count = Integer.toString(sm.getMol_list().size());
-		String fiche_count = Integer.toString(sm.getFiches().size());
-		
-		GridPane grid = new GridPane();
-		
-		Label username_lbl = new Label(speler_naam);
-		Label aantal_mol_lbl = new Label(mol_count);
-		Label aantal_fiche_lbl = new Label(fiche_count);
-		Label open_Fiches = new Label(openFiches);
-
-		username_lbl.setStyle("-fx-font-weight:bold;");
-		aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
-		aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
-		
-		Button fiche_btn = new Button("Fiche");
-		Button mol_btn = new Button("Mol");
-		Button klaar_btn = new Button("Klaar");
-		Button refresh = new Button("Refresh");
-		
-		refresh.setOnAction(e->{
-//			this.new_players = this.bs_interface.playerList();
-			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
-			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
-			try {
-				//bordspel_controller.refresh();
-				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
-			} catch (RemoteException e1) {
-				e1.printStackTrace();
-			}
-		});
-		
-		fiche_btn.setOnAction(e->{
-		    //sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
-            System.out.println("SpelbordView.createUserPanel" +ficheNR);
-            open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
-            new Fiche_Controller().fichesCheck(sm.getFiche_list());
-		});
-		
-		mol_btn.setOnAction(e->{
-			
-		});
-		
-		grid.add(username_lbl, 0, 0);
-		grid.add(mol_btn, 0, 1);
-		grid.add(aantal_mol_lbl, 1, 1);
-		grid.add(fiche_btn, 0, 2);
-		grid.add(aantal_fiche_lbl, 1, 2);
-		grid.add(open_Fiches,1,3);
-		grid.add(klaar_btn, 0, 3);
-		grid.add(refresh, 0, 4);
-		grid.setHgap(10.0);
-		grid.setVgap(10.0);
-	
-		return grid;
-	}
 
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
 
@@ -321,7 +256,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * check niveau to determine list to be added.
 		 * should be rewritten in a better function outside of this class.
 		 */
-
+		
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 		
 		/*
@@ -344,13 +279,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				buttonBox.setDisable(true);
 				buttonBox.setBezet(true);
 				buttonBox.setStyle("-fx-background-color: #ff0000;");
-				
 				/*
 				 * model changes
 				 * to be done:
 				 * 		1. whose turn is it?
 				 */
-				
 				Speler_Model player_aanDeBeurt = new Speler_Model();
 				MolModel mol_geselecteerd = new MolModel();
 				/*
@@ -373,9 +306,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max);
+				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
-				
 			});
 		}
 		
@@ -388,10 +320,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		ArrayList<Speler_Model> spelers = playable.playerList();
-		for (Speler_Model speler:spelers) {
-			System.out.println(speler.getPlayer_id());
-		}
+		System.out.println("change");
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{

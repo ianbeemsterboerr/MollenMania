@@ -63,16 +63,10 @@ public class DashboardView {
             klaar_btn.setDisable(true);
             refresh.setDisable(true);
         }
-
+        
         refresh.setOnAction(e->{
-//			this.new_players = this.bs_interface.playerList();
             aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
             aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
-//            try {
-//
-//            } catch (RemoteException e1) {
-//                e1.printStackTrace();
-//            }
         });
 
         fiche_btn.setOnAction(e->{
@@ -84,10 +78,6 @@ public class DashboardView {
 
         mol_btn.setOnAction(e->{
             sm.getMol_list().remove(1);
-
-            // wtf is dit?
-            //int size = this.buttonArray.length;
-            //System.out.println(this.buttonArray[1].getCoordinaten());
         });
 
         grid.add(username_lbl, 0, 0);

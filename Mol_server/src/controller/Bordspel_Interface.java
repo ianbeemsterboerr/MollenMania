@@ -11,6 +11,10 @@ public interface Bordspel_Interface extends Remote {
 
 	public int getMaxMollen() throws RemoteException;
 
+	public BeurtStatus getBeurtStatus() throws RemoteException;
+
+	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException;
+
 	public void veranderBeurt() throws  RemoteException;
 
 	public int maxSpelers() throws RemoteException;

@@ -1,6 +1,7 @@
 package controller;
 
 import model.Spel_Model;
+import model.Spelbord_Model;
 import view.HervatGameView;
 
 import java.io.*;
@@ -13,7 +14,7 @@ import java.io.*;
 public class SpelHervattenController {
     String filePath;
     HervatGameView view;
-    Spel_Model spelModel;
+    Spelbord_Model spelModel;
 
     public SpelHervattenController() {
         view = new HervatGameView(this);
@@ -28,12 +29,12 @@ public class SpelHervattenController {
      * @param filePath De filepath van de savefile die geopend moet worden.
      * @return een Spel_Model object dat tot leven kan worden geroepen als het Spelbord.
      */
-    public Spel_Model getModel(String filePath) {
+    public Spelbord_Model getModel(String filePath) {
         File file = new File(filePath);
         try {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            spelModel = (Spel_Model) ois.readObject();
+            spelModel = (Spelbord_Model) ois.readObject();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -45,7 +46,7 @@ public class SpelHervattenController {
         return spelModel;
     }
 
-    public void startSpel(Spel_Model spelModel) {
+    public void startSpel(Spelbord_Model spelModel) {
 
     }
 }

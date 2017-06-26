@@ -25,6 +25,7 @@ public class run extends Application{
 		ChoiceBox<Integer> cb_aantal_spelers;
 		double button_width = 150.0;
 		HBox hbox_connect = new HBox();
+
 		
 		TextField host_name = new TextField();
 		Button btn_host = new Button("HOST");
@@ -49,6 +50,7 @@ public class run extends Application{
 		
 		btn_back.setOnAction(e -> { 
 			try{
+				System.out.println("Server shutdown..");
 				System.exit(1); 
 			}catch(Exception b){
 				b.printStackTrace();
@@ -66,6 +68,14 @@ public class run extends Application{
 		Scene connect_scene = new Scene(grid, 250, 85);
 		//Make scene call up style.css for styling
 		//connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+
+
+		primaryStage.setOnCloseRequest(a->{
+			System.out.println("Server shutdown..");
+			System.exit(1);
+		});
+
+
 		primaryStage.setTitle("Host een spel");
 		primaryStage.setScene(connect_scene);
 		primaryStage.show();

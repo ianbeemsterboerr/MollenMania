@@ -41,7 +41,7 @@ public class InstellingenView {
         hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
 
-        btnGeluid.setOnAction(e -> {controller.toggleVolume();});
+        btnGeluid.setOnAction(e -> {controller.toggleMute();});
         btnKleurenblindheid.setOnAction(e -> {controller.toggleKleurenblindModus();});
         btnHandleiding.setOnAction(e -> {controller.showHandleiding();});
         btnMinimaliseer.setOnAction(e -> {

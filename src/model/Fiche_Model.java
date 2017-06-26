@@ -33,6 +33,7 @@ public class Fiche_Model implements Serializable{
         this.ficheNR = ficheNR;
     }
 
+
     public ArrayList<Integer> getOpenFiche() {
         return openFiche;
     }

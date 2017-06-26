@@ -3,7 +3,7 @@ package controller;
 import javafx.application.Application;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
-import model.Spel_Model;
+import model.*;
 import view.SpelSaveView;
 
 import java.io.FileNotFoundException;
@@ -16,14 +16,15 @@ import java.io.ObjectOutputStream;
  * Heeft de verantwoordelijkheid om het spel op te slaan.
  */
 public class SpelSaveController {
-    Spel_Model spelModel;
-    String naam;
+    Spelbord_Model spelModel;
+
 
     /**
      * @param spelModel Het Spel_Model object dat opgeslagen moet worden.
      */
-    public SpelSaveController(Spel_Model spelModel) {
+    public SpelSaveController(Spelbord_Model spelModel) {
         this.spelModel = spelModel;
+        SpelSaveView view = new SpelSaveView(this);
     }
 
     /**

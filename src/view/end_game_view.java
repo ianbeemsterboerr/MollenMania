@@ -23,7 +23,7 @@ public class end_game_view {
 		grid.add(btn_test, 0, 0);
 		
 		Scene end_scene = new Scene(grid, 415, 300);
-		end_scene.getStylesheets().addAll(this.getClass().getResource("end_game_style.css").toExternalForm());
+		end_scene.getStylesheets().addAll(this.getClass().getResource("style/end_game_style.css").toExternalForm());
 		
 		endStage.setTitle("Hervat een spel");
 		endStage.setScene(end_scene);

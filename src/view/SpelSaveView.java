@@ -14,6 +14,10 @@ import javafx.stage.Stage;
  * Wordt getoond wanneer er op "Save Spel" wordt gedrukt vanuit de game.
  */
 public class SpelSaveView {
+    SpelSaveController ctrl;
+    public SpelSaveView(SpelSaveController ctrl){
+        this.ctrl = ctrl;
+    }
     public void show() {
         Stage stage = new Stage();
         FlowPane fp = new FlowPane();
@@ -23,6 +27,9 @@ public class SpelSaveView {
         txt.setMaxSize(10, 50);
         fp.getChildren().add(txt);
         fp.getChildren().add(btn);
+        btn.setOnAction(a->{
+            ctrl.saveSpel(txt.getText());
+        });
 
 
         Scene scene = new Scene(fp, 300, 100);

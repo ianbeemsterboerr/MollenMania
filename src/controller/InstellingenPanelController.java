@@ -9,22 +9,24 @@ import view.InstellingenView;
 public class InstellingenPanelController {
     private InstellingenModel instellingenModel;
     private InstellingenView instellingenView;
+    private HandleidingView handleidingView;
 
     public InstellingenPanelController(){
         this.instellingenView = new InstellingenView(this);
         this.instellingenModel = new InstellingenModel();
+
+        this.handleidingView = new HandleidingView();
     }
     public InstellingenView getInstellingenView(){
         return instellingenView;
     }
 
-    public void toggleVolume(){
-        if(instellingenModel.getSoundState()){
-            instellingenModel.setSoundState(false);
-        } else {
-            instellingenModel.setSoundState(true);
+    public void toggleMute(){
+        if (instellingenModel.getSoundState())
+        instellingenModel.muteSound();
+        else{
+            instellingenModel.unmuteSound();
         }
-        System.out.println(instellingenModel.getSoundState());
     }
 
 
@@ -39,6 +41,6 @@ public class InstellingenPanelController {
 
     public void showHandleiding(){
         System.out.println("InstellingenPanelController: show Handleiding.");
-        new HandleidingView();
+        this.handleidingView.show();
     }
 }

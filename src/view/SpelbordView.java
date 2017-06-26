@@ -222,58 +222,102 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			cc.setPercentWidth(100 / numCols);
 			root.getColumnConstraints().add(cc);
 		}
-
+		int x = 4;
+		int y = 0;
+		int z = -4;
 		// loop voor buttons 1 t/m 5
 		for (int column = 13; column < 23; column = column + 2) {
-			VeldKnop veld = new VeldKnop((8 - ((column + 1) / 2)) , ((column + 1) / 2 - 4), -4);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 1);
 			buttonArray[(column + 1) / 2 - 7] = veld;
 		}
+		x = 4;
+		y = -1;
+		z = -3;
 		// loop voor buttons 6 t/m 11
 		for (int column = 12; column < 24; column = column + 2) {
-			VeldKnop veld = new VeldKnop((7 - (column / 2)) , (column / 2 - 4), -3);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 2);
 			buttonArray[column / 2 - 1] = veld;
 		}
+		x = 4;
+		y = -2;
+		z = -2;
 		// loop voor buttons 12 t/m 18
 		for (int column = 11; column < 25; column = column + 2) {
-			VeldKnop veld = new VeldKnop((7 - ((column + 1) / 2)) , ((column + 1) / 2 - 5), -2);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 3);
 			buttonArray[(column + 1) / 2 + 5] = veld;
 		}
+		x = 4;
+		y = -3;
+		z = -1;
 		// loop voor buttons 19 t/m 26
 		for (int column = 10; column < 25; column = column + 2) {
-			VeldKnop veld = new VeldKnop((6 - (column / 2)) , (column / 2 - 5), -1);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 4);
 			buttonArray[column / 2 + 13] = veld;
 		}
+		x = 4;
+		y = -4;
+		z = 0;
 		// loop voor buttons 27 t/m 35
 		for (int column = 9; column < 26; column = column + 2) {
-			VeldKnop veld = new VeldKnop((6 - ((column + 1) / 2)) , ((column + 1) / 2 - 6), 0);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 5);
 			buttonArray[(column + 1) / 2 + 21] = veld;
 		}
+		x = 3;
+		y = -4;
+		z = 1;
 		// loop voor buttons 36 t/m 43
 		for (int column = 10; column < 25; column = column + 2) {
-			VeldKnop veld = new VeldKnop((5 - (column / 2)) , (column / 2 - 6), 1);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 6);
 			buttonArray[column / 2 + 30] = veld;
 		}
+		x = 2;
+		y = -4;
+		z = 2;
 		// buttons 44 t/m 50
 		for (int column = 11; column < 25; column = column + 2) {
-			VeldKnop veld = new VeldKnop((5 - ((column + 1) / 2)) , ((column + 1) / 2 - 7), 2);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 7);
 			buttonArray[(column + 1) / 2 + 37] = veld;
 		}
+		x = 1;
+		y = -4;
+		z = 3;
 		// buttons 51 t/m 56
 		for (int column = 12; column < 24; column = column + 2) {
-			VeldKnop veld = new VeldKnop(4 - (column / 2) , (column / 2 - 7), 3);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 8);
 			buttonArray[column / 2 + 44] = veld;
 		}
+		x = 0;
+		y = -4;
+		z = 4;
 		// buttons 57 t/m 61
 		for (int column = 13; column < 23; column = column + 2) {
-			VeldKnop veld = new VeldKnop((4 - (column + 1) / 2) , ((column + 1) / 2 - 8), 4);
+			VeldKnop veld = new VeldKnop(x , y, z);
+			x--;
+			y++;
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
@@ -293,6 +337,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			final VeldKnop buttonBox;
 			buttonBox = buttonArray[i];
 			buttonBox.setOnAction(e->{
+				try {
+					this.bordspel_controller.clickAction(buttonBox.getCoordinaten());
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
 				/*
 				 * button changes
 				 * let's check if there are any buttons in the onboard list 

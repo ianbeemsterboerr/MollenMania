@@ -72,41 +72,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		this.players.add(sm);
-=======
-		if(players.size()<bordMax){
-			this.players.add(sm);
-			notifyObservers();
-		}
 	}
 
-	/**
-	 * Zet speler data, geeft aan dat ie ready is.
-	 *
-	 * @param sm
-	 * @throws RemoteException
-	 * @author	Robert
-	 */
-	public void setSpelerReady(Speler_Model sm) throws RemoteException{
-		int spelerIndex=0;
-		for (Speler_Model speler:players) {
-			if(speler.getUsername().trim().equals(sm.getUsername().trim())){
-				spelerIndex=players.indexOf(speler);
-			}
-		}
-		this.players.set(spelerIndex,sm);
-		this.players.get(spelerIndex).setReady(true);
-
-		Collections.sort(players);
-		for (Speler_Model speler:players) {
-			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
-		}
-		this.beurtStatus=BeurtStatus.NEERZETTEN;
-		notifyObservers();
->>>>>>> bd02ca901ffdbd397249baaf6fe1e3375601e229
-	}
 
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
@@ -210,6 +179,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public int getHuidigeNiveau() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
+	}
+
+	@Override
+	public void setSpelerReady(Speler_Model sm) throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

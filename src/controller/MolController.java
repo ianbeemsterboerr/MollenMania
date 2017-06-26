@@ -53,9 +53,7 @@ public class MolController {
         }
         return null;
     }
-    public boolean overMol(MolModel molModel, int[] eindPunt, int ficheNR) {
-        return false;
-    }
+
 
 
        public boolean zetGeldig(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{

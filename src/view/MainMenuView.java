@@ -16,15 +16,13 @@ import javafx.stage.StageStyle;
 public class MainMenuView {
 	private InstellingenView instellingenView;
 	private MainMenuController mainMenuController;
-	private controller.Bordspel_Controller bs_controller;
-	private controller.Bordspel_Interface bs_interface;
 
 	private Button btn_joinSpel;
 	private Button btn_hostSpel;
 	private Button btn_exitSpel;
 	private Button btn_hervatSpel;
 
-	Stage primaryStage;
+	private Stage primaryStage;
 
 	/**
 	 *

@@ -8,11 +8,12 @@ import controller.Player_Observer;
 
 public class Spelbord_Model implements Bordspel_Interface{
 
-	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
-	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
-	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
-	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
+	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
+	private ArrayList<Speler_Model> players = new ArrayList<>();
+	private ArrayList<Speler_Model> ready_list = new ArrayList<>();
+	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
+
 	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
@@ -63,14 +64,16 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return players;
 	}
 
-	public void setPlayers(ArrayList<Speler_Model> players) {
+	public void setPlayers(ArrayList<Speler_Model> players)throws RemoteException {
 		this.players = players;
+		notifyObservers();
 	}
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.players.add(sm);
+		notifyObservers();
 	}
 
 
@@ -93,8 +96,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Spelbord_Model.addObserver");
 		}
 	}
 
@@ -116,6 +119,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void addSpelerReady(Speler_Model sm) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.ready_list.add(sm);
+		notifyObservers();
 	}
 
 	@Override

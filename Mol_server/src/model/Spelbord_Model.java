@@ -79,7 +79,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	 * @throws RemoteException
 	 * @author	Robert
 	 */
-	public void setSpelerReady(Speler_Model sm) throws RemoteException{
+	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
 		System.out.println(this.getClass().toString()+" setSpelerReady()");
 		int spelerIndex=0;
 		for (Speler_Model speler:players) {
@@ -94,12 +94,16 @@ public class Spelbord_Model implements Bordspel_Interface {
 		int readyCount=0;
 		for (Speler_Model speler:players) {
 			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
-			readyCount++;
-		}
-		if(readyCount==bordMax){
-			this.beurtStatus=BeurtStatus.NEERZETTEN;
+			if(speler.isReady()){
+				readyCount++;
+			}
 		}
 		notifyObservers();
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.NEERZETTEN;
+			return true;
+		}
+		return false;
 	}
 
 

@@ -38,6 +38,7 @@ public class run extends Application{
 		hbox_connect.setSpacing(10.0);
 		
 		cb_aantal_spelers = new ChoiceBox<Integer>(FXCollections.observableArrayList(2, 3, 4));
+		cb_aantal_spelers.getSelectionModel().selectFirst();
 		cb_aantal_spelers.setMaxWidth(100.0);
 		
 		

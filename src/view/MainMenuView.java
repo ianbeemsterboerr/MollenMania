@@ -1,27 +1,18 @@
 package view;
 
-import controller.InstellingenPanelController;
+
 import controller.MainMenuController;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
+
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.Spel_Model;
-import view.host_controls_view;
-import view.connect_host_view;
-import view.spelbord_view;
-import controller.Bordspel_Interface;
-import controller.Bordspel_Controller;
+
 
 public class MainMenuView {
 	private InstellingenView instellingenView;

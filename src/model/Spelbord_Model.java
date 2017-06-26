@@ -41,6 +41,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
+<<<<<<< HEAD
+		
+=======
+>>>>>>> 27d0c4a75751f768a175231b54dfb3284a0d002c
 	public Spelbord_Model(String saveNaam){
 		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
 		this.beurtStatus = BeurtStatus.LOBBY;
@@ -57,6 +61,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
 	}
+<<<<<<< HEAD
+
+	public Spelbord_Model(){
+		this.beurtStatus = BeurtStatus.LOBBY;
+	}
+=======
+>>>>>>> 27d0c4a75751f768a175231b54dfb3284a0d002c
 	
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;

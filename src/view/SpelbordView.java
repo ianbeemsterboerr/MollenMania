@@ -374,50 +374,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
 				/*
-				 * mol dinges. here we get the mol that is not yet in play and we give it coords.
-				 * once coords have been set we up the index and go until all mols have been registered.
-				 * 
-				 * index max = the amount of mols u have in your list. so when the index is max
-				 * it is time to switch turn
-				 * 
-				 * PHASE 2:
-				 * 
+				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
+				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
-				int mol_max = 5; //starts at 0 -> how many mols am I going to have? to avoid list exceptions.
-				if(mol_index == mol_max){
-					System.out.println("max");
-				} else {
-					mol_placeholder = player_placeholder.getMol_list().get(mol_index);
-					
-					mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
-					mol_index++;
-					System.out.println("Current mol index: " + mol_index);
-				}
+				int mol_max = 5;
+				this.bordspel_controller.setMolCoords(player_placeholder, mol_placeholder, buttonBox, mol_max, mol_index);
+				mol_index++;
 				
-				/*
-				 * here we send the mol to the board.
-				 * model has new mol + it's coords -> register it for all to see.
-				 */
-				try {
-					this.bs_interface.addMolField(mol_placeholder);
-					System.out.println("Mols on field: " + bs_interface.molOnField().size());
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				/*
-				 * btn klik -> register mol to players mol list index(0) -> index++ -> repeat;
-				 * this also includes checking if a that btn is already taken.
-				 * so it should place coords to the user but also register it on the board.
-				 * registering on the board, in a list? 
-				 */
-				//System.out.println("mol added");
-				
-				//empty.getMol_list().remove(mol_index);	
 			});
 		}
 		

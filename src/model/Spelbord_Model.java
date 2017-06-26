@@ -40,10 +40,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
-<<<<<<< HEAD
-	public Spelbord_Model(){
 		
-=======
 	public Spelbord_Model(String saveNaam){
 		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
 	}
@@ -62,7 +59,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	public Spelbord_Model(){
 		this.beurtStatus = BeurtStatus.LOBBY;
->>>>>>> ac4aaa80ee4a863d4405350f7c4aa1f26a7fa687
 	}
 	
 	public ArrayList<Speler_Model> getPlayers() {

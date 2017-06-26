@@ -16,7 +16,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
-	private int beurtIndex=0;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
@@ -131,7 +130,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
-		this.aanDeBeurt += 1;
+		int handGrootteCurrent=players.get(aanDeBeurt).getHandgrootte();
+		int lastIterated=0;
+		for (int i=0; i<players.size();i++){
+			//checken of de speler die je checkt niet dezelfde is die nu aan de beurt is
+			if (i!=aanDeBeurt){
+				if(players.get(i).getHandgrootte()<handGrootteCurrent){
+					if(players.get(i).getHandgrootte()>players.get(lastIterated).getHandgrootte()){
+						lastIterated=i;
+					}
+				}
+			}
+		}
+		this.aanDeBeurt=lastIterated;
 	}
 	
 	@Override

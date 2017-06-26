@@ -11,12 +11,12 @@ public class Mol_Client {
 
 	private InstellingenView instellingenView;
 
-	public Mol_Client(String username){
+	public Mol_Client(String ip, String username){
 		//this.instellingenView=instellingenView;
 		try {
 			// get access to the RMI registry on the remote server
 			// if server on another machine: provide that machine's IP address. Default port  1099
-			Registry registry = LocateRegistry.getRegistry("127.0.0.1");
+			Registry registry = LocateRegistry.getRegistry(ip);
 
             //CALL OBJECT FROM INTERFACE IMPLEMENTATIONNN
 			// get remote interface object from registry

@@ -10,18 +10,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Speler_Model;
 
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
-	//what do i need??!?!?!?
+	Button btn_blauw = new Button("Blauw");
+	Button btn_rood = new Button("Rood");
+	Button btn_groen = new Button("Groen");
+	Button btn_geel = new Button("Geel");
+	Label meldingen = new Label();
+	String geselecteerdeKleur;
 
 	/**
 	 *
@@ -51,10 +55,21 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		GridPane grid = new GridPane();
 		game_table = new TableView<Speler_Model>();
 
-		Button btn_pion = new Button("KIES PION");
-		Button btn_kleur = new Button("KIES KLEUR");
+		//Belangrijkste knoppen
+		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button("KLAAR");
-		Button btn_refresh = new Button("REFRESH");
+
+		//Knoppen die te maken hebben met een kleur
+		HBox kleurOpties = new HBox();
+		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
+
+
+		slider_hand.setMaxWidth(button_width);
+		kleurOpties.setMaxWidth(button_width);
+		btn_klaar.setMaxWidth(button_width);
+		slider_hand.setMin(5);
+		slider_hand.setMax(25);
+		slider_hand.setValue(15);
 
 		data = FXCollections.observableArrayList(bs_interface.playerList());
 
@@ -75,42 +90,45 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 
-		btn_pion.setMaxWidth(button_width);
-		btn_kleur.setMaxWidth(button_width);
-		btn_refresh.setMaxWidth(button_width);
-		btn_klaar.setMaxWidth(button_width);
 
 		vbox_hervat_options.setSpacing(5.0);
-		vbox_hervat_options.getChildren().addAll(btn_pion, btn_kleur, btn_klaar, btn_refresh);
+		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
 
-		btn_kleur.setOnAction(e->{
-			
-			
+		btn_blauw.setOnAction(e->{
+			geselecteerdeKleur="blauw";
+		});
+		btn_geel.setOnAction(e->{
+			geselecteerdeKleur="geel";
+		});
+		btn_groen.setOnAction(e->{
+			geselecteerdeKleur="groen";
+		});
+		btn_rood.setOnAction(e->{
+			geselecteerdeKleur="rood";
 		});
 
-		btn_refresh.setOnAction(e -> {
-			try{
-				ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
-				game_table.setItems(data_new);
-				this.bs_controller.spelerReady(this.bs_interface.readyList());
-			}catch(Exception b){
-				b.printStackTrace();
-		}});
-
 		btn_klaar.setOnAction(e -> {
-			try{
-				//new SpelbordView(this.bs_controller, this.bs_interface);
-				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-				this.bs_controller.showSpelBordView();
+			if(geselecteerdeKleur!=null){
+				try{
+					//new SpelbordView(this.bs_controller, this.bs_interface);
+					Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
+					speler_model.setHandgrootte((int)slider_hand.getValue());
+					//speler_model.setK
+					//this.bs_interface.addSpelerReady();
+					this.bs_controller.showSpelBordView();
 
-			}catch(Exception b){
-				b.printStackTrace();
-		}});
+				}catch(Exception b){
+					b.printStackTrace();
+				}
+			}else{
+				meldingen.setText("Kies eerst een kleur.");
+			}
+			});
 
 		grid.setHgap(10);
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(game_table, 0, 0);
-	    grid.add(vbox_hervat_options, 1, 0);
+	    grid.add(vbox_hervat_options, 0, 1);
 
 		Scene lobby_scene = new Scene(grid, 380, 250);
 

@@ -15,6 +15,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	private Playboard_Model pmo = new Playboard_Model();
 	private int[] specialPos;
 	private int aanDeBeurt;
+	private int huidigeNiveau = 1;
 	private int bordMax;
 
 	private int maxMollen;
@@ -90,10 +91,15 @@ public class Spelbord_Model implements Bordspel_Interface {
 		this.players.get(spelerIndex).setReady(true);
 
 		Collections.sort(players);
+		int readyCount=0;
 		for (Speler_Model speler:players) {
 			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+			readyCount++;
 		}
-		this.beurtStatus=BeurtStatus.NEERZETTEN;
+		notifyObservers();
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.NEERZETTEN;
+		}
 		notifyObservers();
 	}
 
@@ -192,6 +198,12 @@ public class Spelbord_Model implements Bordspel_Interface {
 	public int beurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return aanDeBeurt;
+	}
+
+	@Override
+	public int getHuidigeNiveau() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.huidigeNiveau;
 	}
 
 }

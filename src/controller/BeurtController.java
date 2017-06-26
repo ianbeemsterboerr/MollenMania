@@ -18,6 +18,7 @@ public class BeurtController {
 
         int playerIndex = 0;
         //bepaal Welke index de grootste hand heeft.
+        //bs.
 
         //Mollen worden neergezet
         bs.setBeurtStatus(BeurtStatus.NEERZETTEN);

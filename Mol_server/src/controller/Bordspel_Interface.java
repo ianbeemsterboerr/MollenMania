@@ -21,6 +21,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public int beurtIndex() throws RemoteException;
 
+	public int getHuidigeNiveau() throws RemoteException;
+
 	/*
 	 * ADD THINGS
 	 */

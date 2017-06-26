@@ -18,7 +18,6 @@ public class MolController {
 
     public Spel_Interface mollenNeerzetten(VeldKnop veldKnop, Spel_Interface spelModel, int spelerIndex) throws RemoteException {
 
-
         for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
             if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()) {
                 return null;
@@ -56,7 +55,7 @@ public class MolController {
 
 
 
-       public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException{
+    public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException{
        //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];

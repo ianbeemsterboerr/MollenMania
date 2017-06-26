@@ -117,12 +117,21 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		btn_klaar.setOnAction(e -> {
 			if(geselecteerdeKleur!=null){
 				try{
-					System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
-					Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
-					speler_model.setHandgrootte((int)slider_hand.getValue());
-					speler_model.setKleur(geselecteerdeKleur.toString());
-					this.bs_interface.setSpelerReady(speler_model);
-					this.bs_controller.showSpelBordView();
+					Speler_Model speler_model;
+					for (Speler_Model speler: data) {
+						if (speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){
+							speler_model=speler;
+							speler_model.setHandgrootte((int)slider_hand.getValue());
+							speler_model.setKleur(geselecteerdeKleur.toString());
+							
+							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
+							if(this.bs_interface.setSpelerReady(speler_model)){
+								this.bs_controller.showSpelBordView();
+							}
+						}
+					}
+					//Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
+
 				}catch(Exception b){
 					b.printStackTrace();
 				}
@@ -153,15 +162,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		} catch(NullPointerException e){
 
 		}
-//		boolean benKlaar = false;
-//		for (Speler_Model speler:playable.playerList()) {
-//			if(speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){
-//				benKlaar=speler.isReady();
-//			}
-//		}
-//		if(playable.getBeurtStatus()!= BeurtStatus.LOBBY &&benKlaar){
-//			bs_controller.showSpelBordView();
-//		}
 	}
 
 	@Override

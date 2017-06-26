@@ -24,7 +24,7 @@ public class Bordspel_Controller {
 	private int[] geselecteerdeMolPos;
 	private int gedraaideFicheWaarde;
 
-	
+	public Bordspel_Controller(){}
 	public Bordspel_Controller(Bordspel_Interface bs, String bijnaam) throws RemoteException{
 		this.bijnaam=bijnaam;
 		this.bs_interface = bs;

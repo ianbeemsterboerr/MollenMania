@@ -48,6 +48,7 @@ public class Bordspel_Controller {
 	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
 		int players_ready = rlist.size();
 		int max = this.bs_interface.maxSpelers();
+		
 		if(players_ready == max){
 			new SpelbordView(this, bs_interface, this.bijnaam);
 		} else{
@@ -94,18 +95,44 @@ public class Bordspel_Controller {
 //			System.out.println("Bordspel_Controller: clickAction niet afgehandeld");
 //		}
 	}
-	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm){
+	
+	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm, int niveau){
 		loadSpelerMols(buttonArray, mol);
-		loadMolsHoop(buttonArray, pm);
-		loadSpecial(buttonArray, pm);
+		loadMolsHoop(buttonArray, pm, niveau);
+		loadSpecial(buttonArray, pm, niveau);
 	}
 	
-	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm){
-		for(SpeciaalVeld_Veld m : pm.getNiveau2().getSpeciaal()){
-			for(int x = 0; x < buttonArray.length; x++){
-				if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-					buttonArray[x].setDisable(true);
-					buttonArray[x].setStyle("-fx-background-color: yellow;");
+	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau){
+		
+		ArrayList<SpeciaalVeld_Veld> special_niveau2 = pm.getNiveau2().getSpeciaal();
+		ArrayList<SpeciaalVeld_Veld> special_niveau3 = pm.getNiveau3().getSpeciaal();
+		ArrayList<SpeciaalVeld_Veld> special_niveau4 = pm.getNiveau4().getSpeciaal();
+		
+		if(niveau == 2){
+			for(SpeciaalVeld_Veld m : special_niveau2){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: yellow;");
+					}
+				}
+			}
+		} else if(niveau == 3){
+			for(SpeciaalVeld_Veld m : special_niveau3){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: yellow;");
+					}
+				}
+			}
+		} else if(niveau == 4){
+			for(SpeciaalVeld_Veld m : special_niveau4){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: yellow;");
+					}
 				}
 			}
 		}
@@ -122,15 +149,50 @@ public class Bordspel_Controller {
 		}
 	}
 	
-	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm){
-		for(Molshoop_Veld m : pm.getNiveau1().getMolshoop()){
-			for(int x = 0; x < buttonArray.length; x++){
-				if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-					buttonArray[x].setDisable(true);
-					buttonArray[x].setStyle("-fx-background-color: blue;");
+	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm, int niveau){
+		ArrayList<Molshoop_Veld> molshoop_niveau1 = pm.getNiveau1().getMolshoop();
+		ArrayList<Molshoop_Veld> molshoop_niveau2 = pm.getNiveau2().getMolshoop();
+		ArrayList<Molshoop_Veld> molshoop_niveau3 = pm.getNiveau3().getMolshoop();
+		ArrayList<Molshoop_Veld> molshoop_niveau4 = pm.getNiveau4().getMolshoop();
+		
+		if(niveau == 1){
+			for(Molshoop_Veld m : molshoop_niveau1){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: blue;");
+					}
+				}
+			}
+		} else if(niveau == 2){
+			for(Molshoop_Veld m : molshoop_niveau2){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: blue;");
+					}
+				}
+			}
+		} else if(niveau == 3){
+			for(Molshoop_Veld m : molshoop_niveau3){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: blue;");
+					}
+				}
+			}
+		} else if(niveau == 4){
+			for(Molshoop_Veld m : molshoop_niveau4){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(true);
+						buttonArray[x].setStyle("-fx-background-color: blue;");
+					}
 				}
 			}
 		}
+		
 	}
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){

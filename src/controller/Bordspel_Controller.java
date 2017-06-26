@@ -8,10 +8,7 @@ import model.BeurtStatus;
 import model.MolModel;
 import model.Niveau_Model;
 import model.Playboard_Model;
-<<<<<<< HEAD
-=======
 import model.Spelbord_Model;
->>>>>>> 27d0c4a75751f768a175231b54dfb3284a0d002c
 import model.Speler_Model;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;

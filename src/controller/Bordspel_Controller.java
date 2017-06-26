@@ -6,6 +6,7 @@ import model.Speler_Model;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
+import view.InstInGameView;
 import view.SpelbordView;
 
 import java.rmi.RemoteException;
@@ -19,6 +20,7 @@ public class Bordspel_Controller {
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
+	private InstInGameView instInGameView;
 
 	private int kerenGeweest;
 	private int[] geselecteerdeMolPos;
@@ -30,10 +32,11 @@ public class Bordspel_Controller {
 		this.bs_interface = bs;
 	}
 
-	public void showSpelBordView() throws RemoteException{
+	public void showSpelBordView(InstellingenPanelController instellingenPanelController) throws RemoteException{
+		this.instInGameView=instellingenPanelController.createInstInGameView(this);
 		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface ?
 		this.molController = new MolController(); //krijgt bs_interface ?
-		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam);
+		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam, instInGameView);
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -261,5 +264,13 @@ public class Bordspel_Controller {
 		mols = sm.getMol_list();
 		mols.get(0).setCoord(coord);
 		System.out.println(mols.get(0).getCoord());
+	}
+
+	public void opslaan(){
+		System.out.println(this.getClass().toString()+": opslaan");
+	}
+
+	public void afsluiten(){
+		System.out.println(this.getClass().toString()+": afsluiten");
 	}
 }

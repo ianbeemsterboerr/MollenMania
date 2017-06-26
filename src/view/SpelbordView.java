@@ -40,6 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private Bordspel_Controller bordspel_controller;
 	private int mol_index = 0;
 	private MolController molController;
+	private InstInGameView instInGameView;
 
 	private VeldKnop[] buttonArray;
 
@@ -52,10 +53,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.molController=molController;
 	}
 	
-	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam) throws RemoteException{
-
+	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam, InstInGameView instInGameView) throws RemoteException{
+		this.instInGameView=instInGameView;
 		this.bordspel_controller=bs_controller;
 		Stage bordStage = new Stage();
+		instInGameView.registerStage(bordStage);
 		
 		try {
 			bs_interface.addObserver(this);
@@ -70,6 +72,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
 
+		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");

@@ -1,5 +1,6 @@
 package view;
 
+import controller.Bordspel_Controller;
 import controller.InstellingenPanelController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,24 +10,28 @@ import javafx.stage.Stage;
 /**
  * Created by Robert on 6/16/2017.
  */
-public class InstellingenView {
-    Button btnGeluid;
-    Button btnKleurenblindheid;
-    Button btnHandleiding;
-    Button btnAfsluiten;
-    Button btnMinimaliseer;
+public class InstInGameView {
+    private Button btnGeluid;
+    private Button btnKleurenblindheid;
+    private Button btnHandleiding;
+    private Button btnOpslaan;
+    private Button btnAfsluiten;
+    private Button btnMinimaliseer;
 
-    HBox hbox;
+    private HBox hbox;
 
-    InstellingenPanelController controller;
-    Stage stage;
+    private InstellingenPanelController instellingenPanelController;
+    private Bordspel_Controller bordspel_controller;
+    private Stage stage;
 
-    public InstellingenView(InstellingenPanelController controller){
-        this.controller=controller;
+    public InstInGameView(InstellingenPanelController controller, Bordspel_Controller bordspel_controller){
+        this.instellingenPanelController =controller;
+        this.bordspel_controller=bordspel_controller;
 
         this.btnGeluid = new Button();
         this.btnKleurenblindheid =new Button();
         this.btnHandleiding =new Button();
+        this.btnOpslaan = new Button();
         this.btnAfsluiten =new Button();
         this.btnMinimaliseer=new Button();
 
@@ -34,26 +39,27 @@ public class InstellingenView {
         btnGeluid.setId("btn_loudspeaker");
         btnKleurenblindheid.setId("btn_oog");
         btnHandleiding.setId("btn_handleiding");
+        btnOpslaan.setId("btn_opslaan");
         btnMinimaliseer.setId("btn_minimize");
         btnAfsluiten.setId("btn_close");
 
         hbox = new HBox();
-        hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
+        hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnOpslaan, btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.getStylesheets().addAll(getClass().getResource("style/knoppen_panel_style.css").toExternalForm());
 
         btnGeluid.setOnAction(e -> {controller.toggleMute();});
         btnKleurenblindheid.setOnAction(e -> {controller.toggleKleurenblindModus();});
         btnHandleiding.setOnAction(e -> {controller.showHandleiding();});
+        btnOpslaan.setOnAction(e->{
+            bordspel_controller.opslaan();
+        });
         btnMinimaliseer.setOnAction(e -> {
             stage.setIconified(true);
         });
         btnAfsluiten.setOnAction(e -> {
-			try{
-				System.exit(0);
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
+            this.bordspel_controller.afsluiten();
+        });
     }
 
     public void registerStage(Stage stage){

@@ -1,0 +1,32 @@
+#btn_close:hover, #btn_minimize:hover, #btn_loudspeaker:hover, #btn_oog:hover,#btn_handleiding:hover {
+    -fx-background-color: rgba(255,255,255,0.5);
+
+}
+#btn_close:pressed, #btn_minimize:pressed, #btn_loudspeaker:pressed, #btn_oog:pressed,#btn_handleiding:pressed {
+    -fx-background-color: whitesmoke;
+
+}
+#btn_loudspeaker{
+    -fx-graphic: url("../img/Icon_LuidsprekerLeeg.png");
+    -fx-background-color: transparent;
+}
+
+#btn_oog{
+    -fx-graphic: url("../img/Icon_Oog.png");
+    -fx-background-color: transparent;
+}
+
+#btn_handleiding{
+    -fx-graphic:url("../img/Icon_Spelregels.png");
+    -fx-background-color: transparent;
+}
+
+#btn_close{
+    -fx-graphic: url("../img/Icon_Kruisje.png");
+    -fx-background-color: transparent;
+}
+
+#btn_minimize{
+    -fx-graphic: url("../img/Icon_Minnetje.png");
+    -fx-background-color: transparent;
+}

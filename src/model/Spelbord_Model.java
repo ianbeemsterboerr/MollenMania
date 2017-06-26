@@ -12,7 +12,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
-	private int[] specialPos;
+	private Playboard_Model pmo = new Playboard_Model();
+	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
 
@@ -39,6 +40,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
+<<<<<<< HEAD
+	public Spelbord_Model(){
+		
+=======
 	public Spelbord_Model(String saveNaam){
 		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
 	}
@@ -57,6 +62,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	public Spelbord_Model(){
 		this.beurtStatus = BeurtStatus.LOBBY;
+>>>>>>> ac4aaa80ee4a863d4405350f7c4aa1f26a7fa687
 	}
 	
 	public ArrayList<Speler_Model> getPlayers() {
@@ -98,10 +104,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
-	@Override
-	public Spelbord_Model spelModel() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this;
+	public int getAanDeBeurt() {
+		return aanDeBeurt;
+	}
+
+	public void setAanDeBeurt(int aanDeBeurt) {
+		this.aanDeBeurt = aanDeBeurt;
 	}
 
 	@Override
@@ -126,22 +134,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.players;
 	}
 
-//	public void veranderBeurt(){
-//		int nextIndex=0;
-//		for (Speler_Model speler: players) {
-//			if(speler.isAanDeBeurt()){
-//				speler.setAanDeBeurt(false);
-//				nextIndex=players.indexOf(speler)+1;
-//			}
-//			break;
-//		}
-//		players.get(nextIndex).setAanDeBeurt(true);
-//	}
-
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		this.aanDeBeurt += 1;
 	}
 	
 	@Override
@@ -154,14 +150,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.mol_onbord = mol_onbord;
 	}
 
-	public int[] getSpecialPos() {
-		return specialPos;
-	}
-
-	public void setSpecialPos(int[] specialPos) {
-		this.specialPos = specialPos;
-	}
-
 	@Override
 	public ArrayList<MolModel> molOnField() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -172,5 +160,17 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
+	}
+
+	@Override
+	public Playboard_Model pm() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.pmo;
+	}
+
+	@Override
+	public int beurtIndex() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.aanDeBeurt;
 	}
 }

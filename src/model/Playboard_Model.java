@@ -4,21 +4,24 @@ import model.Velden.GoudenSchep_Veld;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
-
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Wessel on 29-5-2017.
  */
 
-public class Playboard_Model  {
+public class Playboard_Model implements Serializable {
 
-   private Niveau_Model niveau1 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-   private Niveau_Model niveau2 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-   private Niveau_Model niveau3 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-   private Niveau_Model niveau4 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Niveau_Model niveau1 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+	private Niveau_Model niveau2 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+	private Niveau_Model niveau3 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+	private Niveau_Model niveau4 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+   
     public Niveau_Model getNiveau1() {
         return niveau1;
     }

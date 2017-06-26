@@ -15,8 +15,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private Playboard_Model pmo = new Playboard_Model();
 	private int aanDeBeurt;
 	private int bordMax;
-<<<<<<< HEAD
-=======
+
 	private int maxMollen;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
@@ -48,10 +47,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 
-	public int getMaxMollen() throws RemoteException{
-		return this.maxMollen;
-	}
-
 	public BeurtStatus getBeurtStatus() throws RemoteException {
 		return beurtStatus;
 	}
@@ -59,7 +54,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
 	}
->>>>>>> 3b07f3184ea2fe2d11ab3128987ec51d7fe4714a
 
 	public Spelbord_Model(){
 		

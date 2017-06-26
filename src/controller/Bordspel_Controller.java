@@ -1,18 +1,15 @@
 package controller;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import model.BeurtStatus;
 import model.MolModel;
-import model.Niveau_Model;
 import model.Playboard_Model;
-import model.Spelbord_Model;
 import model.Speler_Model;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;
 import view.SpelbordView;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Bordspel_Controller {
 	
@@ -125,7 +122,7 @@ public class Bordspel_Controller {
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){
 		int [] mollist = molcheck.getCoord();
-		
+
 		if(Arrays.equals(mollist, positie)){
 			return true;
 		} else {

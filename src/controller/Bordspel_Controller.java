@@ -35,7 +35,6 @@ public class Bordspel_Controller {
 	public void showSpelBordView() throws RemoteException{
 		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface ?
 		this.molController = new MolController(); //krijgt bs_interface ?
-
 		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam);
 	}
 	
@@ -138,7 +137,46 @@ public class Bordspel_Controller {
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 */
+	/*
+	 * mol dinges. here we get the mol that is not yet in play and we give it coords.
+	 * once coords have been set we up the index and go until all mols have been registered.
+	 * 
+	 * index max = the amount of mols u have in your list. so when the index is max
+	 * it is time to switch turn
+	 * 
+	 */
+	public void setMolCoords(Speler_Model sm, MolModel mol_placeholder, VeldKnop buttonBox, int mol_max, int mol_index){
+		//starts at 0 -> how many mols am I going to have? to avoid list exceptions.
+		/*
+		 * mol dinges. here we get the mol that is not yet in play and we give it coords.
+		 * once coords have been set we up the index and go until all mols have been registered.
+		 * 
+		 * index max = the amount of mols u have in your list. so when the index is max
+		 * it is time to switch turn
+		 * 
+		 */
+		if(mol_index == mol_max){
+			System.out.println("max");
+		} else {
+			mol_placeholder = sm.getMol_list().get(mol_index);
+			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
 
+			System.out.println("Current mol index: " + mol_index);
+		}
+		
+		/*
+		 * here we send the mol to the board.
+		 * model has new mol + it's coords -> register it for all to see.
+		 */
+		try {
+			this.bs_interface.addMolField(mol_placeholder);
+			System.out.println("Mols on field: " + bs_interface.molOnField().size());
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 	private void checkZetValid(int[] positie){
 
 	}
@@ -153,6 +191,4 @@ public class Bordspel_Controller {
 		mols.get(0).setCoord(coord);
 		System.out.println(mols.get(0).getCoord());
 	}
-
-
 }

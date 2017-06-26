@@ -13,22 +13,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
 	private Playboard_Model pmo = new Playboard_Model();
-	private int[] specialPos;
+	private int aanDeBeurt;
 	private int bordMax;
 
-	public enum SpelState {LOBBY, NEERZETTEN, FICHEDRAAIEN, SELECTEREN, VERPLAATSEN, EINDE};
-	private SpelState spelState;
-
-	public SpelState getSpelState() throws RemoteException {
-		return spelState;
-	}
-
-	public void setSpelState(SpelState spelState) throws RemoteException {
-		this.spelState = spelState;
-	}
-
 	public Spelbord_Model(){
-		this.spelState=SpelState.LOBBY;
+		
 	}
 	
 	public ArrayList<Speler_Model> getPlayers() {
@@ -70,10 +59,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
-	@Override
-	public Spelbord_Model spelModel() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this;
+	public int getAanDeBeurt() {
+		return aanDeBeurt;
+	}
+
+	public void setAanDeBeurt(int aanDeBeurt) {
+		this.aanDeBeurt = aanDeBeurt;
 	}
 
 	@Override
@@ -98,22 +89,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.players;
 	}
 
-//	public void veranderBeurt(){
-//		int nextIndex=0;
-//		for (Speler_Model speler: players) {
-//			if(speler.isAanDeBeurt()){
-//				speler.setAanDeBeurt(false);
-//				nextIndex=players.indexOf(speler)+1;
-//			}
-//			break;
-//		}
-//		players.get(nextIndex).setAanDeBeurt(true);
-//	}
-
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		this.aanDeBeurt += 1;
 	}
 	
 	public void setBordMax(int m){
@@ -128,14 +107,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	public void setMol_onbord(ArrayList<MolModel> mol_onbord) {
 		this.mol_onbord = mol_onbord;
-	}
-
-	public int[] getSpecialPos() {
-		return specialPos;
-	}
-
-	public void setSpecialPos(int[] specialPos) {
-		this.specialPos = specialPos;
 	}
 
 	@Override
@@ -154,5 +125,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public Playboard_Model pm() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.pmo;
+	}
+
+	@Override
+	public int beurtIndex() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.aanDeBeurt;
 	}
 }

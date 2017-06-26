@@ -38,7 +38,13 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
 
 		//Add this view to observer list
-
+		
+		try {
+			bs_interface.addObserver(this);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		this.bs_interface = bs_interface;
 		this.bs_controller = bs_controller;
 
@@ -82,12 +88,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		btn_kleur.setOnAction(e->{
 			
-			try {
-				System.out.println(bs_interface.pm().test());
-			} catch (RemoteException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			
 		});
 
 		btn_refresh.setOnAction(e -> {
@@ -103,17 +104,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try{
 				//new SpelbordView(this.bs_controller, this.bs_interface);
 				this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
-<<<<<<< HEAD
-				//this.bs_controller.showSpelBordView();
 
 				//this.bs_controller.showSpelBordView();
-
-=======
-				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
 				this.bs_controller.showSpelBordView();
-				//this.bs_controller.showSpelBordView();
-				//this.bs_interface.addSpelerReady(game_table.getSelectionModel().getSelectedItem().getMyself());
->>>>>>> c4a1d28b3472afa306105e8681889fbdc63e6c77
 			}catch(Exception b){
 				b.printStackTrace();
 		}});

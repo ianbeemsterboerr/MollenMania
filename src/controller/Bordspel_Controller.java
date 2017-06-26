@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import model.MolModel;
+import model.Niveau_Model;
+import model.Playboard_Model;
 import model.Speler_Model;
+import model.Velden.Molshoop_Veld;
+import model.Velden.VeldKnop;
 import view.SpelbordView;
 
 public class Bordspel_Controller {
@@ -53,8 +57,7 @@ public class Bordspel_Controller {
 		}
 	}
 
-<<<<<<< HEAD
-=======
+
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
@@ -62,7 +65,32 @@ public class Bordspel_Controller {
 	public void clickAction(int[] position){
 
 	}
->>>>>>> c4a1d28b3472afa306105e8681889fbdc63e6c77
+	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm){
+		loadSpelerMols(buttonArray, mol);
+		loadMolsHoop(buttonArray, pm);
+	}
+	
+	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<MolModel> mol){
+		for(MolModel m : mol){
+			for(int x = 0; x < buttonArray.length; x++){
+				if(Arrays.equals(m.getCoord(), buttonArray[x].getCoordinaten())){
+					buttonArray[x].setDisable(true);
+					buttonArray[x].setStyle("-fx-background-color: red;");
+				}
+			}
+		}
+	}
+	
+	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm){
+		for(Molshoop_Veld m : pm.getNiveau1().getMolshoop()){
+			for(int x = 0; x < buttonArray.length; x++){
+				if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+					buttonArray[x].setDisable(true);
+					buttonArray[x].setStyle("-fx-background-color: blue;");
+				}
+			}
+		}
+	}
 
 	public boolean checkZetValid(MolModel molcheck, int[] positie){
 		int [] mollist = molcheck.getCoord();
@@ -72,19 +100,15 @@ public class Bordspel_Controller {
 		} else {
 			return false;
 		}
-<<<<<<< HEAD
+
 	}
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 */
-	public void clickAction(int[] position){
-	}
 
 	private void checkZetValid(int[] positie){
 
-=======
->>>>>>> c4a1d28b3472afa306105e8681889fbdc63e6c77
 	}
 
 	public void refresh() throws RemoteException{

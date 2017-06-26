@@ -43,8 +43,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	private VeldKnop[] buttonArray;
 
-	//private Button rmiTest = new Button("RMI Test!");
-
 	DashboardView player_1;
 	DashboardView player_2;
 	DashboardView player_3;
@@ -53,6 +51,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, MolController molController, Fiche_Controller fiche_controller, String bijnaam) throws RemoteException{
 		this.molController=molController;
 	}
+	
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam) throws RemoteException{
 
 		this.bordspel_controller=bs_controller;
@@ -89,7 +88,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.setResizable(false);
 		bordStage.show();
 	}
-
 
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
 
@@ -330,7 +328,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
-
 	@Override
 	public boolean isEnabled() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -343,11 +340,4 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 	}
 
-    public VeldKnop[] getButtonArray() {
-        return buttonArray;
-    }
-
-    public void setButtonArray(VeldKnop[] buttonArray) {
-        this.buttonArray = buttonArray;
-    }
 }

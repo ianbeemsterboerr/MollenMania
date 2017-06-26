@@ -86,18 +86,6 @@ public class Playboard_Model implements Serializable {
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(2,-3,1));
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-4,0,4));
 
-
-
-
-
-
-
-
-
-
-
     }
-
-
 
 }

@@ -59,6 +59,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button("KLAAR");
+		Button btn_open = new Button("OPEN");
 
 		//Knoppen die te maken hebben met een kleur
 		HBox kleurOpties = new HBox();
@@ -127,6 +128,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 				meldingen.setText("Kies eerst een kleur.");
 			}
 			});
+		
+		
 
 		grid.setHgap(10);
 	    grid.setPadding(new Insets(5, 5, 5, 5));
@@ -144,7 +147,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
 		game_table.setItems(data_new);
-
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
 	private int[] specialPos;
+	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
 
@@ -172,5 +173,9 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
+	}
+
+	public int getBeurtIndex() {
+		return aanDeBeurt;
 	}
 }

@@ -368,8 +368,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 */
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
-					System.out.println("Player " + bs_interface.beurtIndex() + " is aan de beurt.");
-					player_placeholder = players.get(bs_interface.beurtIndex());
+					System.out.println("Player " + bs_interface.getBeurtIndex() + " is aan de beurt.");
+					player_placeholder = players.get(bs_interface.getBeurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

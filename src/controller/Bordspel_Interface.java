@@ -41,5 +41,5 @@ public interface Bordspel_Interface extends Remote {
 	
 	public Playboard_Model pm() throws RemoteException;
 	
-	public int beurtIndex() throws RemoteException;
+	public int getBeurtIndex() throws RemoteException;
 }

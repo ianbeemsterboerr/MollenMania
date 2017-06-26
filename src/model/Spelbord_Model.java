@@ -16,11 +16,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int aanDeBeurt;
 	private int bordMax;
 	private int maxMollen;
+	private int beurtIndex=0;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
+		this.beurtStatus = BeurtStatus.LOBBY;
 		this.bordMax=maxSpelers;
 		switch (maxSpelers){
 			case 2:
@@ -40,9 +42,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 27d0c4a75751f768a175231b54dfb3284a0d002c
 	public Spelbord_Model(String saveNaam){
 		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
+		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 
 	public int getMaxMollen() throws RemoteException{
@@ -56,10 +62,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
 	}
+<<<<<<< HEAD
 
 	public Spelbord_Model(){
 		this.beurtStatus = BeurtStatus.LOBBY;
 	}
+=======
+>>>>>>> 27d0c4a75751f768a175231b54dfb3284a0d002c
 	
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;
@@ -165,7 +174,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public int beurtIndex() throws RemoteException {
+	public int getBeurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.aanDeBeurt;
 	}

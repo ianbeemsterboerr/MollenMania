@@ -125,8 +125,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
 			aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
 			try {
-				bordspel_controller.refresh();
-				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 2);
+				//bordspel_controller.refresh();
+				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 			} catch (RemoteException e1) {
 				e1.printStackTrace();
 			}
@@ -323,8 +323,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class.
 		 */
 
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 1);
 
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), 1);
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.

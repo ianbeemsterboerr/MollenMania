@@ -40,7 +40,7 @@ public class connect_host_view {
 		
 		btn_connect.setOnAction(e -> { 
 			try{
-				new Mol_Client(this.textBoxUsername());
+				//new Mol_Client(this.textBoxUsername());
 				connectStage.close();
 			}catch(Exception b){
 				b.printStackTrace();

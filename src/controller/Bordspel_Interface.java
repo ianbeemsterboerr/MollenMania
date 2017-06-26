@@ -6,6 +6,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import model.*;
+import model.MolModel;
+import model.Playboard_Model;
+import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
 
@@ -20,6 +23,8 @@ public interface Bordspel_Interface extends Remote {
 	public int maxSpelers() throws RemoteException;
 	
 	public int beurtIndex() throws RemoteException;
+	
+	public int getHuidigeNiveau() throws RemoteException;
 	
 	/*
 	 * ADD THINGS

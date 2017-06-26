@@ -1,5 +1,6 @@
 package controller;
 
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -9,10 +10,12 @@ import view.Lobby_View;
 
 public class Mol_Client {
 
-	private InstellingenView instellingenView;
+	private InstellingenPanelController instellingenPanelController;
 	private String bijnaam;
+	private Bordspel_Controller bs_controller;
 
-	public Mol_Client(String ip, String username){
+	public Mol_Client(String ip, String username, InstellingenPanelController instellingenPanelController){
+		this.instellingenPanelController=instellingenPanelController;
 		this.bijnaam=username;
 		//this.instellingenView=instellingenView;
 		try {
@@ -23,7 +26,7 @@ public class Mol_Client {
             //CALL OBJECT FROM INTERFACE IMPLEMENTATIONNN
 			// get remote interface object from registry
 			Bordspel_Interface userStub = (Bordspel_Interface) registry.lookup("Spelbord_Model");
-			Bordspel_Controller bs_controller = new Bordspel_Controller(userStub, username);
+			this.bs_controller = new Bordspel_Controller(userStub, username);
 
 			int spid = userStub.playerList().size()+1;
 			//System.out.println(userStub.getClientHost());
@@ -35,6 +38,10 @@ public class Mol_Client {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+	public void naarSpelBord() throws RemoteException{
+		System.out.println(this.getClass().toString()+": naarSpelBord()");
+		bs_controller.showSpelBordView(instellingenPanelController);
 	}
 
 	public String getBijnaam(){

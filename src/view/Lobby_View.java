@@ -126,7 +126,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 							
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 							if(this.bs_interface.setSpelerReady(speler_model)){
-								this.bs_controller.showSpelBordView();
+								this.mol_client.naarSpelBord();
 							}
 						}
 					}
@@ -143,9 +143,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Button b = new Button("lmao");
 		b.setOnAction(e->{
 			try {
-				this.bs_controller.showSpelBordView();
+				this.mol_client.naarSpelBord();
 			} catch (RemoteException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});

@@ -47,7 +47,7 @@ public class JoinSpelView {
 
         btn_connect.setOnAction(e -> {
             try{
-                new Mol_Client(this.ipadress.getText(), this.textBoxUsername());
+                new Mol_Client(this.ipadress.getText(), this.textBoxUsername(),spelJoinController.getMainMenuController().getInstellingenPanelController());
                 //new molclient(this.textBoxUsername(), this.maxHostSpelers); //Robert: waarom zou deze view moeten aangeven hoeveel spelers er zijn? Das toch alleen de taak van de Host?
                 connectStage.close();
             }catch(Exception b){

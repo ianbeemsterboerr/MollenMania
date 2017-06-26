@@ -20,7 +20,7 @@ public class Bordspel_Controller {
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
-	private InstInGameView instInGameView;
+	private InstellingenPanelController  instellingenPanelController;
 
 	private int kerenGeweest;
 	private int[] geselecteerdeMolPos;
@@ -33,10 +33,10 @@ public class Bordspel_Controller {
 	}
 
 	public void showSpelBordView(InstellingenPanelController instellingenPanelController) throws RemoteException{
-		this.instInGameView=instellingenPanelController.createInstInGameView(this);
+		this.instellingenPanelController=instellingenPanelController;
 		this.fiche_controller = new Fiche_Controller(); // krijgt bs_interface ?
 		this.molController = new MolController(); //krijgt bs_interface ?
-		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam, instInGameView);
+		this.spelbordView=new SpelbordView(this, bs_interface, this.bijnaam, instellingenPanelController.createInstInGameView(this));
 	}
 	
 	public void checkPlayerList(int max, Speler_Model sm) throws RemoteException{
@@ -48,17 +48,17 @@ public class Bordspel_Controller {
 		}
 	}
 	
-	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
-		int players_ready = rlist.size();
-		int max = this.bs_interface.maxSpelers();
-		
-		if(players_ready == max){
-			new SpelbordView(this, bs_interface, this.bijnaam);
-		} else{
-			System.out.println(players_ready);
-			System.out.println("Waiting for players");
-		}
-	}
+//	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
+//		int players_ready = rlist.size();
+//		int max = this.bs_interface.maxSpelers();
+//
+//		if(players_ready == max){
+//			new SpelbordView(this, bs_interface, this.bijnaam);
+//		} else{
+//			System.out.println(players_ready);
+//			System.out.println("Waiting for players");
+//		}
+//	}
 
 
 	/**

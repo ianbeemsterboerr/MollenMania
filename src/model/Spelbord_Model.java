@@ -2,6 +2,7 @@ package model;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
@@ -10,7 +11,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
-	private ArrayList<Speler_Model> ready_list = new ArrayList<>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
 	private int[] specialPos;
@@ -67,8 +67,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
 		this.players.add(sm);
+		Collections.sort(players);
+		for (Speler_Model speler:players) {
+			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+		}
 		notifyObservers();
 	}
 
@@ -78,13 +81,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		return this.players;
 	}
-	
+
 	public void notifyObservers() throws RemoteException {
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
 		}
 	}
-	
+
 	@Override
 	public void addObserver(Player_Observer po) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -101,19 +104,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bord_observers;
-	}
-
-	@Override
-	public void addSpelerReady(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
-		this.ready_list.add(sm);
-		notifyObservers();
-	}
-
-	@Override
-	public ArrayList<Speler_Model> readyList() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.ready_list;
 	}
 
 	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {

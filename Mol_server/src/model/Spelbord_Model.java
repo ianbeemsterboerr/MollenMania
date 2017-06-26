@@ -12,6 +12,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<Speler_Model> ready_list = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
+	private Playboard_Model pmo = new Playboard_Model();
 	private int[] specialPos;
 	private int aanDeBeurt;
 	private int bordMax;
@@ -22,6 +23,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
+		this.beurtStatus = BeurtStatus.LOBBY;
 		this.bordMax=maxSpelers;
 		switch (maxSpelers){
 			case 2:
@@ -42,6 +44,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	public Spelbord_Model(String saveNaam){
+		this.beurtStatus = BeurtStatus.LOBBY;
 		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
 	}
 
@@ -100,12 +103,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public Spelbord_Model spelModel() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	@Override
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bord_observers;
@@ -126,18 +123,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
 		return this.players;
 	}
-
-//	public void veranderBeurt(){
-//		int nextIndex=0;
-//		for (Speler_Model speler: players) {
-//			if(speler.isAanDeBeurt()){
-//				speler.setAanDeBeurt(false);
-//				nextIndex=players.indexOf(speler)+1;
-//			}
-//			break;
-//		}
-//		players.get(nextIndex).setAanDeBeurt(true);
-//	}
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
@@ -187,7 +172,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.mol_onbord.add(mol);
 	}
 
-	public int getBeurtIndex() {
+	public int beurtIndex() throws RemoteException{
 		return aanDeBeurt;
+	}
+
+	public Playboard_Model pm() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.pmo;
 	}
 }

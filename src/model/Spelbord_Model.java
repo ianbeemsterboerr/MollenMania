@@ -13,7 +13,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> ready_list = new ArrayList<>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
-
+	private int[] specialPos;
 	private int aanDeBeurt;
 	private int bordMax;
 
@@ -55,10 +55,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
 	}
-
-	public Spelbord_Model(){
-		
-	}
 	
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;
@@ -99,14 +95,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 			e.printStackTrace();
 			System.out.println("Spelbord_Model.addObserver");
 		}
-	}
-
-	public int getAanDeBeurt() {
-		return aanDeBeurt;
-	}
-
-	public void setAanDeBeurt(int aanDeBeurt) {
-		this.aanDeBeurt = aanDeBeurt;
 	}
 
 	@Override
@@ -191,7 +179,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public int beurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
-		return 0;
+		return aanDeBeurt;
 	}
 
 }

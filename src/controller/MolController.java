@@ -38,9 +38,9 @@ public class MolController {
     }
 
     // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
-    public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) {
+    public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{
         if (zetGeldig(sm, eindPunt, ficheNR, molIndex)) {
-            sm.getPlayers().get(sm.getAanDeBeurt()).getMol_list().get(molIndex).setCoord(eindPunt);
+            sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
             return sm;
         }
         return null;
@@ -60,10 +60,10 @@ public class MolController {
     }
 
 
-       public boolean zetGeldig(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) {
+       public boolean zetGeldig(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
-        int beginpunt[] = sm.getPlayers().get(sm.getAanDeBeurt()).getMol_list().get(molIndex).getCoord();
+        int beginpunt[] = sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
         }

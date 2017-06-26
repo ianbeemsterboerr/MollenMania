@@ -323,6 +323,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class.
 		 */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4e9315bdf1e8c8585f42177599fc5986a8e5225
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 		
 		/*
@@ -352,8 +356,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * 		1. whose turn is it?
 				 */
 				
-				Speler_Model player_placeholder = new Speler_Model();
-				MolModel mol_placeholder = new MolModel();
+				Speler_Model player_aanDeBeurt = new Speler_Model();
+				MolModel mol_geselecteerd = new MolModel();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -364,7 +368,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
 					System.out.println("Player " + bs_interface.beurtIndex() + " is aan de beurt.");
-					player_placeholder = players.get(bs_interface.beurtIndex());
+					player_aanDeBeurt = players.get(bs_interface.beurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -374,7 +378,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				this.bordspel_controller.setMolCoords(player_placeholder, mol_placeholder, buttonBox, mol_max, mol_index);
+				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				
 			});

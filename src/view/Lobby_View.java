@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import controller.Bordspel_Interface;
+import controller.Mol_Client;
 import controller.Player_Observer;
 import controller.Bordspel_Controller;
 import javafx.collections.FXCollections;
@@ -17,29 +18,32 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.BeurtStatus;
 import model.Speler_Model;
 
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
-	Button btn_blauw = new Button("Blauw");
-	Button btn_rood = new Button("Rood");
-	Button btn_groen = new Button("Groen");
-	Button btn_geel = new Button("Geel");
-	Label meldingen = new Label();
-	Color geselecteerdeKleur;
-
-	/**
-	 *
-	 */
+	private Button btn_blauw = new Button("Blauw");
+	private Button btn_rood = new Button("Rood");
+	private Button btn_groen = new Button("Groen");
+	private Button btn_geel = new Button("Geel");
+	private Label meldingen = new Label();
+	private Color geselecteerdeKleur;
+	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
 	Bordspel_Controller bs_controller;
 	Bordspel_Interface bs_interface;
 	ObservableList<Speler_Model> data;
 	TableView<Speler_Model> game_table;
-	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller) throws RemoteException{
 
+	/**
+	 *
+	 */
+
+	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, Mol_Client mol_client) throws RemoteException{
 		//Add this view to observer list
 		this.bs_interface = bs_interface;
+		this.mol_client=mol_client;
 		try {
 			bs_interface.addObserver(this);
 		}catch(Exception e){
@@ -120,7 +124,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 					speler_model.setKleur(geselecteerdeKleur.toString());
 					this.bs_interface.setSpelerReady(speler_model);
 					this.bs_controller.showSpelBordView();
-
 				}catch(Exception b){
 					b.printStackTrace();
 				}
@@ -146,7 +149,20 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
-		game_table.setItems(data_new);
+		try{
+			game_table.setItems(data_new);
+		} catch(NullPointerException e){
+
+		}
+//		boolean benKlaar = false;
+//		for (Speler_Model speler:playable.playerList()) {
+//			if(speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){
+//				benKlaar=speler.isReady();
+//			}
+//		}
+//		if(playable.getBeurtStatus()!= BeurtStatus.LOBBY &&benKlaar){
+//			bs_controller.showSpelBordView();
+//		}
 	}
 
 	@Override

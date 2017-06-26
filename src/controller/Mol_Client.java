@@ -10,8 +10,10 @@ import view.Lobby_View;
 public class Mol_Client {
 
 	private InstellingenView instellingenView;
+	private String bijnaam;
 
 	public Mol_Client(String ip, String username){
+		this.bijnaam=username;
 		//this.instellingenView=instellingenView;
 		try {
 			// get access to the RMI registry on the remote server
@@ -29,9 +31,13 @@ public class Mol_Client {
 
 			bs_controller.checkPlayerList(4, sm);
 
-			new Lobby_View(userStub, bs_controller);
+			new Lobby_View(userStub, bs_controller, this);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	public String getBijnaam(){
+		return this.bijnaam;
 	}
 }

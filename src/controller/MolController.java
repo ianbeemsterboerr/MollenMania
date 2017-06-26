@@ -16,7 +16,6 @@ import java.rmi.RemoteException;
 public class MolController {
     // In deze method worden de mollen neergezet aan het start van het spel
 
-    //Robert: Spel_Model in Spel_Interface veranderd om errors te voorkomen.
     public Spel_Interface mollenNeerzetten(VeldKnop veldKnop, Spel_Interface spelModel, int spelerIndex) throws RemoteException {
 
 
@@ -54,12 +53,7 @@ public class MolController {
         }
         return null;
     }
-
-    public boolean overMol(MolModel molModel, int[] eindPunt, int ficheNR) {
-        return false;
-    }
-
-
+    
        public boolean zetGeldig(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) {
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];

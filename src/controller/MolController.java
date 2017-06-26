@@ -89,14 +89,8 @@ public class MolController {
         return false;
     }
 
-public int aantalMollen (Spel_Interface spelModel){
-    int aantalSpelers = 0;
-    try {
-        aantalSpelers = spelModel.getSpeler().size();
-    } catch (RemoteException e) {
-        e.printStackTrace();
-    }
-
+public int aantalMollen (Spelbord_Model spelModel) throws RemoteException{
+    int  aantalSpelers = spelModel.getSpelers().size();
     if (aantalSpelers == 2){
         return 10;
     }

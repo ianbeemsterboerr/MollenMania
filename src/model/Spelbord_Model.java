@@ -163,16 +163,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public int beurtIndex() throws RemoteException {
+	public int getBeurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.aanDeBeurt;
-	}
-
-	public int getBeurtIndex() throws RemoteException{
-		return beurtIndex;
-	}
-
-	public void setBeurtIndex(int beurtIndex) {
-		this.beurtIndex = beurtIndex;
 	}
 }

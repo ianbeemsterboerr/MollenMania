@@ -67,8 +67,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
-		this.players.add(sm);
-		notifyObservers();
+		if(players.size()<bordMax){
+			this.players.add(sm);
+			notifyObservers();
+		}
 	}
 
 	/**

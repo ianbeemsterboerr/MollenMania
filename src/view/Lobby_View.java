@@ -113,7 +113,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		btn_rood.setOnAction(e->{
 			geselecteerdeKleur=Color.RED;
 		});
-
+		
 		btn_klaar.setOnAction(e -> {
 			if(geselecteerdeKleur!=null){
 				try{
@@ -140,8 +140,17 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			}
 			});
 		
+		Button b = new Button("lmao");
+		b.setOnAction(e->{
+			try {
+				this.bs_controller.showSpelBordView();
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		
-
+		grid.add(b, 0, 2);
 		grid.setHgap(10);
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(game_table, 0, 0);

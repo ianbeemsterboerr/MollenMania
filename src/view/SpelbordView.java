@@ -306,6 +306,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				int mol_max = 5;
 				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
+				try {
+					bs_interface.notifyObservers();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			});
 		}
 		
@@ -318,7 +324,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		System.out.println("change");
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
 	}
 

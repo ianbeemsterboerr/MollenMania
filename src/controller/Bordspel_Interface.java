@@ -11,6 +11,8 @@ import model.Playboard_Model;
 import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
+	
+	public void notifyObservers() throws RemoteException;
 
 	public int getMaxMollen() throws RemoteException;
 

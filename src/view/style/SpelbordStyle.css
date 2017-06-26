@@ -10,7 +10,12 @@
     -fx-background-size: 300%;
     -fx-background-color: rgba(0,0,0,0.7);
 }
-    #text_win{
-        -fx-text-fill: white;
-        -fx-font-size: 30px;
-    }
+
+#text_win{
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+}
+
+#mol_zet_rood{
+	-fx-graphic:url("../img/PionRood.png");
+}

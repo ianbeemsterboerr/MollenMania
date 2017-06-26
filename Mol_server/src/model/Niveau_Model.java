@@ -6,13 +6,18 @@ import model.Velden.Normaalveld_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.GoudenSchep_Veld;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Wessel on 6-6-2017.
  */
-public class Niveau_Model  {
+public class Niveau_Model implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     ArrayList<Molshoop_Veld> molshoop;
     ArrayList<Normaalveld_Veld> normaal;
     ArrayList<SpeciaalVeld_Veld> speciaal;

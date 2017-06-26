@@ -15,6 +15,51 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private Playboard_Model pmo = new Playboard_Model();
 	private int aanDeBeurt;
 	private int bordMax;
+<<<<<<< HEAD
+=======
+	private int maxMollen;
+
+	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
+	private BeurtStatus beurtStatus;
+
+	public Spelbord_Model(int maxSpelers){
+		this.beurtStatus = BeurtStatus.LOBBY;
+		this.bordMax=maxSpelers;
+		switch (maxSpelers){
+			case 2:
+				this.maxMollen =10;
+				break;
+			case 3:
+				this.maxMollen =8;
+				break;
+			case 4:
+				this.maxMollen =6;
+				break;
+			case 1:
+				System.out.println(this.getClass().toString()+": max spelers te laag. Setup failed.");
+				break;
+			default:
+				System.out.println(this.getClass().toString()+": max spelers te hoog: "+maxSpelers+", mag niet meer zijn dan 4. Setup failed.");
+		}
+	}
+
+	public Spelbord_Model(String saveNaam){
+		System.out.println(this.getClass().toString()+": savenaam is "+saveNaam);
+		this.beurtStatus = BeurtStatus.LOBBY;
+	}
+
+	public int getMaxMollen() throws RemoteException{
+		return this.maxMollen;
+	}
+
+	public BeurtStatus getBeurtStatus() throws RemoteException {
+		return beurtStatus;
+	}
+
+	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
+		this.beurtStatus = beurtStatus;
+	}
+>>>>>>> 3b07f3184ea2fe2d11ab3128987ec51d7fe4714a
 
 	public Spelbord_Model(){
 		
@@ -92,7 +137,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		// TODO Auto-generated method stub
-		this.aanDeBeurt += 1;
+		int handGrootteCurrent=players.get(aanDeBeurt).getHandgrootte();
+		int lastIterated=0;
+		for (int i=0; i<players.size();i++){
+			//checken of de speler die je checkt niet dezelfde is die nu aan de beurt is
+			if (i!=aanDeBeurt){
+				if(players.get(i).getHandgrootte()<handGrootteCurrent){
+					if(players.get(i).getHandgrootte()>players.get(lastIterated).getHandgrootte()){
+						lastIterated=i;
+					}
+				}
+			}
+		}
+		this.aanDeBeurt=lastIterated;
 	}
 	
 	public void setBordMax(int m){

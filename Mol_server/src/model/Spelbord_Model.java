@@ -91,10 +91,15 @@ public class Spelbord_Model implements Bordspel_Interface {
 		this.players.get(spelerIndex).setReady(true);
 
 		Collections.sort(players);
+		int readyCount=0;
 		for (Speler_Model speler:players) {
 			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+			readyCount++;
 		}
-		this.beurtStatus=BeurtStatus.NEERZETTEN;
+		notifyObservers();
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.NEERZETTEN;
+		}
 		notifyObservers();
 	}
 

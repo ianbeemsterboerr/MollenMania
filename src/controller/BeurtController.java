@@ -15,7 +15,7 @@ public class BeurtController {
         Bordspel_Controller bsController = new Bordspel_Controller();
         int playerIndex = 0;
         //bepaal Welke index de grootste hand heeft.
-        bs.
+        //bs.
 
         //Mollen worden neergezet
 

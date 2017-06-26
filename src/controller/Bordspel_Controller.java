@@ -249,9 +249,6 @@ public class Bordspel_Controller {
 		}
 	}
 	
-	private void checkZetValid(int[] positie){
-
-	}
 
 	public void refresh() throws RemoteException{
 		spelbordView.playerDataTest(bs_interface.playerList());

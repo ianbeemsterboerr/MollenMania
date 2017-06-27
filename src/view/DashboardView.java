@@ -6,7 +6,10 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import model.Speler_Model;
+
+import java.util.ArrayList;
 
 /**
  * Created by Robert on 6/22/2017.
@@ -24,42 +27,19 @@ public class DashboardView {
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
-    private Button fiche_btn = new Button();
-    private Button mol_btn = new Button();
-    private Button klaar_btn = new Button();
-    private Button refresh = new Button();
+    private Button fiche_btn = new Button("Fiche");
+    private Button mol_btn = new Button("Mol");
+    private Button klaar_btn = new Button("Klaar");
+    private Button refresh_btn = new Button("Refresh");
 
-    public Button getFiche_btn() {
-        return fiche_btn;
-    }
+    private Button fiche_1 = new Button("1");
+    private Button fiche_2 = new Button("2");
+    private Button fiche_3 = new Button("3");
+    private Button fiche_4 = new Button("4");
+    private Button fiche_5 = new Button("5");
+    private Button fiche_6 = new Button("6");
 
-    public Button getMol_btn() {
-        return mol_btn;
-    }
-
-    public Button getKlaar_btn() {
-        return klaar_btn;
-    }
-
-    public Button getRefresh() {
-        return refresh;
-    }
-
-    public void setFiche_btn(Button fiche_btn) {
-        this.fiche_btn = fiche_btn;
-    }
-
-    public void setMol_btn(Button mol_btn) {
-        this.mol_btn = mol_btn;
-    }
-
-    public void setKlaar_btn(Button klaar_btn) {
-        this.klaar_btn = klaar_btn;
-    }
-
-    public void setRefresh(Button refresh) {
-        this.refresh = refresh;
-    }
+    private ArrayList<Button> buttons = new ArrayList<Button>();
 
     public DashboardView(Speler_Model sm, Bordspel_Controller bs_controller, Pos alignment, String bijnaam){
         this.alignment=alignment;
@@ -88,19 +68,27 @@ public class DashboardView {
         aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
         aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
 
-        fiche_btn = new Button("Fiche");
-        mol_btn = new Button("Mol");
-        klaar_btn = new Button("Klaar");
-        refresh = new Button("Refresh");
+        buttons.add(fiche_btn);
+        buttons.add(mol_btn);
+        buttons.add(klaar_btn);
+        buttons.add(refresh_btn);
+        buttons.add(fiche_1);
+        buttons.add(fiche_2);
+        buttons.add(fiche_3);
+        buttons.add(fiche_4);
+        buttons.add(fiche_5);
+        buttons.add(fiche_6);
+
+        VBox ficheBox = new VBox();
+        ficheBox.getChildren().addAll(fiche_1,fiche_2,fiche_3,fiche_4,fiche_5, fiche_6);
 
         if(!isYou){
-            fiche_btn.setDisable(true);
-            mol_btn.setDisable(true);
-            klaar_btn.setDisable(true);
-            refresh.setDisable(true);
+            for (Button button:buttons) {
+                button.setDisable(true);
+            }
         }
-        
-        refresh.setOnAction(e->{
+
+        refresh_btn.setOnAction(e->{
             aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
             aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
         });
@@ -123,15 +111,55 @@ public class DashboardView {
         grid.add(aantal_fiche_lbl, 1, 2);
         grid.add(open_Fiches,1,3);
         grid.add(klaar_btn, 0, 3);
-        grid.add(refresh, 0, 4);
+        grid.add(refresh_btn, 0, 4);
+        grid.add(ficheBox,0,5);
         grid.setHgap(10.0);
         grid.setVgap(10.0);
     }
+
+
+    public Button getFiche_btn() {
+        return fiche_btn;
+    }
+
+    public Button getMol_btn() {
+        return mol_btn;
+    }
+
+    public Button getKlaar_btn() {
+        return klaar_btn;
+    }
+
+    public Button getRefresh_btn() {
+        return refresh_btn;
+    }
+
+    public void setFiche_btn(Button fiche_btn) {
+        this.fiche_btn = fiche_btn;
+    }
+
+    public void setMol_btn(Button mol_btn) {
+        this.mol_btn = mol_btn;
+    }
+
+    public void setKlaar_btn(Button klaar_btn) {
+        this.klaar_btn = klaar_btn;
+    }
+
+    public void setRefresh_btn(Button refresh_btn) {
+        this.refresh_btn = refresh_btn;
+    }
+
+
     public void setIsYou(boolean isYou){
         this.isYou = isYou;
     }
     public boolean getIsYou(){
         return isYou;
+    }
+
+    public void setDisabled(){
+
     }
 
 

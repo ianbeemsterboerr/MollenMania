@@ -107,5 +107,18 @@ public class MolController {
         return null;
     }
 
+    public void loadMolsHoop2(VeldKnop[] buttonArray, Playboard_Model pm, int niveau) throws RemoteException{
+        ArrayList<Molshoop_Veld> molshoop_niveau = pm.getHuidigNiveau(niveau).getMolshoop();
+
+            for(Molshoop_Veld m : molshoop_niveau){
+                for(int x = 0; x < buttonArray.length; x++){
+                    if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+                        buttonArray[x].setDisable(true);
+                        buttonArray[x].setStyle("-fx-background-color: blue;");
+                    }
+                }
+            }
+    }
+
 }
 

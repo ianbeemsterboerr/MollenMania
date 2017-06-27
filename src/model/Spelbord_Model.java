@@ -160,6 +160,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
+	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
+		mol.setCoord(coord);
+	}
+
+	@Override
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
 		System.out.println(this.getClass().toString()+" setSpelerReady()");
 		int spelerIndex=0;

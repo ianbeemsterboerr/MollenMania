@@ -36,12 +36,7 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 
 
 
-	public void fillPawnList(int aantal){
-		for(int i = 0; i < aantal; i++){
-			MolModel mol = new MolModel(i);
-			this.mol_list.add(mol);
-		}
-	}
+
 	
 	public ArrayList<MolModel> getMol_list() {
 		return mol_list;

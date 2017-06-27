@@ -359,7 +359,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-	    System.out.println(this.getClass().toString()+": "+playable.playerList().get(playable.beurtIndex()).getMol_list().size());
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 		//disableProperty(enabled);

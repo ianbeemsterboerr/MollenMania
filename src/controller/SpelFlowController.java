@@ -6,6 +6,7 @@ import model.Velden.VeldKnop;
 import view.DashboardView;
 import view.SpelbordView;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
@@ -29,7 +30,6 @@ public class SpelFlowController{
             //bs.
 
         //Mollen worden neergezet
-        bs.setBeurtStatus(BeurtStatus.NEERZETTEN);
         setKnoppenNeerzetten(bs);
 
 
@@ -37,6 +37,7 @@ public class SpelFlowController{
 
 
     public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
+        bsInterface.setBeurtStatus(BeurtStatus.NEERZETTEN);
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
@@ -48,7 +49,7 @@ public class SpelFlowController{
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
 //                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
-                        System.out.println(bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
+                        System.out.println("Mollen in lijst " +bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
                         nextPlayer(bsInterface);
                         System.out.println("spelerIndex: " +bsInterface.beurtIndex());
                         System.out.println("mol geplaatst en next");
@@ -66,14 +67,20 @@ public class SpelFlowController{
     }
 
 
-    public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) {
+    public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
+        bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
+        System.out.println(speler.getUsername() +" Is aan de beurt");
         for (final Button fiche : DashboardView.fiches) {
             fiche.setOnAction(e -> {
+                try {
                 ficheController.kiesFiche(speler.getFiche_list());
                 System.out.println("FicheNR = "+ speler.getFiche_list().getFicheNR());
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                 setFicheknoppenUit();
                 selecteerMolKnoppen(speler,bs_interface);
+                } catch (RemoteException e1) {
+                    e1.printStackTrace();
+                }
             });
         }
     }
@@ -85,7 +92,8 @@ public class SpelFlowController{
 
         }
     }
-    public void selecteerMolKnoppen(Speler_Model speler, Bordspel_Interface bs_interface){
+    public void selecteerMolKnoppen(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException{
+        bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
                 try {
@@ -106,7 +114,8 @@ public class SpelFlowController{
 
             }
 
-    public void setEindpuntKnoppen (Speler_Model speler, Bordspel_Interface bs_interface,MolModel mol) {
+    public void setEindpuntKnoppen (Speler_Model speler, Bordspel_Interface bs_interface,MolModel mol) throws RemoteException {
+        bs_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
         System.out.println("Selecteer eindpunt");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
@@ -125,7 +134,7 @@ public class SpelFlowController{
     }
 
         public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
-            ficheController.fichesCheck(speler.getFiche_list());
+              ficheController.fichesCheck(speler.getFiche_list());
 //            if (sbController.checkMolshopenBezet(bs_interface)) {
 //                //Clearmollen
 //                //switchNiveau

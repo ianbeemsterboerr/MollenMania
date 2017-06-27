@@ -25,6 +25,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public int getHuidigeNiveauIndex() throws RemoteException;
 
+	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException;
+
 	/*
 	 * ADD THINGS
 	 */
@@ -50,6 +52,7 @@ public interface Bordspel_Interface extends Remote {
 	public ArrayList<Speler_Model> playerList() throws RemoteException;
 
 	public ArrayList<MolModel> molOnField() throws RemoteException;
+
 
 
 

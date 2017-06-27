@@ -29,6 +29,7 @@ public class run extends Application{
 
 		
 		TextField host_name = new TextField();
+		host_name.setText("127.0.0.1");
 		Button btn_host = new Button("HOST");
 		Button btn_back = new Button("BACK");
 		btn_host.setMaxWidth(button_width);
@@ -45,6 +46,7 @@ public class run extends Application{
 		
 		btn_host.setOnAction(e -> { 
 			try{
+				System.setProperty("java.rmi.server.hostname",host_name.getText());
 				new Mol_Server(cb_aantal_spelers.getSelectionModel().getSelectedItem());
 			}catch(Exception b){
 				b.printStackTrace();
@@ -64,10 +66,12 @@ public class run extends Application{
 	    grid.setPadding(new Insets(5, 5, 5, 5));
 	    grid.add(new Label("MAX AANTAL SPELERS: "), 0, 1);
 	    grid.add(cb_aantal_spelers, 1, 1);
-	    grid.add(btn_host, 1, 2);
-	    grid.add(btn_back, 2, 2);
+		grid.add(new Label("RMI interface IP: "), 0, 2);
+		grid.add(host_name, 1, 2);
+	    grid.add(btn_host, 0, 3);
+	    grid.add(btn_back, 1, 3);
 		
-		Scene connect_scene = new Scene(grid, 250, 85);
+		Scene connect_scene = new Scene(grid, 250, 120);
 		//Make scene call up style.css for styling
 		//connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
 

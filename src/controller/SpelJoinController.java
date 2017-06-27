@@ -3,11 +3,11 @@ package controller;
 import view.JoinSpelView;
 
 /**
+ * Heeft als verantwoordelijkheid om de SpelJoinView op te starten.
  * Created by Robert on 6/18/2017.
  */
 public class SpelJoinController {
-    //joinSpelView
-    //speler?
+
     private JoinSpelView joinSpelView;
     private  MainMenuController mainMenuController;
     public SpelJoinController(MainMenuController mainMenuController){

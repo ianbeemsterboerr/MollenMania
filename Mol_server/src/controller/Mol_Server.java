@@ -28,9 +28,10 @@ public class Mol_Server extends UnicastRemoteObject{
 			// if you'd like to run rmiregistry from the command line
 			// run it from the project's bin directory, so rmiregistry can find the necessary classes
 			// bind userinterface to RMI registry
-			registry.rebind("Spelbord_Model", userSkeleton); 
-			
-	        System.out.println("Server running...");
+			registry.rebind("Spelbord_Model", userSkeleton);
+
+
+			System.out.println("Server running...");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block	
 			e.printStackTrace();

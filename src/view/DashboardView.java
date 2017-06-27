@@ -34,12 +34,7 @@ public class DashboardView {
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
 
-    private Button fiche_1 = new Button("1");
-    private Button fiche_2 = new Button("2");
-    private Button fiche_3 = new Button("3");
-    private Button fiche_4 = new Button("4");
-    private Button fiche_5 = new Button("5");
-    private Button fiche_6 = new Button("6");
+    public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
 
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
@@ -74,15 +69,11 @@ public class DashboardView {
         buttons.add(mol_btn);
         buttons.add(klaar_btn);
         buttons.add(refresh_btn);
-        buttons.add(fiche_1);
-        buttons.add(fiche_2);
-        buttons.add(fiche_3);
-        buttons.add(fiche_4);
-        buttons.add(fiche_5);
-        buttons.add(fiche_6);
-
         VBox ficheBox = new VBox();
-        ficheBox.getChildren().addAll(fiche_1,fiche_2,fiche_3,fiche_4,fiche_5, fiche_6);
+        for (Button fiche:fiches) {
+            buttons.add(fiche);
+            ficheBox.getChildren().add(fiche);
+        }
 
         if(!isYou){
             for (Button button:buttons) {

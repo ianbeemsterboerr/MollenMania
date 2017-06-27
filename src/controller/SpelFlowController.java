@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.control.Button;
 import model.BeurtStatus;
 import model.MolModel;
 import model.Spelbord_Model;
@@ -9,10 +10,12 @@ import view.SpelbordView;
 
 import java.rmi.RemoteException;
 
+import static view.DashboardView.fiches;
+
 /**
  * Created by Wessel on 26-6-2017.
  */
-public class SpelFlowController {
+public class SpelFlowController{
    private MolController molController = new MolController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
    private Fiche_Controller ficheController = new Fiche_Controller();
@@ -68,26 +71,30 @@ public class SpelFlowController {
     }
 
 
-    public void setFicheknoppenAan(Bordspel_Interface bs_interface){
-        DashboardView.fiche_btn.setOnAction(e->{
-            try {
-                ficheController.kiesFiche(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
-                System.out.println(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR());
+    public void setFicheknoppenAan(Bordspel_Interface bs_interface) {
+        for (final Button fiche : DashboardView.fiches) {
+            fiche.setOnAction(e -> {
+                try {
+                    ficheController.kiesFiche(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
+                    System.out.println(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR());
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
-                setFicheknoppenUit();
-                setKnoppenMollen(bs_interface);
-            } catch (RemoteException e1) {
-                e1.printStackTrace();
-            }
+                    setFicheknoppenUit();
+                    setKnoppenMollen(bs_interface);
+                } catch (RemoteException e1) {
+                    e1.printStackTrace();
+                }
 
 
-        });
+            });
+        }
     }
 
-    public void setFicheknoppenUit(){
-        DashboardView.fiche_btn.setOnAction(e -> {
-            System.out.println("UIT");
-        });
+    public void setFicheknoppenUit() {
+
+        for (final Button fiche : DashboardView.fiches) {
+            fiche.setOnAction(e -> System.out.println("UIT"));
+
+        }
     }
     public void setKnoppenMollen (Bordspel_Interface bs_interface){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
@@ -107,47 +114,22 @@ public class SpelFlowController {
             });
         }
 
-        public void setKnoppenMollen(Bordspel_Interface bs_interface) {
-            for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
-                buttonBox.setOnAction(e -> {
-                    try {
-                        MolModel mol = molController.bepaalOfMolAanwezig(bs_interface, buttonBox);
-                        if (mol == null) {
-                            System.out.println("Geen mol aanwezig");
-                        } else {
-                            setEindpuntKnoppen(bs_interface, mol);
-                        }
-                    } catch (RemoteException e1) {
-                        e1.printStackTrace();
-                    }
-
-                });
             }
-        }
 
-    public void setEindpuntKnoppen (Bordspel_Interface bs_interface,MolModel mol){
-        for (final VeldKnop buttonBox : SpelbordView.buttonArray){
+    public void setEindpuntKnoppen (Bordspel_Interface bs_interface,MolModel mol) {
+        for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
-                    if (molController.zetGeldig(bs_interface,mol,buttonBox.getCoordinaten(),0)){
+                    if (molController.zetGeldig(bs_interface, mol, buttonBox.getCoordinaten(), 0)) {
                         mol.setCoord(buttonBox.getCoordinaten());
                         rondeOpruim(bs_interface);
-
-        public void setEindpuntKnoppen(Bordspel_Interface bs_interface, MolModel mol) {
-            for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
-                buttonBox.setOnAction(e -> {
-                    try {
-                        if (molController.zetGeldig(bs_interface, mol, buttonBox.getCoordinaten(), 0)) {
-                            mol.setCoord(buttonBox.getCoordinaten());
-                            //eindeRondeMethod
-
-                        }
-                    } catch (RemoteException e1) {
-                        e1.printStackTrace();
                     }
-                });
-            }
+                } catch (RemoteException e1) {
+                    e1.printStackTrace();
+                }
+            });
         }
+    }
 
         public void rondeOpruim(Bordspel_Interface bs_interface) throws RemoteException {
             ficheController.fichesCheck(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
@@ -155,16 +137,12 @@ public class SpelFlowController {
                 //Clearmollen
                 //switchNiveau
             }
-            //clearKnoppen
+            clearKnoppen();
             //nextPlayer
             //terug naarFiche
         }
-        clearKnoppen();
-        bs_interface.nextObserver();
-        System.out.println("spelerIndex: " +bs_interface.beurtIndex());
 
-        setFicheknoppenAan(bs_interface);
-    }
+
 
     public void clearKnoppen(){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray )

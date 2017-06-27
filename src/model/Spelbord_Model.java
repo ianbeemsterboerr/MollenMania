@@ -16,8 +16,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int bordMax;
 	private int huidigeNiveau = 1;
 	private int maxMollen;
-
-	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
+	
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
@@ -75,7 +74,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		this.players.add(sm);
 	}
-
 
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {

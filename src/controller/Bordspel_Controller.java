@@ -45,6 +45,30 @@ public class Bordspel_Controller {
 		}
 	}
 	
+	/**
+	 * @since 0.2
+	 * 
+	 * Disables the current CounterObserver in the ArrayList observers and
+	 * enables the next CounterObserver in the list. This way the turn of one
+	 * CounterObserver ends and the other one starts
+	 * 
+	 * @throws RemoteException
+	 *             RemoteException when the connection between RMI client and
+	 *             server is compromised
+	 * 
+	 */
+	private void nextCounterObserver() throws RemoteException {
+		int beurt_index = bs_interface.beurtIndex();
+		if (bs_interface.observer_list().size() > 0) {
+			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(false);
+			beurt_index++;
+			if (bs_interface.beurtIndex() >= bs_interface.observer_list().size()) {
+				beurt_index = 0;
+			}
+			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(true);
+		}
+	}
+	
 	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
 		int players_ready = rlist.size();
 		int max = this.bs_interface.maxSpelers();
@@ -250,7 +274,6 @@ public class Bordspel_Controller {
 			e1.printStackTrace();
 		}
 	}
-	
 
 	public void refresh() throws RemoteException{
 		spelbordView.playerDataTest(bs_interface.playerList());

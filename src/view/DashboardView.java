@@ -15,12 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by Robert on 6/22/2017.
  *
- * Heeft nog een manier nodig om te zeggen tegen Bordspel_COntroller of SpelController dat model veranderd is.
- * Moet ook 6 fiches krijgen ipv 1 knop. Elke krijgt een aciotnlistener die naar bordspel_controller verwijst.
- * Mss moet deze klasse STring bijnaam krijgen zodat deze aan Fiche_controller meegegeven kan worden op hetmoment
- * dat je iets verandert, als bewijs van wie je bent?
- *
- * En wtf is dit buttonarray thingy?
+ * Houdt alle knoppen die een speler op het spelbord nodig heeft bij. Houdt ook bij bij welke speler die hoort.
+ * Wordt gebruikt in SpelBordView.Een dashboard staat voor 1 speler.
  */
 public class DashboardView {
     private Bordspel_Controller bordspel_controller;
@@ -33,11 +29,21 @@ public class DashboardView {
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
-
     public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
-
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
+    /**
+     * De constructor, maakt een Grid object met alle knoppen en labels erin en slaat die op.
+     * Bepaalt of het DashboardView van de speler is door isYou optioneel op true te zetten.
+     *
+     * @param sm    Het Speler_Model, laat zien van welke speler het dashboard is.
+     * @param bs_controller
+     * @param alignment Geeft de positie weer op het bord.
+     * @param bijnaam Ter identificatie of het dashboard van jou(degene die het scherm ziet) is.
+     *
+     * auteur: Robert den Blaauwen
+     * Versie: 22-6-2017
+     */
     public DashboardView(Speler_Model sm, Bordspel_Controller bs_controller, Pos alignment, String bijnaam){
         this.alignment=alignment;
         this.bordspel_controller = bordspel_controller;
@@ -74,12 +80,6 @@ public class DashboardView {
             ficheBox.getChildren().add(fiche);
         }
 
-//        if(!isYou){
-//            for (Button button:buttons) {
-//                button.setDisable(true);
-//            }
-//        }
-
         refresh_btn.setOnAction(e->{
             aantal_fiche_lbl.setText(fiche_count);
             aantal_mol_lbl.setText(mol_count);
@@ -104,52 +104,101 @@ public class DashboardView {
         grid.setVgap(10.0);
     }
 
-
+    /**
+     * Geeft de knop waarmee je een fiche() kan draaien.
+     *
+     * @return Button fiche_btn
+     */
     public Button getFiche_btn() {
         return fiche_btn;
     }
 
+    /**
+     * Geeft de knop waarme je kunt aangeven dat je een mol kunt neerzetten.
+     * Verouderd, wordt mogelijk verwijderd in de toekomst.
+     *
+     * @return Button mol_btn
+     */
     public Button getMol_btn() {
         return mol_btn;
     }
 
+    /**
+     * Geeft de knop waarmee je aangeeft dat je klaar bent. Verouderd, gaat verwijderd worden.
+     *
+     * @return Button klaar_btn
+     */
     public Button getKlaar_btn() {
         return klaar_btn;
     }
 
+    /**
+     * geeft de knop waarmee je kunt refreshen. Verouderd, gaat verwijderd worden.
+     *
+     * @return Button refresh_btn
+     */
     public Button getRefresh_btn() {
         return refresh_btn;
     }
 
+    /**
+     * Kan de knop waarmee je een fiche kunt draaien zetten.
+     *
+     * @param fiche_btn
+     */
     public void setFiche_btn(Button fiche_btn) {
         this.fiche_btn = fiche_btn;
     }
 
+    /**
+     * Kan de knop waarmee je aangeeft dat je een mol wilt neerzetten zetten.
+     * Mogelijk verouderd.
+     *
+     * @param mol_btn
+     */
     public void setMol_btn(Button mol_btn) {
         this.mol_btn = mol_btn;
     }
 
+    /**
+     * Kan de knop waarmee je aangeeft dat de volgende beurt mag zetten. Verouderd, gaat verwijderd worden.
+     *
+     * @param klaar_btn
+     */
     public void setKlaar_btn(Button klaar_btn) {
         this.klaar_btn = klaar_btn;
     }
 
+    /**
+     * Kan de knop waarmee je eht spelbord kunt refreshen zetten. Verouderd, gaat verwijderd worden.
+     *
+     * @param refresh_btn
+     */
     public void setRefresh_btn(Button refresh_btn) {
         this.refresh_btn = refresh_btn;
     }
 
-
-    public void setIsYou(boolean isYou){
-        this.isYou = isYou;
-    }
+    /**
+     * Geeft de boolean die aangeeft of het dashboard de speler voorstelt.
+     *
+     * @return boolean isYou
+     */
     public boolean getIsYou(){
         return isYou;
     }
 
+    /**
+     * Zorgt ervoor dat de knoppen disabled zijn wanneer de speler niet aan de beurt is of wanneer het spelbord niet
+     * van de speler is.
+     */
     public void setDisabled(){
 
     }
 
-
+    /**
+     * geeft de gridpane met de inhoud terug zodat SPelBordView hem kan gebruiken.
+     * @return
+     */
     public GridPane get(){
         return this.grid;
     }

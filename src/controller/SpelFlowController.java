@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
 /**
  * Created by Wessel on 26-6-2017.
  */
+
 public class SpelFlowController{
    private MolController molController = new MolController();
    private Fiche_Controller ficheController = new Fiche_Controller();
@@ -21,6 +22,7 @@ public class SpelFlowController{
 
     public SpelFlowController() {
     }
+
 
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
@@ -121,7 +123,7 @@ public class SpelFlowController{
             buttonBox.setOnAction(e -> {
                 try {
                     if (molController.zetGeldig(bs_interface, speler,mol, buttonBox.getCoordinaten())) {
-                        mol.setCoord(buttonBox.getCoordinaten());
+                        bs_interface.setMolCoord(mol,buttonBox.getCoordinaten());
                         bs_interface.notifyObservers();
                         System.out.println("pion geplaatst op: " +mol.getCoord());
                         rondeOpruim(speler,bs_interface);
@@ -141,6 +143,7 @@ public class SpelFlowController{
 //            }
             clearKnoppen();
             bs_interface.veranderBeurt();
+            bs_interface.notifyObservers();
             setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
         }
 
@@ -148,9 +151,7 @@ public class SpelFlowController{
 
     public void clearKnoppen(){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray )
-        buttonBox.setOnAction(e -> {
-            System.out.println("Disabled");
-        });
+        buttonBox.setOnAction(e -> System.out.println("Disabled"));
     }
 
     public void nextPlayer(Bordspel_Interface bs_interface) throws RemoteException{

@@ -20,10 +20,7 @@ public class MolModel implements Serializable{
     public MolModel(){
     	
     }
-   
-    public MolModel(int id){
-        this.pionID = id;
-    }
+    
 
 //    public MolModel(int playerID, int pionID, Color color, int x, int y, int z) {
 //        this.pionID = pionID;

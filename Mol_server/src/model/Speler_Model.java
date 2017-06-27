@@ -117,4 +117,5 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	public void setReady(boolean ready) {
 		isReady = ready;
 	}
+
 }

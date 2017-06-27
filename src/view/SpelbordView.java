@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.MolModel;
+import model.Playboard_Model;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 
@@ -286,7 +287,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class. - check
 		 */
 		
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(),new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.
@@ -358,7 +359,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+	    System.out.println(this.getClass().toString()+": "+playable.playerList().get(playable.beurtIndex()).getMol_list().size());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 		//disableProperty(enabled);
 	}

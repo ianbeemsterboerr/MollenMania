@@ -19,6 +19,7 @@ public class SpelFlowController{
    private MolController molController = new MolController();
    private Fiche_Controller ficheController = new Fiche_Controller();
    private SpelbordController sbController = new SpelbordController();
+   private Bordspel_Controller bsController = new Bordspel_Controller();
 
     public SpelFlowController() {
     }
@@ -38,9 +39,6 @@ public class SpelFlowController{
         }
 
 
-
-
-
     public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
@@ -51,19 +49,20 @@ public class SpelFlowController{
                         System.out.println("naar fiche");
                     }
                     else {
-                        bsInterface.addMolField(new MolModel(buttonBox.getCoordinaten()));
-                        bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
-                        bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().get(0).getCoord();
+//                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
+                        bsInterface.addMolltoList(buttonBox.getCoordinaten());
                         System.out.println(bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
                         nextPlayer(bsInterface);
                         System.out.println("spelerIndex: " +bsInterface.beurtIndex());
                         System.out.println("mol geplaatst en next");
+                        bsInterface.notifyObservers();
                     }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }
             });
     }
+
     }
 
 

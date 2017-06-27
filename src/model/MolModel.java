@@ -58,4 +58,5 @@ public class MolModel implements Serializable{
     public void setCoord(int[] coord) {
         this.coord = coord;
     }
+
 }

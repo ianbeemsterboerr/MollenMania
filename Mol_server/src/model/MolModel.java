@@ -27,6 +27,10 @@ public class MolModel implements Serializable{
         this.coord = new int[] {x,y,z};
     }
 
+    public MolModel(int[] coord){
+        this.coord = coord;
+    }
+
     public int getPionID() {
         return pionID;
     }

@@ -39,6 +39,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public void nextObserver()throws RemoteException;
 
+	public void addMolltoList(int[] coordinaten)throws RemoteException;
+
 	/*
 	 * LISTS
 	 */
@@ -49,5 +51,5 @@ public interface Bordspel_Interface extends Remote {
 
 	public ArrayList<MolModel> molOnField() throws RemoteException;
 
-	public Playboard_Model pm() throws RemoteException;
+
 }

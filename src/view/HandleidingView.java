@@ -13,6 +13,8 @@ import java.awt.*;
 
 /**
  * Created by Robert on 6/20/2017.
+ *
+ * Deze klasse laat de handleiding zien. Dit doet hij in een apart scherm. Hij wordt gebruikt in instellingenPanelController.
  */
 public class HandleidingView {
     private Image[] paginas = new Image[4];

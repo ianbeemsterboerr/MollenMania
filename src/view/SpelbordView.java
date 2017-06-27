@@ -359,7 +359,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
-		disableProperty(enabled);
+		//disableProperty(enabled);
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{

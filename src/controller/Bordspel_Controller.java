@@ -49,7 +49,6 @@ public class Bordspel_Controller {
 			System.out.println("Player list is full.");
 		}
 	}
-<<<<<<< HEAD
 
 	/**
 	 * @since 0.2
@@ -86,23 +85,18 @@ public class Bordspel_Controller {
 //			System.out.println("Waiting for players");
 //		}
 //	}
-=======
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 
 	public String getBijnaam() {
 		return bijnaam;
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 * @throws RemoteException 
-=======
 	 * Handelt een klik op een mol af. kijkt in welke fase het spel is en handelt de klik zodanig af.
 	 *
 	 * @param position De positie van de knop waarop werd geklikt.
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 	 */
 	
 	public void changeNiveau(ArrayList<MolModel> mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
@@ -117,7 +111,7 @@ public class Bordspel_Controller {
 					if(mollen.getCoord() == molshopen.getPositie()){
 						mols.remove(mollen);
 						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
@@ -129,7 +123,7 @@ public class Bordspel_Controller {
 					if(mollen.getCoord() == molshopen.getPositie()){
 						mols.remove(mollen);
 						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
@@ -141,7 +135,7 @@ public class Bordspel_Controller {
 					if(mollen.getCoord() != molshopen.getPositie()){
 						mols.remove(mollen);
 						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
@@ -317,10 +311,7 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
-<<<<<<< HEAD
-			//bs_interface.nextObserver();
-=======
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
+
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

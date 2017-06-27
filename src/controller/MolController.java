@@ -44,7 +44,7 @@ public class MolController {
     }
 
 
-<<<<<<< HEAD
+
     public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
         for (MolModel mol : speler.getMol_list()) {
             if (mol == molKnop.getMolModel()) {
@@ -54,10 +54,6 @@ public class MolController {
         return null;
     }
 
-
-    public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {
-
-=======
     /**
      * Controleert of een zet geldig is.
      *
@@ -70,7 +66,6 @@ public class MolController {
      * @throws RemoteException
      */
     public boolean zetGeldig(Bordspel_Interface bs_interface, Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];

@@ -398,8 +398,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
-<<<<<<< HEAD
-=======
+
 		//disableProperty(enabled);
 
 		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
@@ -417,6 +416,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			}
 		}
 	}
+	
 	public void loadGoudenSchep(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws  RemoteException{
 		ArrayList<GoudenSchep_Veld> goudenSchep_veld=pm.getHuidigNiveau(niveau).getGoudenSchep();
 		boolean setDisabled=true;
@@ -434,6 +434,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			}
 		}
 	}
+	
 	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
 		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = pm.getHuidigNiveau(niveau).getSpeciaal();
 		boolean setDisabled=true;
@@ -450,7 +451,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				}
 			}
 		}
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 	}
 
 	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{

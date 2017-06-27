@@ -12,11 +12,7 @@ import java.rmi.RemoteException;
 /**
  * Created by Wessel on 26-6-2017.
  */
-<<<<<<< HEAD
 
-public class SpelFlowController {
-=======
->>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 
 public class SpelFlowController{
    private MolController molController = new MolController();

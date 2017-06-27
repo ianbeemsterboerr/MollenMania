@@ -9,38 +9,24 @@ import javafx.scene.paint.Color;
  */
 public class MolModel implements Serializable{
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private int pionID;
-    private Color color;
+    private String kleur;
     private int [] coord;
-    
-    public MolModel(int id){
-    	this.pionID = id;
-    }
-    
-    public MolModel(int playerID, int pionID, Color color, int x, int y, int z) {
-        this.pionID = pionID;
-        this.color = color;
-        this.coord = new int[] {x,y,z};
+
+    /**
+     * Robert
+     *
+     * Heb van kleur een String gemaakt ipv een Color, want anders krijg je marshalling errors met RMI
+     * @param coord
+     * @param kleur
+     */
+    public MolModel(int[] coord, String kleur){
+        this.coord=coord;
+        this.kleur=kleur;
     }
 
-    public int getPionID() {
-        return pionID;
-    }
-
-    public void setPionID(int pionID) {
-        this.pionID = pionID;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
+    public String getKleur() {
+        return this.kleur;
     }
 
     public int[] getCoord() {

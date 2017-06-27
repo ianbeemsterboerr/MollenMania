@@ -180,11 +180,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 		this.mol_onbord.add(mol);
 	}
 
-	@Override
-	public Playboard_Model pm() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.pmo;
-	}
+
 
 	@Override
 	public int getMaxMollen() throws RemoteException {
@@ -203,6 +199,21 @@ public class Spelbord_Model implements Bordspel_Interface {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
 	}
+
+	@Override
+	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
+		System.out.println("test" +mol.getCoord());
+		mol.setCoord(coord);
+		System.out.println("test" +mol.getCoord());
+	}
+
+	public void addMolltoList(int[] coordinaten) throws RemoteException{
+		System.out.println("AddmolltoLIst" +coordinaten);
+		Speler_Model speler_model = this.players.get(aanDeBeurt);
+		speler_model.getMol_list().add(new MolModel(coordinaten,speler_model.getKleur()));
+		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
+	}
+
 
 	public void nextObserver() throws RemoteException{
 		if (bord_observers.size() > 0) {

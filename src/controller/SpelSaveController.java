@@ -20,6 +20,7 @@ public class SpelSaveController {
 
 
     /**
+     * Start een SpelSaveView op waarin de naam wordt gekozen voor het SpelbordModel dat wordt ogeslagen.
      * @param spelModel Het Spel_Model object dat opgeslagen moet worden.
      */
     public SpelSaveController(Spelbord_Model spelModel) {
@@ -28,7 +29,7 @@ public class SpelSaveController {
     }
 
     /**
-     *
+     * Zorgt dat er een bestand wordt aangemaakt op de schijf, waarin het SpelbordModel wordt opgeslagen.
      * @param naam  De naam waarmee het savebestand op de schijf wordt weggeschreven.
      */
     public void saveSpel(String naam) {

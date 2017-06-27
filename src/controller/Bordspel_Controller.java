@@ -11,10 +11,14 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Bestuurt alles wat er op het bordspel gebeurt. laat het de BordSpelView en kan data uit het servermodel halen.
+ */
 public class Bordspel_Controller {
 	
 	Bordspel_Interface bs_interface;
 	SpelbordView spelbordView;
+
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
@@ -45,6 +49,7 @@ public class Bordspel_Controller {
 			System.out.println("Player list is full.");
 		}
 	}
+<<<<<<< HEAD
 
 	/**
 	 * @since 0.2
@@ -81,12 +86,23 @@ public class Bordspel_Controller {
 //			System.out.println("Waiting for players");
 //		}
 //	}
+=======
+>>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 
+	public String getBijnaam() {
+		return bijnaam;
+	}
 
 	/**
+<<<<<<< HEAD
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 * @throws RemoteException 
+=======
+	 * Handelt een klik op een mol af. kijkt in welke fase het spel is en handelt de klik zodanig af.
+	 *
+	 * @param position De positie van de knop waarop werd geklikt.
+>>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 	 */
 	
 	public void changeNiveau(ArrayList<MolModel> mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
@@ -140,30 +156,6 @@ public class Bordspel_Controller {
 		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
 			System.out.println("Bordspel_Controller: clickAction NEERZETTEN");
 
-			//Een verzameling aan onnodige check die ik voor de zekerheid wil bewaren.
-//			//persoon die nu aan de beurt is
-//			Speler_Model huidigeSpeler = bs_interface.playerList().get(bs_interface.beurtIndex());
-//
-//			//check of die persoon nog mollen op het bord mag zetten
-//			if(huidigeSpeler.getMol_list().size()<bs_interface.getMaxMollen()){
-//
-//				//kijken of de plek geen molshoop is: eerst huidig niveau index
-//				int huidigNiveau = bs_interface.getHuidigeNiveauIndex();
-//
-//				//daarna het niveau echt pakken
-//				Niveau_Model niveau=bs_interface.pm().getHuidigNiveau(huidigNiveau);
-//
-//				//daarna de molshopen pakken
-//				ArrayList<Molshoop_Veld> molshopen = niveau.getMolshoop();
-//
-//				//Itereer door de molshopen er een is met dezelfde positie als de mol die de speler wilt plaatsen.
-//				for (Molshoop_Veld molshoop:molshopen) {
-//					if(Arrays.equals(molshoop.getPositie(),position)){
-//						System.out.println();
-//					}
-//				}
-//			}
-//			bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
 		} else if(bs_interface.getBeurtStatus()== BeurtStatus.FICHEDRAAIEN){
 			System.out.println("Bordspel_Controller: clickAction FICHEDRAAIEN");
 
@@ -180,14 +172,28 @@ public class Bordspel_Controller {
 			System.out.println("Bordspel_Controller: clickAction niet afgehandeld");
 		}
 	}
-	
+
+	/**
+	 * Pakt alle velden die gebruikt gaan worden en plaatst ze op de view.
+	 *
+	 * @param buttonArray Alle velden waar een pion kan staan in het spel.
+	 * @param mol Alle mollen die op een veld staan.
+	 * @param pm Model waar alle statische veldinformatie staat opgeslagen zoals molshopen, speciale velden en de gouden schep.
+	 * @param niveau Het niveau waarin het spel zich op dit moment bevindt.
+	 */
 	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm, int niveau){
-		loadSpelerMols(buttonArray, mol);
-		loadMolsHoop(buttonArray, pm, niveau);
-		loadSpecial(buttonArray, pm, niveau);
-		
+		//loadSpelerMols(buttonArray, mol);
+		//loadMolsHoop(buttonArray, pm, niveau);
+		//loadSpecial(buttonArray, pm, niveau);
 	}
-	
+
+	/**
+	 * Laadt de 'speciale' velden.
+	 *
+	 * @param buttonArray Alle velden waar een pion kan staan in het spel.
+	 * @param pm Model waar alle statische veldinformatie staat opgeslagen zoals molshopen, speciale velden en de gouden schep.
+	 * @param niveau Het niveau waarin het spel zich op dit moment bevindt.
+	 */
 	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau){
 		
 		ArrayList<SpeciaalVeld_Veld> special_niveau2 = pm.getNiveau2().getSpeciaal();
@@ -223,7 +229,7 @@ public class Bordspel_Controller {
 			}
 		}
 	}
-	
+
 	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<MolModel> mol){
 		for(MolModel m : mol){
 			for(int x = 0; x < buttonArray.length; x++){
@@ -277,36 +283,23 @@ public class Bordspel_Controller {
 		
 	}
 
-	public boolean checkZetValid(MolModel molcheck, int[] positie){
-		int [] mollist = molcheck.getCoord();
-
-		if(Arrays.equals(mollist, positie)){
-			return true;
-		} else {
-			return false;
-		}
-
-	}
 	/**
-	 * Deze method geeft aan dat er op een veld
-	 */
-	/*
-	 * mol dinges. here we get the mol that is not yet in play and we give it coords.
-	 * once coords have been set we up the index and go until all mols have been registered.
-	 * 
-	 * index max = the amount of mols u have in your list. so when the index is max
-	 * it is time to switch turn
-	 * 
+	 * Zet de coordinaten van de beklikte knop over naar de mol.
+	 * @param sm De SpelerModel die eigenaar is van de mol.
+	 * @param mol_placeholder Een placeholder voor een mol.
+	 * @param buttonBox Het veld waarop de mol wordt neergezet.
+	 * @param mol_max Maximaal aantal mollen. gebaseerd op het aantal spelers die meedoen aan het spel.
+	 * @param mol_index index van de actieve mol.
 	 */
 	public void setMolCoords(Speler_Model sm, MolModel mol_placeholder, VeldKnop buttonBox, int mol_max, int mol_index){
 		//starts at 0 -> how many mols am I going to have? to avoid list exceptions.
 		/*
 		 * mol dinges. here we get the mol that is not yet in play and we give it coords.
 		 * once coords have been set we up the index and go until all mols have been registered.
-		 * 
+		 *
 		 * index max = the amount of mols u have in your list. so when the index is max
 		 * it is time to switch turn
-		 * 
+		 *
 		 */
 		if(sm.getMol_list().size() == mol_max){
 			System.out.println("max");
@@ -316,7 +309,7 @@ public class Bordspel_Controller {
 
 			System.out.println("Current mol index: " + mol_index);
 		}
-		
+
 		/*
 		 * here we send the mol to the board.
 		 * model has new mol + it's coords -> register it for all to see.
@@ -324,25 +317,19 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
+<<<<<<< HEAD
 			//bs_interface.nextObserver();
+=======
+>>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		;
 	}
 
-	public void refresh() throws RemoteException{
-		spelbordView.playerDataTest(bs_interface.playerList());
-	}
-	
-	public void assignMolCoord(Speler_Model sm, int[] coord){
-		ArrayList<MolModel> mols = new ArrayList<MolModel>();
-		mols = sm.getMol_list();
-		mols.get(0).setCoord(coord);
-		System.out.println(mols.get(0).getCoord());
-	}
-
+	/**
+	 * Laat wanneer het spel afgelopen is de winnaar zien. Creeert een WinView.
+	 */
 	public void showWinner(){
 		System.out.println(this.getClass().toString()+": show winner");
 		WinView winView = new WinView(instellingenPanelController.createInstInGameView(this));

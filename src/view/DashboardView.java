@@ -1,6 +1,7 @@
 package view;
 
 import controller.Bordspel_Controller;
+import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,17 +28,13 @@ public class DashboardView {
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
+    private Fiche_Controller ficheController = new Fiche_Controller();
     private Button fiche_btn = new Button("Fiche");
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
 
-    private Button fiche_1 = new Button("1");
-    private Button fiche_2 = new Button("2");
-    private Button fiche_3 = new Button("3");
-    private Button fiche_4 = new Button("4");
-    private Button fiche_5 = new Button("5");
-    private Button fiche_6 = new Button("6");
+    public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
 
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
@@ -51,11 +48,10 @@ public class DashboardView {
             this.isYou = true;
             System.out.println("DashboardView: "+bijnaam+" werkt!");
         }
-        int ficheNR=0;
         String openFiches = "";
         String speler_naam = sm.getUsername();
         String mol_count = Integer.toString(sm.getMol_list().size());
-        String fiche_count = Integer.toString(sm.getFiches().size());
+        String fiche_count = Integer.toString(sm.getFiche_list().getGeslotenFiche().size());
 
         this.grid = new GridPane();
 
@@ -72,36 +68,27 @@ public class DashboardView {
         buttons.add(mol_btn);
         buttons.add(klaar_btn);
         buttons.add(refresh_btn);
-        buttons.add(fiche_1);
-        buttons.add(fiche_2);
-        buttons.add(fiche_3);
-        buttons.add(fiche_4);
-        buttons.add(fiche_5);
-        buttons.add(fiche_6);
-
         VBox ficheBox = new VBox();
-        ficheBox.getChildren().addAll(fiche_1,fiche_2,fiche_3,fiche_4,fiche_5, fiche_6);
-
-        if(!isYou){
-            for (Button button:buttons) {
-                button.setDisable(true);
-            }
+        for (Button fiche:fiches) {
+            buttons.add(fiche);
+            ficheBox.getChildren().add(fiche);
         }
 
+//        if(!isYou){
+//            for (Button button:buttons) {
+//                button.setDisable(true);
+//            }
+//        }
+
         refresh_btn.setOnAction(e->{
-            aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
-            aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+            aantal_fiche_lbl.setText(fiche_count);
+            aantal_mol_lbl.setText(mol_count);
         });
 
-        fiche_btn.setOnAction(e->{
-            //sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
-            System.out.println("SpelbordView.createUserPanel" +ficheNR);
-            open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
-            new Fiche_Controller().fichesCheck(sm.getFiche_list());
-        });
 
         mol_btn.setOnAction(e->{
-            sm.getMol_list().remove(1);
+            System.out.println("KnopVerwijderen");
+//            sm.getMol_list().remove(1);
         });
 
         grid.add(username_lbl, 0, 0);

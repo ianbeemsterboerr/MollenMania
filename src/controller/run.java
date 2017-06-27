@@ -6,8 +6,7 @@ import javafx.stage.Stage;
 /**
  * @author Joshua
  *
- * Edited by Robert: start niet langer de MainMenuView (main_menu) op.
- * Start enkel de MainMenuController en InstellingenController op.
+ * De run-klasse zorgt ervoor dat het spel wordt opgestart.
  */
 public class run extends Application {
 
@@ -15,6 +14,11 @@ public class run extends Application {
 		private MainMenuController mainMenuC;
 		private static InstellingenPanelController instellingenController;
 
+	/**
+	 * Zorgt dat de controller van het main menu opgestart wordt.
+	 * @param primaryStage De stage waarin gewerkt wordt.
+	 * @throws Exception
+	 */
 		@Override
 		public void start(Stage primaryStage) throws Exception {
 			// TODO Auto-generated method stub
@@ -26,7 +30,11 @@ public class run extends Application {
 		    //primaryStage.show();
  		}
 
-		public static void main(String[] args) {
+	/**
+	 * Start de visuele weergave van het spel.
+	 * @param args
+	 */
+	public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			launch(args);
 		}

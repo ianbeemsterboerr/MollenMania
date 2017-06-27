@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by Wessel on 16-6-2017.
  *
- * Ook wel de "LobbyController"
+ * Ook wel de "LobbyController"`        Pretty sure dat deze niet wordt gebruikt?
  */
 
 public class SpelOpzettenController {

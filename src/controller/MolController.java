@@ -17,36 +17,34 @@ import java.util.Arrays;
  * Created by Wessel on 15-6-2017.
  */
 public class MolController {
-    // In deze method worden de mollen neergezet aan het start van het spel
 
-    public Spel_Interface mollenNeerzetten(VeldKnop veldKnop, Spel_Interface spelModel, int spelerIndex) throws RemoteException {
+    /**
+     * In deze method worden de mollen neergezet aan het start van het spel.
+     * @param veldKnop Het veld waar het MolModel in moet worden gezet.
+     * @param bs_interface Het spelbord waar op gewerkt wordt.
+     * @param playboard_model De container van alle VeldKnoppen.
+     * @return true of false.
+     * @throws RemoteException Wanneer de connectie tussen de client en de server verbroken wordt.
+     */
+    public boolean magMolNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface, Playboard_Model playboard_model) throws RemoteException {
 
-        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
-            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()) {
-                return null;
-            }
+        for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
+            if (veldKnop.getCoordinaten() == playboard_model.getNiveau1().getMolshoop().get(i).getPositie()) {
+                    return false;
+                }
 
-        for (Speler_Model speler : spelModel.getSpeler()) {
+        for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
                 if (mollen.getCoord() == veldKnop.getCoordinaten()) {
-                    return null;
+                    return false;
                 }
             }
         }
-        spelModel.getSpeler().get(spelerIndex).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
-
-        return spelModel;
+        return true;
     }
 
-//    // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
-//    public Spelbord_Model verplaatsMol( sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException {
-//        if (zetGeldig(sm.getPlayers(), eindPunt, ficheNR, molIndex, sm.beurtIndex())) {
-//            sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
-//            return sm;
-//        }
-//        return null;
-//    }
 
+<<<<<<< HEAD
     public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
         for (MolModel mol : speler.getMol_list()) {
             if (mol == molKnop.getMolModel()) {
@@ -59,9 +57,24 @@ public class MolController {
 
     public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {
 
+=======
+    /**
+     * Controleert of een zet geldig is.
+     *
+     * @param bs_interface Het spelbord woor op gewerkt wordt.
+     * @param spelerModel Het SpelerModel van welke een mol verplaatst gaat worden.
+     *
+     * @param molGeselecteerd De mol die verplaatst wordt.
+     * @param eindPunt Het coordinaat van de plek waar de mol neergezet gaat worden.
+     * @return true wanneer de zet geldig is.
+     * @throws RemoteException
+     */
+    public boolean zetGeldig(Bordspel_Interface bs_interface, Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
+>>>>>>> 7f1eb0262f0473e9c614f9cec4a3c0319dde0766
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
+        int ficheNR = spelerModel.getFiche_list().getFicheNR();
         int beginpunt[] = molGeselecteerd.getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
@@ -88,6 +101,13 @@ public class MolController {
         return false;
     }
 
+    /**
+     * Geeft het totaal aantal mollen in het spel.
+     *
+     * @param bs_interface Het bordspel waar op gewerkt wordt.
+     * @return de hoeveelheid mollen die op het bord staan, als integer.
+     * @throws RemoteException Wanneer de connectie tussen de client en server is verbroken.
+     */
     public int aantalMollen(Bordspel_Interface bs_interface) throws RemoteException {
         int aantalSpelers = bs_interface.maxSpelers();
         if (aantalSpelers == 2) {
@@ -100,8 +120,16 @@ public class MolController {
 
     }
 
-    public MolModel bepaalOfMolAanwezig(Bordspel_Interface bs_interface, VeldKnop veldKnop) throws RemoteException {
-        for (MolModel mol : bs_interface.playerList().get(0).getMol_list()) {
+    /**
+     * Kijkt op een VeldKnop of er een MolModel aanwezig is.
+     *
+     * @param speler Het SpelerModel van het MolModel waarvan gecheckt moet worden of er al een MolModel staat.
+     * @param veldKnop De VeldKnop waarvan gecheckt moet worden of er een mol staat.
+     * @return Het MolModel, als deze aanwezig is.
+     * @throws RemoteException Wanneer de connectie tussen de client en de server is verbroken.
+     */
+    public MolModel bepaalOfMolAanwezig(Speler_Model speler, VeldKnop veldKnop) throws RemoteException {
+        for (MolModel mol : speler.getMol_list()) {
             if (Arrays.equals(mol.getCoord(), veldKnop.getCoordinaten())) {
                 return mol;
             }
@@ -109,6 +137,13 @@ public class MolController {
         return null;
     }
 
+    /**
+     * Laad alle Molshopen op het spelbord.
+     * @param buttonArray Alle VeldButtons op het spelbord.
+     * @param pm De container van de VeldKnoppen.
+     * @param niveau Het niveau wat op dat moment actief is.
+     * @throws RemoteException Wanneer de connectie tussen de client en de server verbroken is.
+     */
     public void loadMolsHoop2(VeldKnop[] buttonArray, Playboard_Model pm, int niveau) throws RemoteException{
         ArrayList<Molshoop_Veld> molshoop_niveau = pm.getHuidigNiveau(niveau).getMolshoop();
 

@@ -60,8 +60,7 @@ public class SpelflowController {
 //    }
 
 
-    public void setFicheknoppen(bs_interface bs_interface){
-        b
+    public void setFicheknoppen(Bordspel_Interface bs_interface){
 
     }
     public void setKnoppenMollen (Bordspel_Interface bs_interface){

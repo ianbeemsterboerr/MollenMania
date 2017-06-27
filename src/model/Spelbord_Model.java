@@ -161,7 +161,9 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
+		System.out.println("test" +mol.getCoord());
 		mol.setCoord(coord);
+		System.out.println("test" +mol.getCoord());
 	}
 
 	@Override

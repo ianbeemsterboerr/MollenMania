@@ -122,7 +122,6 @@ public class SpelFlowController{
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
-                    if (molController.zetGeldig(bs_interface, speler,mol, buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(mol,buttonBox.getCoordinaten());
                         bs_interface.notifyObservers();
                         System.out.println("pion geplaatst op: " +mol.getCoord());

@@ -38,7 +38,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private MolController molController;
 	private InstInGameView instInGameView;
 
-	private VeldKnop[] buttonArray;
+	public static VeldKnop[] buttonArray;
 
 	DashboardView player_1;
 	DashboardView player_2;
@@ -126,6 +126,36 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		moap.setLeft(left);
 		moap.setRight(right);
 		return moap;
+	}
+
+	public void disableButtons(boolean toggle){
+		for (int i = 0; i < buttonArray.length; i++){
+			buttonArray[i].setDisable(true);
+		}
+		if(player_1.getIsYou() == true){
+			player_1.getFiche_btn().setDisable(toggle);
+			player_1.getMol_btn().setDisable(toggle);
+			player_1.getKlaar_btn().setDisable(toggle);
+			player_1.getRefresh().setDisable(toggle);
+		}
+		if(player_2.getIsYou() == true){
+			player_2.getFiche_btn().setDisable(toggle);
+			player_2.getMol_btn().setDisable(toggle);
+			player_2.getKlaar_btn().setDisable(toggle);
+			player_2.getRefresh().setDisable(toggle);
+		}
+		if(player_3.getIsYou() == true){
+			player_3.getFiche_btn().setDisable(toggle);
+			player_3.getMol_btn().setDisable(toggle);
+			player_3.getKlaar_btn().setDisable(toggle);
+			player_3.getRefresh().setDisable(toggle);
+		}
+		if(player_4.getIsYou() == true){
+			player_4.getFiche_btn().setDisable(toggle);
+			player_4.getMol_btn().setDisable(toggle);
+			player_4.getKlaar_btn().setDisable(toggle);
+			player_4.getRefresh().setDisable(toggle);
+		}
 	}
 	
 	public GridPane loadVeld(ArrayList<Speler_Model> players) throws RemoteException{

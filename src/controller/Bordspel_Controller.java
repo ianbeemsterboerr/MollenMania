@@ -45,10 +45,7 @@ public class Bordspel_Controller {
 			System.out.println("Player list is full.");
 		}
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> 9b10c8838d053ca61dbb9da679cb0cbd06e6454d
+
 	/**
 	 * @since 0.2
 	 * 
@@ -72,8 +69,6 @@ public class Bordspel_Controller {
 			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(true);
 		}
 	}
-<<<<<<< HEAD
-=======
 	
 //	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
 //		int players_ready = rlist.size();
@@ -88,8 +83,6 @@ public class Bordspel_Controller {
 //	}
 
 
-
->>>>>>> 9b10c8838d053ca61dbb9da679cb0cbd06e6454d
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
@@ -103,12 +96,37 @@ public class Bordspel_Controller {
 		
 		if(current_level == 1){
 			for(Molshoop_Veld molshopen : niveau1){
-				
+				for(MolModel mollen : mols){
+					if(mollen.getCoord() != molshopen.getPositie()){
+						mols.remove(mollen);
+						System.out.println(mols.size());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
 			}
 		} else if(current_level == 2){
-			
+			for(Molshoop_Veld molshopen : niveau2){
+				for(MolModel mollen : mols){
+					if(mollen.getCoord() != molshopen.getPositie()){
+						mols.remove(mollen);
+						System.out.println(mols.size());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
+			}
 		} else if(current_level == 3){
-			
+			for(Molshoop_Veld molshopen : niveau3){
+				for(MolModel mollen : mols){
+					if(mollen.getCoord() != molshopen.getPositie()){
+						mols.remove(mollen);
+						System.out.println(mols.size());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
+			}
 		}
 	}
 	

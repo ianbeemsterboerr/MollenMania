@@ -69,7 +69,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		Button next_stage = new Button("Next!");
 		next_stage.setOnAction(e->{
-			
+			try {
+				bs_interface.changeNiveauInt();
+				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
+				bs_controller.changeNiveau(bs_interface.molOnField(), bs_interface.getHuidigeNiveauIndex());
+				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		});
 		
 		veld_pane = this.loadVeld(players);

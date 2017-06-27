@@ -56,12 +56,9 @@ public class MolController {
         return null;
     }
 
-<<<<<<< HEAD
-    public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException {
-=======
 
     public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {
->>>>>>> 9b10c8838d053ca61dbb9da679cb0cbd06e6454d
+
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];

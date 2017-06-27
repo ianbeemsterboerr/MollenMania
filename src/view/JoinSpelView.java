@@ -43,8 +43,6 @@ public class JoinSpelView {
         hbox_connect.setAlignment(Pos.CENTER);
         hbox_connect.setSpacing(10.0);
 
-
-
         btn_connect.setOnAction(e -> {
             try{
                 new Mol_Client(this.ipadress.getText(), this.textBoxUsername(),spelJoinController.getMainMenuController().getInstellingenPanelController());

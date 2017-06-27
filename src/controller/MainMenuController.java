@@ -14,15 +14,15 @@ import java.io.IOException;
 public class MainMenuController {
     private MainMenuView mainMenuView;
     private String serverFilePath = "";
-    private InstellingenView instellingenView;
+    private  InstellingenPanelController instellingenPanelController;
 
     /**
      * Krijgt een instellingenView mee zodat de instellingen aan kunnen worden gepast.
-     * @param instellingenView
+     * @param instellingenPanelController
      */
-    public MainMenuController(InstellingenView instellingenView){
-        this.instellingenView=instellingenView;
-        mainMenuView=new MainMenuView(instellingenView,this);
+    public MainMenuController(InstellingenPanelController instellingenPanelController){
+        this.instellingenPanelController=instellingenPanelController;
+        mainMenuView=new MainMenuView(instellingenPanelController.getInstellingenView(),this);
     }
 
     /**
@@ -59,7 +59,7 @@ public class MainMenuController {
         mainMenuView.inschakelen();
     }
 
-    public void testTest(){
-        System.out.println("MainMenuView: test button!");
+    public InstellingenPanelController getInstellingenPanelController(){
+        return this.instellingenPanelController;
     }
 }

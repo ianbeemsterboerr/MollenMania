@@ -36,6 +36,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private Bordspel_Controller bordspel_controller;
 	private int mol_index = 0;
 	private MolController molController;
+	private InstInGameView instInGameView;
 
 	private VeldKnop[] buttonArray;
 
@@ -48,10 +49,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.molController=molController;
 	}
 	
-	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam) throws RemoteException{
-
+	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam, InstInGameView instInGameView) throws RemoteException{
+		this.instInGameView=instInGameView;
 		this.bordspel_controller=bs_controller;
 		Stage bordStage = new Stage();
+		instInGameView.registerStage(bordStage);
 		
 		try {
 			bs_interface.addObserver(this);
@@ -66,19 +68,20 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
 
+		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
 		veld_pane.setId("moap");
 		
-		Scene bord = new Scene(spelbord_pane, 960,760);
+		Scene bord = new Scene(spelbord_pane, 1440,900);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 
-		bordStage.setX(bounds.getMinX());
-		bordStage.setY(bounds.getMinY());
-		bordStage.setWidth(bounds.getWidth());
-		bordStage.setHeight(bounds.getHeight());
+		//bordStage.setX(bounds.getMinX());
+		//bordStage.setY(bounds.getMinY());
+		//bordStage.setWidth(bounds.getWidth());
+		//bordStage.setHeight(bounds.getHeight());
 		bordStage.setTitle("play with me");
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
@@ -251,7 +254,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * should be rewritten in a better function outside of this class. - check
 		 */
 		
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.
@@ -290,7 +293,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 */
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
-					System.out.println("Player " + bs_interface.beurtIndex() + " is aan de beurt.");
+					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
 					player_aanDeBeurt = players.get(bs_interface.beurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -321,7 +324,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveau());
+		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{

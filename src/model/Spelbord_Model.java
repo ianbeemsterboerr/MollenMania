@@ -17,6 +17,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int bordMax;
 	private int huidigeNiveau = 1;
 	private int maxMollen;
+	private int beurtIndex;
 	
 	private BeurtStatus beurtStatus;
 
@@ -48,6 +49,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	public int getMaxMollen() throws RemoteException{
 		return this.maxMollen;
+
 	}
 
 	public BeurtStatus getBeurtStatus() throws RemoteException {
@@ -186,6 +188,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 		return false;
 	}
+
+	@Override
+	public void nextObserver() throws RemoteException {
+		if (bord_observers.size() > 0) {
+			bord_observers.get(beurtIndex).setEnabled(false);
+			beurtIndex++;
+			if (beurtIndex >= bord_observers.size()) {
+				beurtIndex = 0;
+			}
+			bord_observers.get(beurtIndex).setEnabled(true);
+		}
+	}
+
 
 	@Override
 	public void notifyObservers() throws RemoteException {

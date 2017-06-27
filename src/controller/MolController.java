@@ -4,11 +4,13 @@ import model.*;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;
 import view.MolKnop;
+import view.SpelbordView;
 
 import java.rmi.Remote;
 import java.util.ArrayList;
 
 import java.rmi.RemoteException;
+import java.util.Arrays;
 
 /**
  * Created by Wessel on 15-6-2017.
@@ -36,7 +38,7 @@ public class MolController {
     }
 
     // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
-    public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException{
+    public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException {
         if (zetGeldig(sm.getPlayers(), eindPunt, ficheNR, molIndex, sm.beurtIndex())) {
             sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
             return sm;
@@ -54,9 +56,8 @@ public class MolController {
     }
 
 
-
-    public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException{
-       //als lijst nodig haal deze uit de interface.
+    public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException {
+        //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
         int beginpunt[] = sm.get(beurtIndex).getMol_list().get(molIndex).getCoord();
@@ -85,18 +86,26 @@ public class MolController {
         return false;
     }
 
-public int aantalMollen (Bordspel_Interface bs_interface) throws RemoteException{
-    int aantalSpelers = bs_interface.maxSpelers();
-    if (aantalSpelers == 2){
-        return 10;
+    public int aantalMollen(Bordspel_Interface bs_interface) throws RemoteException {
+        int aantalSpelers = bs_interface.maxSpelers();
+        if (aantalSpelers == 2) {
+            return 10;
+        } else if (aantalSpelers == 3) {
+            return 8;
+        } else {
+            return 6;
+        }
+
     }
-    else if (aantalSpelers == 3){
-        return 8;
-    }
-    else {
-        return 6;
+
+    public MolModel bepaalOfMolAanwezig(Bordspel_Interface bs_interface, VeldKnop veldKnop) throws RemoteException {
+        for (MolModel mol : bs_interface.playerList().get(0).getMol_list()) {
+            if (Arrays.equals(mol.getCoord(), veldKnop.getCoordinaten())) {
+                return mol;
+            }
+        }
+        return null;
     }
 
 }
 
-}

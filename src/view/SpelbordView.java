@@ -38,7 +38,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private MolController molController;
 	private InstInGameView instInGameView;
 
-	private VeldKnop[] buttonArray;
+	public static VeldKnop[] buttonArray;
 
 	DashboardView player_1;
 	DashboardView player_2;

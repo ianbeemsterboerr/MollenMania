@@ -2,6 +2,7 @@ package model;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
@@ -12,13 +13,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
 	private Playboard_Model pmo = new Playboard_Model();
-	private int aanDeBeurt;
+	private int aanDeBeurt=0;
 	private int bordMax;
 	private int huidigeNiveau = 1;
 	private int maxMollen;
-	private int beurtIndex;
-
-	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
+	
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
@@ -77,7 +76,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.players.add(sm);
 	}
 
-
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -96,14 +94,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 	}
 
-	public int getAanDeBeurt() {
-		return aanDeBeurt;
-	}
-
-	public void setAanDeBeurt(int aanDeBeurt) {
-		this.aanDeBeurt = aanDeBeurt;
-	}
-
 	@Override
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -116,20 +106,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
-		// TODO Auto-generated method stub
-		int handGrootteCurrent=players.get(aanDeBeurt).getHandgrootte();
-		int lastIterated=0;
-		for (int i=0; i<players.size();i++){
-			//checken of de speler die je checkt niet dezelfde is die nu aan de beurt is
-			if (i!=aanDeBeurt){
-				if(players.get(i).getHandgrootte()<handGrootteCurrent){
-					if(players.get(i).getHandgrootte()>players.get(lastIterated).getHandgrootte()){
-						lastIterated=i;
-					}
-				}
-			}
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
+		if(aanDeBeurt<(bordMax-1)){
+			aanDeBeurt++;
+		} else{
+			aanDeBeurt=0;
 		}
-		this.aanDeBeurt=lastIterated;
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
 	}
 	
 	public void setBordMax(int m){
@@ -171,14 +154,36 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public int getHuidigeNiveau() throws RemoteException {
+	public int getHuidigeNiveauIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
 	}
 
 	@Override
-	public boolean setSpelerReady(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
+	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
+		System.out.println(this.getClass().toString()+" setSpelerReady()");
+		int spelerIndex=0;
+		for (Speler_Model speler:players) {
+			if(speler.getUsername().trim().equals(sm.getUsername().trim())){
+				spelerIndex=players.indexOf(speler);
+			}
+		}
+		this.players.set(spelerIndex,sm);
+		this.players.get(spelerIndex).setReady(true);
+
+		Collections.sort(players);
+		int readyCount=0;
+		for (Speler_Model speler:players) {
+			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+			if(speler.isReady()){
+				readyCount++;
+			}
+		}
+		notifyObservers();
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.NEERZETTEN;
+			return true;
+		}
 		return false;
 	}
 
@@ -189,15 +194,4 @@ public class Spelbord_Model implements Bordspel_Interface{
 			co.modelChanged(this);
 		}
 	}
-	public void nextObserver() throws RemoteException{
-		if (bord_observers.size() > 0) {
-			bord_observers.get(beurtIndex).setEnabled(false);
-			beurtIndex++;
-			if (beurtIndex >= bord_observers.size()) {
-				beurtIndex = 0;
-			}
-			bord_observers.get(beurtIndex).setEnabled(true);
-		}
-	}
-
 }

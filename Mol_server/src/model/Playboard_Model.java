@@ -5,6 +5,7 @@ import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -85,6 +86,20 @@ public class Playboard_Model implements Serializable {
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(2,-3,1));
         niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-4,0,4));
 
+    }
+
+    public Niveau_Model getHuidigNiveau(int huidigeNiveau) throws RemoteException {
+        switch (huidigeNiveau){
+            case 1:
+                return getNiveau1();
+            case 2:
+                return getNiveau2();
+            case 3:
+                return getNiveau3();
+            case 4:
+                return getNiveau1();
+        }
+        return getNiveau1();
     }
 
 }

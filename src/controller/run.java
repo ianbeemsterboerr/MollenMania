@@ -19,7 +19,7 @@ public class run extends Application {
 		public void start(Stage primaryStage) throws Exception {
 			// TODO Auto-generated method stub
 			instellingenController = new InstellingenPanelController();
-			mainMenuC = new MainMenuController(instellingenController.getInstellingenView());
+			mainMenuC = new MainMenuController(instellingenController);
 
 			//MAGIC BABY
 		    //primaryStage = main_stage.main_menu_show();

@@ -104,6 +104,12 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	public void setKleur(String kleur) {
 		this.kleur = kleur;
 	}
+
+	/**
+	 * toegevoegd zodat de Comparable interface geimplementeerd kan worden, wat belangrijk is voor het bepalen van de volgorde van de spelers.
+	 * @param sm
+	 * @return
+	 */
 	@Override
 	public int compareTo(Speler_Model sm) {
 		int val  = ((Speler_Model) sm).getHandgrootte();

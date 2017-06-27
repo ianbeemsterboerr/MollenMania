@@ -12,6 +12,10 @@ import model.Speler_Model;
 
 public interface Bordspel_Interface extends Remote {
 	
+	/*
+	 * General information needed from yomama's object on the server.
+	 */
+	
 	public void notifyObservers() throws RemoteException;
 
 	public int getMaxMollen() throws RemoteException;
@@ -26,7 +30,7 @@ public interface Bordspel_Interface extends Remote {
 	
 	public int beurtIndex() throws RemoteException;
 	
-	public int getHuidigeNiveau() throws RemoteException;
+	public int getHuidigeNiveauIndex() throws RemoteException;
 	
 	/*
 	 * ADD THINGS

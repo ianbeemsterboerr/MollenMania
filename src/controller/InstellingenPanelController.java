@@ -1,6 +1,7 @@
 package controller;
 import model.InstellingenModel;
 import view.HandleidingView;
+import view.InstInGameView;
 import view.InstellingenView;
 
 /**
@@ -10,15 +11,22 @@ public class InstellingenPanelController {
     private InstellingenModel instellingenModel;
     private InstellingenView instellingenView;
     private HandleidingView handleidingView;
+    private InstInGameView instInGameView;
 
     public InstellingenPanelController(){
         this.instellingenView = new InstellingenView(this);
         this.instellingenModel = new InstellingenModel();
 
         this.handleidingView = new HandleidingView();
+
     }
     public InstellingenView getInstellingenView(){
         return instellingenView;
+    }
+
+    public InstInGameView createInstInGameView(Bordspel_Controller bordspel_controller){
+        instInGameView=new InstInGameView(this, bordspel_controller);
+        return instInGameView;
     }
 
     public void toggleMute(){

@@ -37,7 +37,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	TableView<Speler_Model> game_table;
 
 	/**
-	 *
+	 * Lobby's view, here you set some settings for the upcoming game.
 	 */
 
 	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, Mol_Client mol_client) throws RemoteException{
@@ -126,7 +126,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 							
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 							if(this.bs_interface.setSpelerReady(speler_model)){
-								this.bs_controller.showSpelBordView();
+								this.mol_client.naarSpelBord();
 							}
 						}
 					}
@@ -143,9 +143,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Button b = new Button("lmao");
 		b.setOnAction(e->{
 			try {
-				this.bs_controller.showSpelBordView();
+				this.mol_client.naarSpelBord();
 			} catch (RemoteException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});

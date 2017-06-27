@@ -40,6 +40,7 @@ public class InstellingenView {
         hbox = new HBox();
         hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
+        hbox.getStylesheets().addAll(getClass().getResource("style/knoppen_panel_style.css").toExternalForm());
 
         btnGeluid.setOnAction(e -> {controller.toggleMute();});
         btnKleurenblindheid.setOnAction(e -> {controller.toggleKleurenblindModus();});

@@ -24,6 +24,42 @@ public class DashboardView {
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
+    private Button fiche_btn = new Button();
+    private Button mol_btn = new Button();
+    private Button klaar_btn = new Button();
+    private Button refresh = new Button();
+
+    public Button getFiche_btn() {
+        return fiche_btn;
+    }
+
+    public Button getMol_btn() {
+        return mol_btn;
+    }
+
+    public Button getKlaar_btn() {
+        return klaar_btn;
+    }
+
+    public Button getRefresh() {
+        return refresh;
+    }
+
+    public void setFiche_btn(Button fiche_btn) {
+        this.fiche_btn = fiche_btn;
+    }
+
+    public void setMol_btn(Button mol_btn) {
+        this.mol_btn = mol_btn;
+    }
+
+    public void setKlaar_btn(Button klaar_btn) {
+        this.klaar_btn = klaar_btn;
+    }
+
+    public void setRefresh(Button refresh) {
+        this.refresh = refresh;
+    }
 
     public DashboardView(Speler_Model sm, Bordspel_Controller bs_controller, Pos alignment, String bijnaam){
         this.alignment=alignment;
@@ -52,10 +88,10 @@ public class DashboardView {
         aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
         aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
 
-        Button fiche_btn = new Button("Fiche");
-        Button mol_btn = new Button("Mol");
-        Button klaar_btn = new Button("Klaar");
-        Button refresh = new Button("Refresh");
+        fiche_btn = new Button("Fiche");
+        mol_btn = new Button("Mol");
+        klaar_btn = new Button("Klaar");
+        refresh = new Button("Refresh");
 
         if(!isYou){
             fiche_btn.setDisable(true);
@@ -91,6 +127,13 @@ public class DashboardView {
         grid.setHgap(10.0);
         grid.setVgap(10.0);
     }
+    public void setIsYou(boolean isYou){
+        this.isYou = isYou;
+    }
+    public boolean getIsYou(){
+        return isYou;
+    }
+
 
     public GridPane get(){
         return this.grid;

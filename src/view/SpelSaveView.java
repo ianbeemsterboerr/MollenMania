@@ -15,9 +15,14 @@ import javafx.stage.Stage;
  */
 public class SpelSaveView {
     SpelSaveController ctrl;
+   
     public SpelSaveView(SpelSaveController ctrl){
         this.ctrl = ctrl;
     }
+    
+    /**
+     * Deze methode is gebruikt om de stage van het saven de laden.
+     */
     public void show() {
         Stage stage = new Stage();
         FlowPane fp = new FlowPane();

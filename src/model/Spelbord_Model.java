@@ -216,4 +216,12 @@ public class Spelbord_Model implements Bordspel_Interface{
 			co.modelChanged(this);
 		}
 	}
+
+	@Override
+	public void changeNiveauInt() throws RemoteException {
+		// TODO Auto-generated method stub
+		this.huidigeNiveau = this.huidigeNiveau + 1;
+	}
+	
+	
 }

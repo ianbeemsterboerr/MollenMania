@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
  * Created by Wessel on 26-6-2017.
  */
 
+
 public class SpelFlowController{
    private MolController molController = new MolController();
    private Fiche_Controller ficheController = new Fiche_Controller();
@@ -22,7 +23,6 @@ public class SpelFlowController{
 
     public SpelFlowController() {
     }
-
 
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
@@ -36,7 +36,6 @@ public class SpelFlowController{
 
 
         }
-
 
     public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
         bsInterface.setBeurtStatus(BeurtStatus.NEERZETTEN);
@@ -68,7 +67,6 @@ public class SpelFlowController{
 
     }
 
-
     public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
         bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
         System.out.println(speler.getUsername() +" Is aan de beurt");
@@ -94,6 +92,7 @@ public class SpelFlowController{
 
         }
     }
+    
     public void selecteerMolKnoppen(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException{
         bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
@@ -135,7 +134,7 @@ public class SpelFlowController{
         }
     }
 
-        public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
+   public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
               ficheController.fichesCheck(speler.getFiche_list());
 //            if (sbController.checkMolshopenBezet(bs_interface)) {
 //                //Clearmollen
@@ -146,8 +145,6 @@ public class SpelFlowController{
             bs_interface.notifyObservers();
             setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
         }
-
-
 
     public void clearKnoppen(){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray )

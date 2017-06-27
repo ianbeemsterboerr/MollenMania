@@ -17,7 +17,6 @@ import static view.DashboardView.fiches;
  */
 public class SpelFlowController{
    private MolController molController = new MolController();
-   private Bordspel_Controller bsController = new Bordspel_Controller();
    private Fiche_Controller ficheController = new Fiche_Controller();
    private SpelbordController sbController = new SpelbordController();
 
@@ -27,13 +26,13 @@ public class SpelFlowController{
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
 
-            int playerIndex = 0;
+
             //bepaal Welke index de grootste hand heeft.
             //bs.
 
         //Mollen worden neergezet
         bs.setBeurtStatus(BeurtStatus.NEERZETTEN);
-        setKnoppenNeerzetten(bsController,bs);
+        setKnoppenNeerzetten(bs);
 
 
         }
@@ -42,10 +41,9 @@ public class SpelFlowController{
 
 
 
-    public void setKnoppenNeerzetten(Bordspel_Controller bsController, Bordspel_Interface bsInterface) throws RemoteException {
+    public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
-
                 try {
                     if (molController.aantalMollen(bsInterface) < bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
                         clearKnoppen();
@@ -53,19 +51,17 @@ public class SpelFlowController{
                         System.out.println("naar fiche");
                     }
                     else {
-                        molController.mollenNeerzetten(buttonBox, bsInterface);
+                        bsInterface.addMolField(new MolModel(buttonBox.getCoordinaten()));
+                        bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
+                        bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().get(0).getCoord();
                         System.out.println(bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
-                        bsInterface.nextObserver();
+                        nextPlayer(bsInterface);
                         System.out.println("spelerIndex: " +bsInterface.beurtIndex());
                         System.out.println("mol geplaatst en next");
-
-
                     }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }
-
-
             });
     }
     }
@@ -138,7 +134,7 @@ public class SpelFlowController{
                 //switchNiveau
             }
             clearKnoppen();
-            //nextPlayer
+            bs_interface.veranderBeurt();
             //terug naarFiche
         }
 
@@ -151,4 +147,12 @@ public class SpelFlowController{
         });
     }
 
+    public void nextPlayer(Bordspel_Interface bs_interface) throws RemoteException{
+        System.out.println("voor veranderbeurt" + bs_interface.beurtIndex());
+        bs_interface.veranderBeurt();
+        System.out.println("na veranderbeurt" + bs_interface.beurtIndex());
+        bs_interface.nextObserver();
+        System.out.println("na NextOBserver" + bs_interface.beurtIndex());
+
+    }
 }

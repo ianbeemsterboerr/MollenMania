@@ -339,6 +339,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				try {
+				    bs_interface.addMolField(mol_geselecteerd);
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block

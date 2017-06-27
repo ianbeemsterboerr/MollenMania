@@ -35,7 +35,7 @@ public class MolController {
         }
         if (bezet) {
             System.out.println("Mol plaatsen op: " +veldKnop.getX()+veldKnop.getY()+veldKnop.getZ() );
-            bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
+            //bs_interface.addMolField();
         }
     }
 

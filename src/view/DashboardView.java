@@ -51,7 +51,7 @@ public class DashboardView {
         String openFiches = "";
         String speler_naam = sm.getUsername();
         String mol_count = Integer.toString(sm.getMol_list().size());
-        String fiche_count = Integer.toString(sm.getFiches().size());
+        String fiche_count = Integer.toString(sm.getFiche_list().getGeslotenFiche().size());
 
         this.grid = new GridPane();
 
@@ -81,8 +81,8 @@ public class DashboardView {
 //        }
 
         refresh_btn.setOnAction(e->{
-            aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));
-            aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+            aantal_fiche_lbl.setText(fiche_count);
+            aantal_mol_lbl.setText(mol_count);
         });
 
 

@@ -50,10 +50,11 @@ public class MolController {
 
 
 
-    public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {
+    public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
+        int ficheNR = bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR();
         int beginpunt[] = molGeselecteerd.getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];

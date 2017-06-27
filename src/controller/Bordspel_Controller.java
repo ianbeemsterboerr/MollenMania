@@ -45,6 +45,10 @@ public class Bordspel_Controller {
 			System.out.println("Player list is full.");
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 9b10c8838d053ca61dbb9da679cb0cbd06e6454d
 	/**
 	 * @since 0.2
 	 * 
@@ -68,6 +72,24 @@ public class Bordspel_Controller {
 			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(true);
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+//	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
+//		int players_ready = rlist.size();
+//		int max = this.bs_interface.maxSpelers();
+//
+//		if(players_ready == max){
+//			new SpelbordView(this, bs_interface, this.bijnaam);
+//		} else{
+//			System.out.println(players_ready);
+//			System.out.println("Waiting for players");
+//		}
+//	}
+
+
+
+>>>>>>> 9b10c8838d053ca61dbb9da679cb0cbd06e6454d
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
@@ -248,7 +270,6 @@ public class Bordspel_Controller {
 	}
 	/**
 	 * Deze method geeft aan dat er op een veld
-	 * @param position
 	 */
 	/*
 	 * mol dinges. here we get the mol that is not yet in play and we give it coords.
@@ -285,10 +306,12 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
+			bs_interface.nextObserver();
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		;
 	}
 
 	public void refresh() throws RemoteException{
@@ -314,4 +337,7 @@ public class Bordspel_Controller {
 	public void spelVerlaten(){
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
+
+
+
 }

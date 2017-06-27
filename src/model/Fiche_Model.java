@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.control.Button;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,7 +9,7 @@ import java.util.Random;
 /**
  * Created by Wessel on 29-5-2017.
  */
-public class Fiche_Model implements Serializable{
+public class   Fiche_Model implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private ArrayList<Integer> openFiche = new ArrayList<Integer>();

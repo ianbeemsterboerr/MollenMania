@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.sun.org.apache.regexp.internal.RE;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
 
@@ -17,6 +18,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	private int aanDeBeurt=0;
 	private int huidigeNiveau = 1;
 	private int bordMax;
+	private int beurtIndex;
 
 	private int maxMollen;
 
@@ -200,6 +202,17 @@ public class Spelbord_Model implements Bordspel_Interface {
 	public int getHuidigeNiveauIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
+	}
+
+	public void nextObserver() throws RemoteException{
+		if (bord_observers.size() > 0) {
+			bord_observers.get(beurtIndex).setEnabled(false);
+			beurtIndex++;
+			if (beurtIndex >= bord_observers.size()) {
+				beurtIndex = 0;
+			}
+			bord_observers.get(beurtIndex).setEnabled(true);
+		}
 	}
 
 }

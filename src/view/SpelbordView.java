@@ -38,6 +38,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private int mol_index = 0;
 	private MolController molController;
 	private InstInGameView instInGameView;
+	private boolean enabled;
 
 	public static VeldKnop[] buttonArray;
 
@@ -135,7 +136,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		return moap;
 	}
 
-	public void disableButtons(boolean toggle){
+	public void disableProperty(boolean toggle){
 		for (int i = 0; i < buttonArray.length; i++){
 			buttonArray[i].setDisable(true);
 		}
@@ -143,25 +144,25 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			player_1.getFiche_btn().setDisable(toggle);
 			player_1.getMol_btn().setDisable(toggle);
 			player_1.getKlaar_btn().setDisable(toggle);
-			player_1.getRefresh().setDisable(toggle);
+			player_1.getRefresh_btn().setDisable(toggle);
 		}
 		if(player_2.getIsYou() == true){
 			player_2.getFiche_btn().setDisable(toggle);
 			player_2.getMol_btn().setDisable(toggle);
 			player_2.getKlaar_btn().setDisable(toggle);
-			player_2.getRefresh().setDisable(toggle);
+			player_2.getRefresh_btn().setDisable(toggle);
 		}
 		if(player_3.getIsYou() == true){
 			player_3.getFiche_btn().setDisable(toggle);
 			player_3.getMol_btn().setDisable(toggle);
 			player_3.getKlaar_btn().setDisable(toggle);
-			player_3.getRefresh().setDisable(toggle);
+			player_3.getRefresh_btn().setDisable(toggle);
 		}
 		if(player_4.getIsYou() == true){
 			player_4.getFiche_btn().setDisable(toggle);
 			player_4.getMol_btn().setDisable(toggle);
 			player_4.getKlaar_btn().setDisable(toggle);
-			player_4.getRefresh().setDisable(toggle);
+			player_4.getRefresh_btn().setDisable(toggle);
 		}
 	}
 	
@@ -351,6 +352,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+
 			});
 		}
 		
@@ -365,6 +367,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
+		disableProperty(enabled);
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{
@@ -375,13 +378,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public boolean isEnabled() throws RemoteException {
-		// TODO Auto-generated method stub
-		return true;
+		return enabled;
 	}
 
 	@Override
 	public void setEnabled(boolean enabled) throws RemoteException {
-		// TODO Auto-generated method stub
+		this.enabled = enabled;
 		
 	}
 }

@@ -84,8 +84,5 @@ public class HostSpelView {
         connectStage.initStyle(StageStyle.UNDECORATED);
         connectStage.show();
     }
-
-    public String aantalSpelers(){
-        return this.cb_aantal_spelers.getValue();
-    }
+    
 }

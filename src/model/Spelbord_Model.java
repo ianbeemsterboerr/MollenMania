@@ -2,6 +2,7 @@ package model;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
@@ -159,8 +160,30 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public boolean setSpelerReady(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
+	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
+		System.out.println(this.getClass().toString()+" setSpelerReady()");
+		int spelerIndex=0;
+		for (Speler_Model speler:players) {
+			if(speler.getUsername().trim().equals(sm.getUsername().trim())){
+				spelerIndex=players.indexOf(speler);
+			}
+		}
+		this.players.set(spelerIndex,sm);
+		this.players.get(spelerIndex).setReady(true);
+
+		Collections.sort(players);
+		int readyCount=0;
+		for (Speler_Model speler:players) {
+			System.out.println(this.getClass().toString()+" handgrootte: "+speler.getHandgrootte());
+			if(speler.isReady()){
+				readyCount++;
+			}
+		}
+		notifyObservers();
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.NEERZETTEN;
+			return true;
+		}
 		return false;
 	}
 

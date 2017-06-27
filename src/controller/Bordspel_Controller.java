@@ -45,7 +45,6 @@ public class Bordspel_Controller {
 			System.out.println("Player list is full.");
 		}
 	}
-	
 	/**
 	 * @since 0.2
 	 * 
@@ -69,7 +68,6 @@ public class Bordspel_Controller {
 			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(true);
 		}
 	}
-	
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position

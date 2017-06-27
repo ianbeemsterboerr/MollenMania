@@ -70,10 +70,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Button next_stage = new Button("Next!");
 		next_stage.setOnAction(e->{
 			try {
+				
 				bs_interface.changeNiveauInt();
 				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
-				bs_controller.changeNiveau(bs_interface.molOnField(), bs_interface.getHuidigeNiveauIndex());
-				this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
+				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
+				
 			} catch (RemoteException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -154,19 +155,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			player_1.getKlaar_btn().setDisable(toggle);
 			player_1.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_2.getIsYou() == true){
+		else if(player_2.getIsYou() == true){
 			player_2.getFiche_btn().setDisable(toggle);
 			player_2.getMol_btn().setDisable(toggle);
 			player_2.getKlaar_btn().setDisable(toggle);
 			player_2.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_3.getIsYou() == true){
+		else if(player_3.getIsYou() == true){
 			player_3.getFiche_btn().setDisable(toggle);
 			player_3.getMol_btn().setDisable(toggle);
 			player_3.getKlaar_btn().setDisable(toggle);
 			player_3.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_4.getIsYou() == true){
+		else if(player_4.getIsYou() == true){
 			player_4.getFiche_btn().setDisable(toggle);
 			player_4.getMol_btn().setDisable(toggle);
 			player_4.getKlaar_btn().setDisable(toggle);
@@ -354,16 +355,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				int mol_max = 5;
 				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
+				
 				try {
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
 			});
-		}
-		
+		}		
     	return root;
 	}
 	
@@ -375,7 +375,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
-		disableProperty(enabled);
 	}
 
 	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{

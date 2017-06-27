@@ -86,48 +86,53 @@ public class Bordspel_Controller {
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
+	 * @throws RemoteException 
 	 */
 	
-	public void changeNiveau(ArrayList<MolModel> mols, int current_level){
+	public void changeNiveau(ArrayList<MolModel> mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
 		Playboard_Model pm = new Playboard_Model();
 		ArrayList<Molshoop_Veld> niveau1 = pm.getNiveau1().getMolshoop();
 		ArrayList<Molshoop_Veld> niveau2 = pm.getNiveau2().getMolshoop();
 		ArrayList<Molshoop_Veld> niveau3 = pm.getNiveau3().getMolshoop();
 		
 		if(current_level == 1){
-			for(Molshoop_Veld molshopen : niveau1){
-				for(MolModel mollen : mols){
-					if(mollen.getCoord() != molshopen.getPositie()){
+			for(MolModel mollen : mols){
+				for(Molshoop_Veld molshopen : niveau1){
+					if(mollen.getCoord() == molshopen.getPositie()){
 						mols.remove(mollen);
-						System.out.println(mols.size());
+						System.out.println("Mols on field: " + mols.size());
+						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
-			}
+			}	
 		} else if(current_level == 2){
-			for(Molshoop_Veld molshopen : niveau2){
-				for(MolModel mollen : mols){
-					if(mollen.getCoord() != molshopen.getPositie()){
+			for(MolModel mollen : mols){
+				for(Molshoop_Veld molshopen : niveau2){
+					if(mollen.getCoord() == molshopen.getPositie()){
 						mols.remove(mollen);
-						System.out.println(mols.size());
+						System.out.println("Mols on field: " + mols.size());
+						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
 			}
 		} else if(current_level == 3){
-			for(Molshoop_Veld molshopen : niveau3){
-				for(MolModel mollen : mols){
+			for(MolModel mollen : mols){
+				for(Molshoop_Veld molshopen : niveau3){
 					if(mollen.getCoord() != molshopen.getPositie()){
 						mols.remove(mollen);
-						System.out.println(mols.size());
+						System.out.println("Mols on field: " + mols.size());
+						this.loadBoard(buttonArray, mols, bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
 			}
 		}
+		System.out.println("Mols on field: " + mols.size());
 	}
 	
 	public void clickAction(int[] position) throws RemoteException{
@@ -240,7 +245,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau1){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -249,7 +253,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau2){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -258,7 +261,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau3){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -267,7 +269,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau4){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -310,11 +311,10 @@ public class Bordspel_Controller {
 		if(sm.getMol_list().size() == mol_max){
 			System.out.println("max");
 		} else {
-			//sm.getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
 			mol_placeholder = sm.getMol_list().get(mol_index);
 			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
 
-			System.out.println("Current mol index: " + sm.getMol_list().size());
+			System.out.println("Current mol index: " + mol_index);
 		}
 		
 		/*
@@ -324,7 +324,7 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
-			bs_interface.nextObserver();
+			//bs_interface.nextObserver();
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -355,7 +355,6 @@ public class Bordspel_Controller {
 	public void spelVerlaten(){
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
-
 
 
 }

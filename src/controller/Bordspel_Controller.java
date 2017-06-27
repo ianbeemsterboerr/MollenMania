@@ -46,7 +46,6 @@ public class Bordspel_Controller {
 		}
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * @since 0.2
 	 * 
@@ -71,32 +70,6 @@ public class Bordspel_Controller {
 		}
 	}
 	
-	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
-		int players_ready = rlist.size();
-		int max = this.bs_interface.maxSpelers();
-		
-		if(players_ready == max){
-			new SpelbordView(this, bs_interface, this.bijnaam);
-		} else{
-			System.out.println(players_ready);
-			System.out.println("Waiting for players");
-		}
-	}
-=======
-//	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
-//		int players_ready = rlist.size();
-//		int max = this.bs_interface.maxSpelers();
-//
-//		if(players_ready == max){
-//			new SpelbordView(this, bs_interface, this.bijnaam);
-//		} else{
-//			System.out.println(players_ready);
-//			System.out.println("Waiting for players");
-//		}
-//	}
->>>>>>> 7f90f4ce7ae0eb3cf137365dd71b4fa359211973
-
-
 	/**
 	 * Deze method geeft aan dat er op een veld
 	 * @param position

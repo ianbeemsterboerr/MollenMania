@@ -11,7 +11,7 @@ import java.rmi.RemoteException;
 /**
  * Created by Wessel on 26-6-2017.
  */
-public class BeurtController {
+public class SpelflowController {
    private MolController molController = new MolController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
    private boolean loopControl = false;

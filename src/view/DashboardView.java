@@ -48,7 +48,6 @@ public class DashboardView {
             this.isYou = true;
             System.out.println("DashboardView: "+bijnaam+" werkt!");
         }
-        int ficheNR=0;
         String openFiches = "";
         String speler_naam = sm.getUsername();
         String mol_count = Integer.toString(sm.getMol_list().size());
@@ -75,11 +74,11 @@ public class DashboardView {
             ficheBox.getChildren().add(fiche);
         }
 
-        if(!isYou){
-            for (Button button:buttons) {
-                button.setDisable(true);
-            }
-        }
+//        if(!isYou){
+//            for (Button button:buttons) {
+//                button.setDisable(true);
+//            }
+//        }
 
         refresh_btn.setOnAction(e->{
             aantal_fiche_lbl.setText(Integer.toString(sm.getFiches().size()));

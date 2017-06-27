@@ -43,11 +43,11 @@ public class SpelFlowController{
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
-                    if (molController.aantalMollen(bsInterface) < bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
+                    if (molController.aantalMollen(bsInterface) <= bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
                         clearKnoppen();
                         setFicheknoppenAan(bsInterface);
                         System.out.println("naar fiche");
-                    }
+                        }
                     else {
 //                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
@@ -71,7 +71,7 @@ public class SpelFlowController{
             fiche.setOnAction(e -> {
                 try {
                     ficheController.kiesFiche(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
-                    System.out.println(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR());
+                    System.out.println(this.getClass().toString()+ bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR());
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                     setFicheknoppenUit();
                     setKnoppenMollen(bs_interface);

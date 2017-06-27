@@ -8,6 +8,9 @@ import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
 import controller.Player_Observer;
 
+/**
+ * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
+ */
 public class Spelbord_Model implements Bordspel_Interface{
 
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();

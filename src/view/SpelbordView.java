@@ -384,11 +384,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 		//disableProperty(enabled);
 
-		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
+		//schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
 		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+		//loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{

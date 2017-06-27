@@ -16,22 +16,22 @@
     -fx-font-size: 30px;
 }
 
-#rood {
+#PionRood {
     -fx-graphic: url("../img/PionRood.png");
     height: 60px;
     width: auto;
 }
-#groen {
+#PionGroen {
     -fx-graphic: url("../img/PionGroen.png");
     height: 60px;
     width: auto;
 }
-#blauw {
+#PionBlauw {
     -fx-graphic: url("../img/PionBlauw.png");
     height: 60px;
     width: auto;
 }
-#geel {
+#PionGeel {
     -fx-graphic: url("../img/PionGeel.png");
     height: 60px;
     width: auto;

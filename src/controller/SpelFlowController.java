@@ -126,7 +126,7 @@ public class SpelFlowController{
                         bs_interface.notifyObservers();
                         System.out.println("pion geplaatst op: " +mol.getCoord());
                         rondeOpruim(speler,bs_interface);
-                    }
+
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }

@@ -18,6 +18,7 @@ public class Bordspel_Controller {
 	
 	Bordspel_Interface bs_interface;
 	SpelbordView spelbordView;
+
 	private String bijnaam;
 	MolController molController;
 	Fiche_Controller fiche_controller;
@@ -47,6 +48,10 @@ public class Bordspel_Controller {
 		} else {
 			System.out.println("Player list is full.");
 		}
+	}
+
+	public String getBijnaam() {
+		return bijnaam;
 	}
 
 
@@ -86,10 +91,9 @@ public class Bordspel_Controller {
 	 * @param niveau Het niveau waarin het spel zich op dit moment bevindt.
 	 */
 	public void loadBoard(VeldKnop[] buttonArray, ArrayList<MolModel> mol, Playboard_Model pm, int niveau){
-		loadSpelerMols(buttonArray, mol);
-		loadMolsHoop(buttonArray, pm, niveau);
-		loadSpecial(buttonArray, pm, niveau);
-		
+		//loadSpelerMols(buttonArray, mol);
+		//loadMolsHoop(buttonArray, pm, niveau);
+		//loadSpecial(buttonArray, pm, niveau);
 	}
 
 	/**
@@ -134,7 +138,7 @@ public class Bordspel_Controller {
 			}
 		}
 	}
-	
+
 	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<MolModel> mol){
 		for(MolModel m : mol){
 			for(int x = 0; x < buttonArray.length; x++){

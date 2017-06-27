@@ -181,6 +181,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 
+
 	@Override
 	public int getMaxMollen() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -197,6 +198,13 @@ public class Spelbord_Model implements Bordspel_Interface {
 	public int getHuidigeNiveauIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
+	}
+
+	@Override
+	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
+		System.out.println("test" +mol.getCoord());
+		mol.setCoord(coord);
+		System.out.println("test" +mol.getCoord());
 	}
 
 	public void addMolltoList(int[] coordinaten) throws RemoteException{

@@ -14,6 +14,12 @@ public class Mol_Client {
 	private String bijnaam;
 	private Bordspel_Controller bs_controller;
 
+	/**
+	 * Maakt een nieuw MolClient object aan.
+	 * @param ip Het IP adres waarmee verbonden moet worden.
+	 * @param username De username waarmee de user in de lobby komt te staan.
+	 * @param instellingenPanelController De instellingenpanelcontroller die ervoor zorgt dat er in de game een instellingenpanel staat.
+	 */
 	public Mol_Client(String ip, String username, InstellingenPanelController instellingenPanelController){
 		this.instellingenPanelController=instellingenPanelController;
 		this.bijnaam=username;
@@ -39,11 +45,20 @@ public class Mol_Client {
 			System.out.println(e);
 		}
 	}
+
+	/**
+	 * Laat het spelbord zien aan alle verbonden clients.
+	 * @throws RemoteException Wanneer de connectie tussen client en server wordt onderbroken.
+	 */
 	public void naarSpelBord() throws RemoteException{
 		System.out.println(this.getClass().toString()+": naarSpelBord()");
 		bs_controller.showSpelBordView(instellingenPanelController);
 	}
 
+	/**
+	 *
+	 * @return Geeft de bijnaam van de desbetreffende speler.
+	 */
 	public String getBijnaam(){
 		return this.bijnaam;
 	}

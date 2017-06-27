@@ -57,4 +57,5 @@ public interface Bordspel_Interface extends Remote {
 	
 	public ArrayList<MolModel> molOnField() throws RemoteException;
 
+
 }

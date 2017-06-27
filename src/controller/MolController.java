@@ -19,24 +19,21 @@ import java.util.Arrays;
 public class MolController {
     // In deze method worden de mollen neergezet aan het start van het spel
 
-    public void mollenNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface) throws RemoteException {
-        boolean bezet = true;
-//        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
-//            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()) {
-//                return null;
-//            }
+    public boolean magMolNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface, Playboard_Model playboard_model) throws RemoteException {
+
+        for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
+            if (veldKnop.getCoordinaten() == playboard_model.getNiveau1().getMolshoop().get(i).getPositie()) {
+                    return false;
+                }
 
         for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
                 if (mollen.getCoord() == veldKnop.getCoordinaten()) {
-                    bezet = false;
+                    return false;
                 }
             }
         }
-        if (bezet) {
-            System.out.println("Mol plaatsen op: " +veldKnop.getX()+veldKnop.getY()+veldKnop.getZ() );
-            //bs_interface.addMolField();
-        }
+        return true;
     }
 
 //    // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
@@ -50,11 +47,11 @@ public class MolController {
 
 
 
-    public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
+    public boolean zetGeldig(Bordspel_Interface bs_interface, Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
-        int ficheNR = bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list().getFicheNR();
+        int ficheNR = spelerModel.getFiche_list().getFicheNR();
         int beginpunt[] = molGeselecteerd.getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];

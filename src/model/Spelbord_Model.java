@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import controller.Bordspel_Interface;
+import controller.Fiche_Controller;
 import controller.Player_Observer;
 
 public class Spelbord_Model implements Bordspel_Interface{
@@ -136,6 +137,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		return this.mol_onbord;
 	}
+
 
 	@Override
 	public void addMolField(MolModel mol) throws RemoteException {

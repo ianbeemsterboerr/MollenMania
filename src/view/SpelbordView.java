@@ -30,7 +30,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
-	private ArrayList<Speler_Model> new_players;
 	private Bordspel_Interface bs_interface;
 	private BorderPane spelbord_pane;
 	private GridPane veld_pane;
@@ -281,14 +280,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		/*
 		 * load board.
 		 * VOILAAA
-		 * check niveau to determine list to be added.
-		 * should be rewritten in a better function outside of this class.
+		 * check niveau to determine list to be added. - check
+		 * should be rewritten in a better function outside of this class. - check
 		 */
 		
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), bs_interface.pm(), bs_interface.getHuidigeNiveauIndex());
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.
+		 * all buttons become "active" in this for loop
 		 */
 		for(int i=0;i<this.buttonArray.length;i++){
 			final VeldKnop buttonBox;
@@ -367,7 +367,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	@Override
 	public boolean isEnabled() throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -375,5 +375,4 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		// TODO Auto-generated method stub
 		
 	}
-
 }

@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -65,12 +66,18 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 		
+		Button next_stage = new Button("Next!");
+		next_stage.setOnAction(e->{
+			
+		});
+		
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
 
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
+		spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
 		
 		Scene bord = new Scene(spelbord_pane, 1440,900);
@@ -178,6 +185,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			cc.setPercentWidth(100 / numCols);
 			root.getColumnConstraints().add(cc);
 		}
+		
 		int x = 4;
 		int y = 0;
 		int z = -4;

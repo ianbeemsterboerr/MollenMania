@@ -55,7 +55,6 @@ public class MolController {
         return null;
     }
 
-
     public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:

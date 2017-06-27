@@ -72,6 +72,24 @@ public class Bordspel_Controller {
 	 * Deze method geeft aan dat er op een veld
 	 * @param position
 	 */
+	
+	public void changeNiveau(ArrayList<MolModel> mols, int current_level){
+		Playboard_Model pm = new Playboard_Model();
+		ArrayList<Molshoop_Veld> niveau1 = pm.getNiveau1().getMolshoop();
+		ArrayList<Molshoop_Veld> niveau2 = pm.getNiveau2().getMolshoop();
+		ArrayList<Molshoop_Veld> niveau3 = pm.getNiveau3().getMolshoop();
+		
+		if(current_level == 1){
+			for(Molshoop_Veld molshopen : niveau1){
+				
+			}
+		} else if(current_level == 2){
+			
+		} else if(current_level == 3){
+			
+		}
+	}
+	
 	public void clickAction(int[] position) throws RemoteException{
 		System.out.println(this.getClass().toString()+": x: "+position[0]+" y:"+position[1]+" z:"+position[2]);
 		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){

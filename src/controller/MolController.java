@@ -6,6 +6,7 @@ import model.Velden.VeldKnop;
 import view.MolKnop;
 import view.SpelbordView;
 
+import java.lang.management.BufferPoolMXBean;
 import java.rmi.Remote;
 import java.util.ArrayList;
 
@@ -37,14 +38,14 @@ public class MolController {
         return spelModel;
     }
 
-    // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
-    public Spelbord_Model verplaatsMol(Spelbord_Model sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException {
-        if (zetGeldig(sm.getPlayers(), eindPunt, ficheNR, molIndex, sm.beurtIndex())) {
-            sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
-            return sm;
-        }
-        return null;
-    }
+//    // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
+//    public Spelbord_Model verplaatsMol( sm, int[] eindPunt, int ficheNR, int molIndex) throws RemoteException {
+//        if (zetGeldig(sm.getPlayers(), eindPunt, ficheNR, molIndex, sm.beurtIndex())) {
+//            sm.getPlayers().get(sm.beurtIndex()).getMol_list().get(molIndex).setCoord(eindPunt);
+//            return sm;
+//        }
+//        return null;
+//    }
 
     public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
         for (MolModel mol : speler.getMol_list()) {
@@ -56,11 +57,11 @@ public class MolController {
     }
 
 
-    public boolean zetGeldig(ArrayList<Speler_Model> sm, int[] eindPunt, int ficheNR, int molIndex, int beurtIndex) throws RemoteException {
+    public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
         int deltaCoord[] = new int[3];
-        int beginpunt[] = sm.get(beurtIndex).getMol_list().get(molIndex).getCoord();
+        int beginpunt[] = molGeselecteerd.getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
         }
@@ -68,7 +69,7 @@ public class MolController {
         //Hierin wordt bepaalt of de mol over een andere mol heen wordt gezet.
         for (int j = 0; j < beginpunt.length; j++) {
             beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
-            for (Speler_Model speler : sm)
+            for (Speler_Model speler : bs_interface.playerList())
                 for (MolModel mol : speler.getMol_list()) {
                     if (beginpunt == mol.getCoord()) {
                         return false;

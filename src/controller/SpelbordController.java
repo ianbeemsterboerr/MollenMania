@@ -66,6 +66,10 @@ public class SpelbordController {
         return 0;
     }
 
+    public boolean checkMolshopenBezet(Bordspel_Interface bs_interface){
+        return false;
+    }
+
 }
 
 

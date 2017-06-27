@@ -11,10 +11,12 @@ import java.rmi.RemoteException;
 /**
  * Created by Wessel on 26-6-2017.
  */
+public class SpelFlowController {
 public class SpelflowController {
    private MolController molController = new MolController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
-   private boolean loopControl = false;
+   private Fiche_Controller ficheController = new Fiche_Controller();
+   private SpelbordController sbController = new SpelbordController();
 
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
@@ -57,6 +59,10 @@ public class SpelflowController {
 //    }
 //    }
 
+
+    public void setFicheknoppen(Bordspel_Interface bs_interface){
+
+    }
     public void setKnoppenMollen (Bordspel_Interface bs_interface){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
@@ -66,7 +72,7 @@ public class SpelflowController {
                       System.out.println("Geen mol aanwezig");
                   }
                   else {
-                      //Naar eindpunt bepalen
+                    setEindpuntKnoppen(bs_interface,mol);
                   }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
@@ -76,10 +82,33 @@ public class SpelflowController {
         }
     }
 
+
+
     public void setEindpuntKnoppen (Bordspel_Interface bs_interface,MolModel mol){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
+            buttonBox.setOnAction(e -> {
+                try {
+                    if (molController.zetGeldig(bs_interface,mol,buttonBox.getCoordinaten(),0)){
+                        mol.setCoord(buttonBox.getCoordinaten());
+                        //eindeRondeMethod
 
+                    }
+                } catch (RemoteException e1) {
+                    e1.printStackTrace();
+                }
+            });
         }
+    }
+
+    public void rondeOpruim(Bordspel_Interface bs_interface) throws RemoteException {
+        ficheController.fichesCheck(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
+        if(sbController.checkMolshopenBezet(bs_interface)){
+            //Clearmollen
+            //switchNiveau
+        }
+        //clearKnoppen
+        //nextPlayer
+        //terug naarFiche
     }
 
 }

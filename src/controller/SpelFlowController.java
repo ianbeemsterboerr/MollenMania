@@ -12,11 +12,11 @@ import java.rmi.RemoteException;
  * Created by Wessel on 26-6-2017.
  */
 public class SpelFlowController {
-    public class SpelflowController {
-        private MolController molController = new MolController();
-        private Bordspel_Controller bsController = new Bordspel_Controller();
-        private Fiche_Controller ficheController = new Fiche_Controller();
-        private SpelbordController sbController = new SpelbordController();
+
+   private MolController molController = new MolController();
+   private Bordspel_Controller bsController = new Bordspel_Controller();
+   private Fiche_Controller ficheController = new Fiche_Controller();
+   private SpelbordController sbController = new SpelbordController();
 
         public void SpelStart(Bordspel_Interface bs) throws RemoteException {
             // controllers laden en variabelen maken
@@ -108,4 +108,4 @@ public class SpelFlowController {
         }
 
     }
-}
+

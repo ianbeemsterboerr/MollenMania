@@ -34,16 +34,17 @@ public class MainMenuController {
     }
 
     public void hostGame(){
-        System.out.println("MainMenuController: hostGame");
-        try {
-            Process process = Runtime.getRuntime().exec(serverFilePath);
-        } catch (FileNotFoundException e){
-            System.out.println("FileNotFoundException");
-        } catch (IOException e){
-            System.out.println("input output exception");
-        }
-        mainMenuView.uitschakelen();
         new HostSpelController(this);
+//        System.out.println("MainMenuController: hostGame");
+//        try {
+//            Process process = Runtime.getRuntime().exec(serverFilePath);
+//        } catch (FileNotFoundException e){
+//            System.out.println("FileNotFoundException");
+//        } catch (IOException e){
+//            System.out.println("input output exception");
+//        }
+//        mainMenuView.uitschakelen();
+//        new HostSpelController(this);
         //new host_controls_view();
     }
     public void hervatSpel(){

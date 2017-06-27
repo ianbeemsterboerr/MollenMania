@@ -45,6 +45,7 @@ public class HostSpelView {
 
         btn_host.setOnAction(e -> {
             try{
+                hostSpelController.startServer();
                 connectStage.close();
                 //new connect_host_view(this.aantalSpelers());
                 //System.out.println(this.aantalSpelers());

@@ -15,6 +15,7 @@ public class SpelFlowController {
    private MolController molController = new MolController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
    private Fiche_Controller ficheController = new Fiche_Controller();
+   private SpelbordController sbController = new SpelbordController();
 
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
@@ -57,6 +58,11 @@ public class SpelFlowController {
 //    }
 //    }
 
+
+    public void setFicheknoppen(bs_interface bs_interface){
+        b
+
+    }
     public void setKnoppenMollen (Bordspel_Interface bs_interface){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
@@ -66,7 +72,7 @@ public class SpelFlowController {
                       System.out.println("Geen mol aanwezig");
                   }
                   else {
-                      //Naar eindpunt bepalen
+                    setEindpuntKnoppen(bs_interface,mol);
                   }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
@@ -75,6 +81,8 @@ public class SpelFlowController {
             });
         }
     }
+
+
 
     public void setEindpuntKnoppen (Bordspel_Interface bs_interface,MolModel mol){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
@@ -94,7 +102,13 @@ public class SpelFlowController {
 
     public void rondeOpruim(Bordspel_Interface bs_interface) throws RemoteException {
         ficheController.fichesCheck(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
-
+        if(sbController.checkMolshopenBezet(bs_interface)){
+            //Clearmollen
+            //switchNiveau
+        }
+        //clearKnoppen
+        //nextPlayer
+        //terug naarFiche
     }
 
 }

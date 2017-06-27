@@ -312,4 +312,7 @@ public class Bordspel_Controller {
 	public void spelVerlaten(){
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
+
+
+
 }

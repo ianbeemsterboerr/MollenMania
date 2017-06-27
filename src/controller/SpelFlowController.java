@@ -11,10 +11,10 @@ import java.rmi.RemoteException;
 /**
  * Created by Wessel on 26-6-2017.
  */
-public class BeurtController {
+public class SpelFlowController {
    private MolController molController = new MolController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
-   private boolean loopControl = false;
+   private Fiche_Controller ficheController = new Fiche_Controller();
 
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         // controllers laden en variabelen maken
@@ -78,8 +78,23 @@ public class BeurtController {
 
     public void setEindpuntKnoppen (Bordspel_Interface bs_interface,MolModel mol){
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
+            buttonBox.setOnAction(e -> {
+                try {
+                    if (molController.zetGeldig(bs_interface,mol,buttonBox.getCoordinaten(),0)){
+                        mol.setCoord(buttonBox.getCoordinaten());
+                        //eindeRondeMethod
 
+                    }
+                } catch (RemoteException e1) {
+                    e1.printStackTrace();
+                }
+            });
         }
+    }
+
+    public void rondeOpruim(Bordspel_Interface bs_interface) throws RemoteException {
+        ficheController.fichesCheck(bs_interface.playerList().get(bs_interface.beurtIndex()).getFiche_list());
+
     }
 
 }

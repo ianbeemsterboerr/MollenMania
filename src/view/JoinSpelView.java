@@ -24,7 +24,12 @@ public class JoinSpelView {
     private TextField ipadress, username;
     private Speler_Model player;
     private SpelJoinController spelJoinController;
-
+    
+    /**
+     * Constructor die ervoor zorgt dat de scherm om een spel te joinen geladen wordt.
+     * @param spelJoinController wordt gegeven om in de volgende scherm controller werk te kunnen.
+     * 			
+     */
     public JoinSpelView(SpelJoinController spelJoinController){
         this.spelJoinController=spelJoinController;
         double button_width = 150.0;
@@ -42,8 +47,6 @@ public class JoinSpelView {
         hbox_connect.getChildren().addAll(btn_connect, btn_back);
         hbox_connect.setAlignment(Pos.CENTER);
         hbox_connect.setSpacing(10.0);
-
-
 
         btn_connect.setOnAction(e -> {
             try{
@@ -82,7 +85,13 @@ public class JoinSpelView {
         connectStage.show();
         //WinView winView = new WinView();
     }
-
+    
+    /**
+     * om de textbox zijn text value te krijgen
+     * @return krijgt een string terug, die toegewezen wordt aan de speler.
+     * 		
+     */		
+    
     public String textBoxUsername(){
         return this.username.getText();
     }

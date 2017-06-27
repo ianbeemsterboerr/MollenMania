@@ -21,7 +21,11 @@ public class HostSpelView {
     ChoiceBox<String> cb_aantal_spelers;
     private HostSpelController hostSpelController;
     private TextField username;
-
+   
+     /**
+      * maakt een panel waar de user kan kiezen of hij/zij een spel wilt hosten
+      * @param hostSpelController krijgt een controller mee om in de view controller werk te kunnen doen, zoals server opstarten.
+      */
     public HostSpelView(HostSpelController hostSpelController){
         this.hostSpelController=hostSpelController;
         double button_width = 150.0;
@@ -80,12 +84,5 @@ public class HostSpelView {
         connectStage.initStyle(StageStyle.UNDECORATED);
         connectStage.show();
     }
-
-    public void host_controls_show(){
-
-    }
-
-    public String aantalSpelers(){
-        return this.cb_aantal_spelers.getValue();
-    }
+    
 }

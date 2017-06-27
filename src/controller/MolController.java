@@ -3,8 +3,6 @@ package controller;
 import model.*;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;
-import view.MolKnop;
-import view.SpelbordView;
 
 import java.lang.management.BufferPoolMXBean;
 import java.rmi.Remote;
@@ -43,6 +41,14 @@ public class MolController {
         return true;
     }
 
+    public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
+        for (MolModel mol : speler.getMol_list()) {
+            if (mol == molKnop.getMolModel()) {
+                return mol;
+            }
+        }
+        return null;
+    }
 
     /**
      * Controleert of een zet geldig is.

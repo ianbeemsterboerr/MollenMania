@@ -246,24 +246,25 @@ public class Bordspel_Controller {
 	}
 	/**
 	 * Deze method geeft aan dat er op een veld
+	 * @param position
 	 */
 	/*
 	 * mol dinges. here we get the mol that is not yet in play and we give it coords.
 	 * once coords have been set we up the index and go until all mols have been registered.
-	 * 
+	 *
 	 * index max = the amount of mols u have in your list. so when the index is max
 	 * it is time to switch turn
-	 * 
+	 *
 	 */
 	public void setMolCoords(Speler_Model sm, MolModel mol_placeholder, VeldKnop buttonBox, int mol_max, int mol_index){
 		//starts at 0 -> how many mols am I going to have? to avoid list exceptions.
 		/*
 		 * mol dinges. here we get the mol that is not yet in play and we give it coords.
 		 * once coords have been set we up the index and go until all mols have been registered.
-		 * 
+		 *
 		 * index max = the amount of mols u have in your list. so when the index is max
 		 * it is time to switch turn
-		 * 
+		 *
 		 */
 		if(sm.getMol_list().size() == mol_max){
 			System.out.println("max");
@@ -274,7 +275,7 @@ public class Bordspel_Controller {
 
 			System.out.println("Current mol index: " + sm.getMol_list().size());
 		}
-		
+
 		/*
 		 * here we send the mol to the board.
 		 * model has new mol + it's coords -> register it for all to see.
@@ -282,12 +283,10 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
-			bs_interface.nextObserver();
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		;
 	}
 
 	public void refresh() throws RemoteException{

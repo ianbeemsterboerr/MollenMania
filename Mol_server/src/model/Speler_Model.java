@@ -31,7 +31,7 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 		this.username = user;
 		this.player_id = id;
 		this.myself = this;
-		fillPawnList(6);
+		//fillPawnList(6);
 		this.setFiches(fiche_list.getGeslotenFiche());
 		
 		this.fichesSize = this.fiches.size();
@@ -46,12 +46,12 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 		this.fiches = fiches;
 	}
 	
-	public void fillPawnList(int aantal){
-		for(int i = 0; i < aantal; i++){
-			MolModel mol = new MolModel(i);
-			this.mol_list.add(mol);
-		}
-	}
+//	public void fillPawnList(int aantal){
+//		for(int i = 0; i < aantal; i++){
+//			MolModel mol = new MolModel(i);
+//			this.mol_list.add(mol);
+//		}
+//	}
 	
 	public ArrayList<MolModel> getMol_list() {
 		return mol_list;

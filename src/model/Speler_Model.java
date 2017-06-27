@@ -31,7 +31,7 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 		this.username = user;
 		this.player_id = id;
 		this.myself = this;
-		fillPawnList(6);
+		//fillPawnList(6);
 		this.setFiches(fiche_list.getGeslotenFiche());
 		
 		this.fichesSize = this.fiches.size();

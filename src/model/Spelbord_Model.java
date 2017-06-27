@@ -18,7 +18,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int huidigeNiveau = 1;
 	private int maxMollen;
 	private int beurtIndex;
-	
+
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
@@ -61,9 +61,9 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	public Spelbord_Model(){
-		
+
 	}
-	
+
 	public ArrayList<Speler_Model> getPlayers() {
 		return players;
 	}
@@ -83,7 +83,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		return this.players;
 	}
-	
+
 	@Override
 	public void addObserver(Player_Observer po) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -116,11 +116,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
 	}
-	
+
 	public void setBordMax(int m){
 		this.bordMax = m;
 	}
-	
+
 	@Override
 	public int maxSpelers() throws RemoteException {
 		// TODO Auto-generated method stub

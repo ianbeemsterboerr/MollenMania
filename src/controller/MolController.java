@@ -19,23 +19,24 @@ import java.util.Arrays;
 public class MolController {
     // In deze method worden de mollen neergezet aan het start van het spel
 
-    public Spel_Interface mollenNeerzetten(VeldKnop veldKnop, Spel_Interface spelModel, int spelerIndex) throws RemoteException {
+    public void mollenNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface) throws RemoteException {
+        boolean bezet = true;
+//        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
+//            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()) {
+//                return null;
+//            }
 
-        for (int i = 0; i < spelModel.getSpelbord().getNiveau1().getMolshoop().size(); )
-            if (veldKnop.getCoordinaten() == spelModel.getSpelbord().getNiveau1().getMolshoop().get(i).getPositie()) {
-                return null;
-            }
-
-        for (Speler_Model speler : spelModel.getSpeler()) {
+        for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
                 if (mollen.getCoord() == veldKnop.getCoordinaten()) {
-                    return null;
+                    bezet = false;
                 }
             }
         }
-        spelModel.getSpeler().get(spelerIndex).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
-
-        return spelModel;
+        if (bezet) {
+            System.out.println("Mol plaatsen op: " +veldKnop.getX()+veldKnop.getY()+veldKnop.getZ() );
+            bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().add(new MolModel(veldKnop.getCoordinaten()));
+        }
     }
 
 //    // Deze method zal de coordinaten van een mol geupdate worden en worden gereturned. Als een mol niet verplaatst kan worden wordt de huidige positie gereturned.
@@ -47,14 +48,6 @@ public class MolController {
 //        return null;
 //    }
 
-    public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
-        for (MolModel mol : speler.getMol_list()) {
-            if (mol == molKnop.getMolModel()) {
-                return mol;
-            }
-        }
-        return null;
-    }
 
 
     public boolean zetGeldig(Bordspel_Interface bs_interface, MolModel molGeselecteerd, int[] eindPunt, int ficheNR) throws RemoteException {

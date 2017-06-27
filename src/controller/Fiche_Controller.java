@@ -10,13 +10,12 @@ import java.util.Random;
 public class Fiche_Controller extends Random {
 
 
-    public int kiesFiche(Fiche_Model fiche) {
+    public void kiesFiche(Fiche_Model fiche) {
         int getal = this.nextInt(fiche.getGeslotenFiche().size());
-        int ficheNR = fiche.getGeslotenFiche().get(getal);
+        fiche.setFicheNR(fiche.getGeslotenFiche().get(getal));
         fiche.getOpenFiche().add(fiche.getGeslotenFiche().get(getal));
         fiche.getGeslotenFiche().remove(getal);
-        System.out.println(ficheNR);
-        return ficheNR;
+        System.out.println(fiche.getFicheNR());
     }
 
     public void fichesCheck(Fiche_Model fiche){

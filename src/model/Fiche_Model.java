@@ -1,7 +1,5 @@
 package model;
 
-import javafx.scene.control.Button;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;

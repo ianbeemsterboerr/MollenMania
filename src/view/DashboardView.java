@@ -1,6 +1,7 @@
 package view;
 
 import controller.Bordspel_Controller;
+import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,6 +28,7 @@ public class DashboardView {
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
+    private Fiche_Controller ficheController = new Fiche_Controller();
     private Button fiche_btn = new Button("Fiche");
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
@@ -93,15 +95,10 @@ public class DashboardView {
             aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
         });
 
-        fiche_btn.setOnAction(e->{
-            //sm.getFiche_list().setFicheNR(new Fiche_Controller().kiesFiche(sm.getFiche_list()));
-            System.out.println("SpelbordView.createUserPanel" +ficheNR);
-            open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
-            new Fiche_Controller().fichesCheck(sm.getFiche_list());
-        });
 
         mol_btn.setOnAction(e->{
-            sm.getMol_list().remove(1);
+            System.out.println("KnopVerwijderen");
+//            sm.getMol_list().remove(1);
         });
 
         grid.add(username_lbl, 0, 0);

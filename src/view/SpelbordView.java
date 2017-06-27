@@ -38,7 +38,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private MolController molController;
 	private InstInGameView instInGameView;
 	private boolean enabled;
-
 	public static VeldKnop[] buttonArray;
 
 	DashboardView player_1;
@@ -88,6 +87,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
 		bordStage.show();
+        new SpelFlowController().SpelStart(bs_interface);
 	}
 
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
@@ -378,4 +378,5 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.enabled = enabled;
 		
 	}
+
 }

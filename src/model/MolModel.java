@@ -25,11 +25,11 @@ public class MolModel implements Serializable{
         this.pionID = id;
     }
 
-    public MolModel(int playerID, int pionID, Color color, int x, int y, int z) {
-        this.pionID = pionID;
-        this.color = color;
-        this.coord = new int[] {x,y,z};
-    }
+//    public MolModel(int playerID, int pionID, Color color, int x, int y, int z) {
+//        this.pionID = pionID;
+//        this.color = color;
+//        this.coord = new int[] {x,y,z};
+//    }
 
     public MolModel(int[] coord) {
         this.coord = coord;

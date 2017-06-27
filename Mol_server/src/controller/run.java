@@ -23,7 +23,7 @@ public class run extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		System.setProperty("java.rmi.server.hostname", InetAddress.getLocalHost().toString());
+		//System.setProperty("java.rmi.server.hostname", InetAddress.getLocalHost().toString());
 		// TODO Auto-generated method stub
 		ChoiceBox<Integer> cb_aantal_spelers;
 		double button_width = 150.0;

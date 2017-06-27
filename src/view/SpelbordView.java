@@ -1,8 +1,10 @@
 package view;
 
+import java.lang.reflect.Array;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import controller.*;
 import javafx.geometry.HPos;
@@ -19,9 +21,13 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.BeurtStatus;
 import model.MolModel;
 import model.Playboard_Model;
 import model.Speler_Model;
+import model.Velden.GoudenSchep_Veld;
+import model.Velden.Molshoop_Veld;
+import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
 
 public class SpelbordView extends UnicastRemoteObject implements Player_Observer{
@@ -286,8 +292,23 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * check niveau to determine list to be added. - check
 		 * should be rewritten in a better function outside of this class. - check
 		 */
-		
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(),new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+		//this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(),new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+
+		// init velden wit
+		for (VeldKnop veldKnop: buttonArray) {
+			veldKnop.setStyle("-fx-background-color: white");
+			veldKnop.setDisable(false);
+		}
+		// Init molshopen
+		ArrayList<Molshoop_Veld> molshoop_niveau = new Playboard_Model().getNiveau1().getMolshoop();
+		for(Molshoop_Veld m : molshoop_niveau){
+			for (VeldKnop veldKnop:this.buttonArray){
+				if(Arrays.equals(m.getPositie(), veldKnop.getCoordinaten())){
+					veldKnop.setDisable(true);
+					veldKnop.setStyle("-fx-background-color: saddlebrown;");
+				}
+			}
+		}
 		
 		/*
 		 * final used to be used inside lamba. reason: jah knows.
@@ -362,11 +383,107 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
 		//disableProperty(enabled);
+
+		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
+		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
 	}
 
-	public void playerDataTest(ArrayList<Speler_Model> spelers) throws RemoteException{
+	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{
+		if(status==BeurtStatus.FICHEDRAAIEN){
+			for (VeldKnop veldKnop: buttonArray) {
+				veldKnop.setStyle("-fx-background-color: white");
+				veldKnop.setDisable(true);
+			}
+		}
+	}
+	public void loadGoudenSchep(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws  RemoteException{
+		ArrayList<GoudenSchep_Veld> goudenSchep_veld=pm.getHuidigNiveau(niveau).getGoudenSchep();
+		boolean setDisabled=true;
+		if(status==BeurtStatus.VERPLAATSEN){
+			setDisabled=false;
+		}
+		if(goudenSchep_veld.size()!=0||status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
+			for(GoudenSchep_Veld gouden : goudenSchep_veld){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(gouden.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setStyle("-fx-background-color: darkgoldenrod;");
+					}
+				}
+			}
+		}
+	}
+	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
+		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = pm.getHuidigNiveau(niveau).getSpeciaal();
+		boolean setDisabled=true;
+		if(status==BeurtStatus.VERPLAATSEN){
+			setDisabled=false;
+		}
+		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
+			for(SpeciaalVeld_Veld speciaal : speciaalVeld_velds){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(speciaal.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setStyle("-fx-background-color: darkcyan;");
+					}
+				}
+			}
+		}
+	}
+
+	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
+		ArrayList<Molshoop_Veld> molshoop_niveau = pm.getHuidigNiveau(niveau).getMolshoop();
+		boolean setDisabled=true;
+		if(status==BeurtStatus.VERPLAATSEN){
+			setDisabled=false;
+		}
+		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
+			for(Molshoop_Veld m : molshoop_niveau){
+				for(int x = 0; x < buttonArray.length; x++){
+					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
+						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setStyle("-fx-background-color: saddlebrown;");
+					}
+				}
+			}
+		}
+	}
+
+	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<Speler_Model> spelers, BeurtStatus status){
+		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
-			System.out.println(speler.getPlayer_id());
+			boolean disableMol=false;
+			String kleur="rood";
+			switch (speler.getKleur()){
+				case "rood":
+					kleur="red";
+					break;
+				case "groen":
+					kleur="green";
+					break;
+				case "geel":
+					kleur="yellow";
+					break;
+				case "blauw":
+					kleur="blue";
+					break;
+			}
+			System.out.println(this.getClass().toString()+": loadSpelerMold: kleur is "+kleur+" status is"+status.toString());
+
+			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
+				disableMol=true;
+			}
+			for (MolModel mol: speler.getMol_list()) {
+				for (VeldKnop veldKnop:buttonArray) {
+					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){
+						veldKnop.setDisable(disableMol);
+						veldKnop.setStyle("-fx-background-color: "+kleur+";");
+					}
+				}
+			}
 		}
 	}
 

@@ -40,7 +40,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private Bordspel_Controller bordspel_controller;
 	private int mol_index = 0;
 	private MolController molController;
-
+	private boolean enabled = false;
 	private VeldKnop[] buttonArray;
 
 	DashboardView player_1;
@@ -335,14 +335,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public boolean isEnabled() throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return enabled;
 	}
 
 	@Override
 	public void setEnabled(boolean enabled) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		this.enabled = enabled;
 	}
 
 }

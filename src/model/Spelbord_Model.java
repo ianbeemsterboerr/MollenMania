@@ -16,6 +16,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int bordMax;
 	private int huidigeNiveau = 1;
 	private int maxMollen;
+	private int beurtIndex;
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
@@ -186,6 +187,16 @@ public class Spelbord_Model implements Bordspel_Interface{
 		// TODO Auto-generated method stub
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
+		}
+	}
+	public void nextObserver() throws RemoteException{
+		if (bord_observers.size() > 0) {
+			bord_observers.get(beurtIndex).setEnabled(false);
+			beurtIndex++;
+			if (beurtIndex >= bord_observers.size()) {
+				beurtIndex = 0;
+			}
+			bord_observers.get(beurtIndex).setEnabled(true);
 		}
 	}
 

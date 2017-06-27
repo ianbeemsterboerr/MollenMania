@@ -155,7 +155,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	    grid.add(game_table, 0, 0);
 	    grid.add(vbox_hervat_options, 0, 1);
 
-		Scene lobby_scene = new Scene(grid, 380, 250);
+	    grid.setId("gridder");
+		Scene lobby_scene = new Scene(grid, 540, 960);
+		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());
 
 		lobbyStage.setTitle("Lobby");
 		lobbyStage.setScene(lobby_scene);

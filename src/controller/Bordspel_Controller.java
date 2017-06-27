@@ -232,7 +232,6 @@ public class Bordspel_Controller {
 	}
 	/**
 	 * Deze method geeft aan dat er op een veld
-	 * @param position
 	 */
 	/*
 	 * mol dinges. here we get the mol that is not yet in play and we give it coords.
@@ -269,10 +268,12 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
+			bs_interface.nextObserver();
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		;
 	}
 
 	public void refresh() throws RemoteException{

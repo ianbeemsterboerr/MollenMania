@@ -89,7 +89,7 @@ public class SpelFlowController{
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
                 try {
-                  MolModel mol = molController.bepaalOfMolAanwezig(bs_interface, buttonBox);
+                  MolModel mol = molController.bepaalOfMolAanwezig(speler, buttonBox);
                   if (mol == null){
                       System.out.println("Geen mol aanwezig");
                   }
@@ -113,6 +113,7 @@ public class SpelFlowController{
                 try {
                     if (molController.zetGeldig(bs_interface, speler,mol, buttonBox.getCoordinaten())) {
                         mol.setCoord(buttonBox.getCoordinaten());
+                        bs_interface.notifyObservers();
                         System.out.println("pion geplaatst op: " +mol.getCoord());
                         rondeOpruim(speler,bs_interface);
                     }

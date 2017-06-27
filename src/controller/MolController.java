@@ -90,8 +90,8 @@ public class MolController {
 
     }
 
-    public MolModel bepaalOfMolAanwezig(Bordspel_Interface bs_interface, VeldKnop veldKnop) throws RemoteException {
-        for (MolModel mol : bs_interface.playerList().get(0).getMol_list()) {
+    public MolModel bepaalOfMolAanwezig(Speler_Model speler, VeldKnop veldKnop) throws RemoteException {
+        for (MolModel mol : speler.getMol_list()) {
             if (Arrays.equals(mol.getCoord(), veldKnop.getCoordinaten())) {
                 return mol;
             }

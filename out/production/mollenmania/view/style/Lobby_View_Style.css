@@ -4,10 +4,7 @@
 
 #gridder{
     -fx-background-image: url("../img/OverlayTemplateRechthoek.png");
-<<<<<<< HEAD
-    -fx-background-size:1000 600;
+    -fx-background-size:100%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
-=======
->>>>>>> 6fc0378c60b57df49162ede414f5877dcc9f7ccf
 }

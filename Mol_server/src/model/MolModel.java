@@ -33,6 +33,14 @@ public class MolModel implements Serializable{
         return coord;
     }
 
+    public String printCoord(){
+        String coords = "";
+        for (int xyz : this.getCoord()) {
+            coords += Integer.toString(xyz) + " ";
+        }
+        return coords;
+    }
+
     public void setCoord(int[] coord) {
         this.coord = coord;
     }

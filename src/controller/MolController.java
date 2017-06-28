@@ -124,7 +124,7 @@ public class MolController {
      */
     public int bepaalOfMolAanwezig(Speler_Model speler, VeldKnop veldKnop) throws RemoteException {
         for (MolModel mol : speler.getMol_list()) {
-            System.out.println("Mol coords " + mol.getCoord() +" veldknop coord" +veldKnop.getCoordinaten());
+            System.out.println("Mol coords " +mol.printCoord() +" veldknop coord" +veldKnop.getX()+veldKnop.getY()+veldKnop.getZ());
             if (Arrays.equals(mol.getCoord(), veldKnop.getCoordinaten())) {
                 return speler.getMol_list().indexOf(mol);
             }

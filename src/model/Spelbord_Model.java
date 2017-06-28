@@ -162,10 +162,9 @@ public class Spelbord_Model implements Bordspel_Interface{
 
     @Override
     public void setMolCoord(int molIndex, int[] coord, Speler_Model speler) throws RemoteException {
-        System.out.println("Voor aanpassing Coord: " +speler.getMol_list().get(molIndex).getCoord());
+        System.out.println("Voor aanpassing Coord: " +speler.getMol_list().get(molIndex).printCoord());
         speler.getMol_list().get(molIndex).setCoord(coord);
-        System.out.println("na aanpassing Coord: " +speler.getMol_list().get(molIndex).getCoord());
-        notifyObservers();
+        System.out.println("na aanpassing Coord: " +speler.getMol_list().get(molIndex).printCoord());
     }
 
 	@Override

@@ -53,7 +53,7 @@ public class SpelFlowController{
                         bsInterface.notifyObservers();
                         }
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
-//                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
+//                      bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
                         System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
                         nextPlayer(bsInterface);
@@ -122,7 +122,7 @@ public class SpelFlowController{
         }
     }
 
-            }
+
 
     public void setEindpuntKnoppen (Speler_Model speler, Bordspel_Interface bs_interface,int molIndex) throws RemoteException {
         bs_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
@@ -133,7 +133,7 @@ public class SpelFlowController{
                     if (molController.zetGeldig(bs_interface, speler,speler.getMol_list().get(molIndex), buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(molIndex,buttonBox.getCoordinaten(),speler);
                         bs_interface.notifyObservers();
-                        System.out.println("pion geplaatst op: " +speler.getMol_list().get(molIndex).getCoord());
+                        System.out.println("pion geplaatst op: " +speler.getMol_list().get(molIndex).printCoord());
                         rondeOpruim(speler,bs_interface);
                     }
                     else {

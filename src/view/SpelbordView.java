@@ -73,7 +73,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 		
-//		Button next_stage = new Button("Next!");
+		Button next_stage = new Button("Next!");
 //		next_stage.setOnAction(e->{
 //			try {
 //				

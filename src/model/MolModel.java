@@ -74,4 +74,12 @@ public class MolModel implements Serializable{
         this.coord = coord;
     }
 
+    public String printCoord(){
+        String coords = "";
+        for (int xyz : this.getCoord()) {
+            coords += Integer.toString(xyz) + " ";
+        }
+        return coords;
+    }
+
 }

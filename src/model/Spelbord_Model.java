@@ -159,10 +159,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.huidigeNiveau;
 	}
 
-	@Override
-	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
-		mol.setCoord(coord);
-	}
+    @Override
+    public void setMolCoord(int molIndex, int[] coord, Speler_Model speler) throws RemoteException {
+        System.out.println("Voor aanpassing Coord: " +speler.getMol_list().get(molIndex).getCoord());
+        speler.getMol_list().get(molIndex).setCoord(coord);
+        System.out.println("na aanpassing Coord: " +speler.getMol_list().get(molIndex).getCoord());
+        notifyObservers();
+    }
 
 	@Override
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
@@ -203,6 +206,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 			bord_observers.get(beurtIndex).setEnabled(true);
 		}
 	}
+
 
 	public void addMolltoList(int[] coordinaten)throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);

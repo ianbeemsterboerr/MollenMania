@@ -25,7 +25,7 @@ public interface Bordspel_Interface extends Remote {
 
 	public int getHuidigeNiveauIndex() throws RemoteException;
 
-	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException;
+	public void setMolCoord(int molIndex, int[] coord, Speler_Model speler) throws RemoteException;
 
 	/*
 	 * ADD THINGS

@@ -99,50 +99,52 @@ public class Bordspel_Controller {
 	 * @param position De positie van de knop waarop werd geklikt.
 	 */
 	
-	public void changeNiveau(ArrayList<MolModel> mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
+	public void changeNiveau(ArrayList<MolModel> player_mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
 		Playboard_Model pm = new Playboard_Model();
+		
 		ArrayList<Molshoop_Veld> niveau1 = pm.getNiveau1().getMolshoop();
 		ArrayList<Molshoop_Veld> niveau2 = pm.getNiveau2().getMolshoop();
 		ArrayList<Molshoop_Veld> niveau3 = pm.getNiveau3().getMolshoop();
 		
-		if(current_level == 1){
-			for(MolModel mollen : mols){
+		switch(current_level){
+		case 1:
+			for(MolModel mollen : player_mols){
 				for(Molshoop_Veld molshopen : niveau1){
 					if(mollen.getCoord() == molshopen.getPositie()){
-						mols.remove(mollen);
-						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
 			}	
-		} else if(current_level == 2){
-			for(MolModel mollen : mols){
+		case 2:
+			for(MolModel mollen : player_mols){
 				for(Molshoop_Veld molshopen : niveau2){
 					if(mollen.getCoord() == molshopen.getPositie()){
-						mols.remove(mollen);
-						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
 			}
-		} else if(current_level == 3){
-			for(MolModel mollen : mols){
+		case 3: 
+			for(MolModel mollen : player_mols){
 				for(Molshoop_Veld molshopen : niveau3){
 					if(mollen.getCoord() != molshopen.getPositie()){
-						mols.remove(mollen);
-						System.out.println("Mols on field: " + mols.size());
-						this.loadBoard(buttonArray, mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 					} else{
 						System.out.println("Mol zit in molshoop");
 					}
 				}
 			}
 		}
-		System.out.println("Mols on field: " + mols.size());
+		System.out.println("Mols on field: " + player_mols.size());
 	}
 	
 	public void clickAction(int[] position) throws RemoteException{

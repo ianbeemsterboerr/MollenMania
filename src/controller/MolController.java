@@ -41,14 +41,14 @@ public class MolController {
         return true;
     }
 
-    public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
-        for (MolModel mol : speler.getMol_list()) {
-            if (mol == molKnop.getMolModel()) {
-                return mol;
-            }
-        }
-        return null;
-    }
+//    public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
+//        for (MolModel mol : speler.getMol_list()) {
+//            if (mol == molKnop.getMolModel()) {
+//                return mol;
+//            }
+//        }
+//        return null;
+//    }
 
     /**
      * Controleert of een zet geldig is.

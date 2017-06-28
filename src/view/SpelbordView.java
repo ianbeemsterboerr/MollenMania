@@ -79,7 +79,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				
 				bs_interface.changeNiveauInt();
 				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
-				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
+//				System.out.println(bs_interface.molOnField().size());
+//				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
 				
 			} catch (RemoteException e1) {
 				// TODO Auto-generated catch block

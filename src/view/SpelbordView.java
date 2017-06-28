@@ -475,31 +475,32 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
 			boolean disableMol=false;
-			String kleur="rood";
-			switch (speler.getKleur()){
-				case "rood":
-					kleur="red";
-					break;
-				case "groen":
-					kleur="green";
-					break;
-				case "geel":
-					kleur="yellow";
-					break;
-				case "blauw":
-					kleur="blue";
-					break;
-			}
-			System.out.println(this.getClass().toString()+": loadSpelerMold: kleur is "+kleur+" status is"+status.toString());
+			String kleur="red";
+//			switch (speler.getKleur()){
+//				case "RED":
+//					kleur="red";
+//					break;
+//				case "GREEN":
+//					kleur="green";
+//					break;
+//				case "YELLOW":
+//					kleur="yellow";
+//					break;
+//				case "BLUE":
+//					kleur="blue";
+//					break;
+//			}
+			System.out.println(this.getClass().toString()+": loadSpelerMold: kleur is "+speler.getKleur()+" wordt "+kleur+" status is"+status.toString());
 
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
+			System.out.println(this.getClass().toString()+": "+speler.getUsername()+" mol disabled "+disableMol);
 			for (MolModel mol: speler.getMol_list()) {
 				for (VeldKnop veldKnop:buttonArray) {
 					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){
 						veldKnop.setDisable(disableMol);
-						veldKnop.setStyle("-fx-background-color: "+kleur+";");
+						veldKnop.setStyle("-fx-background-color: "+speler.getKleur()+";");
 					}
 				}
 			}

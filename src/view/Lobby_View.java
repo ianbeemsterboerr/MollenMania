@@ -28,7 +28,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private Button btn_groen = new Button("Groen");
 	private Button btn_geel = new Button("Geel");
 	private Label meldingen = new Label();
-	private Color geselecteerdeKleur;
+	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
 	Bordspel_Controller bs_controller;
@@ -108,16 +108,16 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
 
 		btn_blauw.setOnAction(e->{
-			geselecteerdeKleur=Color.BLUE;
+			geselecteerdeKleur="red";
 		});
 		btn_geel.setOnAction(e->{
-			geselecteerdeKleur=Color.YELLOW;
+			geselecteerdeKleur="yellow";
 		});
 		btn_groen.setOnAction(e->{
-			geselecteerdeKleur=Color.GREEN;
+			geselecteerdeKleur="green";
 		});
 		btn_rood.setOnAction(e->{
-			geselecteerdeKleur=Color.RED;
+			geselecteerdeKleur="blue";
 		});
 		
 		btn_klaar.setOnAction(e -> {
@@ -128,7 +128,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 						if (speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){
 							speler_model=speler;
 							speler_model.setHandgrootte((int)slider_hand.getValue());
-							speler_model.setKleur(geselecteerdeKleur.toString());
+							speler_model.setKleur(geselecteerdeKleur);
 							
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 							if(this.bs_interface.setSpelerReady(speler_model)){

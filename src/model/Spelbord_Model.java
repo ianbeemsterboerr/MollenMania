@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import controller.Bordspel_Interface;
-import controller.Fiche_Controller;
 import controller.Player_Observer;
 
 /**
@@ -138,17 +137,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public ArrayList<MolModel> molOnField() throws RemoteException {
 		// TODO Auto-generated method stub
+		for(Speler_Model sm : players){
+			if(sm.getMol_list().size() > 0){
+				
+			}		
+		}
 		return this.mol_onbord;
 	}
-
 
 	@Override
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
 	}
-
-
 
 	@Override
 	public int beurtIndex() throws RemoteException {
@@ -212,7 +213,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.players.get(aanDeBeurt).getMol_list().add(new MolModel(coordinaten));
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
-	@Override
+	
+@Override	
 	public void notifyObservers() throws RemoteException {
 		// TODO Auto-generated method stub
 		for (Player_Observer co : bord_observers) {
@@ -223,7 +225,10 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void changeNiveauInt() throws RemoteException {
 		// TODO Auto-generated method stub
-		this.huidigeNiveau = this.huidigeNiveau + 1;
+		for(Speler_Model sm : players){
+			System.out.println(sm.getMol_list().size());
+		}
+//		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
 	
 	

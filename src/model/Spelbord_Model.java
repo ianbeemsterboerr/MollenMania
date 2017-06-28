@@ -11,7 +11,6 @@ import controller.Player_Observer;
  * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
  */
 public class Spelbord_Model implements Bordspel_Interface{
-
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
@@ -21,7 +20,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int huidigeNiveau = 1;
 	private int maxMollen;
 	private int beurtIndex;
-
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){

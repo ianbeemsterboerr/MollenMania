@@ -72,7 +72,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-		
+
 //		Button next_stage = new Button("Next!");
 //		next_stage.setOnAction(e->{
 //			try {
@@ -87,6 +87,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //				e1.printStackTrace();
 //			}
 //		});
+
 		
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
@@ -94,7 +95,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
-		spelbord_pane.setLeft(next_stage);
+		//spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
 		
 		Scene bord = new Scene(spelbord_pane, 1440,900);

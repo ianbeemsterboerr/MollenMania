@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 
 import java.net.InetAddress;
 
+/**
+ * De runklasse zorgt ervoor dat de server wordt opgestart.
+ */
 public class run extends Application{
 
 	public static void main(String[] args)  {

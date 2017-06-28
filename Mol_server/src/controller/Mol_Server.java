@@ -11,7 +11,7 @@ import model.Spelbord_Model;
 public class Mol_Server extends UnicastRemoteObject{
 	
 	/**
-	 * 
+	 * Bevat alle functies voor het hosten van een server.
 	 */
 	private static final long serialVersionUID = 1L;
 

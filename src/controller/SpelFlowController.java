@@ -10,14 +10,13 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * Created by Wessel on 26-6-2017.
+ * Zorgt ervoor dat de flow binnen het spel verloopt zoals moet.
  */
 
 
 public class SpelFlowController{
    private MolController molController = new MolController();
    private Fiche_Controller ficheController = new Fiche_Controller();
-   private SpelbordController sbController = new SpelbordController();
    private Bordspel_Controller bsController = new Bordspel_Controller();
    private Playboard_Model playboard_model = new Playboard_Model();
 

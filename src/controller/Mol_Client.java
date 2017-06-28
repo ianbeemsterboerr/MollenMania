@@ -8,6 +8,9 @@ import model.Speler_Model;
 import view.InstellingenView;
 import view.Lobby_View;
 
+/**
+ * Bevat alle functies voor het zijn van een client.
+ */
 public class Mol_Client {
 
 	private InstellingenPanelController instellingenPanelController;

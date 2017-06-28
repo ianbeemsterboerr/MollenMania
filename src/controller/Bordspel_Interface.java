@@ -10,16 +10,28 @@ import model.MolModel;
 import model.Playboard_Model;
 import model.Speler_Model;
 
+/**
+ *
+ */
 public interface Bordspel_Interface extends Remote {
-	
-	/*
-	 * General information needed from yomama's object on the server.
+	/**
+	 * Stuurt een notificatie naar alle views waardoor zij updaten.
+	 * @throws RemoteException Wanneer de client niet kan verbinden met de server.
 	 */
-	
 	public void notifyObservers() throws RemoteException;
 
+	/**
+	 * Geeft de maximaal aantal mollen.
+	 * @return int
+	 * @throws RemoteException Wanneer de client niet kan verbinden met de server.
+	 */
 	public int getMaxMollen() throws RemoteException;
 
+	/**
+	 *
+	 * @return
+	 * @throws RemoteException
+	 */
 	public BeurtStatus getBeurtStatus() throws RemoteException;
 
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException;

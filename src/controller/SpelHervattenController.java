@@ -1,14 +1,12 @@
 package controller;
 
-import model.Spel_Model;
 import model.Spelbord_Model;
 import view.HervatGameView;
 
 import java.io.*;
 
 /**
- * Created by Ian on 6/20/2017.
- * @author Ian Beemsterboer
+ *
  * Zorgt dat de view wordt laten zien en er een file gekozen kan worden zodat deze als spel kan worden gelaten.
  */
 public class SpelHervattenController {

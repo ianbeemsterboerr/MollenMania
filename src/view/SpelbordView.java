@@ -72,7 +72,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-
+		
 //		Button next_stage = new Button("Next!");
 //		next_stage.setOnAction(e->{
 //			try {
@@ -87,7 +87,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //				e1.printStackTrace();
 //			}
 //		});
-
 		
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
@@ -398,16 +397,16 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
-		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
-
+//		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+	//	System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
+//
 		//disableProperty(enabled);
 
-		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
-		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+	//	schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
+	//	loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+	//	loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+	//	loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+	//	loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{

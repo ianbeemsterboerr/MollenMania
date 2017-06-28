@@ -495,6 +495,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
+			System.out.println(this.getClass().toString()+": "+speler.getUsername()+" mol disabled "+disableMol);
 			for (MolModel mol: speler.getMol_list()) {
 				for (VeldKnop veldKnop:buttonArray) {
 					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){

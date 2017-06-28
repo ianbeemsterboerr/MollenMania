@@ -45,19 +45,19 @@ public class SpelFlowController{
                     if (molController.aantalMollen(bsInterface) <= bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
                         clearKnoppen();
                         setFicheknoppenAan(bsInterface.playerList().get(bsInterface.beurtIndex()), bsInterface);
-                        System.out.println("naar fiche");
+                        System.out.println(this.getClass().toString()+": "+"naar fiche");
                         }
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
 //                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
-                        System.out.println("Mollen in lijst " +bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
+                        System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
                         nextPlayer(bsInterface);
-                        System.out.println("spelerIndex: " +bsInterface.beurtIndex());
-                        System.out.println("mol geplaatst en next");
+                        System.out.println(this.getClass().toString()+": "+"spelerIndex: " +bsInterface.beurtIndex());
+                        System.out.println(this.getClass().toString()+": "+"mol geplaatst en next");
                         bsInterface.notifyObservers();
                     }
                     else {
-                        System.out.println("Plek bezet of een molshoop");
+                        System.out.println(this.getClass().toString()+": "+"Plek bezet of een molshoop");
                     }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
@@ -69,12 +69,12 @@ public class SpelFlowController{
 
     public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
         bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
-        System.out.println(speler.getUsername() +" Is aan de beurt");
+        System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         for (final Button fiche : DashboardView.fiches) {
             fiche.setOnAction(e -> {
                 try {
                 ficheController.kiesFiche(speler.getFiche_list());
-                System.out.println("FicheNR = "+ speler.getFiche_list().getFicheNR());
+                System.out.println(this.getClass().toString()+": "+"FicheNR = "+ speler.getFiche_list().getFicheNR());
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                 setFicheknoppenUit();
                 selecteerMolKnoppen(speler,bs_interface);
@@ -88,7 +88,7 @@ public class SpelFlowController{
     public void setFicheknoppenUit() {
 
         for (final Button fiche : DashboardView.fiches) {
-            fiche.setOnAction(e -> System.out.println("UIT"));
+            fiche.setOnAction(e -> System.out.println(this.getClass().toString()+": "+"UIT"));
 
         }
     }
@@ -100,10 +100,10 @@ public class SpelFlowController{
                 try {
                   MolModel mol = molController.bepaalOfMolAanwezig(speler, buttonBox);
                   if (mol == null){
-                      System.out.println("Geen mol aanwezig");
+                      System.out.println(this.getClass().toString()+": "+"Geen mol aanwezig");
                   }
                   else {
-                      System.out.println("Mol gevonden");
+                      System.out.println(this.getClass().toString()+": "+"Mol gevonden");
                     setEindpuntKnoppen(speler,bs_interface,mol);
                   }
                 } catch (RemoteException e1) {

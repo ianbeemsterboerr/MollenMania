@@ -1,6 +1,10 @@
 #nivel1 {
     -fx-background-image: url("../img/SpelbordView1MEGA.png");
+<<<<<<< HEAD
     -fx-background-size:960 540;
+=======
+    -fx-background-size:1440 810;
+>>>>>>> master
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }

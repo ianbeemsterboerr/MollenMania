@@ -183,12 +183,20 @@ public class Spelbord_Model implements Bordspel_Interface{
 		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
 	}
 
+    @Override
 	public void addMolltoList(int[] coordinaten)throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);
 		this.players.get(beurtIndex).getMol_list().add(new MolModel(coordinaten, players.get(beurtIndex).getKleur()));
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
-	
+
+	@Override
+	public void deleteMollfromList(int molIndex, int playerIndex)throws RemoteException{
+        System.out.println("Mol verwijdert");
+        this.players.get(playerIndex).getMol_list().remove(molIndex);
+    }
+
+
 	@Override
 	public void notifyObservers() throws RemoteException {
 		System.out.println(this.getClass().toString()+": notifyObservers beurtIndex "+beurtIndex);

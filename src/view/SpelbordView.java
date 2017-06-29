@@ -90,7 +90,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		//spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("nivel1");
 		
-		Scene bord = new Scene(spelbord_pane, 1440,900);
+		Scene bord = new Scene(spelbord_pane, 1440,810);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();

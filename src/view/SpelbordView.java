@@ -102,7 +102,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 
-		//
+
 		//bordStage.setX(bounds.getMinX());
 		//bordStage.setY(bounds.getMinY());
 		//bordStage.setWidth(bounds.getWidth());

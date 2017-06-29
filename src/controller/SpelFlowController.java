@@ -104,14 +104,14 @@ public class SpelFlowController{
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
                 try {
-                  MolModel mol = molController.bepaalOfMolAanwezig(speler, buttonBox);
-                  if (mol == null){
+                 int molIndex = molController.bepaalOfMolAanwezig(speler, buttonBox);
+                  if (molIndex == 42){
                       System.out.println(this.getClass().toString()+": Geen mol aanwezig");
                   }
                   else {
                       System.out.println(this.getClass().toString()+": Mol gevonden "+BeurtStatus.SELECTEREN);
                       bs_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
-                    setEindpuntKnoppen(speler,bs_interface,mol);
+                    setEindpuntKnoppen(speler,bs_interface,molIndex);
                     bs_interface.notifyObservers(); //vervangen door notifySelf()?
                   }
                 } catch (RemoteException e1) {
@@ -121,16 +121,15 @@ public class SpelFlowController{
         }
     }
 
-    public void setEindpuntKnoppen (Speler_Model speler, Bordspel_Interface bs_interface,MolModel mol) throws RemoteException {
+    public void setEindpuntKnoppen (Speler_Model speler, Bordspel_Interface bs_interface,int molIndex) throws RemoteException {
         System.out.println(this.getClass().toString()+": setEindpuntKnoppen");
         System.out.println(this.getClass().toString()+": Selecteer eindpunt");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
-                        bs_interface.setMolCoord(mol,buttonBox.getCoordinaten());
-                        // moet hier geen nextPlayer() ?
+                        bs_interface.setMolCoord(speler,buttonBox.getCoordinaten(),molIndex);
                         bs_interface.notifyObservers();
-                        System.out.println(this.getClass().toString()+": pion geplaatst op: " +mol.getCoord());
+                        System.out.println(this.getClass().toString()+": pion geplaatst op: " +speler.getMol_list().get(molIndex).printCoord());
                         rondeOpruim(speler,bs_interface);
 
                 } catch (RemoteException e1) {
@@ -160,7 +159,6 @@ public class SpelFlowController{
         buttonBox.setOnAction(e -> System.out.println("Disabled"));
         this.bordspel_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
         this.bordspel_interface.notifyObservers();
-        // moet hier geen nextPlayer() ?
     }
 
     public void nextPlayer(Bordspel_Interface bs_interface) throws RemoteException{

@@ -119,13 +119,16 @@ public class MolController {
      * @return Het MolModel, als deze aanwezig is.
      * @throws RemoteException Wanneer de connectie tussen de client en de server is verbroken.
      */
-    public MolModel bepaalOfMolAanwezig(Speler_Model speler, VeldKnop veldKnop) throws RemoteException {
+    public int bepaalOfMolAanwezig(Speler_Model speler, VeldKnop veldKnop) throws RemoteException {
         for (MolModel mol : speler.getMol_list()) {
+            System.out.println("Mol coords: " +mol.printCoord() + " Veld coords " +veldKnop.getX() +" " + veldKnop.getY() +" " +veldKnop.getZ());
             if (Arrays.equals(mol.getCoord(), veldKnop.getCoordinaten())) {
-                return mol;
+                int molIndex = speler.getMol_list().indexOf(mol);
+                System.out.println("de index van de mol is: " +molIndex );
+                return molIndex;
             }
         }
-        return null;
+        return 42;
     }
 
     /**

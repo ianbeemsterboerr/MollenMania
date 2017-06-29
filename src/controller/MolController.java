@@ -43,14 +43,7 @@ public class MolController {
         return true;
     }
 
-//    public MolModel selecteerMol(MolKnop molKnop, Speler_Model speler) {
-//        for (MolModel mol : speler.getMol_list()) {
-//            if (mol == molKnop.getMolModel()) {
-//                return mol;
-//            }
-//        }
-//        return null;
-//    }
+
 
     /**
      * Controleert of een zet geldig is.
@@ -135,6 +128,47 @@ public class MolController {
         }
         return 42;
     }
+
+
+    public boolean molshopenBezetCheck(Bordspel_Interface bs_interface)throws RemoteException {
+        Playboard_Model playboardModel = new Playboard_Model();
+        int huidigNiveau = bs_interface.getHuidigeNiveauIndex();
+        Niveau_Model niveauModel = null;
+        int molshoopCounter = 0;
+
+        switch (huidigNiveau) {
+            case 1:
+                niveauModel = playboardModel.getNiveau1();
+                break;
+            case 2:
+                niveauModel = playboardModel.getNiveau2();
+                break;
+            case 3:
+                niveauModel = playboardModel.getNiveau3();
+                break;
+            case 4:
+                niveauModel = playboardModel.getNiveau4();
+                break;
+        }
+
+        for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
+            for (Speler_Model speler : bs_interface.playerList()) {
+                for (MolModel molModel : speler.getMol_list()) {
+                    if (Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
+                        molshoopCounter++;
+                        System.out.println("aantal molshopen bezet: " +molshoopCounter +"/" +niveauModel);
+                    }
+                }
+            }
+            System.out.println("aantal molshopen bezet: " +molshoopCounter +"/" +niveauModel.getMolshoop().size());
+            if (niveauModel.getMolshoop().size() == molshoopCounter) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     /**
      * Laad alle Molshopen op het spelbord.

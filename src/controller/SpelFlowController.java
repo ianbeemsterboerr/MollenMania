@@ -144,10 +144,11 @@ public class SpelFlowController{
    public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
-//            if (sbController.checkMolshopenBezet(bs_interface)) {
+            if (molController.molshopenBezetCheck(bs_interface)) {
 //                //Clearmollen
-//                //switchNiveau
-//            }
+                System.out.println("Verander niveau");
+                bs_interface.changeNiveauInt();
+            }
             clearKnoppen();
             bs_interface.veranderBeurt();
             bs_interface.notifyObservers();

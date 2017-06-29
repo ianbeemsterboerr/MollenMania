@@ -20,7 +20,7 @@ public class Mol_Server extends UnicastRemoteObject{
 			//object to work in
 			Spelbord_Model bordmodel = new Spelbord_Model(max);
 			// cast to remote object
-			Bordspel_Interface userSkeleton = (Bordspel_Interface) UnicastRemoteObject.exportObject(bordmodel, 0);
+			Bordspel_Interface userSkeleton = (Bordspel_Interface) UnicastRemoteObject.exportObject(bordmodel, 1099);
 
 			// default port 1099 // run RMI registry on local host
 			Registry registry = LocateRegistry.createRegistry(1099);

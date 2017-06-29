@@ -230,6 +230,11 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 //		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
-	
-	
+
+	@Override
+	public Spelbord_Model getSpelbordModel() {
+		return this;
+	}
+
+
 }

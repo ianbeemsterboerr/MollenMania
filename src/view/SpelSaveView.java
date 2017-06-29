@@ -18,12 +18,6 @@ public class SpelSaveView {
    
     public SpelSaveView(SpelSaveController ctrl){
         this.ctrl = ctrl;
-    }
-    
-    /**
-     * Deze methode is gebruikt om de stage van het saven de laden.
-     */
-    public void show() {
         Stage stage = new Stage();
         FlowPane fp = new FlowPane();
         Button btn = new Button("Opslaan");
@@ -43,5 +37,4 @@ public class SpelSaveView {
         stage.setTitle("Spel saven");
         stage.show();
     }
-
 }

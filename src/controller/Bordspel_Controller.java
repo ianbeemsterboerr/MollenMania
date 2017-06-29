@@ -330,6 +330,7 @@ public class Bordspel_Controller {
 
 	public void opslaan(){
 		System.out.println(this.getClass().toString()+": opslaan");
+		new SpelSaveController(bs_interface);
 	}
 
 	public void spelVerlaten(){

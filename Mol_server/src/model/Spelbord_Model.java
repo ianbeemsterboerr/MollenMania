@@ -207,6 +207,11 @@ public class Spelbord_Model implements Bordspel_Interface {
 		System.out.println("na verplaatsen" +this.players.get(aanDeBeurt).getMol_list().get(molIndex).printCoord());
 	}
 
+	@Override
+	public Spelbord_Model getSpelbordModel() {
+		return this;
+	}
+
 	public void addMolltoList(int[] coordinaten) throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);
 		Speler_Model speler_model = this.players.get(aanDeBeurt);

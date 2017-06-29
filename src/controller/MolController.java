@@ -153,7 +153,21 @@ public class MolController {
         return false;
     }
 
+public boolean bepaalOfWinnaar(Bordspel_Interface bs_interface, Speler_Model spelerModel)throws RemoteException {
+        Playboard_Model playboardModel = new Playboard_Model();
 
+        if (bs_interface.getHuidigeNiveauIndex() != 4){
+            return false;
+        }
+        else{
+            for (MolModel molModel : spelerModel.getMol_list()){
+                if(Arrays.equals(molModel.getCoord(),playboardModel.getNiveau4().getGoudenSchep().get(0).getPositie() ));{
+                    return true;
+                }
+            }
+        }
+        return false;
+}
 
     /**
      * Laad alle Molshopen op het spelbord.

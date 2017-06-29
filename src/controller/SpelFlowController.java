@@ -5,8 +5,6 @@ import model.*;
 import model.Velden.VeldKnop;
 import view.DashboardView;
 import view.SpelbordView;
-
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
@@ -144,11 +142,14 @@ public class SpelFlowController{
    public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
-            if (molController.molshopenBezetCheck(bs_interface)) {
+            if (bs_interface.getHuidigeNiveauIndex() != 4 && molController.molshopenBezetCheck(bs_interface)) {
                 System.out.println(" mollen verwijderen die niet op molshoop staan");
                 bs_interface.deleteMollfromList();
                 System.out.println("Verander niveau");
                 bs_interface.changeNiveauInt();
+            }
+            else if (molController.bepaalOfWinnaar(bs_interface,speler)){
+                //einde spel
             }
             clearKnoppen();
             bs_interface.veranderBeurt();
@@ -161,7 +162,6 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": clearKnoppen");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray )
         buttonBox.setOnAction(e -> System.out.println("Disabled"));
-        this.bordspel_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
         this.bordspel_interface.notifyObservers();
     }
 

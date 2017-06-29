@@ -355,7 +355,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * 		1. whose turn is it?
 				 */
 				Speler_Model player_aanDeBeurt = new Speler_Model();
-				//MolModel mol_geselecteerd = new MolModel();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -376,7 +375,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				
 				try {

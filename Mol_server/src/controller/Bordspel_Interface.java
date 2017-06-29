@@ -29,6 +29,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public Spelbord_Model getSpelbordModel() throws RemoteException;
 
+	public void changeNiveauInt() throws RemoteException;
+
 	/*
 	 * ADD THINGS
 	 */

@@ -187,10 +187,9 @@ public class Spelbord_Model implements Bordspel_Interface {
 		return this;
 	}
 
-	public void addMolltoList(int[] coordinaten) throws RemoteException{
+	public void addMolltoList(int[] coordinaten)throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);
-		Speler_Model speler_model = this.players.get(beurtIndex);
-		speler_model.getMol_list().add(new MolModel(coordinaten,speler_model.getKleur()));
+		this.players.get(beurtIndex).getMol_list().add(new MolModel(coordinaten, players.get(beurtIndex).getKleur()));
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
 	}
 

@@ -133,23 +133,8 @@ public class MolController {
     public boolean molshopenBezetCheck(Bordspel_Interface bs_interface)throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         int huidigNiveau = bs_interface.getHuidigeNiveauIndex();
-        Niveau_Model niveauModel = null;
+        Niveau_Model niveauModel = playboardModel.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex());
         int molshoopCounter = 0;
-
-        switch (huidigNiveau) {
-            case 1:
-                niveauModel = playboardModel.getNiveau1();
-                break;
-            case 2:
-                niveauModel = playboardModel.getNiveau2();
-                break;
-            case 3:
-                niveauModel = playboardModel.getNiveau3();
-                break;
-            case 4:
-                niveauModel = playboardModel.getNiveau4();
-                break;
-        }
 
         for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
             for (Speler_Model speler : bs_interface.playerList()) {
@@ -168,7 +153,21 @@ public class MolController {
         return false;
     }
 
+public boolean bepaalOfWinnaar(Bordspel_Interface bs_interface, Speler_Model spelerModel)throws RemoteException {
+        Playboard_Model playboardModel = new Playboard_Model();
 
+        if (bs_interface.getHuidigeNiveauIndex() != 4){
+            return false;
+        }
+        else{
+            for (MolModel molModel : spelerModel.getMol_list()){
+                if(Arrays.equals(molModel.getCoord(),playboardModel.getNiveau4().getGoudenSchep().get(0).getPositie() ));{
+                    return true;
+                }
+            }
+        }
+        return false;
+}
 
     /**
      * Laad alle Molshopen op het spelbord.

@@ -91,15 +91,15 @@ public class Playboard_Model implements Serializable {
     public Niveau_Model getHuidigNiveau(int huidigeNiveau) throws RemoteException {
         switch (huidigeNiveau){
             case 1:
-                return getNiveau1();
+                return this.niveau1;
             case 2:
-                return getNiveau2();
+                return this.niveau2;
             case 3:
-                return getNiveau3();
+                return this.niveau3;
             case 4:
-                return getNiveau1();
+                return this.niveau4;
         }
-        return getNiveau1();
+        return null;
     }
 
 }

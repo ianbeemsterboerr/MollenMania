@@ -2,10 +2,12 @@ package model;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
+import model.Velden.Molshoop_Veld;
 
 public class Spelbord_Model implements Bordspel_Interface {
 
@@ -192,10 +194,23 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 	@Override
-	public void deleteMollfromList(int molIndex, int playerIndex)throws RemoteException{
-		System.out.println("Mol verwijdert");
-		this.players.get(playerIndex).getMol_list().remove(molIndex);
+	public void deleteMollfromList()throws RemoteException {
+		Playboard_Model playboardModel = new Playboard_Model();
+		Niveau_Model niveauModel = playboardModel.getHuidigNiveau(this.getHuidigeNiveauIndex());
+
+		for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
+			for (Speler_Model speler : this.players) {
+				for (MolModel molModel : speler.getMol_list()) {
+					if (!Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
+						int spelerIndex = this.players.indexOf(speler);
+						int molIndex = this.players.get(spelerIndex).getMol_list().indexOf(molModel);
+						this.players.get(spelerIndex).getMol_list().remove(molIndex);
+					}
+				}
+			}
+		}
 	}
+
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
@@ -228,5 +243,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 			e.printStackTrace();
 		}
 	}
+
+
 
 }

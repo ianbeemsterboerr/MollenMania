@@ -28,7 +28,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private Button btn_groen = new Button("Groen");
 	private Button btn_geel = new Button("Geel");
 	private Label meldingen = new Label();
-	private Color geselecteerdeKleur;
+	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
 	Bordspel_Controller bs_controller;
@@ -38,6 +38,12 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 	/**
 	 * Lobby's view, here you set some settings for the upcoming game.
+	 * @param bs_interface
+	 * 			omdat view deel is van de observer lijst wordt een implementatie van interface meegegeven om server side functies te kunnen gebruiken
+	 * @param bs_controller
+	 * 			om controller werk die model data (of niet) nodig heeft.
+	 * @param mol_client
+	 * 			als de lobby gemaakt wordt, begint de verbinding met de server.
 	 */
 
 	public Lobby_View(Bordspel_Interface bs_interface, Bordspel_Controller bs_controller, Mol_Client mol_client) throws RemoteException{
@@ -102,16 +108,16 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
 
 		btn_blauw.setOnAction(e->{
-			geselecteerdeKleur=Color.BLUE;
+			geselecteerdeKleur="red";
 		});
 		btn_geel.setOnAction(e->{
-			geselecteerdeKleur=Color.YELLOW;
+			geselecteerdeKleur="yellow";
 		});
 		btn_groen.setOnAction(e->{
-			geselecteerdeKleur=Color.GREEN;
+			geselecteerdeKleur="green";
 		});
 		btn_rood.setOnAction(e->{
-			geselecteerdeKleur=Color.RED;
+			geselecteerdeKleur="blue";
 		});
 		
 		btn_klaar.setOnAction(e -> {
@@ -122,7 +128,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 						if (speler.getUsername().trim().equals(mol_client.getBijnaam().trim())){
 							speler_model=speler;
 							speler_model.setHandgrootte((int)slider_hand.getValue());
-							speler_model.setKleur(geselecteerdeKleur.toString());
+							speler_model.setKleur(geselecteerdeKleur);
 							
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 							if(this.bs_interface.setSpelerReady(speler_model)){
@@ -163,7 +169,12 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		lobbyStage.setScene(lobby_scene);
 		lobbyStage.show();
 	}
-
+	
+	/**
+	 * Observer methods
+	 * @param playable
+	 * 		zo kan de observer model informatie van de server ophalen
+	 */
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());

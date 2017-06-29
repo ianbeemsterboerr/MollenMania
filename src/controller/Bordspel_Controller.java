@@ -50,16 +50,103 @@ public class Bordspel_Controller {
 		}
 	}
 
+	/**
+	 * @since 0.2
+	 * 
+	 * Disables the current CounterObserver in the ArrayList observers and
+	 * enables the next CounterObserver in the list. This way the turn of one
+	 * CounterObserver ends and the other one starts
+	 * 
+	 * @throws RemoteException
+	 *             RemoteException when the connection between RMI client and
+	 *             server is compromised
+	 * 
+	 */
+	private void nextCounterObserver() throws RemoteException {
+		int beurt_index = bs_interface.beurtIndex();
+		if (bs_interface.observer_list().size() > 0) {
+			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(false);
+			beurt_index++;
+			if (bs_interface.beurtIndex() >= bs_interface.observer_list().size()) {
+				beurt_index = 0;
+			}
+			bs_interface.observer_list().get(bs_interface.beurtIndex()).setEnabled(true);
+		}
+	}
+	
+//	public void spelerReady(ArrayList<Speler_Model> rlist) throws RemoteException{
+//		int players_ready = rlist.size();
+//		int max = this.bs_interface.maxSpelers();
+//
+//		if(players_ready == max){
+//			new SpelbordView(this, bs_interface, this.bijnaam);
+//		} else{
+//			System.out.println(players_ready);
+//			System.out.println("Waiting for players");
+//		}
+//	}
+
 	public String getBijnaam() {
 		return bijnaam;
 	}
 
-
 	/**
+	 * Deze method geeft aan dat er op een veld
+	 * @param position
+	 * @throws RemoteException 
 	 * Handelt een klik op een mol af. kijkt in welke fase het spel is en handelt de klik zodanig af.
 	 *
 	 * @param position De positie van de knop waarop werd geklikt.
 	 */
+	
+	public void changeNiveau(ArrayList<MolModel> player_mols, VeldKnop[] buttonArray, int current_level) throws RemoteException{
+		Playboard_Model pm = new Playboard_Model();
+		
+		ArrayList<Molshoop_Veld> niveau1 = pm.getNiveau1().getMolshoop();
+		ArrayList<Molshoop_Veld> niveau2 = pm.getNiveau2().getMolshoop();
+		ArrayList<Molshoop_Veld> niveau3 = pm.getNiveau3().getMolshoop();
+		
+		switch(current_level){
+		case 1:
+			for(MolModel mollen : player_mols){
+				for(Molshoop_Veld molshopen : niveau1){
+					if(mollen.getCoord() == molshopen.getPositie()){
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
+			}	
+		case 2:
+			for(MolModel mollen : player_mols){
+				for(Molshoop_Veld molshopen : niveau2){
+					if(mollen.getCoord() == molshopen.getPositie()){
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
+			}
+		case 3: 
+			for(MolModel mollen : player_mols){
+				for(Molshoop_Veld molshopen : niveau3){
+					if(mollen.getCoord() != molshopen.getPositie()){
+						player_mols.remove(mollen);
+						System.out.println("Mols on field: " + player_mols.size());
+						this.loadBoard(buttonArray, player_mols, new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+					} else{
+						System.out.println("Mol zit in molshoop");
+					}
+				}
+			}
+		}
+		System.out.println("Mols on field: " + player_mols.size());
+	}
+	
 	public void clickAction(int[] position) throws RemoteException{
 		System.out.println(this.getClass().toString()+": x: "+position[0]+" y:"+position[1]+" z:"+position[2]);
 		if(bs_interface.getBeurtStatus()== BeurtStatus.NEERZETTEN){
@@ -160,7 +247,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau1){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -169,7 +255,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau2){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -178,7 +263,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau3){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -187,7 +271,6 @@ public class Bordspel_Controller {
 			for(Molshoop_Veld m : molshoop_niveau4){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(true);
 						buttonArray[x].setStyle("-fx-background-color: blue;");
 					}
 				}
@@ -217,11 +300,10 @@ public class Bordspel_Controller {
 		if(sm.getMol_list().size() == mol_max){
 			System.out.println("max");
 		} else {
-			//sm.getMol_list().add(new MolModel(buttonBox.getCoordinaten()));
 			mol_placeholder = sm.getMol_list().get(mol_index);
 			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
 
-			System.out.println("Current mol index: " + sm.getMol_list().size());
+			System.out.println("Current mol index: " + mol_index);
 		}
 
 		/*
@@ -231,6 +313,7 @@ public class Bordspel_Controller {
 		try {
 			this.bs_interface.addMolField(mol_placeholder);
 			System.out.println("Mols on field: " + bs_interface.molOnField().size());
+
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -252,7 +335,6 @@ public class Bordspel_Controller {
 	public void spelVerlaten(){
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
-
 
 
 }

@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import controller.Bordspel_Interface;
-import controller.Fiche_Controller;
 import controller.Player_Observer;
 
+/**
+ * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
+ */
 public class Spelbord_Model implements Bordspel_Interface{
-
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
@@ -19,7 +20,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int huidigeNiveau = 1;
 	private int maxMollen;
 	private int beurtIndex;
-
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
@@ -135,17 +135,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public ArrayList<MolModel> molOnField() throws RemoteException {
 		// TODO Auto-generated method stub
+		for(Speler_Model sm : players){
+			if(sm.getMol_list().size() > 0){
+				
+			}		
+		}
 		return this.mol_onbord;
 	}
-
 
 	@Override
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
 	}
-
-
 
 	@Override
 	public int beurtIndex() throws RemoteException {
@@ -211,11 +213,23 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.players.get(aanDeBeurt).getMol_list().add(new MolModel(coordinaten));
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
-	@Override
+	
+@Override	
 	public void notifyObservers() throws RemoteException {
 		// TODO Auto-generated method stub
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
 		}
 	}
+
+	@Override
+	public void changeNiveauInt() throws RemoteException {
+		// TODO Auto-generated method stub
+		for(Speler_Model sm : players){
+			System.out.println(sm.getMol_list().size());
+		}
+//		this.huidigeNiveau = this.huidigeNiveau + 1;
+	}
+	
+	
 }

@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -72,12 +73,28 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 		
+//		Button next_stage = new Button("Next!");
+//		next_stage.setOnAction(e->{
+//			try {
+//				
+//				bs_interface.changeNiveauInt();
+//				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
+////				System.out.println(bs_interface.molOnField().size());
+////				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
+//				
+//			} catch (RemoteException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//		});
+		
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
 
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
+		//spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
 		
 		Scene bord = new Scene(spelbord_pane, 1440,900);
@@ -146,19 +163,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			player_1.getKlaar_btn().setDisable(toggle);
 			player_1.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_2.getIsYou() == true){
+		else if(player_2.getIsYou() == true){
 			player_2.getFiche_btn().setDisable(toggle);
 			player_2.getMol_btn().setDisable(toggle);
 			player_2.getKlaar_btn().setDisable(toggle);
 			player_2.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_3.getIsYou() == true){
+		else if(player_3.getIsYou() == true){
 			player_3.getFiche_btn().setDisable(toggle);
 			player_3.getMol_btn().setDisable(toggle);
 			player_3.getKlaar_btn().setDisable(toggle);
 			player_3.getRefresh_btn().setDisable(toggle);
 		}
-		if(player_4.getIsYou() == true){
+		else if(player_4.getIsYou() == true){
 			player_4.getFiche_btn().setDisable(toggle);
 			player_4.getMol_btn().setDisable(toggle);
 			player_4.getKlaar_btn().setDisable(toggle);
@@ -186,6 +203,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			cc.setPercentWidth(100 / numCols);
 			root.getColumnConstraints().add(cc);
 		}
+		
 		int x = 4;
 		int y = 0;
 		int z = -4;
@@ -360,6 +378,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				int mol_max = 5;
 				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
+				
 				try {
 				    bs_interface.addMolField(mol_geselecteerd);
 					bs_interface.notifyObservers();
@@ -367,10 +386,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
 			});
-		}
-		
+		}		
     	return root;
 	}
 	
@@ -380,8 +397,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
-		System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
+//		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
+	//	System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
+//
 		//disableProperty(enabled);
 
 		//schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
@@ -399,6 +417,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			}
 		}
 	}
+	
 	public void loadGoudenSchep(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws  RemoteException{
 		ArrayList<GoudenSchep_Veld> goudenSchep_veld=pm.getHuidigNiveau(niveau).getGoudenSchep();
 		boolean setDisabled=true;
@@ -416,6 +435,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			}
 		}
 	}
+	
 	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
 		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = pm.getHuidigNiveau(niveau).getSpeciaal();
 		boolean setDisabled=true;
@@ -456,31 +476,32 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
 			boolean disableMol=false;
-			String kleur="rood";
-			switch (speler.getKleur()){
-				case "rood":
-					kleur="red";
-					break;
-				case "groen":
-					kleur="green";
-					break;
-				case "geel":
-					kleur="yellow";
-					break;
-				case "blauw":
-					kleur="blue";
-					break;
-			}
-			System.out.println(this.getClass().toString()+": loadSpelerMold: kleur is "+kleur+" status is"+status.toString());
+			String kleur="red";
+//			switch (speler.getKleur()){
+//				case "RED":
+//					kleur="red";
+//					break;
+//				case "GREEN":
+//					kleur="green";
+//					break;
+//				case "YELLOW":
+//					kleur="yellow";
+//					break;
+//				case "BLUE":
+//					kleur="blue";
+//					break;
+//			}
+			System.out.println(this.getClass().toString()+": loadSpelerMold: kleur is "+speler.getKleur()+" wordt "+kleur+" status is"+status.toString());
 
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
+			System.out.println(this.getClass().toString()+": "+speler.getUsername()+" mol disabled "+disableMol);
 			for (MolModel mol: speler.getMol_list()) {
 				for (VeldKnop veldKnop:buttonArray) {
 					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){
 						veldKnop.setDisable(disableMol);
-						veldKnop.setStyle("-fx-background-color: "+kleur+";");
+						veldKnop.setStyle("-fx-background-color: "+speler.getKleur()+";");
 					}
 				}
 			}

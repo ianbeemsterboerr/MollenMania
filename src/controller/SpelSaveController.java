@@ -45,6 +45,4 @@ public class SpelSaveController {
             System.out.println("Er is een File I/O exception opgetreden");
         }
     }
-
-
 }

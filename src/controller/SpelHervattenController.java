@@ -18,7 +18,6 @@ public class SpelHervattenController {
         view = new HervatGameView(this);
         filePath = view.show();
         spelModel = getModel(filePath);
-        startSpel(spelModel);
     }
 
     /**

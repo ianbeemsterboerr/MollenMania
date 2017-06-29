@@ -11,20 +11,17 @@ import javafx.scene.paint.Color;
 public class MolModel implements Serializable {
     private static final long serialVersionUID = 1L;
     private int pionID;
-    private Color color;
-    private int[] coord;
-
-    public MolModel() {
-
-    }
+    private String kleur;
+    private int [] coord;
 
     /**
      * Maakt een MolModel aan met x, y en z coordinaten.
      *
      * @param coord
      */
-    public MolModel(int[] coord) {
-        this.coord = coord;
+    public MolModel(int[] coord, String kleur){
+        this.kleur=kleur;
+        this.coord=coord;
     }
 
     /**
@@ -50,17 +47,16 @@ public class MolModel implements Serializable {
      *
      * @return kleur van type Color.
      */
-    public Color getColor() {
-        return color;
+    public String getKleur() {
+        return kleur;
     }
 
     /**
      * Geef het MolModel een kleur.
-     *
-     * @param color van type Color.
+     * @param kleur van type String
      */
-    public void setColor(Color color) {
-        this.color = color;
+    public void setKleur(String kleur) {
+        this.kleur = kleur;
     }
 
     /**

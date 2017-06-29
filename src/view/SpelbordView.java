@@ -93,9 +93,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
-		spelbord_pane.setId("moap");
+		spelbord_pane.setId("nivel1");
 		//spelbord_pane.setLeft(next_stage);
-		veld_pane.setId("moap");
+		veld_pane.setId("nivel1");
 		
 		Scene bord = new Scene(spelbord_pane, 1440,900);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
@@ -355,7 +355,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * 		1. whose turn is it?
 				 */
 				Speler_Model player_aanDeBeurt = new Speler_Model();
-				MolModel mol_geselecteerd = new MolModel();
+				//MolModel mol_geselecteerd = new MolModel();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -376,11 +376,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
+				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				
 				try {
-				    bs_interface.addMolField(mol_geselecteerd);
+				    //bs_interface.addMolField(mol_geselecteerd);
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -517,6 +517,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void setEnabled(boolean enabled) throws RemoteException {
 		this.enabled = enabled;
 		
+	}
+	@Override
+	public String getBijnaam() throws  RemoteException{
+		return this.bordspel_controller.getBijnaam();
 	}
 
 }

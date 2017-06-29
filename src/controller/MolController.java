@@ -27,13 +27,15 @@ public class MolController {
     public boolean magMolNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface, Playboard_Model playboard_model) throws RemoteException {
 
         for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
-            if (veldKnop.getCoordinaten() == playboard_model.getNiveau1().getMolshoop().get(i).getPositie()) {
+            if (Arrays.equals(veldKnop.getCoordinaten(),playboard_model.getNiveau1().getMolshoop().get(i).getPositie())) {
+                System.out.println("een mol mag niet op een molshoop worden geplaatst");
                     return false;
                 }
 
         for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
-                if (mollen.getCoord() == veldKnop.getCoordinaten()) {
+                if (Arrays.equals(mollen.getCoord(), veldKnop.getCoordinaten())) {
+                    System.out.println("Al een mol aanwezig");
                     return false;
                 }
             }
@@ -76,7 +78,8 @@ public class MolController {
             beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
             for (Speler_Model speler : bs_interface.playerList())
                 for (MolModel mol : speler.getMol_list()) {
-                    if (beginpunt == mol.getCoord()) {
+                    if (Arrays.equals(beginpunt,mol.getCoord())) {
+                        System.out.println("je mag niet over een andere mol heen!");
                         return false;
                     }
                 }
@@ -85,10 +88,12 @@ public class MolController {
         if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
             if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
                 if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * -ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
+                    System.out.println("Zet geldig");
                     return true;
                 }
             }
         }
+        System.out.println("geen rechte lijn");
         return false;
     }
 

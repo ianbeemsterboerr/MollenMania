@@ -20,14 +20,14 @@ public class InstellingenModel {
     private Clip clip;
     //String musicFile = "src/view/sound/TestSound.mp3";
     //Media sound = new Media(new File(musicFile).toURI().toString());
-    //MediaPlayer mp = new MediaPlayer(sound);
+   // MediaPlayer mp = new MediaPlayer(sound);
 
     /**
      * Zorgt dat het instellingenmodel leeft, en de muziek start met spelen.
      */
     public InstellingenModel(){
         playMusic();
-        //mp.setMute(true); //COMMENT DEZE UIT VOOR DE RELEASE!!
+      //  mp.setMute(true); //COMMENT DEZE UIT VOOR DE RELEASE!!
     }
 
     /**
@@ -66,7 +66,7 @@ public class InstellingenModel {
      * Zet het geluid aan.
      */
     public void unmuteSound(){
-        //mp.setMute(false);
+       // mp.setMute(false);
         soundState = true;
     }
 

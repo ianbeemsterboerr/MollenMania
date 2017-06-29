@@ -176,10 +176,10 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 	@Override
-	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
-		System.out.println("test" +mol.getCoord());
-		mol.setCoord(coord);
-		System.out.println("test" +mol.getCoord());
+	public void setMolCoord(Speler_Model speler, int[] coord, int molIndex) throws RemoteException {
+		System.out.println("voor verplaatsen" +this.players.get(beurtIndex).getMol_list().get(molIndex).printCoord());
+		this.players.get(beurtIndex).getMol_list().get(molIndex).setCoord(coord);
+		System.out.println("na verplaatsen" +this.players.get(beurtIndex).getMol_list().get(molIndex).printCoord());
 	}
 
 	public void addMolltoList(int[] coordinaten) throws RemoteException{

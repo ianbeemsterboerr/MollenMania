@@ -102,7 +102,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 
-		//
+
 		//bordStage.setX(bounds.getMinX());
 		//bordStage.setY(bounds.getMinY());
 		//bordStage.setWidth(bounds.getWidth());
@@ -355,7 +355,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * 		1. whose turn is it?
 				 */
 				Speler_Model player_aanDeBeurt = new Speler_Model();
-				MolModel mol_geselecteerd = new MolModel();
+				//MolModel mol_geselecteerd = new MolModel();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -376,11 +376,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
+				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				
 				try {
-				    bs_interface.addMolField(mol_geselecteerd);
+				    //bs_interface.addMolField(mol_geselecteerd);
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -402,11 +402,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //
 		//disableProperty(enabled);
 
-	//	schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
-	//	loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-	//	loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-	//	loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-	//	loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+		//schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
+		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		//loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{

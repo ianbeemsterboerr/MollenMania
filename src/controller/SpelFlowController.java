@@ -129,7 +129,7 @@ public class SpelFlowController{
                 try {
                         bs_interface.setMolCoord(speler,buttonBox.getCoordinaten(),molIndex);
                         bs_interface.notifyObservers();
-                        System.out.println(this.getClass().toString()+": pion geplaatst op: " +speler.getMol_list().get(molIndex).printCoord());
+                        System.out.println(this.getClass().toString()+": pion geplaatst op: " +bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
                         rondeOpruim(speler,bs_interface);
 
                 } catch (RemoteException e1) {

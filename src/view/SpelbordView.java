@@ -490,7 +490,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //				case "RED":1
 //					kleur="red";
 //					break;
-//				case "GREEN":	
+//				case "GREEN":
 //					kleur="green";
 //					break;
 //				case "YELLOW":

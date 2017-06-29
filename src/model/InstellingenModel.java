@@ -7,8 +7,9 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+
+import static java.lang.System.in;
 
 /**
  * Bevat alle data voor de globale instellingen van de applicatie.
@@ -17,16 +18,16 @@ import java.io.FileNotFoundException;
 public class InstellingenModel {
     private boolean kleurenBlindModus=false;
     private boolean soundState;
-    private Clip clip;
-    //String musicFile = "src/view/sound/TestSound.mp3";
-    //Media sound = new Media(new File(musicFile).toURI().toString());
-   // MediaPlayer mp = new MediaPlayer(sound);
 
     /**
      * Zorgt dat het instellingenmodel leeft, en de muziek start met spelen.
      */
     public InstellingenModel(){
-        playMusic();
+        //String musicFile = "src/view/sound/TestSound.mp3";
+        //InputStream stream = ClassLoader().getResourceAsStream("src/view/sound/TestSound.mp3");
+        //Media sound = new Media(new File(musicFile).toURI().toString());
+        //MediaPlayer mp = new MediaPlayer(sound);
+        //playMusic();
       //  mp.setMute(true); //COMMENT DEZE UIT VOOR DE RELEASE!!
     }
 

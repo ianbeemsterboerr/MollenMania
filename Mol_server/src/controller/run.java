@@ -40,9 +40,9 @@ public class run extends Application{
 
 		
 		TextField host_name = new TextField();
-		host_name.setText("127.0.0.1");
-		Button btn_host = new Button("HOST");
-		Button btn_back = new Button("BACK");
+		host_name.setText("");
+		Button btn_host = new Button("Host");
+		Button btn_back = new Button("Terug");
 		Button btn_spelHervatten = new Button("Hervat");
 
 		btn_host.setMaxWidth(button_width);

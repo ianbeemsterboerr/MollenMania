@@ -5,8 +5,6 @@ import model.*;
 import model.Velden.VeldKnop;
 import view.DashboardView;
 import view.SpelbordView;
-
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
@@ -35,14 +33,13 @@ public class SpelFlowController{
 
         //Mollen worden neergezet
         setKnoppenNeerzetten(bs);
-
-
-        }
+    }
 
     public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
         System.out.println(this.getClass().toString()+": setKnoppenNeerzetten");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
+                System.out.println(this.getClass().toString()+": ACTION: NEERZETTEN");
                 try {
                     if (molController.aantalMollen(bsInterface) <= bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
                         clearKnoppen();
@@ -67,8 +64,7 @@ public class SpelFlowController{
                     e1.printStackTrace();
                 }
             });
-    }
-
+        }
     }
 
     public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
@@ -77,6 +73,7 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         for (final Button fiche : DashboardView.fiches) {
             fiche.setOnAction(e -> {
+                System.out.println(this.getClass().toString()+": ACTION: FICHE DRAAIEN");
                 try {
                 ficheController.kiesFiche(speler.getFiche_list());
                 System.out.println(this.getClass().toString()+": "+"FicheNR = "+ speler.getFiche_list().getFicheNR());
@@ -103,6 +100,7 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": selecteerMolKnoppen");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray){
             buttonBox.setOnAction(e -> {
+                System.out.println(this.getClass().toString()+": ACTION: MOL SELECTEREN");
                 try {
                  int molIndex = molController.bepaalOfMolAanwezig(speler, buttonBox);
                   if (molIndex == 42){
@@ -126,6 +124,7 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": Selecteer eindpunt");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
+                System.out.println(this.getClass().toString()+": ACTION: VERZETTEN (eindpunt kiezen)");
                 try {
                     if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
@@ -144,10 +143,14 @@ public class SpelFlowController{
    public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
-            if (molController.molshopenBezetCheck(bs_interface)) {
-//                //Clearmollen
+            if (bs_interface.getHuidigeNiveauIndex() != 4 && molController.molshopenBezetCheck(bs_interface)) {
+                System.out.println(" mollen verwijderen die niet op molshoop staan");
+                bs_interface.deleteMollfromList();
                 System.out.println("Verander niveau");
                 bs_interface.changeNiveauInt();
+            }
+            else if (molController.bepaalOfWinnaar(bs_interface,speler)){
+                //einde spel
             }
             clearKnoppen();
             bs_interface.veranderBeurt();
@@ -160,7 +163,6 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": clearKnoppen");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray )
         buttonBox.setOnAction(e -> System.out.println("Disabled"));
-        this.bordspel_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
         this.bordspel_interface.notifyObservers();
     }
 

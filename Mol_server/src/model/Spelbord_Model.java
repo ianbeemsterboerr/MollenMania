@@ -191,6 +191,12 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 	@Override
+	public void deleteMollfromList(int molIndex, int playerIndex)throws RemoteException{
+		System.out.println("Mol verwijdert");
+		this.players.get(playerIndex).getMol_list().remove(molIndex);
+	}
+
+	@Override
 	public void veranderBeurt() throws RemoteException {
 		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
 		beurtIndex++;

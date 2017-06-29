@@ -61,6 +61,7 @@ public class run extends Application{
 		btn_host.setOnAction(e -> { 
 			try{
 				System.setProperty("java.rmi.server.hostname",host_name.getText());
+				System.out.println(this.getClass().toString()+": hostname: "+host_name.getText());
 				new Mol_Server(cb_aantal_spelers.getSelectionModel().getSelectedItem());
 			}catch(Exception b){
 				b.printStackTrace();

@@ -487,10 +487,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		for (Speler_Model speler:spelers) {
 			boolean disableMol=false;
 //			switch (speler.getKleur()){
-//				case "RED":
+//				case "RED":1
 //					kleur="red";
 //					break;
-//				case "GREEN":
+//				case "GREEN":	
 //					kleur="green";
 //					break;
 //				case "YELLOW":

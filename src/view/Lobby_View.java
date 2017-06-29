@@ -35,6 +35,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	Bordspel_Interface bs_interface;
 	ObservableList<Speler_Model> data;
 	TableView<Speler_Model> game_table;
+	private String bijnaam;
 
 	/**
 	 * Lobby's view, here you set some settings for the upcoming game.
@@ -50,6 +51,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		//Add this view to observer list
 		this.bs_interface = bs_interface;
 		this.mol_client=mol_client;
+		this.bijnaam=mol_client.getBijnaam();
 		try {
 			bs_interface.addObserver(this);
 		}catch(Exception e){
@@ -194,6 +196,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	@Override
 	public void setEnabled(boolean enabled) throws RemoteException {
 		// TODO Auto-generated method stub
-
+	}
+	@Override
+	public String getBijnaam() throws  RemoteException{
+		return this.bijnaam;
 	}
 }

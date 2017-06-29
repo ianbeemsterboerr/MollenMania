@@ -34,4 +34,12 @@ public interface Player_Observer extends Remote {
 	 */
 	public void setEnabled(boolean enabled) throws RemoteException;
 
+	/**Geeft aan bijw elke speler hij hoort.
+	 *
+	 * @return String bijnaam
+	 * auteur: Robert den Blaauwen
+	 * Versie: 29-6-2017
+	 */
+	public String getBijnaam() throws  RemoteException;
+
 }

@@ -518,5 +518,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		this.enabled = enabled;
 		
 	}
+	@Override
+	public String getBijnaam() throws  RemoteException{
+		return this.bordspel_controller.getBijnaam();
+	}
 
 }

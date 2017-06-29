@@ -191,8 +191,9 @@ public class Spelbord_Model implements Bordspel_Interface{
 	
 	@Override
 	public void notifyObservers() throws RemoteException {
-		// TODO Auto-generated method stub
+		System.out.println(this.getClass().toString()+": notifyObservers beurtIndex "+beurtIndex);
 		for (Player_Observer co : bord_observers) {
+			System.out.println(this.getClass().toString()+": notifyObservers "+co.getBijnaam());
 			co.modelChanged(this);
 		}
 	}

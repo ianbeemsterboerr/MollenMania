@@ -63,13 +63,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Stage bordStage = new Stage();
 		instInGameView.registerStage(bordStage);
 		
-		try {
-			bs_interface.addObserver(this, bordspel_controller.getBijnaam());
-			System.out.println(bs_interface.observer_list().size());
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
 		
@@ -102,6 +95,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 
+		//Registreer de view op de server
+		try {
+			bs_interface.addObserver(this, bordspel_controller.getBijnaam());
+			System.out.println(bs_interface.observer_list().size());
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
 		//bordStage.setX(bounds.getMinX());
 		//bordStage.setY(bounds.getMinY());
@@ -111,6 +111,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
 		bordStage.show();
+
         new SpelFlowController().SpelStart(bs_interface);
 	}
 
@@ -395,11 +396,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
 
-		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
-		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+		schoonmakenBord(buttonArray,playable.getBeurtStatus());
+		loadGoudenSchep(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadSpecial(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadMolsHoop(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
+		loadSpelerMols(buttonArray,playable.playerList(), playable.getBeurtStatus());
 		enableOrDisable(jijAanDeBeurt);
 	}
 
@@ -409,10 +410,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			canNotClick=false;
 		}
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
-			for (VeldKnop veldKnop: buttonArray) {
-				veldKnop.setStyle("-fx-background-color: white");
-				veldKnop.setDisable(canNotClick);
+			try {
+				for (VeldKnop veldKnop: buttonArray) {
+					veldKnop.setStyle("-fx-background-color: white");
+					veldKnop.setDisable(canNotClick);
+				}
+			}catch (NullPointerException e){
+				System.out.println(this.getClass().toString()+": "+e);
 			}
+
 		}
 	}
 	

@@ -35,7 +35,7 @@ public interface Bordspel_Interface extends Remote {
 	 * ADD THINGS
 	 */
 
-	public void addObserver(Player_Observer po) throws RemoteException;
+	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException;
 
 	public void addSpeler(Speler_Model sm) throws RemoteException;
 

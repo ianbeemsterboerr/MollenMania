@@ -86,18 +86,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public void addObserver(Player_Observer po) throws RemoteException {
-		// TODO Auto-generated method stub
-		bord_observers.add(po);
-		try {
-			notifyObservers();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bord_observers;
@@ -214,11 +202,33 @@ public class Spelbord_Model implements Bordspel_Interface{
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
 	
-@Override	
+	@Override
 	public void notifyObservers() throws RemoteException {
 		// TODO Auto-generated method stub
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
+		}
+	}
+
+	@Override
+	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
+		// TODO Auto-generated method stub
+		boolean exists=false;
+		for (Player_Observer observer: bord_observers){
+			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
+				int i = bord_observers.lastIndexOf(observer);
+				bord_observers.set(i,po);
+				exists=true;
+			}
+		}
+		if(!exists){
+			bord_observers.add(po);
+		}
+		try {
+			notifyObservers();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

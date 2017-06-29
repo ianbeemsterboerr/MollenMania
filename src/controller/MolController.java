@@ -59,35 +59,37 @@ public class MolController {
     public boolean zetGeldig(Bordspel_Interface bs_interface, Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
-        int deltaCoord[] = new int[3];
-        int ficheNR = spelerModel.getFiche_list().getFicheNR();
-        int beginpunt[] = molGeselecteerd.getCoord();
-        for (int i = 0; i < eindPunt.length; i++) {
-            deltaCoord[i] = eindPunt[i] - beginpunt[i];
-        }
 
-        //Hierin wordt bepaalt of de mol over een andere mol heen wordt gezet.
-        for (int j = 0; j < beginpunt.length; j++) {
-            beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
-            for (Speler_Model speler : bs_interface.playerList())
-                for (MolModel mol : speler.getMol_list()) {
-                    if (Arrays.equals(beginpunt,mol.getCoord())) {
-                        System.out.println("je mag niet over een andere mol heen!");
-                        return false;
-                    }
-                }
-        }
-        //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
-        if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
-            if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
-                if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * -ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
-                    System.out.println("Zet geldig");
-                    return true;
-                }
-            }
-        }
-        System.out.println("geen rechte lijn");
-        return false;
+        return true;
+//        int deltaCoord[] = new int[3];
+//        int ficheNR = spelerModel.getFiche_list().getFicheNR();
+//        int beginpunt[] = molGeselecteerd.getCoord();
+//        for (int i = 0; i < eindPunt.length; i++) {
+//            deltaCoord[i] = eindPunt[i] - beginpunt[i];
+//        }
+//
+//        //Hierin wordt bepaalt of de mol over een andere mol heen wordt gezet.
+////        for (int j = 0; j < beginpunt.length; j++) {
+////            beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
+////            for (Speler_Model speler : bs_interface.playerList())
+////                for (MolModel mol : speler.getMol_list()) {
+////                    if (Arrays.equals(beginpunt,mol.getCoord())) {
+////                        System.out.println("je mag niet over een andere mol heen!");
+////                        return false;
+////                    }
+////                }
+////        }
+//        //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
+//        if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
+//            if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
+//                if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * -ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
+//                    System.out.println("Zet geldig");
+//                    return true;
+//                }
+//            }
+//        }
+//        System.out.println("geen rechte lijn");
+//        return false;
     }
 
     /**

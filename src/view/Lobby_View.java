@@ -53,7 +53,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		this.mol_client=mol_client;
 		this.bijnaam=mol_client.getBijnaam();
 		try {
-			bs_interface.addObserver(this);
+			bs_interface.addObserver(this,this.bijnaam);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

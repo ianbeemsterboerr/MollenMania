@@ -64,7 +64,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		instInGameView.registerStage(bordStage);
 		
 		try {
-			bs_interface.addObserver(this);
+			bs_interface.addObserver(this, bordspel_controller.getBijnaam());
 			System.out.println(bs_interface.observer_list().size());
 		}catch(Exception e){
 			e.printStackTrace();
@@ -354,7 +354,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * to be done:
 				 * 		1. whose turn is it?
 				 */
-				Speler_Model player_aanDeBeurt = new Speler_Model();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -365,7 +364,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
 					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
-					player_aanDeBeurt = players.get(bs_interface.beurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -395,38 +393,40 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-//		this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(), new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
-	//	System.out.println(this.getClass().toString()+": beurt: "+bs_interface.beurtIndex());
-//
-		//disableProperty(enabled);
+		boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
 
-		//schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
+		schoonmakenBord(this.buttonArray,playable.getBeurtStatus());
 		loadGoudenSchep(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadSpecial(buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadMolsHoop(this.buttonArray,new Playboard_Model(),bs_interface.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		//loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+		loadSpelerMols(this.buttonArray,playable.playerList(), playable.getBeurtStatus());
+		enableOrDisable(jijAanDeBeurt);
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{
-		if(status==BeurtStatus.FICHEDRAAIEN){
+		boolean canNotClick = true;
+		if(status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
+			canNotClick=false;
+		}
+		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
 			for (VeldKnop veldKnop: buttonArray) {
 				veldKnop.setStyle("-fx-background-color: white");
-				veldKnop.setDisable(true);
+				veldKnop.setDisable(canNotClick);
 			}
 		}
 	}
 	
 	public void loadGoudenSchep(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws  RemoteException{
 		ArrayList<GoudenSchep_Veld> goudenSchep_veld=pm.getHuidigNiveau(niveau).getGoudenSchep();
-		boolean setDisabled=true;
+		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
-			setDisabled=false;
+			canNotClick=false;
 		}
-		if(goudenSchep_veld.size()!=0||status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
+		if(goudenSchep_veld.size()!=0&&(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN)){
 			for(GoudenSchep_Veld gouden : goudenSchep_veld){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(gouden.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: darkgoldenrod;");
 					}
 				}
@@ -436,15 +436,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	
 	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
 		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = pm.getHuidigNiveau(niveau).getSpeciaal();
-		boolean setDisabled=true;
+		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
-			setDisabled=false;
+			canNotClick=false;
 		}
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
 			for(SpeciaalVeld_Veld speciaal : speciaalVeld_velds){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(speciaal.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: darkcyan;");
 					}
 				}
@@ -454,15 +454,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
 		ArrayList<Molshoop_Veld> molshoop_niveau = pm.getHuidigNiveau(niveau).getMolshoop();
-		boolean setDisabled=true;
+		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
-			setDisabled=false;
+			canNotClick=false;
 		}
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
 			for(Molshoop_Veld m : molshoop_niveau){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(setDisabled);
+						buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: saddlebrown;");
 					}
 				}
@@ -504,6 +504,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				}
 			}
 		}
+	}
+
+	public void enableOrDisable(boolean jijAanDeBeurt){
+		if(!jijAanDeBeurt){
+			for (VeldKnop veldKnop: buttonArray) {
+				veldKnop.setDisable(true);
+			}
+		}
+
 	}
 
 	@Override

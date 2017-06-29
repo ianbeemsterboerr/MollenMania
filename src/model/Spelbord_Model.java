@@ -95,17 +95,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return this.players;
 	}
 
-	@Override
-	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
-		if(aanDeBeurt<(bordMax-1)){
-			aanDeBeurt++;
-		} else{
-			aanDeBeurt=0;
-		}
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
-	}
-
 	public void setBordMax(int m){
 		this.bordMax = m;
 	}
@@ -185,15 +174,13 @@ public class Spelbord_Model implements Bordspel_Interface{
 	}
 
 	@Override
-	public void nextObserver() throws RemoteException {
-		if (bord_observers.size() > 0) {
-			bord_observers.get(beurtIndex).setEnabled(false);
-			beurtIndex++;
-			if (beurtIndex >= bord_observers.size()) {
-				beurtIndex = 0;
-			}
-			bord_observers.get(beurtIndex).setEnabled(true);
+	public void veranderBeurt() throws RemoteException {
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+		beurtIndex++;
+		if (beurtIndex >= bord_observers.size()) {
+			beurtIndex = 0;
 		}
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
 	}
 
 	public void addMolltoList(int[] coordinaten)throws RemoteException{

@@ -193,27 +193,14 @@ public class Spelbord_Model implements Bordspel_Interface {
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
 	}
 
-
-	public void nextObserver() throws RemoteException{
-		if (bord_observers.size() > 0) {
-			bord_observers.get(beurtIndex).setEnabled(false);
-			beurtIndex++;
-			if (beurtIndex >= bord_observers.size()) {
-				beurtIndex = 0;
-			}
-			bord_observers.get(beurtIndex).setEnabled(true);
-		}
-	}
-
 	@Override
 	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
-		if(beurtIndex <(bordMax-1)){
-			beurtIndex++;
-		} else{
-			beurtIndex =0;
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+		beurtIndex++;
+		if (beurtIndex >= bord_observers.size()) {
+			beurtIndex = 0;
 		}
-		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
 	}
 
 	@Override

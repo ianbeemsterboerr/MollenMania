@@ -43,8 +43,6 @@ public interface Bordspel_Interface extends Remote {
 
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException;
 
-	public void nextObserver()throws RemoteException;
-
 	public void addMolltoList(int[] coordinaten)throws RemoteException;
 
 	/*

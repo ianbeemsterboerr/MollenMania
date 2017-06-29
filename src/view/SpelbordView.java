@@ -64,7 +64,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		instInGameView.registerStage(bordStage);
 		
 		try {
-			bs_interface.addObserver(this);
+			bs_interface.addObserver(this, bordspel_controller.getBijnaam());
 			System.out.println(bs_interface.observer_list().size());
 		}catch(Exception e){
 			e.printStackTrace();

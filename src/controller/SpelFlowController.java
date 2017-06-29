@@ -127,10 +127,12 @@ public class SpelFlowController{
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
                 try {
-                        bs_interface.setMolCoord(speler,buttonBox.getCoordinaten(),molIndex);
+                    if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {
+                        bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
                         bs_interface.notifyObservers();
-                        System.out.println(this.getClass().toString()+": pion geplaatst op: " +bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
-                        rondeOpruim(speler,bs_interface);
+                        System.out.println(this.getClass().toString() + ": pion geplaatst op: " + bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
+                        rondeOpruim(speler, bs_interface);
+                    }
 
                 } catch (RemoteException e1) {
                     e1.printStackTrace();

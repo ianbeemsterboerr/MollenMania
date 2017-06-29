@@ -11,7 +11,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.Spelbord_Model;
+import view.HervatGameView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.InetAddress;
 
 /**
@@ -37,10 +43,13 @@ public class run extends Application{
 		host_name.setText("127.0.0.1");
 		Button btn_host = new Button("HOST");
 		Button btn_back = new Button("BACK");
+		Button btn_spelHervatten = new Button("Hervat");
+
 		btn_host.setMaxWidth(button_width);
 		btn_back.setMaxWidth(button_width);
+		btn_spelHervatten.setMaxWidth(button_width);
 		
-		hbox_connect.getChildren().addAll(btn_host, btn_back);
+		hbox_connect.getChildren().addAll(btn_host, btn_back,btn_spelHervatten);
 		hbox_connect.setAlignment(Pos.CENTER);
 		hbox_connect.setSpacing(10.0);
 		
@@ -64,6 +73,26 @@ public class run extends Application{
 			}catch(Exception b){
 				b.printStackTrace();
 		}});
+
+		btn_spelHervatten.setOnAction(a->{
+			System.setProperty("java.rmi.server.hostname",host_name.getText());
+			File saveFile  = new HervatGameView().getFile();
+			File file = saveFile;
+			Spelbord_Model spelModel;
+			try {
+				FileInputStream fis = new FileInputStream(file);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				spelModel = (Spelbord_Model) ois.readObject();
+				new Mol_Server(spelModel);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				System.out.println("Het .SAV bestand was niet van het goede type.");
+			}
+
+
+		});
 	    
 	    GridPane grid = new GridPane();
 	    grid.setVgap(4);
@@ -75,6 +104,7 @@ public class run extends Application{
 		grid.add(host_name, 1, 2);
 	    grid.add(btn_host, 0, 3);
 	    grid.add(btn_back, 1, 3);
+	    grid.add(btn_spelHervatten,2,3);
 		
 		Scene connect_scene = new Scene(grid, 250, 120);
 		//Make scene call up style.css for styling

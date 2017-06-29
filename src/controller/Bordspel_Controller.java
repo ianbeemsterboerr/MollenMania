@@ -276,7 +276,9 @@ public class Bordspel_Controller {
 				}
 			}
 		}
-		
+
+
+
 	}
 
 	/**

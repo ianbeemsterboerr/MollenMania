@@ -1,9 +1,5 @@
 package controller;
 
-import javafx.application.Application;
-import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
-import model.*;
 import view.SpelSaveView;
 
 import java.io.FileNotFoundException;
@@ -21,7 +17,7 @@ public class SpelSaveController {
 
     /**
      * Start een SpelSaveView op waarin de naam wordt gekozen voor het SpelbordModel dat wordt ogeslagen.
-     * @param spelModel Het Spel_Model object dat opgeslagen moet worden.
+     * @param bs_interface Kan het SpelModel object uit de server halen zodat deze kan worden opgeslagen.
      */
     public SpelSaveController(Bordspel_Interface bs_interface) {
         this.bs_interface = bs_interface;
@@ -30,12 +26,11 @@ public class SpelSaveController {
 
     /**
      * Zorgt dat er een bestand wordt aangemaakt op de schijf, waarin het SpelbordModel wordt opgeslagen.
-     * @param naam  De naam waarmee het savebestand op de schijf wordt weggeschreven.
+     * @param naam De naam waarmee het savebestand op de schijf wordt weggeschreven.
+     * @throws ClassNotFoundException wanneer Spelbord_Model en MolModel op de serverside verschillen met de clientside
      */
     public void saveSpel(String naam) {
         try {
-
-
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".dat"));
             out.writeObject(this.bs_interface.getSpelbordModel());
             out.close();

@@ -163,10 +163,7 @@ public class Spelbord_Model implements Bordspel_Interface {
 	@Override
 	public void changeNiveauInt() throws RemoteException {
 		// TODO Auto-generated method stub
-		for(Speler_Model sm : players){
-			System.out.println(sm.getMol_list().size());
-		}
-//		this.huidigeNiveau = this.huidigeNiveau + 1;
+		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
 
 	@Override

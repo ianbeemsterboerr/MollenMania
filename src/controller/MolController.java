@@ -27,13 +27,15 @@ public class MolController {
     public boolean magMolNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface, Playboard_Model playboard_model) throws RemoteException {
 
         for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
-            if (veldKnop.getCoordinaten() == playboard_model.getNiveau1().getMolshoop().get(i).getPositie()) {
+            if (Arrays.equals(veldKnop.getCoordinaten(),playboard_model.getNiveau1().getMolshoop().get(i).getPositie())) {
+                System.out.println("een mol mag niet op een molshoop worden geplaatst");
                     return false;
                 }
 
         for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
-                if (mollen.getCoord() == veldKnop.getCoordinaten()) {
+                if (Arrays.equals(mollen.getCoord(), veldKnop.getCoordinaten())) {
+                    System.out.println("Al een mol aanwezig");
                     return false;
                 }
             }

@@ -155,8 +155,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	}
 
 	public void disableProperty(boolean toggle){
-		for (int i = 0; i < buttonArray.length; i++){
-			buttonArray[i].setDisable(true);
+		for (int i = 0; i < buttonArray.length; i++) {
+		//	buttonArray[i].setDisable(true);
 		}
 		if(player_1.getIsYou() == true){
 			player_1.getFiche_btn().setDisable(toggle);
@@ -316,14 +316,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		// init velden wit
 		for (VeldKnop veldKnop: buttonArray) {
 			veldKnop.setStyle("-fx-background-color: white");
-			veldKnop.setDisable(false);
+			//veldKnop.setDisable(false);
 		}
 		// Init molshopen
 		ArrayList<Molshoop_Veld> molshoop_niveau = new Playboard_Model().getNiveau1().getMolshoop();
 		for(Molshoop_Veld m : molshoop_niveau){
 			for (VeldKnop veldKnop:this.buttonArray){
 				if(Arrays.equals(m.getPositie(), veldKnop.getCoordinaten())){
-					veldKnop.setDisable(true);
+					//veldKnop.setDisable(true);
 					veldKnop.setStyle("-fx-background-color: saddlebrown;");
 				}
 			}
@@ -347,7 +347,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * let's check if there are any buttons in the onboard list 
 				 * and we will register them on the board.
 				 */
-				buttonBox.setDisable(true);
+				//buttonBox.setDisable(true);
 				buttonBox.setBezet(true);
 				buttonBox.setStyle("-fx-background-color: #ff0000;");
 				/*
@@ -410,13 +410,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
 		}
-		System.out.println(this.getClass().toString()+": schoonmakenBord canNotClick "+canNotClick);
+	//
+		// .println(this.getClass().toString()+": schoonmakenBord canNotClick "+canNotClick);
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
 					veldKnop.setStyle("-fx-background-color: white");
-					veldKnop.setDisable(canNotClick);
-					System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);
+					//veldKnop.setDisable(canNotClick);
+				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);
 				}
 			}catch (NullPointerException e){
 				System.out.println(this.getClass().toString()+": "+e);
@@ -431,12 +432,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
 		}
-		System.out.println(this.getClass().toString()+": loadGoudenSchep canNotClick "+canNotClick);
+//		System.out.println(this.getClass().toString()+": loadGoudenSchep canNotClick "+canNotClick);
 		if(goudenSchep_veld.size()!=0&&(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN)){
 			for(GoudenSchep_Veld gouden : goudenSchep_veld){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(gouden.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(canNotClick);
+					//	buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: darkgoldenrod;");
 					}
 				}
@@ -450,12 +451,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
 		}
-		System.out.println(this.getClass().toString()+": loadSpecial canNotClick "+canNotClick);
+//		System.out.println(this.getClass().toString()+": loadSpecial canNotClick "+canNotClick);
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
 			for(SpeciaalVeld_Veld speciaal : speciaalVeld_velds){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(speciaal.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(canNotClick);
+						//buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: darkcyan;");
 					}
 				}
@@ -469,12 +470,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
 		}
-		System.out.println(this.getClass().toString()+": loadMolsHoop canNotClick "+canNotClick);
+//		System.out.println(this.getClass().toString()+": loadMolsHoop canNotClick "+canNotClick);
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
 			for(Molshoop_Veld m : molshoop_niveau){
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
-						buttonArray[x].setDisable(canNotClick);
+						//buttonArray[x].setDisable(canNotClick);
 						buttonArray[x].setStyle("-fx-background-color: saddlebrown;");
 					}
 				}
@@ -503,11 +504,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
-			System.out.println(this.getClass().toString()+": loadSpelerMols disableMol "+disableMol);
+//			System.out.println(this.getClass().toString()+": loadSpelerMols disableMol "+disableMol);
 			for (MolModel mol: speler.getMol_list()) {
 				for (VeldKnop veldKnop:buttonArray) {
 					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){
-						veldKnop.setDisable(disableMol);
+						//veldKnop.setDisable(disableMol);
 						veldKnop.setStyle("-fx-background-color: "+speler.getKleur()+";");
 					}
 				}
@@ -517,12 +518,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	public void enableOrDisable(boolean jijAanDeBeurt){
 		if(!jijAanDeBeurt){
-			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");
+//			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");
 			for (VeldKnop veldKnop: buttonArray) {
-				veldKnop.setDisable(true);
+			//	veldKnop.setDisable(true);
 			}
 		}else{
-			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is ENABLED");
+//			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is ENABLED");
 		}
 
 	}

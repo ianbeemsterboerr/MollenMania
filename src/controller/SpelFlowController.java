@@ -145,7 +145,8 @@ public class SpelFlowController{
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
             if (molController.molshopenBezetCheck(bs_interface)) {
-//                //Clearmollen
+                System.out.println(" mollen verwijderen die niet op molshoop staan");
+                bs_interface.deleteMollfromList();
                 System.out.println("Verander niveau");
                 bs_interface.changeNiveauInt();
             }

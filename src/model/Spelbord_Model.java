@@ -2,10 +2,12 @@ package model;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
+import model.Velden.Molshoop_Veld;
 
 /**
  * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
@@ -190,10 +192,22 @@ public class Spelbord_Model implements Bordspel_Interface{
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
 
-	@Override
-	public void deleteMollfromList(int molIndex, int playerIndex)throws RemoteException{
-        System.out.println("Mol verwijdert");
-        this.players.get(playerIndex).getMol_list().remove(molIndex);
+    @Override
+    public void deleteMollfromList()throws RemoteException {
+        Playboard_Model playboardModel = new Playboard_Model();
+        Niveau_Model niveauModel = playboardModel.getHuidigNiveau(this.getHuidigeNiveauIndex());
+
+        for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
+            for (Speler_Model speler : this.players) {
+                for (MolModel molModel : speler.getMol_list()) {
+                    if (!Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
+                        int spelerIndex = this.players.indexOf(speler);
+                        int molIndex = this.players.get(spelerIndex).getMol_list().indexOf(molModel);
+                        this.players.get(spelerIndex).getMol_list().remove(molIndex);
+                    }
+                }
+            }
+        }
     }
 
 

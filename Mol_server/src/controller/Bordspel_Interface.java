@@ -31,6 +31,9 @@ public interface Bordspel_Interface extends Remote {
 
 	public void changeNiveauInt() throws RemoteException;
 
+	public void deleteMollfromList(int molIndex, int playerIndex)throws RemoteException;
+
+
 	/*
 	 * ADD THINGS
 	 */

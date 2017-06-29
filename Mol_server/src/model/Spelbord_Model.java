@@ -179,45 +179,46 @@ public class Spelbord_Model implements Bordspel_Interface {
 		System.out.println("na verplaatsen" +this.players.get(beurtIndex).getMol_list().get(molIndex).printCoord());
 	}
 
-	public void addMolltoList(int[] coordinaten) throws RemoteException{
-		System.out.println("AddmolltoLIst" +coordinaten);
-		Speler_Model speler_model = this.players.get(beurtIndex);
-		speler_model.getMol_list().add(new MolModel(coordinaten,speler_model.getKleur()));
-		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
+	@Override
+	public Spelbord_Model getSpelbordModel() {
+		return this;
 	}
 
-
-	public void nextObserver() throws RemoteException{
-		if (bord_observers.size() > 0) {
-			bord_observers.get(beurtIndex).setEnabled(false);
-			beurtIndex++;
-			if (beurtIndex >= bord_observers.size()) {
-				beurtIndex = 0;
-			}
-			bord_observers.get(beurtIndex).setEnabled(true);
-		}
+	public void addMolltoList(int[] coordinaten)throws RemoteException{
+		System.out.println("AddmolltoLIst" +coordinaten);
+		this.players.get(beurtIndex).getMol_list().add(new MolModel(coordinaten, players.get(beurtIndex).getKleur()));
+		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
 	}
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
-		if(beurtIndex <(bordMax-1)){
-			beurtIndex++;
-		} else{
-			beurtIndex =0;
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+		beurtIndex++;
+		if (beurtIndex >= bord_observers.size()) {
+			beurtIndex = 0;
 		}
-		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
 	}
 
 	@Override
-	public void addObserver(Player_Observer po) throws RemoteException {
+	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
 		// TODO Auto-generated method stub
-		bord_observers.add(po);
+		boolean exists=false;
+		for (Player_Observer observer: bord_observers){
+			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
+				int i = bord_observers.lastIndexOf(observer);
+				bord_observers.set(i,po);
+				exists=true;
+			}
+		}
+		if(!exists){
+			bord_observers.add(po);
+		}
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Spelbord_Model.addObserver");
 		}
 	}
 

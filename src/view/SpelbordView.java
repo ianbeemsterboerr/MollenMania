@@ -64,7 +64,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		instInGameView.registerStage(bordStage);
 		
 		try {
-			bs_interface.addObserver(this);
+			bs_interface.addObserver(this, bordspel_controller.getBijnaam());
 			System.out.println(bs_interface.observer_list().size());
 		}catch(Exception e){
 			e.printStackTrace();
@@ -354,8 +354,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * to be done:
 				 * 		1. whose turn is it?
 				 */
-				Speler_Model player_aanDeBeurt = new Speler_Model();
-				//MolModel mol_geselecteerd = new MolModel();
 				/*
 				 * 1. we must get whose turn it is.
 				 * 2. use that motherfucker to play, until he is done with his mols
@@ -366,7 +364,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				try {
 					// WE ARE USING YOU WHOEVER YOU ARE
 					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
-					player_aanDeBeurt = players.get(bs_interface.beurtIndex());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -376,7 +373,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
 				int mol_max = 5;
-				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 				mol_index++;
 				
 				try {

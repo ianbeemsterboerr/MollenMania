@@ -1,6 +1,30 @@
-#moap {
+#nivel1 {
     -fx-background-image: url("../img/SpelbordView1WTF.png");
 	-fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+#nivel2 {
+    -fx-background-image: url("../img/SpelbordView2.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+#nivel3 {
+    -fx-background-image: url("../img/SpelbordView3.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+#nivel4 {
+    -fx-background-image: url("../img/SpelbordView4.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+#nivel5 {
+    -fx-background-image: url("../img/SpelbordView5.png");
+    -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
 }
 

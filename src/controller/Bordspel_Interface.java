@@ -47,20 +47,20 @@ public interface Bordspel_Interface extends Remote {
 	public void setMolCoord(Speler_Model speler, int[] coord, int molIndex) throws RemoteException;
 
 	public void changeNiveauInt() throws RemoteException;
+
+	public Spelbord_Model getSpelbordModel() throws RemoteException;
 	
 	/*
 	 * ADD THINGS
 	 */
 
-	public void addObserver(Player_Observer po) throws RemoteException;
+	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException;
 	
 	public void addSpeler(Speler_Model sm) throws RemoteException;
 	
 	public void addMolField(MolModel mol) throws RemoteException;
 
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException;
-
-	public void nextObserver() throws  RemoteException;
 	
 	public void addMolltoList(int[] coordinaten)throws RemoteException;
 

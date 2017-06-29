@@ -16,16 +16,16 @@ import java.io.ObjectOutputStream;
  * Heeft de verantwoordelijkheid om het spel op te slaan.
  */
 public class SpelSaveController {
-    Spelbord_Model spelModel;
+   Bordspel_Interface bs_interface;
 
 
     /**
      * Start een SpelSaveView op waarin de naam wordt gekozen voor het SpelbordModel dat wordt ogeslagen.
      * @param spelModel Het Spel_Model object dat opgeslagen moet worden.
      */
-    public SpelSaveController(Spelbord_Model spelModel) {
-        this.spelModel = spelModel;
-        SpelSaveView view = new SpelSaveView(this);
+    public SpelSaveController(Bordspel_Interface bs_interface) {
+        this.bs_interface = bs_interface;
+        new SpelSaveView(this);
     }
 
     /**
@@ -37,7 +37,7 @@ public class SpelSaveController {
 
 
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".dat"));
-            out.writeObject(spelModel);
+            out.writeObject(this.bs_interface.getSpelbordModel());
             out.close();
         } catch (FileNotFoundException e) {
             System.out.println("Er is een exception opgetreden.");

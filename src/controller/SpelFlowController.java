@@ -168,9 +168,6 @@ public class SpelFlowController{
         System.out.println("voor veranderbeurt" + bs_interface.beurtIndex());
         bs_interface.veranderBeurt();
         System.out.println("na veranderbeurt" + bs_interface.beurtIndex());
-        bs_interface.nextObserver();
-        System.out.println("na NextOBserver" + bs_interface.beurtIndex());
-
     }
 
     /**

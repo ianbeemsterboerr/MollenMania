@@ -10,16 +10,20 @@ import controller.Player_Observer;
 /**
  * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
  */
-public class Spelbord_Model implements Bordspel_Interface{
-	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
-	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
-	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
+public class Spelbord_Model implements Bordspel_Interface {
+
+	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
+	private ArrayList<Speler_Model> players = new ArrayList<>();
+	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
-	private int aanDeBeurt=0;
-	private int bordMax;
+	private int[] specialPos;
+	private int beurtIndex =0;
 	private int huidigeNiveau = 1;
+	private int bordMax;
+
 	private int maxMollen;
-	private int beurtIndex;
+
+	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
 
 	public Spelbord_Model(int maxSpelers){
@@ -48,11 +52,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 
-	public int getMaxMollen() throws RemoteException{
-		return this.maxMollen;
-
-	}
-
 	public BeurtStatus getBeurtStatus() throws RemoteException {
 		return beurtStatus;
 	}
@@ -61,112 +60,19 @@ public class Spelbord_Model implements Bordspel_Interface{
 		this.beurtStatus = beurtStatus;
 	}
 
-	public Spelbord_Model(){
-
-	}
-
-	public ArrayList<Speler_Model> getPlayers() {
-		return players;
-	}
-
-	public void setPlayers(ArrayList<Speler_Model> players) {
-		this.players = players;
-	}
-
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
-		// TODO Auto-generated method stub
 		this.players.add(sm);
+		notifyObservers();
 	}
 
-	@Override
-	public ArrayList<Speler_Model> playerList() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.players;
-	}
-
-	@Override
-	public void addObserver(Player_Observer po) throws RemoteException {
-		// TODO Auto-generated method stub
-		bord_observers.add(po);
-		try {
-			notifyObservers();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public ArrayList<Player_Observer> observer_list() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.bord_observers;
-	}
-
-	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
-		return this.players;
-	}
-
-	@Override
-	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
-		if(aanDeBeurt<(bordMax-1)){
-			aanDeBeurt++;
-		} else{
-			aanDeBeurt=0;
-		}
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
-	}
-
-	public void setBordMax(int m){
-		this.bordMax = m;
-	}
-
-	@Override
-	public int maxSpelers() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.bordMax;
-	}
-
-	public void setMol_onbord(ArrayList<MolModel> mol_onbord) {
-		this.mol_onbord = mol_onbord;
-	}
-
-	@Override
-	public ArrayList<MolModel> molOnField() throws RemoteException {
-		// TODO Auto-generated method stub
-		for(Speler_Model sm : players){
-			if(sm.getMol_list().size() > 0){
-				
-			}		
-		}
-		return this.mol_onbord;
-	}
-
-	@Override
-	public void addMolField(MolModel mol) throws RemoteException {
-		// TODO Auto-generated method stub
-		this.mol_onbord.add(mol);
-	}
-
-	@Override
-	public int beurtIndex() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getHuidigeNiveauIndex() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.huidigeNiveau;
-	}
-
-	@Override
-	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
-		mol.setCoord(coord);
-	}
-
-	@Override
+	/**
+	 * Zet speler data, geeft aan dat ie ready is.
+	 *
+	 * @param sm
+	 * @throws RemoteException
+	 * @author	Robert
+	 */
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
 		System.out.println(this.getClass().toString()+" setSpelerReady()");
 		int spelerIndex=0;
@@ -194,30 +100,67 @@ public class Spelbord_Model implements Bordspel_Interface{
 		return false;
 	}
 
+
 	@Override
-	public void nextObserver() throws RemoteException {
-		if (bord_observers.size() > 0) {
-			bord_observers.get(beurtIndex).setEnabled(false);
-			beurtIndex++;
-			if (beurtIndex >= bord_observers.size()) {
-				beurtIndex = 0;
-			}
-			bord_observers.get(beurtIndex).setEnabled(true);
-		}
+	public ArrayList<Speler_Model> playerList() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.players;
 	}
 
-	public void addMolltoList(int[] coordinaten)throws RemoteException{
-		System.out.println("AddmolltoLIst" +coordinaten);
-		this.players.get(aanDeBeurt).getMol_list().add(new MolModel(coordinaten));
-		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
-	}
-	
-@Override	
 	public void notifyObservers() throws RemoteException {
-		// TODO Auto-generated method stub
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
 		}
+	}
+
+	@Override
+	public ArrayList<Player_Observer> observer_list() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.bord_observers;
+	}
+
+	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
+		return this.players;
+	}
+
+	public void setBordMax(int m){
+		this.bordMax = m;
+	}
+
+	@Override
+	public int maxSpelers() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.bordMax;
+	}
+
+	public void setMol_onbord(ArrayList<MolModel> mol_onbord) {
+		this.mol_onbord = mol_onbord;
+	}
+
+	@Override
+	public ArrayList<MolModel> molOnField() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.mol_onbord;
+	}
+
+	@Override
+	public void addMolField(MolModel mol) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.mol_onbord.add(mol);
+	}
+
+
+
+	@Override
+	public int getMaxMollen() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.maxMollen;
+	}
+
+	@Override
+	public int beurtIndex() throws RemoteException {
+		// TODO Auto-generated method stub
+		return beurtIndex;
 	}
 
 	@Override
@@ -228,6 +171,60 @@ public class Spelbord_Model implements Bordspel_Interface{
 		}
 //		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
-	
-	
+
+	@Override
+	public int getHuidigeNiveauIndex() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.huidigeNiveau;
+	}
+
+	@Override
+	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException {
+		System.out.println("test" +mol.getCoord());
+		mol.setCoord(coord);
+		System.out.println("test" +mol.getCoord());
+	}
+
+	public void addMolltoList(int[] coordinaten) throws RemoteException{
+		System.out.println("AddmolltoLIst" +coordinaten);
+		Speler_Model speler_model = this.players.get(beurtIndex);
+		speler_model.getMol_list().add(new MolModel(coordinaten,speler_model.getKleur()));
+		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
+	}
+
+
+	public void nextObserver() throws RemoteException{
+		if (bord_observers.size() > 0) {
+			bord_observers.get(beurtIndex).setEnabled(false);
+			beurtIndex++;
+			if (beurtIndex >= bord_observers.size()) {
+				beurtIndex = 0;
+			}
+			bord_observers.get(beurtIndex).setEnabled(true);
+		}
+	}
+
+	@Override
+	public void veranderBeurt() throws RemoteException {
+		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+		if(beurtIndex <(bordMax-1)){
+			beurtIndex++;
+		} else{
+			beurtIndex =0;
+		}
+		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+	}
+
+	@Override
+	public void addObserver(Player_Observer po) throws RemoteException {
+		// TODO Auto-generated method stub
+		bord_observers.add(po);
+		try {
+			notifyObservers();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			System.out.println("Spelbord_Model.addObserver");
+		}
+	}
+
 }

@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.sun.org.apache.regexp.internal.RE;
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
 
@@ -15,10 +14,9 @@ public class Spelbord_Model implements Bordspel_Interface {
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
 	private Playboard_Model pmo = new Playboard_Model();
 	private int[] specialPos;
-	private int aanDeBeurt=0;
+	private int beurtIndex =0;
 	private int huidigeNiveau = 1;
 	private int bordMax;
-	private int beurtIndex;
 
 	private int maxMollen;
 
@@ -57,15 +55,6 @@ public class Spelbord_Model implements Bordspel_Interface {
 
 	public void setBeurtStatus(BeurtStatus beurtStatus) throws RemoteException {
 		this.beurtStatus = beurtStatus;
-	}
-
-	public ArrayList<Speler_Model> getPlayers() {
-		return players;
-	}
-
-	public void setPlayers(ArrayList<Speler_Model> players)throws RemoteException {
-		this.players = players;
-		notifyObservers();
 	}
 
 	@Override
@@ -122,18 +111,6 @@ public class Spelbord_Model implements Bordspel_Interface {
 	}
 
 	@Override
-	public void addObserver(Player_Observer po) throws RemoteException {
-		// TODO Auto-generated method stub
-		bord_observers.add(po);
-		try {
-			notifyObservers();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			System.out.println("Spelbord_Model.addObserver");
-		}
-	}
-
-	@Override
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bord_observers;
@@ -141,17 +118,6 @@ public class Spelbord_Model implements Bordspel_Interface {
 
 	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
 		return this.players;
-	}
-
-	@Override
-	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
-		if(aanDeBeurt<(bordMax-1)){
-			aanDeBeurt++;
-		} else{
-			aanDeBeurt=0;
-		}
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+aanDeBeurt);
 	}
 
 	public void setBordMax(int m){
@@ -185,13 +151,22 @@ public class Spelbord_Model implements Bordspel_Interface {
 	@Override
 	public int getMaxMollen() throws RemoteException {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.maxMollen;
 	}
 
 	@Override
 	public int beurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
-		return aanDeBeurt;
+		return beurtIndex;
+	}
+
+	@Override
+	public void changeNiveauInt() throws RemoteException {
+		// TODO Auto-generated method stub
+		for(Speler_Model sm : players){
+			System.out.println(sm.getMol_list().size());
+		}
+//		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
 
 	@Override
@@ -209,9 +184,9 @@ public class Spelbord_Model implements Bordspel_Interface {
 
 	public void addMolltoList(int[] coordinaten) throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);
-		Speler_Model speler_model = this.players.get(aanDeBeurt);
+		Speler_Model speler_model = this.players.get(beurtIndex);
 		speler_model.getMol_list().add(new MolModel(coordinaten,speler_model.getKleur()));
-		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
+		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
 	}
 
 
@@ -223,6 +198,29 @@ public class Spelbord_Model implements Bordspel_Interface {
 				beurtIndex = 0;
 			}
 			bord_observers.get(beurtIndex).setEnabled(true);
+		}
+	}
+
+	@Override
+	public void veranderBeurt() throws RemoteException {
+		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+		if(beurtIndex <(bordMax-1)){
+			beurtIndex++;
+		} else{
+			beurtIndex =0;
+		}
+		System.out.println(this.getClass().toString()+": beurtIndex: "+ beurtIndex);
+	}
+
+	@Override
+	public void addObserver(Player_Observer po) throws RemoteException {
+		// TODO Auto-generated method stub
+		bord_observers.add(po);
+		try {
+			notifyObservers();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			System.out.println("Spelbord_Model.addObserver");
 		}
 	}
 

@@ -27,6 +27,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public void setMolCoord(MolModel mol, int[] coord) throws RemoteException;
 
+	public void changeNiveauInt() throws RemoteException;
+
 	/*
 	 * ADD THINGS
 	 */

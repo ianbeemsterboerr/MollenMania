@@ -177,7 +177,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			}
 		});
 		int numCols = 3;
-		int numRows = 3;
+		int numRows = 4;
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();
@@ -196,7 +196,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		grid.setHgap(10);
 		grid.setPadding(new Insets(5, 5, 5, 5));
 		grid.add(game_table, 1, 1);
-		grid.add(vbox_hervat_options, 1, 2);
+		grid.add(vbox_hervat_options, 1, 3);
 		btn_geel.setId("geel");
 		btn_groen.setId("groen");
 		btn_rood.setId("rood");

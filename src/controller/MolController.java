@@ -3,8 +3,10 @@ package controller;
 import model.*;
 import model.Velden.Molshoop_Veld;
 import model.Velden.VeldKnop;
+import view.SpelbordView;
 
 import java.lang.management.BufferPoolMXBean;
+import java.lang.reflect.Array;
 import java.rmi.Remote;
 import java.util.ArrayList;
 
@@ -48,7 +50,6 @@ public class MolController {
     /**
      * Controleert of een zet geldig is.
      *
-     * @param bs_interface Het spelbord woor op gewerkt wordt.
      * @param spelerModel Het SpelerModel van welke een mol verplaatst gaat worden.
      *
      * @param molGeselecteerd De mol die verplaatst wordt.
@@ -60,37 +61,37 @@ public class MolController {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
 
-        return true;
-//        int deltaCoord[] = new int[3];
-//        int ficheNR = spelerModel.getFiche_list().getFicheNR();
-//        int beginpunt[] = molGeselecteerd.getCoord();
-//        for (int i = 0; i < eindPunt.length; i++) {
-//            deltaCoord[i] = eindPunt[i] - beginpunt[i];
-//        }
-//
-//        //Hierin wordt bepaalt of de mol over een andere mol heen wordt gezet.
-////        for (int j = 0; j < beginpunt.length; j++) {
-////            beginpunt[j] = beginpunt[j] + deltaCoord[j] * (1 / ficheNR);
-////            for (Speler_Model speler : bs_interface.playerList())
-////                for (MolModel mol : speler.getMol_list()) {
-////                    if (Arrays.equals(beginpunt,mol.getCoord())) {
-////                        System.out.println("je mag niet over een andere mol heen!");
-////                        return false;
-////                    }
-////                }
-////        }
-//        //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
-//        if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
-//            if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
-//                if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * -ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
-//                    System.out.println("Zet geldig");
-//                    return true;
-//                }
-//            }
-//        }
-//        System.out.println("geen rechte lijn");
-//        return false;
-    }
+        int deltaCoord[] = new int[3];
+        int ficheNR = spelerModel.getFiche_list().getFicheNR();
+        int beginpunt[] = molGeselecteerd.getCoord();
+        for (int i = 0; i < eindPunt.length; i++) {
+            deltaCoord[i] = eindPunt[i] - beginpunt[i];
+         }
+
+        for(Speler_Model speler:bs_interface.playerList()){
+            for (MolModel molModel : speler.getMol_list()){
+                if(Arrays.equals(eindPunt,molModel.getCoord())){
+                    System.out.println("je mag niet een mol op een andere mol plaatsen");
+                    return false;
+                }
+            }
+
+            //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
+            if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
+                System.out.println("delta=0");
+                if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
+                    System.out.println("delta = fiche");
+                    if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
+                        System.out.println("Zet geldig");
+                        return true;
+                    }
+                }
+            }
+        }
+            System.out.println("geen rechte lijn");
+            return false;
+        }
+
 
     /**
      * Geeft het totaal aantal mollen in het spel.
@@ -134,7 +135,6 @@ public class MolController {
 
     public boolean molshopenBezetCheck(Bordspel_Interface bs_interface)throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
-        int huidigNiveau = bs_interface.getHuidigeNiveauIndex();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex());
         int molshoopCounter = 0;
 
@@ -148,7 +148,7 @@ public class MolController {
                 }
             }
             System.out.println("aantal molshopen bezet: " +molshoopCounter +"/" +niveauModel.getMolshoop().size());
-            if (niveauModel.getMolshoop().size() == molshoopCounter) {
+            if (niveauModel.getMolshoop().size()  < molshoopCounter) {
                 return true;
             }
         }

@@ -28,11 +28,11 @@ public class MolController {
      */
     public boolean magMolNeerzetten(VeldKnop veldKnop, Bordspel_Interface bs_interface, Playboard_Model playboard_model) throws RemoteException {
 
-        for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
-            if (Arrays.equals(veldKnop.getCoordinaten(),playboard_model.getNiveau1().getMolshoop().get(i).getPositie())) {
-                System.out.println("een mol mag niet op een molshoop worden geplaatst");
-                    return false;
-                }
+//        for (int i = 0; i < playboard_model.getNiveau1().getMolshoop().size(); i++ )
+//            if (Arrays.equals(veldKnop.getCoordinaten(),playboard_model.getNiveau1().getMolshoop().get(i).getPositie())) {
+//                System.out.println("een mol mag niet op een molshoop worden geplaatst");
+//                    return false;
+//                }
 
         for (Speler_Model speler : bs_interface.playerList()) {
             for (MolModel mollen : speler.getMol_list()) {
@@ -67,30 +67,30 @@ public class MolController {
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
          }
-
-        for(Speler_Model speler:bs_interface.playerList()){
-            for (MolModel molModel : speler.getMol_list()){
-                if(Arrays.equals(eindPunt,molModel.getCoord())){
-                    System.out.println("je mag niet een mol op een andere mol plaatsen");
-                    return false;
-                }
-            }
+        return true;}
+//        for(Speler_Model speler:bs_interface.playerList()){
+//            for (MolModel molModel : speler.getMol_list()){
+//                if(Arrays.equals(eindPunt,molModel.getCoord())){
+//                    System.out.println("je mag niet een mol op een andere mol plaatsen");
+//                    return false;
+//                }
+//            }
 
             //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
-            if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
-                System.out.println("delta=0");
-                if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
-                    System.out.println("delta = fiche");
-                    if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
-                        System.out.println("Zet geldig");
-                        return true;
-                    }
-                }
-            }
-        }
-            System.out.println("geen rechte lijn");
-            return false;
-        }
+//            if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
+//                System.out.println("delta=0");
+//                if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
+//                    System.out.println("delta = fiche");
+//                    if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
+//                        System.out.println("Zet geldig");
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//            System.out.println("geen rechte lijn");
+//            return true;
+//        }
 
 
     /**
@@ -136,22 +136,23 @@ public class MolController {
     public boolean molshopenBezetCheck(Bordspel_Interface bs_interface)throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex());
-        int molshoopCounter = 0;
+        int molshoopCounter = 1;
 
         for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
             for (Speler_Model speler : bs_interface.playerList()) {
                 for (MolModel molModel : speler.getMol_list()) {
                     if (Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
                         molshoopCounter++;
-                        System.out.println("aantal molshopen bezet: " +molshoopCounter +"/" +niveauModel);
+                        System.out.println("aantal molshopen bezet(loop): " + molshoopCounter + "/" + niveauModel.getMolshoop().size());
                     }
                 }
             }
-            System.out.println("aantal molshopen bezet: " +molshoopCounter +"/" +niveauModel.getMolshoop().size());
-            if (niveauModel.getMolshoop().size()  < molshoopCounter) {
-                return true;
-            }
         }
+        System.out.println("aantal molshopen bezet(voorTjek): " +molshoopCounter +"/" +niveauModel.getMolshoop().size());
+        if (niveauModel.getMolshoop().size() <= molshoopCounter) {
+               return true;
+            }
+
         return false;
     }
 

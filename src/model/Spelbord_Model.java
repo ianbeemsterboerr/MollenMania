@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 
 import controller.Bordspel_Interface;
 import controller.Player_Observer;
@@ -197,19 +198,9 @@ public class Spelbord_Model implements Bordspel_Interface{
     public void deleteMollfromList()throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(this.getHuidigeNiveauIndex());
+        ArrayList<MolModel> molToRemove = new ArrayList<>();
+        Iterator<MolModel> molModelIterator =
 
-        for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
-            for (Speler_Model speler : this.players) {
-                for (MolModel molModel : speler.getMol_list()) {
-                    if (!Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
-                        int spelerIndex = this.players.indexOf(speler);
-
-                        int molIndex = this.players.get(spelerIndex).getMol_list().indexOf(molModel);
-                        this.players.get(spelerIndex).getMol_list().remove(molIndex);
-                    }
-                }
-            }
-        }
     }
 
 

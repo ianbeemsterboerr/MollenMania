@@ -176,8 +176,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 				e1.printStackTrace();
 			}
 		});
-		int numCols = 3;
-		int numRows = 3;
+		//int numCols = 3;
+		int numRows = 4;
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();

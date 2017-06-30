@@ -29,7 +29,7 @@ public class DashboardView {
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
-    public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
+    public static Button[] fiches = new Button[]{new Button(),new Button(), new Button(), new Button(),new Button(),new Button()};
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
     /**
@@ -203,5 +203,9 @@ public class DashboardView {
      */
     public GridPane get(){
         return this.grid;
+    }
+
+    public void modelChanged(){
+
     }
 }

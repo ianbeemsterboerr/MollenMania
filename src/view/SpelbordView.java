@@ -465,6 +465,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
 					veldKnop.setStyle("-fx-background-color: transparent;");
+					veldKnop.setId(" ");
 					//veldKnop.setDisable(canNotClick);
 				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);
 				}

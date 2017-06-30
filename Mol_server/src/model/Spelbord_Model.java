@@ -252,6 +252,12 @@ public class Spelbord_Model implements Bordspel_Interface {
 		}
 	}
 
+    @Override
+    public void testMe() throws RemoteException {
+        // TODO Auto-generated method stub
+        System.out.println("test");
+    }
+
 
 
 }

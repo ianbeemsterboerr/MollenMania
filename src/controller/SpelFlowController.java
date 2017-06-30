@@ -80,8 +80,8 @@ public class SpelFlowController{
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     System.out.println(this.getClass().toString()+": "+BeurtStatus.SELECTEREN);
-               // setFicheknoppenUit();
-               // selecteerMolKnoppen(speler,bs_interface);
+                setFicheknoppenUit();
+                selecteerMolKnoppen(speler,bs_interface);
                 bs_interface.notifyObservers(); //vervangen door notifySelf()?
                 } catch (RemoteException e1) {
                     e1.printStackTrace();

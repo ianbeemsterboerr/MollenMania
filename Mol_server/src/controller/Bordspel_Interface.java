@@ -33,6 +33,8 @@ public interface Bordspel_Interface extends Remote {
 
 	public void deleteMollfromList()throws RemoteException;
 
+	public void testMe() throws RemoteException;
+
 
 	/*
 	 * ADD THINGS

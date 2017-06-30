@@ -194,6 +194,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
 
+    @Override
     public void deleteMollfromList()throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(this.getHuidigeNiveauIndex());

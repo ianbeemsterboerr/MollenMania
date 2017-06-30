@@ -194,12 +194,27 @@ public class Spelbord_Model implements Bordspel_Interface{
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(aanDeBeurt).getMol_list().size());
 	}
 
-    @Override
     public void deleteMollfromList()throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(this.getHuidigeNiveauIndex());
         ArrayList<MolModel> molToRemove = new ArrayList<>();
-        Iterator<MolModel> molModelIterator =
+        for ( Speler_Model speler : this.players){
+            for (MolModel mol : speler.getMol_list()){
+                for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
+                    if (!Arrays.equals(mol.getCoord(),molshoopVeld.getPositie())){
+                        molToRemove.add(mol);
+                    }
+                }
+                System.out.println("Size voor del" +this.players.get(this.players.indexOf(speler)).getMol_list().size());
+                System.out.println("size van RemoveMolList" +molToRemove.size());
+                this.players.get(this.players.indexOf(speler)).getMol_list().removeAll(molToRemove);
+                molToRemove.clear();
+                System.out.println("size na DEL" +this.players.get(this.players.indexOf(speler)).getMol_list().size());
+                System.out.println("size van RemoveMolList" +molToRemove.size());
+            }
+
+
+        }
 
     }
 

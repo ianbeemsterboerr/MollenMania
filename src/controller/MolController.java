@@ -67,30 +67,30 @@ public class MolController {
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
          }
-        return true;}
-//        for(Speler_Model speler:bs_interface.playerList()){
-//            for (MolModel molModel : speler.getMol_list()){
-//                if(Arrays.equals(eindPunt,molModel.getCoord())){
-//                    System.out.println("je mag niet een mol op een andere mol plaatsen");
-//                    return false;
-//                }
-//            }
 
-            //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
-//            if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
-//                System.out.println("delta=0");
-//                if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
-//                    System.out.println("delta = fiche");
-//                    if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
-//                        System.out.println("Zet geldig");
-//                        return true;
-//                    }
-//                }
-//            }
-//        }
-//            System.out.println("geen rechte lijn");
-//            return true;
-//        }
+        for(Speler_Model speler:bs_interface.playerList()){
+            for (MolModel molModel : speler.getMol_list()){
+                if(Arrays.equals(eindPunt,molModel.getCoord())){
+                    System.out.println("je mag niet een mol op een andere mol plaatsen");
+                    return false;
+                }
+            }
+
+//            Bepaal of Rechte lijn en stappen gelijk aan ficheNR
+            if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
+                System.out.println("delta=0");
+                if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
+                    System.out.println("delta = fiche");
+                    if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
+                        System.out.println("Zet geldig");
+                        return true;
+                    }
+                }
+            }
+        }
+            System.out.println("geen rechte lijn");
+            return true;
+        }
 
 
     /**

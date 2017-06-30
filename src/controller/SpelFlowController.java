@@ -78,7 +78,6 @@ public class SpelFlowController{
                 ficheController.kiesFiche(speler.getFiche_list());
                 System.out.println(this.getClass().toString()+": "+"FicheNR = "+ speler.getFiche_list().getFicheNR());
                 DashboardView.fichenrs.appendText(String.valueOf(speler.getFiche_list().getFicheNR()) +" : ");
-//              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     System.out.println(this.getClass().toString()+": "+BeurtStatus.SELECTEREN);
                 setFicheknoppenUit();

@@ -29,6 +29,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private Button btn_groen = new Button();
 	private Button btn_geel = new Button();
 	private Label meldingen = new Label();
+
 	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
@@ -72,7 +73,11 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button("KLAAR");
 		Button btn_open = new Button("OPEN");
-
+		btn_geel.setId("geel");
+		btn_groen.setId("groen");
+		btn_rood.setId("rood");
+		btn_blauw.setId("blauw");
+		btn_klaar.setId("klaar");
 		//Knoppen die te maken hebben met een kleur
 		HBox kleurOpties = new HBox();
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
@@ -97,7 +102,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
 		game_table.setMaxWidth(175.0);
-		game_table.setMaxHeight(135.0);
+		game_table.setMaxHeight(200.0);
 
 
 		player_id_col.setCellValueFactory(
@@ -110,7 +115,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		vbox_hervat_options.setSpacing(5.0);
 		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
-
 
 		btn_blauw.setOnAction(e->{
 			geselecteerdeKleur="blue";
@@ -177,8 +181,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			}
 		});
 		int numCols = 3;
-		int numRows = 5;
-
+		int numRows = 3;
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();
@@ -197,14 +200,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		grid.setHgap(10);
 		grid.setPadding(new Insets(5, 5, 5, 5));
 		grid.add(game_table, 1, 1);
-		grid.add(vbox_hervat_options, 1, 3);
+		grid.add(vbox_hervat_options, 1, 2);
 
-
-		btn_geel.setId("geel");
-		btn_groen.setId("groen");
-		btn_rood.setId("rood");
-		btn_blauw.setId("blauw");
-		btn_klaar.setId("klaar");
 		grid.setId("gridder");
 		Scene lobby_scene = new Scene(grid, 400, 540);
 		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());

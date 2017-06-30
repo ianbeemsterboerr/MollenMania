@@ -46,28 +46,28 @@
 
 #redPion {
     -fx-background-image: url("../img/CLBDPionRood.png");
-    -fx-background-size: 100%;
+    -fx-background-size: 120%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
     -fx-background-color: transparent;
 }
 #greenPion {
     -fx-background-image: url("../img/CLBDPionGroen.png");
-    -fx-background-size: 100%;
+    -fx-background-size: 120%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
     -fx-background-color: transparent;
 }
 #bluePion {
     -fx-background-image: url("../img/CLBDPionBlauw.png");
-    -fx-background-size: 100%;
+    -fx-background-size: 120%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
     -fx-background-color: transparent;
 }
 #yellowPion {
     -fx-background-image: url("../img/CLBDPionGeel.png");
-    -fx-background-size: 100%;
+    -fx-background-size: 120%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 

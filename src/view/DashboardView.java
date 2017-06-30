@@ -208,4 +208,8 @@ public class DashboardView {
     public GridPane get(){
         return this.grid;
     }
+
+    public void modelChanged(){
+
+    }
 }

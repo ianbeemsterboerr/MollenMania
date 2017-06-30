@@ -24,7 +24,6 @@ public class  Fiche_Model implements Serializable{
         geslotenFiche.add(3);
         geslotenFiche.add(3);
         geslotenFiche.add(4);
-
     }
 
     /**

@@ -71,7 +71,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
-		Button btn_klaar = new Button("KLAAR");
+		Button btn_klaar = new Button();
 		Button btn_open = new Button("OPEN");
 		btn_geel.setId("geel");
 		btn_groen.setId("groen");
@@ -97,7 +97,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
-		game_table.setMaxWidth(175.0);
+		game_table.setMaxWidth(300.0);
 		game_table.setMaxHeight(200.0);
 
 
@@ -176,8 +176,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 				e1.printStackTrace();
 			}
 		});
-		int numCols = 3;
-		int numRows = 3;
+		//int numCols = 3;
+		int numRows = 4;
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();
@@ -186,17 +186,31 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			grid.getRowConstraints().add(rc);
 		}
 
-		for (int i = 0; i < numCols; i++) {
-			ColumnConstraints cc = new ColumnConstraints();
-			cc.setHalignment(HPos.CENTER);
-			cc.setPercentWidth(100 / numCols);
-			grid.getColumnConstraints().add(cc);
-		}
+//		for (int i = 0; i < numCols; i++) {
+//			ColumnConstraints cc = new ColumnConstraints();
+//			cc.setHalignment(HPos.CENTER);
+//			cc.setPercentWidth(100 / numCols);
+//			grid.getColumnConstraints().add(cc);
+//		}
+		ColumnConstraints cc1 = new ColumnConstraints();
+		cc1.setHalignment(HPos.CENTER);
+		cc1.setPercentWidth(10);
+		grid.getColumnConstraints().add(cc1);
+
+		ColumnConstraints cc2 = new ColumnConstraints();
+		cc2.setHalignment(HPos.CENTER);
+		cc2.setPercentWidth(80);
+		grid.getColumnConstraints().add(cc2);
+
+		ColumnConstraints cc3 = new ColumnConstraints();
+		cc3.setHalignment(HPos.CENTER);
+		cc3.setPercentWidth(10);
+		grid.getColumnConstraints().add(cc3);
 
 		grid.setHgap(10);
 		grid.setPadding(new Insets(5, 5, 5, 5));
 		grid.add(game_table, 1, 1);
-		grid.add(vbox_hervat_options, 1, 2);
+		grid.add(vbox_hervat_options, 1, 3);
 
 		grid.setId("gridder");
 		Scene lobby_scene = new Scene(grid, 400, 540);

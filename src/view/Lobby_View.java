@@ -54,6 +54,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		this.bs_interface = bs_interface;
 		this.mol_client=mol_client;
 		this.bijnaam=mol_client.getBijnaam();
+		
 		try {
 			bs_interface.addObserver(this,this.bijnaam);
 		}catch(Exception e){
@@ -70,9 +71,13 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
-		Button btn_klaar = new Button();
+		Button btn_klaar = new Button("KLAAR");
 		Button btn_open = new Button("OPEN");
-
+		btn_geel.setId("geel");
+		btn_groen.setId("groen");
+		btn_rood.setId("rood");
+		btn_blauw.setId("blauw");
+		btn_klaar.setId("klaar");
 		//Knoppen die te maken hebben met een kleur
 		HBox kleurOpties = new HBox();
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
@@ -172,7 +177,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			}
 		});
 		int numCols = 3;
-		int numRows = 4;
+		int numRows = 3;
 
 		for (int i = 0; i < numRows; i++) {
 			RowConstraints rc = new RowConstraints();
@@ -191,12 +196,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		grid.setHgap(10);
 		grid.setPadding(new Insets(5, 5, 5, 5));
 		grid.add(game_table, 1, 1);
-		grid.add(vbox_hervat_options, 1, 3);
-		btn_geel.setId("geel");
-		btn_groen.setId("groen");
-		btn_rood.setId("rood");
-		btn_blauw.setId("blauw");
-		btn_klaar.setId("klaar");
+		grid.add(vbox_hervat_options, 1, 2);
+
 		grid.setId("gridder");
 		Scene lobby_scene = new Scene(grid, 400, 540);
 		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());

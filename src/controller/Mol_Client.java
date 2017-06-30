@@ -42,7 +42,7 @@ public class Mol_Client {
 			Speler_Model sm = new Speler_Model(username, spid);
 
 			bs_controller.checkPlayerList(4, sm);
-
+			userStub.testMe();
 			new Lobby_View(userStub, bs_controller, this);
 		} catch (Exception e) {
 			System.out.println(e);

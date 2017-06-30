@@ -408,7 +408,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
-<<<<<<< HEAD
 
 //				int mol_max = 5;
 //				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
@@ -417,7 +416,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 
 				int mol_max = 5;
-=======
 				/**int mol_max = 5;
 >>>>>>> dd8434a5696afe10cd6630819f7b2025b5334aed
 				mol_index++;
@@ -436,7 +434,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 =======
 			});**/
 		//}
->>>>>>> dd8434a5696afe10cd6630819f7b2025b5334aed
     	return root;
 	}
 	

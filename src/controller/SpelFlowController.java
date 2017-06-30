@@ -71,12 +71,13 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
 
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
-        for (final Button fiche : DashboardView.fiches) {
-            fiche.setOnAction(e -> {
+//        for (final Button fiche : DashboardView.fiches) {
+            DashboardView.fiche_btn.setOnAction(e -> {
                 System.out.println(this.getClass().toString()+": ACTION: FICHE DRAAIEN");
                 try {
                 ficheController.kiesFiche(speler.getFiche_list());
                 System.out.println(this.getClass().toString()+": "+"FicheNR = "+ speler.getFiche_list().getFicheNR());
+                DashboardView.fichenrs.appendText(String.valueOf(speler.getFiche_list().getFicheNR()) +" : ");
 //              DashboardView.open_Fiches.setText(openFiches + ", " +String.valueOf(ficheNR));
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     System.out.println(this.getClass().toString()+": "+BeurtStatus.SELECTEREN);
@@ -87,8 +88,9 @@ public class SpelFlowController{
                     e1.printStackTrace();
                 }
             });
-        }
     }
+
+
 
     public void setFicheknoppenUit() {
         for (final Button fiche : DashboardView.fiches) {

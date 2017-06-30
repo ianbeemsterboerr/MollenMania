@@ -6,6 +6,7 @@ import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import model.Speler_Model;
@@ -25,11 +26,12 @@ public class DashboardView {
     private Pos alignment;
     private boolean isYou=false;
     private Fiche_Controller ficheController = new Fiche_Controller();
-    private Button fiche_btn = new Button("Fiche");
+    public static Button fiche_btn = new Button("Fiche");
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
     public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
+    public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
     /**
@@ -76,6 +78,7 @@ public class DashboardView {
         buttons.add(mol_btn);
         buttons.add(klaar_btn);
         buttons.add(refresh_btn);
+
         VBox ficheBox = new VBox();
         for (Button fiche:fiches) {
             buttons.add(fiche);
@@ -101,7 +104,8 @@ public class DashboardView {
         grid.add(open_Fiches,1,3);
         grid.add(klaar_btn, 0, 3);
         grid.add(refresh_btn, 0, 4);
-        grid.add(ficheBox,0,5);
+        //grid.add(ficheBox,0,5);
+        grid.add(fichenrs,0,7);
         grid.setHgap(10.0);
         grid.setVgap(10.0);
     }

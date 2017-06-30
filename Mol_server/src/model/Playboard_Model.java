@@ -43,7 +43,7 @@ public class Playboard_Model implements Serializable {
         //Niveau 1
         niveau1.getMolshoop().add(new Molshoop_Veld(3,1,-4));
         niveau1.getMolshoop().add(new Molshoop_Veld(4,-1,-3));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-1,4,3));
+        niveau1.getMolshoop().add(new Molshoop_Veld(-1,4,-3));
         niveau1.getMolshoop().add(new Molshoop_Veld(1,1,-2));
         niveau1.getMolshoop().add(new Molshoop_Veld(-1,2,-1));
         niveau1.getMolshoop().add(new Molshoop_Veld(2,-2,0));

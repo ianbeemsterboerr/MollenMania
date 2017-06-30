@@ -136,7 +136,7 @@ public class MolController {
     public boolean molshopenBezetCheck(Bordspel_Interface bs_interface)throws RemoteException {
         Playboard_Model playboardModel = new Playboard_Model();
         Niveau_Model niveauModel = playboardModel.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex());
-        int molshoopCounter = 1;
+        int molshoopCounter = 0;
 
         for (Molshoop_Veld molshoopVeld : niveauModel.getMolshoop()) {
             for (Speler_Model speler : bs_interface.playerList()) {

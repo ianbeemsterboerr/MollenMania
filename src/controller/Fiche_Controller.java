@@ -1,6 +1,7 @@
 package controller;
 
 import model.Fiche_Model;
+import view.DashboardView;
 
 import java.util.Random;
 
@@ -33,6 +34,7 @@ public class Fiche_Controller extends Random {
                 fiche.getGeslotenFiche().add(ficheNr);
             }
             fiche.getOpenFiche().clear();
+            DashboardView.fichenrs.setText("");
         }
         }
 

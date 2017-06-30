@@ -57,7 +57,7 @@ public class MolController {
      * @return true wanneer de zet geldig is.
      * @throws RemoteException
      */
-    public boolean zetGeldig( Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
+    public boolean zetGeldig(Bordspel_Interface bs_interface, Speler_Model spelerModel, MolModel molGeselecteerd, int[] eindPunt) throws RemoteException {
         //als lijst nodig haal deze uit de interface.
         //bepaal delta Coordinaten:
 
@@ -66,7 +66,15 @@ public class MolController {
         int beginpunt[] = molGeselecteerd.getCoord();
         for (int i = 0; i < eindPunt.length; i++) {
             deltaCoord[i] = eindPunt[i] - beginpunt[i];
-            System.out.println("index" + i + " : " + deltaCoord[i]);
+         }
+
+        for(Speler_Model speler:bs_interface.playerList()){
+            for (MolModel molModel : speler.getMol_list()){
+                if(Arrays.equals(eindPunt,molModel.getCoord())){
+                    System.out.println("je mag niet een mol op een andere mol plaatsen");
+                    return false;
+                }
+            }
 
             //Bepaal of Rechte lijn en stappen gelijk aan ficheNR
             if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {

@@ -223,17 +223,17 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
 		// TODO Auto-generated method stub
-		boolean exists=false;
-		for (Player_Observer observer: bord_observers){
-			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
-				int i = bord_observers.lastIndexOf(observer);
-				bord_observers.set(i,po);
-				exists=true;
-			}
-		}
-		if(!exists){
-			bord_observers.add(po);
-		}
+//		boolean exists=false;
+//		for (Player_Observer observer: bord_observers){
+//			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
+//				int i = bord_observers.lastIndexOf(observer);
+//				bord_observers.set(i,po);
+//				exists=true;
+//			}
+//		}
+//		if(!exists){
+			
+		bord_observers.add(po);
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {

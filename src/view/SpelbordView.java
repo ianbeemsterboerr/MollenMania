@@ -87,19 +87,16 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
-<<<<<<< HEAD
+
 		spelbord_pane.setId("moap");
 //		spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
-		
-		Scene bord = new Scene(spelbord_pane, 1280, 720);
-=======
+
 		spelbord_pane.setId("nivel1");
 		//spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("nivel1");
 		
 		Scene bord = new Scene(spelbord_pane, 1440,810);
->>>>>>> cc0d07aced93a411834be16e78d3f8d118505ad4
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
@@ -121,11 +118,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.setResizable(false);
 		bordStage.initStyle(StageStyle.UNDECORATED);
 		bordStage.show();
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> cc0d07aced93a411834be16e78d3f8d118505ad4
         new SpelFlowController().SpelStart(bs_interface);
 	}
 
@@ -387,26 +380,26 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
-<<<<<<< HEAD
+
 //				int mol_max = 5;
 //				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
 //				mol_index++;
 				
-				try {
-=======
+		
+
 				int mol_max = 5;
 				mol_index++;
 				
 				try {
 				    //bs_interface.addMolField(mol_geselecteerd);
->>>>>>> cc0d07aced93a411834be16e78d3f8d118505ad4
+
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			});
-		}		
+				});
+		}	
     	return root;
 	}
 	

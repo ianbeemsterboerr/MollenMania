@@ -22,7 +22,7 @@ public class SpelJoinController {
     }
 
     public void connect(String serverIP, String clientIP, String bijnaam){
-        System.setProperty("java.rmi.server.hostname",clientIP);
+        //System.setProperty("java.rmi.server.hostname",clientIP);
         new Mol_Client(serverIP,bijnaam,mainMenuController.getInstellingenPanelController());
     }
 }

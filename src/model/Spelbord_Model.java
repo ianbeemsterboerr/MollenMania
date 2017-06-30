@@ -232,7 +232,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 //			}
 //		}
 //		if(!exists){
-			
+//			bord_observers.add(po);
+//		}
 		bord_observers.add(po);
 		try {
 			notifyObservers();

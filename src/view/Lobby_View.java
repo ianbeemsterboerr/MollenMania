@@ -36,7 +36,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	Bordspel_Controller bs_controller;
 	Bordspel_Interface bs_interface;
 	ObservableList<Speler_Model> data;
-	TableView<Speler_Model> game_table;
+	TableView<Speler_Model> game_table = new TableView<Speler_Model>(); ;
 	private String bijnaam;
 
 	/**
@@ -67,7 +67,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Stage lobbyStage = new Stage();
 		VBox vbox_hervat_options = new VBox();
 		GridPane grid = new GridPane();
-		game_table = new TableView<Speler_Model>();
 
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
@@ -82,10 +81,6 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		HBox kleurOpties = new HBox();
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
 
-
-//		slider_hand.setMaxWidth(button_width);
-//		kleurOpties.setMaxWidth(button_width);
-//		btn_klaar.setMaxWidth(button_width);
 		slider_hand.setMin(5);
 		slider_hand.setMax(25);
 		slider_hand.setValue(15);
@@ -218,11 +213,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	 */
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(bs_interface.playerList());
 		try{
-			if(playable.observer_list().size() > 5){
-				game_table.setItems(data_new);
-			}
+			ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(playable.playerList());
+			game_table.setItems(data_new);
 		} catch(NullPointerException e){
 			e.printStackTrace();
 		}

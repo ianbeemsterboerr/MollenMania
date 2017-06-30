@@ -1,7 +1,35 @@
-#moap {
-    -fx-background-image: url("../img/Spelbord_Achtergrond_Leeg.png");
-	-fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
+#nivel1 {
+    -fx-background-image: url("../img/SpelbordView1MEGA.png");
+    -fx-background-size:1440 810;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+#nivel2 {
+    -fx-background-image: url("../img/SpelbordView2MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel3 {
+    -fx-background-image: url("../img/SpelbordView3MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel4 {
+    -fx-background-image: url("../img/SpelbordView4MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel5 {
+    -fx-background-image: url("../img/SpelbordView5MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
 }
 
 #panel_win{

@@ -276,48 +276,9 @@ public class Bordspel_Controller {
 				}
 			}
 		}
-		
-	}
 
-	/**
-	 * Zet de coordinaten van de beklikte knop over naar de mol.
-	 * @param sm De SpelerModel die eigenaar is van de mol.
-	 * @param mol_placeholder Een placeholder voor een mol.
-	 * @param buttonBox Het veld waarop de mol wordt neergezet.
-	 * @param mol_max Maximaal aantal mollen. gebaseerd op het aantal spelers die meedoen aan het spel.
-	 * @param mol_index index van de actieve mol.
-	 */
-	public void setMolCoords(Speler_Model sm, MolModel mol_placeholder, VeldKnop buttonBox, int mol_max, int mol_index){
-		//starts at 0 -> how many mols am I going to have? to avoid list exceptions.
-		/*
-		 * mol dinges. here we get the mol that is not yet in play and we give it coords.
-		 * once coords have been set we up the index and go until all mols have been registered.
-		 *
-		 * index max = the amount of mols u have in your list. so when the index is max
-		 * it is time to switch turn
-		 *
-		 */
-		if(sm.getMol_list().size() == mol_max){
-			System.out.println("max");
-		} else {
-			mol_placeholder = sm.getMol_list().get(mol_index);
-			mol_placeholder.setCoord(buttonBox.getCoordinaten()); //mol 0 now has coords, index++
 
-			System.out.println("Current mol index: " + mol_index);
-		}
 
-		/*
-		 * here we send the mol to the board.
-		 * model has new mol + it's coords -> register it for all to see.
-		 */
-		try {
-			this.bs_interface.addMolField(mol_placeholder);
-			System.out.println("Mols on field: " + bs_interface.molOnField().size());
-
-		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
 
 	/**
@@ -330,11 +291,13 @@ public class Bordspel_Controller {
 
 	public void opslaan(){
 		System.out.println(this.getClass().toString()+": opslaan");
+		new SpelSaveController(bs_interface);
 	}
 
 	public void spelVerlaten(){
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
+
 
 
 }

@@ -50,16 +50,18 @@ public class DashboardView {
         this.speler_model=sm;
 
         System.out.println("DashboardView: bijnaam = "+bijnaam+" sm.getUserName = "+sm.getUsername());
-        if(sm.getUsername().trim().equals(bijnaam.trim())) {
-            this.isYou = true;
-            System.out.println("DashboardView: "+bijnaam+" werkt!");
-        }
+
         String openFiches = "";
         String speler_naam = sm.getUsername();
         String mol_count = Integer.toString(sm.getMol_list().size());
         String fiche_count = Integer.toString(sm.getFiche_list().getGeslotenFiche().size());
 
         this.grid = new GridPane();
+        if(sm.getUsername().trim().equals(bijnaam.trim())) {
+            this.isYou = true;
+            System.out.println("DashboardView: "+bijnaam+" werkt!");
+            grid.setStyle("-fx-background-color: "+speler_model.getKleur());
+        }
 
         Label username_lbl = new Label(speler_naam);
         Label aantal_mol_lbl = new Label(mol_count);

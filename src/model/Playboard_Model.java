@@ -9,36 +9,51 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
+ * Maakt het model aan waarin alle niveaus staan. Deze niveaus bevat alle spelinformatie die voor die niveaus relevant zijn.
  * Created by Wessel on 29-5-2017.
  */
 public class Playboard_Model implements Serializable {
-
-   /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Niveau_Model niveau1 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
 	private Niveau_Model niveau2 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
 	private Niveau_Model niveau3 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
 	private Niveau_Model niveau4 = new Niveau_Model(new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-   
+
+    /**
+     * geeft niveau 1 terug
+     * @return Niveau_Model
+     */
     public Niveau_Model getNiveau1() {
         return niveau1;
     }
 
+    /**
+     * geeft niveau 2 terug
+     * @return Niveau_Model
+     */
     public Niveau_Model getNiveau2() {
         return niveau2;
     }
 
+    /**
+     * geeft niveau 3 terug
+     * @return Niveau_Model
+     */
     public Niveau_Model getNiveau3() {
         return niveau3;
     }
 
+    /**
+     * geeft niveau 4 terug
+     * @return Niveau_Model
+     */
     public Niveau_Model getNiveau4() {
         return niveau4;
     }
 
-
+    /**
+     * Maakt alle playboards voor alle niveaus aan. Dit is hardcoded, omdat we precies het mollenmania spel namaken.
+     */
     public Playboard_Model(){
         //Niveau 1
         niveau1.getMolshoop().add(new Molshoop_Veld(3,1,-4));
@@ -88,6 +103,12 @@ public class Playboard_Model implements Serializable {
 
     }
 
+    /**
+     * Geeft aan de hand van een int tussen de 1 en 4 het bijbehorende niveau terug.
+     * @param huidigeNiveau Het huidige niveau, als integer.
+     * @return Niveau_Model
+     * @throws RemoteException Wanneer de connectie tussen de server en client verbroken is.
+     */
     public Niveau_Model getHuidigNiveau(int huidigeNiveau) throws RemoteException {
         switch (huidigeNiveau){
             case 1:

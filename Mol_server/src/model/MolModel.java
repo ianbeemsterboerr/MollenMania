@@ -20,10 +20,10 @@ public class MolModel implements Serializable{
      * @param coord
      * @param kleur
      */
-    public MolModel(int[] coord, String kleur){
-        this.coord=coord;
-        this.kleur=kleur;
-    }
+   public MolModel(int[] coord, String kleur){
+       this.kleur=kleur;
+       this.coord=coord;
+   }
 
     public String getKleur() {
         return this.kleur;
@@ -35,5 +35,13 @@ public class MolModel implements Serializable{
 
     public void setCoord(int[] coord) {
         this.coord = coord;
+    }
+
+    public String printCoord() {
+        String coords = "";
+        for (int xyz : this.coord) {
+            coords += Integer.toString(xyz) +" ";
+        }
+        return coords;
     }
 }

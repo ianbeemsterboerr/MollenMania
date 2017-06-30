@@ -20,4 +20,9 @@ public class SpelJoinController {
     public MainMenuController getMainMenuController(){
         return mainMenuController;
     }
+
+    public void connect(String serverIP, String clientIP, String bijnaam){
+        System.setProperty("java.rmi.server.hostname",clientIP);
+        new Mol_Client(serverIP,bijnaam,mainMenuController.getInstellingenPanelController());
+    }
 }

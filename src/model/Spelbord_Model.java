@@ -24,6 +24,7 @@ public class Spelbord_Model implements Bordspel_Interface{
 	private int beurtIndex;
 	private BeurtStatus beurtStatus;
 
+
 	public Spelbord_Model(int maxSpelers){
 		this.beurtStatus = BeurtStatus.LOBBY;
 		this.bordMax=maxSpelers;
@@ -202,6 +203,7 @@ public class Spelbord_Model implements Bordspel_Interface{
                 for (MolModel molModel : speler.getMol_list()) {
                     if (!Arrays.equals(molshoopVeld.getPositie(), molModel.getCoord())) {
                         int spelerIndex = this.players.indexOf(speler);
+
                         int molIndex = this.players.get(spelerIndex).getMol_list().indexOf(molModel);
                         this.players.get(spelerIndex).getMol_list().remove(molIndex);
                     }

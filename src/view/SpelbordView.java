@@ -220,6 +220,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 1);
 			buttonArray[(column + 1) / 2 - 7] = veld;
 		}
@@ -231,6 +234,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 2);
 			buttonArray[column / 2 - 1] = veld;
 		}
@@ -242,6 +248,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 3);
 			buttonArray[(column + 1) / 2 + 5] = veld;
 		}
@@ -253,6 +262,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 4);
 			buttonArray[column / 2 + 13] = veld;
 		}
@@ -264,6 +276,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 5);
 			buttonArray[(column + 1) / 2 + 21] = veld;
 		}
@@ -275,6 +290,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 6);
 			buttonArray[column / 2 + 30] = veld;
 		}
@@ -286,6 +304,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 7);
 			buttonArray[(column + 1) / 2 + 37] = veld;
 		}
@@ -297,6 +318,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 8);
 			buttonArray[column / 2 + 44] = veld;
 		}
@@ -308,6 +332,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
+			veld.setPrefWidth(40);
+			veld.setPrefHeight(60);
+			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
@@ -340,10 +367,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		 * final used to be used inside lamba. reason: jah knows.
 		 * all buttons become "active" in this for loop
 		 */
-		for(int i=0;i<this.buttonArray.length;i++){
+		/**for(int i=0;i<this.buttonArray.length;i++){
 			final VeldKnop buttonBox;
 			buttonBox = buttonArray[i];
-			buttonBox.setOnAction(e->{
+			/**buttonBox.setOnAction(e->{
 				try {
 					this.bordspel_controller.clickAction(buttonBox.getCoordinaten());
 				} catch (RemoteException e1) {
@@ -355,8 +382,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * and we will register them on the board.
 				 */
 				//buttonBox.setDisable(true);
-				buttonBox.setBezet(true);
+				/**buttonBox.setBezet(true);
 				buttonBox.setStyle("-fx-background-color: #ff0000;");
+
 				/*
 				 * model changes
 				 * to be done:
@@ -369,7 +397,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * PHASE 2:
 				 * 
 				 */
-				try {
+				/**try {
 					// WE ARE USING YOU WHOEVER YOU ARE
 					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
 				} catch (RemoteException e1) {
@@ -380,6 +408,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
+<<<<<<< HEAD
 
 //				int mol_max = 5;
 //				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
@@ -388,6 +417,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 
 				int mol_max = 5;
+=======
+				/**int mol_max = 5;
+>>>>>>> dd8434a5696afe10cd6630819f7b2025b5334aed
 				mol_index++;
 				
 				try {
@@ -398,8 +430,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+<<<<<<< HEAD
 				});
 		}	
+=======
+			});**/
+		//}
+>>>>>>> dd8434a5696afe10cd6630819f7b2025b5334aed
     	return root;
 	}
 	
@@ -430,7 +467,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
-					veldKnop.setStyle("-fx-background-color: white");
+					veldKnop.setStyle("-fx-background-color: transparent;");
 					//veldKnop.setDisable(canNotClick);
 				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);
 				}
@@ -491,7 +528,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(m.getPositie(), buttonArray[x].getCoordinaten())){
 						//buttonArray[x].setDisable(canNotClick);
-						buttonArray[x].setStyle("-fx-background-color: saddlebrown;");
+						buttonArray[x].setStyle("-fx-background-color: transparent;");
 					}
 				}
 			}
@@ -502,20 +539,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
 			boolean disableMol=false;
-//			switch (speler.getKleur()){
-//				case "RED":1
-//					kleur="red";
-//					break;
-//				case "GREEN":
-//					kleur="green";
-//					break;
-//				case "YELLOW":
-//					kleur="yellow";
-//					break;
-//				case "BLUE":
-//					kleur="blue";
-//					break;
-//			}
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
@@ -524,7 +547,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				for (VeldKnop veldKnop:buttonArray) {
 					if(Arrays.equals(mol.getCoord(),veldKnop.getCoordinaten())){
 						//veldKnop.setDisable(disableMol);
-						veldKnop.setStyle("-fx-background-color: "+speler.getKleur()+";");
+						//veldKnop.setStyle("-fx-background-color: "+speler.getKleur()+";");
+						veldKnop.setStyle("-fx-background-color: transparent;");
+						veldKnop.setId(speler.getKleur()+"Pion");
 					}
 				}
 			}

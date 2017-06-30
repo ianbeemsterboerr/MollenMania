@@ -10,7 +10,7 @@
 }
 
 .slider .thumb {
-    -fx-background-image :url("../img/Icon_Handje.png");
+    -fx-graphic: url("../img/Icon_Handje.png");
     -fx-background-color: transparent;
 }
 
@@ -35,7 +35,7 @@
 }
 
 #klaar{
-    -fx-graphic: url("../img/Icon_Mollenbattle.png");
+    -fx-graphic: url("../img/Icon_MollenbattleKnohp.png");
     -fx-background-color: transparent;
 }
 #geelClicked {
@@ -59,6 +59,6 @@
 }
 
 #klaarClicked{
-    -fx-graphic: url("../img/Icon_MollenbattleClicked.png");
+    -fx-graphic: url("../img/Icon_MollenbattleKnohpClicked.png");
     -fx-background-color: transparent;
 }

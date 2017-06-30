@@ -402,7 +402,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		loadSpecial(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadMolsHoop(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadSpelerMols(buttonArray,playable.playerList(), playable.getBeurtStatus());
-		//enableOrDisable(jijAanDeBeurt);
+		enableOrDisable(jijAanDeBeurt);
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{

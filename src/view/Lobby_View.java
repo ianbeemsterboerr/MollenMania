@@ -9,25 +9,27 @@ import controller.Player_Observer;
 import controller.Bordspel_Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.BeurtStatus;
 import model.Speler_Model;
+import model.Velden.VeldKnop;
 
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
-	private Button btn_blauw = new Button("Blauw");
-	private Button btn_rood = new Button("Rood");
-	private Button btn_groen = new Button("Groen");
-	private Button btn_geel = new Button("Geel");
+	private Button btn_blauw = new Button();
+	private Button btn_rood = new Button();
+	private Button btn_groen = new Button();
+	private Button btn_geel = new Button();
 	private Label meldingen = new Label();
+
 	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
@@ -57,7 +59,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+
 		this.bs_controller = bs_controller;
 
 		//view bullshit
@@ -71,7 +73,11 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button("KLAAR");
 		Button btn_open = new Button("OPEN");
-
+		btn_geel.setId("geel");
+		btn_groen.setId("groen");
+		btn_rood.setId("rood");
+		btn_blauw.setId("blauw");
+		btn_klaar.setId("klaar");
 		//Knoppen die te maken hebben met een kleur
 		HBox kleurOpties = new HBox();
 		kleurOpties.getChildren().addAll(btn_blauw,btn_geel,btn_groen,btn_rood);
@@ -96,12 +102,13 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
 		game_table.setMaxWidth(175.0);
-		game_table.setMaxHeight(135.0);
+		game_table.setMaxHeight(200.0);
+
 
 		player_id_col.setCellValueFactory(
-                new PropertyValueFactory<Speler_Model, Integer>("player_id"));
+				new PropertyValueFactory<Speler_Model, Integer>("player_id"));
 		player_name_col.setCellValueFactory(
-                new PropertyValueFactory<Speler_Model, String>("username"));
+				new PropertyValueFactory<Speler_Model, String>("username"));
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 
@@ -110,19 +117,36 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
 
 		btn_blauw.setOnAction(e->{
-			geselecteerdeKleur="red";
+			geselecteerdeKleur="blue";
+			btn_geel.setId("geel");
+			btn_groen.setId("groen");
+			btn_rood.setId("rood");
+			btn_blauw.setId("blauwClicked");
 		});
 		btn_geel.setOnAction(e->{
 			geselecteerdeKleur="yellow";
+			btn_geel.setId("geelClicked");
+			btn_groen.setId("groen");
+			btn_rood.setId("rood");
+			btn_blauw.setId("blauw");
 		});
 		btn_groen.setOnAction(e->{
 			geselecteerdeKleur="green";
+			btn_geel.setId("geel");
+			btn_groen.setId("groenClicked");
+			btn_rood.setId("rood");
+			btn_blauw.setId("blauw");
 		});
 		btn_rood.setOnAction(e->{
-			geselecteerdeKleur="blue";
+			geselecteerdeKleur="red";
+			btn_geel.setId("geel");
+			btn_groen.setId("groen");
+			btn_rood.setId("roodClicked");
+			btn_blauw.setId("blauw");
 		});
-		
+
 		btn_klaar.setOnAction(e -> {
+			btn_klaar.setId("klaarClicked");
 			if(geselecteerdeKleur!=null){
 				try{
 					Speler_Model speler_model;
@@ -131,7 +155,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 							speler_model=speler;
 							speler_model.setHandgrootte((int)slider_hand.getValue());
 							speler_model.setKleur(geselecteerdeKleur);
-							
+
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
 							if(this.bs_interface.setSpelerReady(speler_model)){
 								this.mol_client.naarSpelBord();
@@ -146,8 +170,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			}else{
 				meldingen.setText("Kies eerst een kleur.");
 			}
-			});
-		
+		});
+
 		Button b = new Button("lmao");
 		b.setOnAction(e->{
 			try {
@@ -156,19 +180,29 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 				e1.printStackTrace();
 			}
 		});
-		
-		grid.add(b, 0, 2);
-		grid.setHgap(10);
-	    grid.setPadding(new Insets(5, 5, 5, 5));
-	    grid.add(game_table, 0, 0);
-	    grid.add(vbox_hervat_options, 0, 1);
+		int numCols = 3;
+		int numRows = 3;
 
-		btn_geel.setId("geel");
-		btn_groen.setId("groen");
-		btn_rood.setId("rood");
-		btn_blauw.setId("blauw");
-		btn_klaar.setId("klaar");
-	    grid.setId("gridder");
+		for (int i = 0; i < numRows; i++) {
+			RowConstraints rc = new RowConstraints();
+			rc.setPercentHeight(100.0 / numRows);
+			rc.setValignment(VPos.BOTTOM);
+			grid.getRowConstraints().add(rc);
+		}
+
+		for (int i = 0; i < numCols; i++) {
+			ColumnConstraints cc = new ColumnConstraints();
+			cc.setHalignment(HPos.CENTER);
+			cc.setPercentWidth(100 / numCols);
+			grid.getColumnConstraints().add(cc);
+		}
+
+		grid.setHgap(10);
+		grid.setPadding(new Insets(5, 5, 5, 5));
+		grid.add(game_table, 1, 1);
+		grid.add(vbox_hervat_options, 1, 2);
+
+		grid.setId("gridder");
 		Scene lobby_scene = new Scene(grid, 400, 540);
 		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());
 
@@ -176,7 +210,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		lobbyStage.setScene(lobby_scene);
 		lobbyStage.show();
 	}
-	
+
 	/**
 	 * Observer methods
 	 * @param playable

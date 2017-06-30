@@ -1,7 +1,35 @@
-#moap {
-    -fx-background-image: url("../img/Spelbord_Achtergrond_Leeg.png");
-	-fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
+#nivel1 {
+    -fx-background-image: url("../img/SpelbordView1MEGA.png");
+    -fx-background-size:1440 810;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+#nivel2 {
+    -fx-background-image: url("../img/SpelbordView2MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel3 {
+    -fx-background-image: url("../img/SpelbordView3MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel4 {
+    -fx-background-image: url("../img/SpelbordView4MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+#nivel5 {
+    -fx-background-image: url("../img/SpelbordView5MEGA.png");
+    -fx-background-size:960 540;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
 }
 
 #panel_win{
@@ -16,23 +44,31 @@
     -fx-font-size: 30px;
 }
 
-#PionRood {
-    -fx-graphic: url("../img/PionRood.png");
-    height: 60px;
-    width: auto;
+#redPion {
+    -fx-background-image: url("../img/CLBDPionRood.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
 }
-#PionGroen {
-    -fx-graphic: url("../img/PionGroen.png");
-    height: 60px;
-    width: auto;
+#greenPion {
+    -fx-background-image: url("../img/CLBDPionGroen.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
 }
-#PionBlauw {
-    -fx-graphic: url("../img/PionBlauw.png");
-    height: 60px;
-    width: auto;
+#bluePion {
+    -fx-background-image: url("../img/CLBDPionBlauw.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
 }
-#PionGeel {
-    -fx-graphic: url("../img/PionGeel.png");
-    height: 60px;
-    width: auto;
+#yellowPion {
+    -fx-background-image: url("../img/CLBDPionGeel.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+
 }

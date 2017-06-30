@@ -22,6 +22,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.BeurtStatus;
 import model.MolModel;
 import model.Playboard_Model;
@@ -76,11 +77,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //		Button next_stage = new Button("Next!");
 //		next_stage.setOnAction(e->{
 //			try {
-//				
+//	
 //				bs_interface.changeNiveauInt();
 //				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
-////				System.out.println(bs_interface.molOnField().size());
-////				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
+//				System.out.println(bs_interface.molOnField().size());
+//				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
 //				
 //			} catch (RemoteException e1) {
 //				// TODO Auto-generated catch block
@@ -94,10 +95,10 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		spelbord_pane.setTop(this.instInGameView.getView());
 		spelbord_pane.setCenter(veld_pane);
 		spelbord_pane.setId("moap");
-		spelbord_pane.setLeft(next_stage);
+//		spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
 		
-		Scene bord = new Scene(spelbord_pane, 1440,900);
+		Scene bord = new Scene(spelbord_pane, 1280, 720);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
@@ -110,7 +111,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.setTitle("play with me");
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
+		bordStage.initStyle(StageStyle.UNDECORATED);
 		bordStage.show();
+		
         new SpelFlowController().SpelStart(bs_interface);
 	}
 
@@ -375,12 +378,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
 				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
 				 */
-				int mol_max = 5;
-				this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
-				mol_index++;
+//				int mol_max = 5;
+//				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
+//				mol_index++;
 				
 				try {
-				    bs_interface.addMolField(mol_geselecteerd);
 					bs_interface.notifyObservers();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block

@@ -71,7 +71,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
-		Button btn_klaar = new Button("KLAAR");
+		Button btn_klaar = new Button();
 		Button btn_open = new Button("OPEN");
 		btn_geel.setId("geel");
 		btn_groen.setId("groen");

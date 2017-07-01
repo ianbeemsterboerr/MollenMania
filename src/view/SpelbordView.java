@@ -1,6 +1,5 @@
 package view;
 
-import java.lang.reflect.Array;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import model.Velden.GoudenSchep_Veld;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
+import javafx.application.Platform;
 
 public class SpelbordView extends UnicastRemoteObject implements Player_Observer{
 	
@@ -48,15 +48,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	private InstInGameView instInGameView;
 	private boolean enabled;
 	public static VeldKnop[] buttonArray;
+	public Label statusMessage = new Label("Het spelbord laadt...");
 
 	DashboardView player_1;
 	DashboardView player_2;
 	DashboardView player_3;
 	DashboardView player_4;
-	
-	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, MolController molController, Fiche_Controller fiche_controller, String bijnaam) throws RemoteException{
-		this.molController=molController;
-	}
 	
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam, InstInGameView instInGameView) throws RemoteException{
 		this.instInGameView=instInGameView;
@@ -85,7 +82,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane = this.loadVeld(players);
 		spelbord_pane = this.loadPlayers(players, bs_controller, bijnaam);
 
-		spelbord_pane.setTop(this.instInGameView.getView());
+		BorderPane topPane = new BorderPane();
+
+		this.statusMessage.setAlignment(Pos.CENTER);
+		this.statusMessage.setId("status-message");
+		topPane.setCenter(this.statusMessage);
+		topPane.setRight(this.instInGameView.getView());
+		spelbord_pane.setTop(topPane);
 		spelbord_pane.setCenter(veld_pane);
 
 		spelbord_pane.setId("moap");
@@ -436,22 +439,21 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		//}
     	return root;
 	}
-	
-	public void changeLabels(Label lbl, String str){
-		lbl.setText(str);
-	}
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		System.out.println(this.getClass().toString()+": MODELCHANGED"+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
-		boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
+		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
+		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+playable.getBeurtStatus());
+		//boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
+		Speler_Model aanDeBeurt = playable.playerList().get(playable.beurtIndex());
 
 		schoonmakenBord(buttonArray,playable.getBeurtStatus());
 		loadGoudenSchep(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadSpecial(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadMolsHoop(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
 		loadSpelerMols(buttonArray,playable.playerList(), playable.getBeurtStatus());
-		enableOrDisable(jijAanDeBeurt);
+		enableOrDisable(aanDeBeurt, playable.getBeurtStatus());
+		changeLabels(aanDeBeurt,playable.getBeurtStatus());
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{
@@ -461,12 +463,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	//
 		// .println(this.getClass().toString()+": schoonmakenBord canNotClick "+canNotClick);
-		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
+		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.BORDSTARTEN){
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
 					veldKnop.setStyle("-fx-background-color: transparent;");
 					veldKnop.setId(" ");
-					//veldKnop.setDisable(canNotClick);
+					veldKnop.setDisable(false);
 				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);
 				}
 			}catch (NullPointerException e){
@@ -554,16 +556,78 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
-	public void enableOrDisable(boolean jijAanDeBeurt){
-		if(!jijAanDeBeurt){
-//			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");
+	public void enableOrDisable(Speler_Model aanDeBeurt, BeurtStatus beurtStatus){
+		boolean jijAanDeBeurt = aanDeBeurt.getUsername().trim().equals(this.bordspel_controller.getBijnaam().trim());
+		if(!jijAanDeBeurt||beurtStatus==BeurtStatus.BORDSTARTEN){
+			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");
 			for (VeldKnop veldKnop: buttonArray) {
-			//	veldKnop.setDisable(true);
+				veldKnop.setDisable(true);
 			}
 		}else{
-//			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is ENABLED");
+			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is ENABLED");
 		}
 
+	}
+
+	/**
+	 * Zorgt ervoor dat er een boodschap bovenaan eht scherm kkomt te staan dat de speler verteld wat hij moet doen
+	 * en wie er aan de beurt is.
+	 *
+	 * @param beurtStatus
+	 * @param aanDeBeurt
+	 *
+	 * Author	Robert den Blaauwen
+	 * Versie	1-7-017
+	 */
+	public void changeLabels(Speler_Model aanDeBeurt,BeurtStatus beurtStatus){
+		//Gebruikt runLater() om RMI errors te voorkomen. javaFX kan er nameljk niet tegen als hij wordt aangeroepen via RMI
+		Platform.runLater(()->{
+			String beurtMessage;
+			String statusMessage;
+			if(beurtStatus==BeurtStatus.BORDSTARTEN){
+				beurtMessage="";
+				statusMessage="Wacht tot alle spelers in het spel zitten.";
+			}else{
+				if(aanDeBeurt.getUsername().trim().equals(this.bordspel_controller.getBijnaam().trim())){
+					beurtMessage="Jij bent aan de beurt.";
+					switch (beurtStatus){
+						case NEERZETTEN:
+							statusMessage="Zet een mol neer door op een van de velden te klikken.";
+							break;
+						case FICHEDRAAIEN:
+							statusMessage="Draai een fiche.";
+							break;
+						case SELECTEREN:
+							statusMessage="Selecteer een mol door er op een te klikken.";
+							break;
+						case VERPLAATSEN:
+							statusMessage="Verplaats een mol door op een leeg veld of een molshoop te stappen.";
+							break;
+						default:
+							statusMessage="Er ging iets mis met het ophalen van het status bericht.";
+					}
+				}else{
+					beurtMessage=aanDeBeurt.getUsername();
+					switch (beurtStatus){
+						case NEERZETTEN:
+							statusMessage="is een mol aan het neerzetten.";
+							break;
+						case FICHEDRAAIEN:
+							statusMessage="is een fiche aan het draaien.";
+							break;
+						case SELECTEREN:
+							statusMessage="is een mol aan het selecteren.";
+							break;
+						case VERPLAATSEN:
+							statusMessage="is een mol aan het verplaatsen.";
+							break;
+						default:
+							statusMessage="Er ging iets mis met het ophalen van het status bericht.";
+					}
+				}
+			}
+			this.statusMessage.setText(beurtMessage+" "+statusMessage);
+		});
 	}
 
 	@Override

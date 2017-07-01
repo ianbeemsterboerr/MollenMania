@@ -149,6 +149,13 @@ public class Spelbord_Model implements Bordspel_Interface{
         System.out.println("na verplaatsen" +this.players.get(aanDeBeurt).getMol_list().get(molIndex).printCoord());
     }
 
+	/**
+	 * Zet speler data, geeft aan dat ie ready is.
+	 *
+	 * @param sm
+	 * @throws RemoteException
+	 * @author	Robert
+	 */
 	@Override
 	public boolean setSpelerReady(Speler_Model sm) throws RemoteException{
 		System.out.println(this.getClass().toString()+" setSpelerReady()");
@@ -169,12 +176,31 @@ public class Spelbord_Model implements Bordspel_Interface{
 				readyCount++;
 			}
 		}
+		if(readyCount==bordMax){
+			this.beurtStatus=BeurtStatus.BORDSTARTEN;
+		}
 		notifyObservers();
 		if(readyCount==bordMax){
-			this.beurtStatus=BeurtStatus.NEERZETTEN;
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void setSpelerInGame(String bijnaam)throws RemoteException{
+		int inGameCount=0;
+		for (Speler_Model speler:players) {
+			if(speler.getUsername().trim().equals(bijnaam.trim())){
+				speler.setInGame(true);
+			}
+			if(speler.isInGame()){
+				inGameCount++;
+			}
+		}
+		if(inGameCount==bordMax){
+			beurtStatus=BeurtStatus.NEERZETTEN;
+		}
+		notifyObservers();
 	}
 
 	@Override

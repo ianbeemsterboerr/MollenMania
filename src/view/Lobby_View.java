@@ -2,11 +2,13 @@ package view;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 import controller.Bordspel_Interface;
 import controller.Mol_Client;
 import controller.Player_Observer;
 import controller.Bordspel_Controller;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
@@ -29,14 +31,15 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private Button btn_groen = new Button();
 	private Button btn_geel = new Button();
 	private Label meldingen = new Label();
+	Button btn_start = new Button("START");
 
 	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
 	private static final long serialVersionUID = 1L;
-	Bordspel_Controller bs_controller;
-	Bordspel_Interface bs_interface;
-	ObservableList<Speler_Model> data;
-	TableView<Speler_Model> game_table = new TableView<Speler_Model>(); ;
+	private Bordspel_Controller bs_controller;
+	private Bordspel_Interface bs_interface;
+	private ObservableList<Speler_Model> data;
+	private TableView<Speler_Model> game_table = new TableView<Speler_Model>(); ;
 	private String bijnaam;
 
 	/**
@@ -72,7 +75,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		//Belangrijkste knoppen
 		Slider slider_hand = new Slider();
 		Button btn_klaar = new Button();
-		Button btn_open = new Button("OPEN");
+		btn_start.setMaxWidth(button_width);
+		btn_start.setDisable(true);
+
 		btn_geel.setId("geel");
 		btn_groen.setId("groen");
 		btn_rood.setId("rood");
@@ -110,7 +115,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 
 		vbox_hervat_options.setSpacing(5.0);
-		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar, meldingen);
+		vbox_hervat_options.getChildren().addAll(kleurOpties,slider_hand, btn_klaar,btn_start, meldingen);
 
 		btn_blauw.setOnAction(e->{
 			geselecteerdeKleur="blue";
@@ -153,18 +158,30 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 							speler_model.setKleur(geselecteerdeKleur);
 
 							System.out.println(this.getClass().toString()+" kleur: "+geselecteerdeKleur+" handgrootte: "+slider_hand.getValue());
-							if(this.bs_interface.setSpelerReady(speler_model)){
-								this.mol_client.naarSpelBord();
-							}
+
+							//oude systeem
+//							if(this.bs_interface.setSpelerReady(speler_model)){
+//								this.mol_client.naarSpelBord();
+//							}
+							this.bs_interface.setSpelerReady(speler_model);
 						}
 					}
 					//Speler_Model speler_model = game_table.getSelectionModel().getSelectedItem().getMyself();
-
+					this.meldingen.setText("Nog niet alle spelers zijn klaar om te spelen.");
 				}catch(Exception b){
 					b.printStackTrace();
 				}
 			}else{
 				meldingen.setText("Kies eerst een kleur.");
+			}
+		});
+
+		btn_start.setOnAction(e->{
+			try {
+				this.bs_interface.setSpelerInGame(this.bijnaam);
+				this.mol_client.naarSpelBord();
+			} catch (RemoteException e1) {
+				System.out.println(this.getClass().toString()+": "+e1);
 			}
 		});
 
@@ -231,6 +248,29 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		try{
 			ObservableList<Speler_Model> data_new = FXCollections.observableArrayList(playable.playerList());
 			game_table.setItems(data_new);
+			System.out.println(this.getClass().toString()+": Beurtstatus is "+playable.getBeurtStatus());
+//			int readyCount = 0;
+//			ArrayList<Speler_Model> spelers = playable.playerList();
+//			for (Speler_Model speler:spelers) {
+//				if(speler.isReady()){
+//					readyCount++;
+//				}
+//			}
+			//Zorgt ervoor dat de shizzle kan draaien zonder RMI errors. Gebruik alleen voor cosmetica please, anders krijg je errors.
+			Platform.runLater(()->{
+				try{
+					BeurtStatus beurtStatus = playable.getBeurtStatus();
+					if(beurtStatus==BeurtStatus.BORDSTARTEN){
+						this.meldingen.setText("Alle spelers zijn klaar. Druk nu op START om het spel binnen te gaan.");
+						btn_start.setDisable(false);
+					}else if(beurtStatus!=BeurtStatus.LOBBY){
+						this.meldingen.setText("Het spel is al begonnen lijkt het?!?");
+					}
+				}catch (RemoteException eStatus){
+					System.out.println(this.getClass().toString()+": modelChanged runLater: "+eStatus);
+				}
+
+			});
 		} catch(NullPointerException e){
 			e.printStackTrace();
 		}

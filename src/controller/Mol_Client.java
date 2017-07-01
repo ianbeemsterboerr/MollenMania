@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+import javafx.application.Platform;
 import model.Speler_Model;
 import view.InstellingenView;
 import view.Lobby_View;

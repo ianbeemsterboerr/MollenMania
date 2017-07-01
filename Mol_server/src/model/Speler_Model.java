@@ -20,7 +20,8 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	private int fichesSize;
 	private int molSize;
 	private Speler_Model myself;
-	private boolean isReady;
+	private boolean isReady=false;
+	private boolean inGame=false;
 
 	public Speler_Model(){
 
@@ -106,6 +107,14 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 
 	public void setReady(boolean ready) {
 		isReady = ready;
+	}
+
+	public boolean isInGame() {
+		return inGame;
+	}
+
+	public void setInGame(boolean inGame) {
+		this.inGame = inGame;
 	}
 
 }

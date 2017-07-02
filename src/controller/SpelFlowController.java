@@ -41,17 +41,18 @@ public class SpelFlowController{
             buttonBox.setOnAction(e -> {
                 System.out.println(this.getClass().toString()+": ACTION: NEERZETTEN");
                 try {
-                    if (molController.aantalMollen(bsInterface) <= bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size()) {
+                    Speler_Model spelerAanDeBeurt = bsInterface.playerList().get(bsInterface.beurtIndex());
+                    if (molController.aantalMollen(bsInterface) <= spelerAanDeBeurt.getMol_list().size()) {
                         clearKnoppen();
                         bsInterface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
                         System.out.println(this.getClass().toString()+": "+"naar fiche "+BeurtStatus.FICHEDRAAIEN);
-                        setFicheknoppenAan(bsInterface.playerList().get(bsInterface.beurtIndex()), bsInterface);
+                        setFicheknoppenAan(spelerAanDeBeurt, bsInterface);
                         bsInterface.notifyObservers();
                         }
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
 //                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
-                        System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +bsInterface.playerList().get(bsInterface.beurtIndex()).getMol_list().size());
+                        System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +spelerAanDeBeurt.getMol_list().size());
                         nextPlayer(bsInterface);
                         System.out.println(this.getClass().toString()+": "+"spelerIndex: " +bsInterface.beurtIndex());
                         System.out.println(this.getClass().toString()+": "+"mol geplaatst en next");
@@ -71,17 +72,19 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
 
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
+        System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");
 //        for (final Button fiche : DashboardView.fiches) {
             DashboardView.fiche_btn.setOnAction(e -> {
+                Fiche_Model fiche_list = speler.getFiche_list();
                 System.out.println(this.getClass().toString()+": ACTION: FICHE DRAAIEN");
                 try {
-                ficheController.kiesFiche(speler.getFiche_list());
-                System.out.println(this.getClass().toString()+": "+"FicheNR = "+ speler.getFiche_list().getFicheNR());
-                DashboardView.fichenrs.appendText(String.valueOf(speler.getFiche_list().getFicheNR()) +" : ");
+                    ficheController.kiesFiche(fiche_list);
+                    System.out.println(this.getClass().toString()+": "+"FicheNR = "+ fiche_list.getFicheNR());
+                    DashboardView.fichenrs.appendText(String.valueOf(fiche_list.getFicheNR()) +" : ");
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     System.out.println(this.getClass().toString()+": "+BeurtStatus.SELECTEREN);
-                setFicheknoppenUit();
-                selecteerMolKnoppen(speler,bs_interface);
+                    setFicheknoppenUit();
+                    selecteerMolKnoppen(speler,bs_interface);
                 bs_interface.notifyObservers(); //vervangen door notifySelf()?
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
@@ -130,7 +133,7 @@ public class SpelFlowController{
                     if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
                         bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
-                        bs_interface.notifyObservers();
+                        //bs_interface.notifyObservers();
                         System.out.println(this.getClass().toString() + ": pion geplaatst op: " + bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
                         rondeOpruim(speler, bs_interface);
                     }
@@ -155,7 +158,7 @@ public class SpelFlowController{
                 //einde spel
             }
             clearKnoppen();
-            bs_interface.veranderBeurt();
+            this.nextPlayer(bs_interface);
             bs_interface.notifyObservers();
             setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
         }

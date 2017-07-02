@@ -48,7 +48,7 @@ public class DashboardView {
      */
     public DashboardView(Speler_Model sm, Bordspel_Controller bs_controller, Pos alignment, String bijnaam){
         this.alignment=alignment;
-        this.bordspel_controller = bordspel_controller;
+        this.bordspel_controller = bs_controller;
         this.speler_model=sm;
 
         System.out.println("DashboardView: bijnaam = "+bijnaam+" sm.getUserName = "+sm.getUsername());

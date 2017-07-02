@@ -18,6 +18,7 @@ public class Fiche_Controller extends Random {
     public void kiesFiche(Fiche_Model fiche) {
         int getal = this.nextInt(fiche.getGeslotenFiche().size());
         fiche.setFicheNR(fiche.getGeslotenFiche().get(getal));
+        System.out.println(this.getClass().toString()+": kiseFiche gemaakt getal is "+getal+", getal in Fiche_Model is "+fiche.getFicheNR());
         fiche.getOpenFiche().add(fiche.getGeslotenFiche().get(getal));
         fiche.getGeslotenFiche().remove(getal);
         System.out.println(fiche.getFicheNR());

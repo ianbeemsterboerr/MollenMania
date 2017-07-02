@@ -22,10 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.BeurtStatus;
-import model.MolModel;
-import model.Playboard_Model;
-import model.Speler_Model;
+import model.*;
 import model.Velden.GoudenSchep_Veld;
 import model.Velden.Molshoop_Veld;
 import model.Velden.SpeciaalVeld_Veld;
@@ -442,18 +439,24 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
-		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
-		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+playable.getBeurtStatus());
 		//boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
-		Speler_Model aanDeBeurt = playable.playerList().get(playable.beurtIndex());
 
-		schoonmakenBord(buttonArray,playable.getBeurtStatus());
-		loadGoudenSchep(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpecial(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadMolsHoop(buttonArray,new Playboard_Model(),playable.getHuidigeNiveauIndex(),playable.getBeurtStatus());
-		loadSpelerMols(buttonArray,playable.playerList(), playable.getBeurtStatus());
-		enableOrDisable(aanDeBeurt, playable.getBeurtStatus());
-		changeLabels(aanDeBeurt,playable.getBeurtStatus());
+		// Variabelen maken zodat de server geen miljard keer aangeroepen hoeft te worden.
+		Playboard_Model playboard_model = new Playboard_Model();
+		String aanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername();
+		BeurtStatus beurtStatus = playable.getBeurtStatus();
+		Niveau_Model huidigNiveau = playboard_model.getHuidigNiveau(playable.getHuidigeNiveauIndex());
+
+		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
+		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+beurtStatus);
+
+		schoonmakenBord(buttonArray,beurtStatus);
+		loadGoudenSchep(buttonArray,huidigNiveau,beurtStatus);
+		loadSpecial(buttonArray,huidigNiveau,beurtStatus);
+		loadMolsHoop(buttonArray,huidigNiveau,beurtStatus);
+		loadSpelerMols(buttonArray,playable.playerList(), beurtStatus);
+		enableOrDisable(aanDeBeurt, beurtStatus);
+		changeLabels(aanDeBeurt,beurtStatus);
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{
@@ -478,8 +481,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 	
-	public void loadGoudenSchep(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws  RemoteException{
-		ArrayList<GoudenSchep_Veld> goudenSchep_veld=pm.getHuidigNiveau(niveau).getGoudenSchep();
+	public void loadGoudenSchep(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws  RemoteException{
+		ArrayList<GoudenSchep_Veld> goudenSchep_veld=huidigNiveau.getGoudenSchep();
 		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
@@ -497,8 +500,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 	
-	public void loadSpecial(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
-		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = pm.getHuidigNiveau(niveau).getSpeciaal();
+	public void loadSpecial(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws RemoteException{
+		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = huidigNiveau.getSpeciaal();
 		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
@@ -516,8 +519,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
-	public void loadMolsHoop(VeldKnop[] buttonArray, Playboard_Model pm, int niveau, BeurtStatus status) throws RemoteException{
-		ArrayList<Molshoop_Veld> molshoop_niveau = pm.getHuidigNiveau(niveau).getMolshoop();
+	public void loadMolsHoop(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws RemoteException{
+		ArrayList<Molshoop_Veld> molshoop_niveau = huidigNiveau.getMolshoop();
 		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
@@ -556,8 +559,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
-	public void enableOrDisable(Speler_Model aanDeBeurt, BeurtStatus beurtStatus){
-		boolean jijAanDeBeurt = aanDeBeurt.getUsername().trim().equals(this.bordspel_controller.getBijnaam().trim());
+	public void enableOrDisable(String aanDeBeurt, BeurtStatus beurtStatus){
+		boolean jijAanDeBeurt = aanDeBeurt.trim().equals(this.bordspel_controller.getBijnaam().trim());
 		if(!jijAanDeBeurt||beurtStatus==BeurtStatus.BORDSTARTEN){
 			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");
 			for (VeldKnop veldKnop: buttonArray) {
@@ -570,7 +573,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	}
 
 	/**
-	 * Zorgt ervoor dat er een boodschap bovenaan eht scherm kkomt te staan dat de speler verteld wat hij moet doen
+	 * Zorgt ervoor dat er een boodschap bovenaan het scherm komt te staan dat de speler verteld wat hij moet doen
 	 * en wie er aan de beurt is.
 	 *
 	 * @param beurtStatus
@@ -579,7 +582,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	 * Author	Robert den Blaauwen
 	 * Versie	1-7-017
 	 */
-	public void changeLabels(Speler_Model aanDeBeurt,BeurtStatus beurtStatus){
+	public void changeLabels(String aanDeBeurt,BeurtStatus beurtStatus){
 		//Gebruikt runLater() om RMI errors te voorkomen. javaFX kan er nameljk niet tegen als hij wordt aangeroepen via RMI
 		Platform.runLater(()->{
 			String beurtMessage;
@@ -588,7 +591,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				beurtMessage="";
 				statusMessage="Wacht tot alle spelers in het spel zitten.";
 			}else{
-				if(aanDeBeurt.getUsername().trim().equals(this.bordspel_controller.getBijnaam().trim())){
+				if(aanDeBeurt.trim().equals(this.bordspel_controller.getBijnaam().trim())){
 					beurtMessage="Jij bent aan de beurt.";
 					switch (beurtStatus){
 						case NEERZETTEN:
@@ -607,7 +610,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 							statusMessage="Er ging iets mis met het ophalen van het status bericht.";
 					}
 				}else{
-					beurtMessage=aanDeBeurt.getUsername();
+					beurtMessage=aanDeBeurt;
 					switch (beurtStatus){
 						case NEERZETTEN:
 							statusMessage="is een mol aan het neerzetten.";

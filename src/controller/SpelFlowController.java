@@ -35,7 +35,7 @@ public class SpelFlowController{
         setKnoppenNeerzetten(bs);
     }
 
-    public void setKnoppenNeerzetten( Bordspel_Interface bsInterface) throws RemoteException {
+    public void setKnoppenNeerzetten(Bordspel_Interface bsInterface) throws RemoteException {
         System.out.println(this.getClass().toString()+": setKnoppenNeerzetten");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
@@ -129,6 +129,7 @@ public class SpelFlowController{
                 try {
                     if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
+                        bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
                         bs_interface.notifyObservers();
                         System.out.println(this.getClass().toString() + ": pion geplaatst op: " + bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
                         rondeOpruim(speler, bs_interface);

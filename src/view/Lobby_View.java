@@ -180,6 +180,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 			try {
 				this.bs_interface.setSpelerInGame(this.bijnaam);
 				this.mol_client.naarSpelBord();
+				lobbyStage.close();
 			} catch (RemoteException e1) {
 				System.out.println(this.getClass().toString()+": "+e1);
 			}

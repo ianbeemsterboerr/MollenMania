@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -69,19 +71,33 @@ public class HostSpelView {
         grid.setVgap(4);
         grid.setHgap(10);
         grid.setPadding(new Insets(5, 5, 5, 5));
-        grid.add(new Label("MAX AANTAL SPELERS: "), 0, 0);
-        grid.add(cb_aantal_spelers, 1, 0);
-        grid.add(new Label("USERNAME: "), 0, 1);
-        grid.add(username, 1, 1);
-        grid.add(btn_host, 1, 2);
-        grid.add(btn_back, 2, 2);
 
-        Scene connect_scene = new Scene(grid, 360, 120);
+        Label spelers = new Label("MAX AANTAL SPELERS: ");
+        spelers.setId("overlay_label");
+        grid.add(spelers, 0, 0);
+        grid.add(cb_aantal_spelers, 1, 0);
+
+        Label gebruikersnaam = new Label("USERNAME: ");
+        gebruikersnaam.setId("overlay_label");
+        grid.add(gebruikersnaam, 0, 1);
+        grid.add(username, 1, 1);
+        grid.add(btn_host, 0, 2);
+        grid.add(btn_back, 1, 2);
+        grid.setAlignment(Pos.CENTER);
+        grid.setId("overlay_window");
+
+        BorderPane hostPane = new BorderPane();
+        hostPane.setId("overlay_window");
+        hostPane.setId("overlay");
+        hostPane.setCenter(grid);
+
+        Scene host_scene = new Scene(hostPane, 1000, 600);
+        host_scene.setFill(Color.TRANSPARENT);
         //Make scene call up style.css for styling
-        connect_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
+        host_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
         connectStage.setTitle("Host een spel");
-        connectStage.setScene(connect_scene);
-        connectStage.initStyle(StageStyle.UNDECORATED);
+        connectStage.setScene(host_scene);
+        connectStage.initStyle(StageStyle.TRANSPARENT);
         connectStage.show();
     }
     

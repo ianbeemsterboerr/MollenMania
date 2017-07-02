@@ -8,8 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Speler_Model;
@@ -24,6 +26,7 @@ public class JoinSpelView {
     private TextField ipServer, username, ipClient;
     private Speler_Model player;
     private SpelJoinController spelJoinController;
+    private Label tipLabel = new Label("Hint: als je meerdere spelers wilt maken moet je de client applicatie meerdere keren starten, anders werkt het spel niet.");
     
     /**
      * Constructor die ervoor zorgt dat de scherm om een spel te joinen geladen wordt.
@@ -71,21 +74,41 @@ public class JoinSpelView {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setPadding(new Insets(5, 5, 5, 5));
-        grid.add(new Label("Server IP adres: "), 0, 0);
+
+        Label serverIP = new Label("Server IP adres: ");
+        serverIP.setId("overlay_label");
+        grid.add(serverIP, 0, 0);
         grid.add(ipServer, 1, 0);
-        grid.add(new Label("Client IP adres"), 0, 1);
+
+        Label clientIP = new Label("Client IP adres: ");
+        clientIP.setId("overlay_label");
+        grid.add(clientIP, 0, 1);
         grid.add(ipClient, 1, 1);
-        grid.add(new Label("Gebruikersnaam: "), 0, 2);
+
+        Label gebruikersnaam = new Label("Gebruikersnaam: ");
+        gebruikersnaam.setId("overlay_label");
+        grid.add(gebruikersnaam, 0, 2);
         grid.add(username, 1, 2);
+        grid.setAlignment(Pos.CENTER);
+
         grid.add(btn_connect, 0, 3);
         grid.add(btn_back, 1, 3);
-        Scene connect_scene = new Scene(grid, 350, 150);
+        grid.setId("overlay_window");
+
+        tipLabel.setId("overlay_label");
+        BorderPane joinPane = new BorderPane();
+        joinPane.setId("overlay");
+        joinPane.setCenter(grid);
+        tipLabel.setAlignment(Pos.TOP_CENTER);
+        joinPane.setTop(tipLabel);
+        Scene connect_scene = new Scene(joinPane, 1000, 600);
+        connect_scene.setFill(Color.TRANSPARENT);
 
         //Make scene call up style.css for styling
-        //connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+        connect_scene.getStylesheets().addAll(getClass().getResource("style/main_menu_style.css").toExternalForm());
         connectStage.setTitle("Insert IP to connect");
         connectStage.setScene(connect_scene);
-        connectStage.initStyle(StageStyle.UNDECORATED);
+        connectStage.initStyle(StageStyle.TRANSPARENT);
         connectStage.show();
         //WinView winView = new WinView();
     }

@@ -1,14 +1,16 @@
 package view;
 
 import controller.Bordspel_Controller;
-import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import model.Fiche_Model;
 import model.Speler_Model;
 
 import java.util.ArrayList;
@@ -27,12 +29,10 @@ public class DashboardView {
     private boolean isYou=false;
     private Fiche_Controller ficheController = new Fiche_Controller();
     public static Button fiche_btn = new Button("Fiche");
-    private Button mol_btn = new Button("Mol");
-    private Button klaar_btn = new Button("Klaar");
-    private Button refresh_btn = new Button("Refresh");
-    public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
+    public static FicheButton[] fiches = new FicheButton[6];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
+    private ImageView molPane;
 
     /**
      * De constructor, maakt een Grid object met alle knoppen en labels erin en slaat die op.
@@ -50,6 +50,23 @@ public class DashboardView {
         this.alignment=alignment;
         this.bordspel_controller = bs_controller;
         this.speler_model=sm;
+
+        String molPath="";
+        switch (sm.getKleur()){
+            case "red":
+                molPath="CLBDSpelerRood.png";
+                break;
+            case "blue":
+                molPath="CLBDSpelerBlauw.png";
+                break;
+            case "yellow":
+                molPath="CLBDSpelerGeel.png";
+                break;
+            case "green":
+                molPath="CLBDSpelerGroen.png";
+        }
+        Image molPlaatje = new Image(getClass().getResource("img/"+molPath).toString());
+        this.molPane =new ImageView(molPlaatje);
 
         System.out.println("DashboardView: bijnaam = "+bijnaam+" sm.getUserName = "+sm.getUsername());
 
@@ -75,41 +92,55 @@ public class DashboardView {
         aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
 
         buttons.add(fiche_btn);
-        buttons.add(mol_btn);
-        buttons.add(klaar_btn);
-        buttons.add(refresh_btn);
 
-        VBox ficheBox = new VBox();
+        FicheButton fiche1 = new FicheButton();
+        FicheButton fiche2 = new FicheButton();
+        FicheButton fiche3 = new FicheButton();
+        FicheButton fiche4 = new FicheButton();
+        FicheButton fiche5 = new FicheButton();
+        FicheButton fiche6 = new FicheButton();
+
+        fiche1.setId("fiche_nietgedraaid");
+        fiche2.setId("fiche_nietgedraaid");
+        fiche3.setId("fiche_nietgedraaid");
+        fiche4.setId("fiche_nietgedraaid");
+        fiche5.setId("fiche_nietgedraaid");
+        fiche6.setId("fiche_nietgedraaid");
+
+        fiches[0]=fiche1;
+        fiches[1]=fiche2;
+        fiches[2]=fiche3;
+        fiches[3]=fiche4;
+        fiches[4]=fiche5;
+        fiches[5]=fiche6;
+
+        GridPane ficheGrid = new GridPane();
+        ficheGrid.add(fiche1,0,0);
+        ficheGrid.add(fiche2,1,0);
+        ficheGrid.add(fiche3,0,1);
+        ficheGrid.add(fiche4,1,1);
+        ficheGrid.add(fiche5,0,2);
+        ficheGrid.add(fiche6,1,2);
+
+
+        VBox mol_en_fichebtnBox = new VBox();
+        mol_en_fichebtnBox.getChildren().add(molPane);
+        aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
+        mol_en_fichebtnBox.getChildren().add(aantal_mol_lbl);
+        mol_en_fichebtnBox.getChildren().add(fiche_btn);
+
+        GridPane stateGrid = new GridPane();
+        stateGrid.add(ficheGrid,0,0);
+        stateGrid.add(mol_en_fichebtnBox,1,0);
+
         for (Button fiche:fiches) {
             buttons.add(fiche);
-            ficheBox.getChildren().add(fiche);
         }
 
-        refresh_btn.setOnAction(e->{
-            aantal_fiche_lbl.setText(fiche_count);
-            aantal_mol_lbl.setText(mol_count);
-        });
-
-
-        mol_btn.setOnAction(e->{
-            System.out.println("KnopVerwijderen");
-//            sm.getMol_list().remove(1);
-        });
-
         grid.add(username_lbl, 0, 0);
-        grid.add(mol_btn, 0, 1);
-        grid.add(aantal_mol_lbl, 1, 1);
-        grid.add(fiche_btn, 0, 2);
-        grid.add(aantal_fiche_lbl, 1, 2);
-        grid.add(open_Fiches,1,3);
-        grid.add(klaar_btn, 0, 3);
-        grid.add(refresh_btn, 0, 4);
-        //grid.add(ficheBox,0,5);
-        grid.add(fichenrs,0,7);
+        grid.add(stateGrid,0,1);
         grid.setHgap(10.0);
         grid.setVgap(10.0);
-
-
     }
 
     /**
@@ -122,68 +153,12 @@ public class DashboardView {
     }
 
     /**
-     * Geeft de knop waarme je kunt aangeven dat je een mol kunt neerzetten.
-     * Verouderd, wordt mogelijk verwijderd in de toekomst.
-     *
-     * @return Button mol_btn
-     */
-    public Button getMol_btn() {
-        return mol_btn;
-    }
-
-    /**
-     * Geeft de knop waarmee je aangeeft dat je klaar bent. Verouderd, gaat verwijderd worden.
-     *
-     * @return Button klaar_btn
-     */
-    public Button getKlaar_btn() {
-        return klaar_btn;
-    }
-
-    /**
-     * geeft de knop waarmee je kunt refreshen. Verouderd, gaat verwijderd worden.
-     *
-     * @return Button refresh_btn
-     */
-    public Button getRefresh_btn() {
-        return refresh_btn;
-    }
-
-    /**
      * Kan de knop waarmee je een fiche kunt draaien zetten.
      *
      * @param fiche_btn
      */
     public void setFiche_btn(Button fiche_btn) {
         this.fiche_btn = fiche_btn;
-    }
-
-    /**
-     * Kan de knop waarmee je aangeeft dat je een mol wilt neerzetten zetten.
-     * Mogelijk verouderd.
-     *
-     * @param mol_btn
-     */
-    public void setMol_btn(Button mol_btn) {
-        this.mol_btn = mol_btn;
-    }
-
-    /**
-     * Kan de knop waarmee je aangeeft dat de volgende beurt mag zetten. Verouderd, gaat verwijderd worden.
-     *
-     * @param klaar_btn
-     */
-    public void setKlaar_btn(Button klaar_btn) {
-        this.klaar_btn = klaar_btn;
-    }
-
-    /**
-     * Kan de knop waarmee je eht spelbord kunt refreshen zetten. Verouderd, gaat verwijderd worden.
-     *
-     * @param refresh_btn
-     */
-    public void setRefresh_btn(Button refresh_btn) {
-        this.refresh_btn = refresh_btn;
     }
 
     /**
@@ -213,5 +188,35 @@ public class DashboardView {
 
     public void modelChanged(){
 
+    }
+
+    public void updateFiches(Fiche_Model fichesModel){
+        String kleur="";
+        switch (speler_model.getKleur()){
+            case "blue":
+                kleur="blauw";
+                break;
+            case "yellow":
+                kleur="geel";
+                break;
+            case "green":
+                kleur="groen";
+                break;
+            case "red":
+                kleur="red";
+                break;
+        }
+        if(fichesModel.getGeslotenFiche().size()==6){
+            for (FicheButton fiche:this.fiches) {
+                fiche.setId("fiche_"+kleur+"_nietgedraaid");
+            }
+        }else{
+            for (FicheButton fiche:this.fiches) {
+                if(!fiche.isGedraaid()){
+                    System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+fichesModel.getFicheNR());
+                    fiche.setId("fiche_"+kleur+"_"+fichesModel.getFicheNR());
+                }
+            }
+        }
     }
 }

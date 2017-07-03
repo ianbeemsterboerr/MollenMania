@@ -4,7 +4,6 @@ import model.Velden.GoudenSchep_Veld;
 import model.Velden.Molshoop_Veld;
 import model.Velden.Normaalveld_Veld;
 import model.Velden.SpeciaalVeld_Veld;
-import model.Velden.GoudenSchep_Veld;
 
 import java.io.Serializable;
 import java.util.ArrayList;

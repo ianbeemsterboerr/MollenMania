@@ -1,8 +1,6 @@
 package view;
 
-import controller.Bordspel_Controller;
 import controller.MainMenuController;
-import controller.SpelHervattenController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -82,8 +80,7 @@ public class MainMenuView {
 		//configureer wat de spel hervatten knop doet.
 		btn_hervatSpel.setOnAction(e -> {
 			try{
-				SpelHervattenController shc = new SpelHervattenController();
-				shc.loadSpel();
+				
 			}catch(Exception b){
 				b.printStackTrace();
 			}});
@@ -97,7 +94,7 @@ public class MainMenuView {
 			}});
 
 		//zet alle knoppen in een virtualbox.
-		vbox_mid.getChildren().addAll(btn_joinSpel,  btn_exitSpel, btn_hervatSpel);
+		vbox_mid.getChildren().addAll(btn_joinSpel,  btn_exitSpel);
 		vbox_mid.setAlignment(Pos.CENTER);
 		vbox_mid.setSpacing(10.0);
 

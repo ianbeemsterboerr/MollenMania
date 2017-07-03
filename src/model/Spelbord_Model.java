@@ -10,29 +10,19 @@ import controller.Bordspel_Interface;
 import controller.Player_Observer;
 import model.Velden.Molshoop_Veld;
 
-<<<<<<< HEAD
 /**
  * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
  */
 public class Spelbord_Model implements Bordspel_Interface, Serializable{
-	
-	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
-	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
-	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
-	private Playboard_Model pmo = new Playboard_Model();
-	private Spelbord_Model test_model;
-	private int aanDeBeurt=0;
-	private int bordMax;
-=======
-public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
-	private Playboard_Model pmo = new Playboard_Model();
-	private int[] specialPos;
 	private int beurtIndex =0;
->>>>>>> 0be9c089c06e99eef65462ad94e9dd0927e06d52
 	private int huidigeNiveau = 1;
 	private int bordMax;
 
@@ -40,6 +30,10 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
+	
+	public Spelbord_Model(){
+		
+	}
 
 	public Spelbord_Model(int maxSpelers){
 		this.beurtStatus = BeurtStatus.LOBBY;
@@ -272,9 +266,9 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 	@Override
 	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		bord_observers.add(po);
-=======
+
 		boolean exists=false;
 		for (Player_Observer observer: bord_observers){
 			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
@@ -286,7 +280,7 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		if(!exists){
 			bord_observers.add(po);
 		}
->>>>>>> 0be9c089c06e99eef65462ad94e9dd0927e06d52
+
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {
@@ -301,20 +295,8 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		System.out.println("test");
 	}
 
-	@Override
-<<<<<<< HEAD
-	public Spelbord_Model getSpelbordModel() {
-		test_model = this;
-		return test_model;
-=======
 	public ArrayList<MolModel> getMollen() throws RemoteException {
 		return mol_onbord;
->>>>>>> 0be9c089c06e99eef65462ad94e9dd0927e06d52
-	}
-
-	@Override
-	public Playboard_Model getPlayboardModel() throws RemoteException {
-		return pmo;
 	}
 
 	public int getBordMax(){
@@ -323,10 +305,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	public void setPlayers(ArrayList<Speler_Model> players){
 		this.players = players;
-	}
-
-	public void setPlayerModel(Playboard_Model pmo){
-		this.pmo = pmo;
 	}
 
 	public void setBeurtIndex(int beurtIndex){

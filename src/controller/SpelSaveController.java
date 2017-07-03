@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import model.Spelbord_Model;
 import view.SpelSaveView;
 
@@ -9,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import model.Spelbord_Model;
 
 /**
  * @author Ian Beemsterboer.
@@ -36,24 +34,17 @@ public class SpelSaveController {
     public void saveSpel(String naam) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".sav"));
-<<<<<<< HEAD
-            Spelbord_Model sbm = new Spelbord_Model();
-            sbm.setPlayers(bs_interface.playerList());
             
-            out.writeObject(sbm);
-=======
-            Spelbord_Model model = new Spelbord_Model(bs_interface.maxSpelers());
+            Spelbord_Model model = new Spelbord_Model();
 
             model.setMol_onbord(bs_interface.getMollen());
             model.setBeurtStatus(bs_interface.getBeurtStatus());
             model.setPlayers(bs_interface.playerList());
             model.setBeurtIndex(bs_interface.beurtIndex());
-            model.setPlayerModel(bs_interface.getPlayboardModel());
             model.setHuidigeNiveau(bs_interface.getHuidigeNiveauIndex());
             model.setMaxMollen(bs_interface.getMaxMollen());
 
             out.writeObject(model);
->>>>>>> 0be9c089c06e99eef65462ad94e9dd0927e06d52
             out.close();
         } catch (FileNotFoundException e) {
             System.out.println("Er is een exception opgetreden.");

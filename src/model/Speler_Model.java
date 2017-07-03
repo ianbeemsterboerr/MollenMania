@@ -1,7 +1,5 @@
 package model;
 
-import javafx.scene.paint.Color;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -34,10 +32,6 @@ public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 		this.molSize = this.mol_list.size();
 	}
 	
-
-
-
-
 	
 	public ArrayList<MolModel> getMol_list() {
 		return mol_list;

@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * De ArrayList die bestaat uit 6 fiches.

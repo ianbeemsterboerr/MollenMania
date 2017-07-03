@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,11 +14,13 @@ import model.Velden.Molshoop_Veld;
 /**
  * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
  */
-public class Spelbord_Model implements Bordspel_Interface{
+public class Spelbord_Model implements Bordspel_Interface, Serializable{
+	
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<Player_Observer>();
 	private ArrayList<Speler_Model> players = new ArrayList<Speler_Model>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<MolModel>();
 	private Playboard_Model pmo = new Playboard_Model();
+	private Spelbord_Model test_model;
 	private int aanDeBeurt=0;
 	private int bordMax;
 	private int huidigeNiveau = 1;
@@ -263,17 +266,6 @@ public class Spelbord_Model implements Bordspel_Interface{
 	@Override
 	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
 		// TODO Auto-generated method stub
-//		boolean exists=false;
-//		for (Player_Observer observer: bord_observers){
-//			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
-//				int i = bord_observers.lastIndexOf(observer);
-//				bord_observers.set(i,po);
-//				exists=true;
-//			}
-//		}
-//		if(!exists){
-//			bord_observers.add(po);
-//		}
 		bord_observers.add(po);
 		try {
 			notifyObservers();
@@ -294,7 +286,8 @@ public class Spelbord_Model implements Bordspel_Interface{
 
 	@Override
 	public Spelbord_Model getSpelbordModel() {
-		return this;
+		test_model = this;
+		return test_model;
 	}
 
 	@Override

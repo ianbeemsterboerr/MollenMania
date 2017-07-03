@@ -1,33 +1,33 @@
-#nivel1 {
+.nivel1 {
     -fx-background-image: url("../img/SpelbordView1MEGA.png");
     -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
-#nivel2 {
+.nivel2 {
     -fx-background-image: url("../img/SpelbordView2MEGA.png");
-    -fx-background-size:960 540;
+    -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
-#nivel3 {
+.nivel3 {
     -fx-background-image: url("../img/SpelbordView3MEGA.png");
-    -fx-background-size:960 540;
+    -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
-#nivel4 {
+.nivel4 {
     -fx-background-image: url("../img/SpelbordView4MEGA.png");
-    -fx-background-size:960 540;
+    -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
-#nivel5 {
+.nivel5 {
     -fx-background-image: url("../img/SpelbordView5MEGA.png");
-    -fx-background-size:960 540;
+    -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
@@ -70,5 +70,36 @@
     -fx-background-size: 120%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
+}
+#redPionGroot {
+    -fx-background-image: url("../img/CLBDPionRoodGroot.png");
+    -fx-background-size: 120%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
+}
+#greenPionGroot {
+    -fx-background-image: url("../img/CLBDPionGroenGroot.png");
+    -fx-background-size: 120%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
+}
+#bluePionGroot {
+    -fx-background-image: url("../img/CLBDPionBlauwGroot.png");
+    -fx-background-size: 120%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-color: transparent;
+}
+#yellowPionGroot {
+    -fx-background-image: url("../img/CLBDPionGeelGroot.png");
+    -fx-background-size: 120%;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
 
+}
+
+#redPion:disabled, #greenPion:disabled, #bluePion:disabled,#yellowPion:disabled {
+    -fx-opacity: 0.8;
 }

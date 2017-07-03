@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import model.Spelbord_Model;
+
 /**
  * @author Ian Beemsterboer.
  * Heeft de verantwoordelijkheid om het spel op te slaan.
@@ -31,8 +33,11 @@ public class SpelSaveController {
      */
     public void saveSpel(String naam) {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".dat"));
-            out.writeObject(this.bs_interface.getSpelbordModel());
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".sav"));
+            Spelbord_Model sbm = new Spelbord_Model();
+            sbm.setPlayers(bs_interface.playerList());
+            
+            out.writeObject(sbm);
             out.close();
         } catch (FileNotFoundException e) {
             System.out.println("Er is een exception opgetreden.");

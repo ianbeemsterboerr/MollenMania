@@ -1,9 +1,12 @@
 package controller;
 
 import model.Spelbord_Model;
+import model.Speler_Model;
 import view.HervatGameView;
 
 import java.io.*;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,10 +31,11 @@ public class SpelHervattenController {
      */
     public Spelbord_Model getModel(String filePath) {
         File file = new File(filePath);
+        ArrayList<Speler_Model> test_list = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            spelModel = (Spelbord_Model) ois.readObject();
+            test_list = (ArrayList<Speler_Model>) ois.readObject();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -39,11 +43,24 @@ public class SpelHervattenController {
             e.printStackTrace();
             System.out.println("Het .SAV bestand was niet van het goede type.");
         }
-
         return spelModel;
+    }
+    
+    public void loadSpel() throws RemoteException{
+    	try {
+            ObjectInputStream model_object = new ObjectInputStream(new FileInputStream("")); //load object stream
+            spelModel = (Spelbord_Model) model_object.readObject(); //type cast object and read
+            model_object.close(); //close to prevent leaks
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    	//test out
+    	System.out.println(spelModel.playerList().size());
     }
 
     public void startSpel(Spelbord_Model spelModel) {
-
+    	
     }
 }

@@ -1,5 +1,7 @@
 package controller;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+import model.Spelbord_Model;
 import view.SpelSaveView;
 
 import java.io.FileNotFoundException;
@@ -31,8 +33,18 @@ public class SpelSaveController {
      */
     public void saveSpel(String naam) {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".dat"));
-            out.writeObject(this.bs_interface.getSpelbordModel());
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(naam + ".sav"));
+            Spelbord_Model model = new Spelbord_Model(bs_interface.maxSpelers());
+
+            model.setMol_onbord(bs_interface.getMollen());
+            model.setBeurtStatus(bs_interface.getBeurtStatus());
+            model.setPlayers(bs_interface.playerList());
+            model.setBeurtIndex(bs_interface.beurtIndex());
+            model.setPlayerModel(bs_interface.getPlayboardModel());
+            model.setHuidigeNiveau(bs_interface.getHuidigeNiveauIndex());
+            model.setMaxMollen(bs_interface.getMaxMollen());
+
+            out.writeObject(model);
             out.close();
         } catch (FileNotFoundException e) {
             System.out.println("Er is een exception opgetreden.");

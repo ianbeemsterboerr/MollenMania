@@ -1,6 +1,12 @@
-.nivel1 {
-    -fx-background-image: url("../img/SpelbordView1MEGA.png");
+.background{
+    -fx-background-image: url("../img/Spelbord_Achtergrond_Leeg.png");
     -fx-background-size:1440 810;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+.nivel1 {
+    -fx-background-image: url("../img/Spelbord_Bord1_HD.png");
+    -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }

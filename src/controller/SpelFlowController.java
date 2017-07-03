@@ -133,6 +133,7 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": Selecteer eindpunt");
         for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
             buttonBox.setOnAction(e -> {
+                buttonBox.setId(speler.getMol_list().get(molIndex).getKleur()+"PionGroot");
                 System.out.println(this.getClass().toString()+": ACTION: VERZETTEN (eindpunt kiezen)");
                 try {
                     if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {

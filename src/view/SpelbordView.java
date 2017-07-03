@@ -92,7 +92,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 //		spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("moap");
 
-		spelbord_pane.setId("nivel1");
+		spelbord_pane.getStyleClass().add("nivel1");
 		//spelbord_pane.setLeft(next_stage);
 		veld_pane.setId("nivel1");
 		
@@ -445,11 +445,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		Playboard_Model playboard_model = new Playboard_Model();
 		String aanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername();
 		BeurtStatus beurtStatus = playable.getBeurtStatus();
-		Niveau_Model huidigNiveau = playboard_model.getHuidigNiveau(playable.getHuidigeNiveauIndex());
+		int niveauIndex = playable.getHuidigeNiveauIndex();
+		Niveau_Model huidigNiveau = playboard_model.getHuidigNiveau(niveauIndex);
 
 		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
 		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+beurtStatus);
 
+		niveauLaden(niveauIndex);
 		schoonmakenBord(buttonArray,beurtStatus);
 		loadGoudenSchep(buttonArray,huidigNiveau,beurtStatus);
 		loadSpecial(buttonArray,huidigNiveau,beurtStatus);
@@ -457,6 +459,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		loadSpelerMols(buttonArray,playable.playerList(), beurtStatus);
 		enableOrDisable(aanDeBeurt, beurtStatus);
 		changeLabels(aanDeBeurt,beurtStatus);
+	}
+
+	public void niveauLaden(int niveauIndex){
+		Platform.runLater(()->{
+//			this.spelbord_pane.getStyleClass().remove(this.spelbord_pane.getStyleClass().indexOf("nivel"+(niveauIndex-1)));
+			this.spelbord_pane.getStyleClass().add("nivel"+(niveauIndex+1));
+			System.out.println(this.getClass().toString()+": niveauLaden nivel"+(niveauIndex+1));
+//			System.out.println(this.getClass().toString()+": niveauLaden "+spelbord_pane.getStyleClass());
+		});
 	}
 
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{

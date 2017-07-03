@@ -80,7 +80,7 @@ public class MainMenuView {
 		//configureer wat de spel hervatten knop doet.
 		btn_hervatSpel.setOnAction(e -> {
 			try{
-				mainMenuController.hervatSpel();
+				
 			}catch(Exception b){
 				b.printStackTrace();
 			}});

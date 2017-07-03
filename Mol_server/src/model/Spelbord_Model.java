@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import controller.Bordspel_Interface;
 import controller.Player_Observer;
 import model.Velden.Molshoop_Veld;
 
-public class Spelbord_Model implements Bordspel_Interface {
+public class Spelbord_Model implements Bordspel_Interface, Serializable {
 
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
@@ -281,6 +282,37 @@ public class Spelbord_Model implements Bordspel_Interface {
         System.out.println("test");
     }
 
+	@Override
+	public ArrayList<MolModel> getMollen() throws RemoteException {
+		return mol_onbord;
+	}
 
+	@Override
+	public Playboard_Model getPlayboardModel() throws RemoteException {
+		return pmo;
+	}
 
+	public int getBordMax(){
+		return this.bordMax;
+	}
+
+	public void setPlayers(ArrayList<Speler_Model> players){
+		this.players = players;
+	}
+
+	public void setPlayerModel(Playboard_Model pmo){
+		this.pmo = pmo;
+	}
+
+	public void setBeurtIndex(int beurtIndex){
+		this.beurtIndex = beurtIndex;
+	}
+
+	public void setHuidigeNiveau(int huidigeNiveau){
+		this.huidigeNiveau = huidigeNiveau;
+	}
+
+	public void setMaxMollen(int maxMollen){
+		this.maxMollen = maxMollen;
+	}
 }

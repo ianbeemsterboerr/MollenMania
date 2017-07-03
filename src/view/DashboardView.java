@@ -30,7 +30,7 @@ public class DashboardView {
     private Button mol_btn = new Button("Mol");
     private Button klaar_btn = new Button("Klaar");
     private Button refresh_btn = new Button("Refresh");
-    public static Button[] fiches = new Button[]{new Button("1"),new Button("2"), new Button("3"), new Button("4"),new Button("5"),new Button("6")};
+    public static Button[] fiches = new Button[];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
@@ -79,6 +79,13 @@ public class DashboardView {
         buttons.add(klaar_btn);
         buttons.add(refresh_btn);
 
+        Button fiche1 = new Button();
+        Button fiche2 = new Button();
+        Button fiche3 = new Button();
+        Button fiche4 = new Button();
+        Button fiche5 = new Button();
+        Button fiche6 = new Button();
+
         VBox ficheBox = new VBox();
         for (Button fiche:fiches) {
             buttons.add(fiche);
@@ -108,6 +115,8 @@ public class DashboardView {
         grid.add(fichenrs,0,7);
         grid.setHgap(10.0);
         grid.setVgap(10.0);
+
+
     }
 
     /**

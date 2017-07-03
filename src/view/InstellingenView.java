@@ -38,7 +38,7 @@ public class InstellingenView {
         btnAfsluiten.setId("btn_close");
 
         hbox = new HBox();
-        hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
+        hbox.getChildren().addAll(btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.getStylesheets().addAll(getClass().getResource("style/knoppen_panel_style.css").toExternalForm());
 
@@ -49,11 +49,9 @@ public class InstellingenView {
             stage.setIconified(true);
         });
         btnAfsluiten.setOnAction(e -> {
-			try{
-				System.exit(0);
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
+            System.exit(0);
+        });
+
     }
 
     public void registerStage(Stage stage){

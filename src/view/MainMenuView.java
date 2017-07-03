@@ -94,7 +94,7 @@ public class MainMenuView {
 			}});
 
 		//zet alle knoppen in een virtualbox.
-		vbox_mid.getChildren().addAll(btn_joinSpel, btn_hostSpel, btn_hervatSpel, btn_exitSpel);
+		vbox_mid.getChildren().addAll(btn_joinSpel,  btn_exitSpel);
 		vbox_mid.setAlignment(Pos.CENTER);
 		vbox_mid.setSpacing(10.0);
 

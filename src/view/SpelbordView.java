@@ -461,7 +461,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.BORDSTARTEN){
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
-					veldKnop.setStyle("-fx-background-color: transparent;");
+					//veldKnop.setStyle("-fx-background-color: transparent;");
 					veldKnop.setId(" ");
 					veldKnop.setDisable(false);
 				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);

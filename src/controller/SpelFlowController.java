@@ -139,7 +139,7 @@ public class SpelFlowController{
                         bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
                         bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
                         System.out.println(this.getClass().toString() + ": pion geplaatst op: " + bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
-                        rondeOpruim(speler, bs_interface,int molIndex);
+                        rondeOpruim(speler, bs_interface, molIndex);
                     }
 
                 } catch (RemoteException e1) {
@@ -149,10 +149,15 @@ public class SpelFlowController{
         }
     }
 
-   public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface, int Molindex) throws RemoteException {
+   public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface, int molIndex) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
-//            if(playboard_model.getHuidigNiveau()>1){}
+            if(bs_interface.getHuidigeNiveauIndex() >1 && bsController.isSpeciaal(speler.getMol_list().get(molIndex).getCoord(),playboard_model.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex()))){
+                clearKnoppen();
+                setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
+                this.bordspel_interface.notifyObservers();
+            }
+
             if (bs_interface.getHuidigeNiveauIndex() != 4 && molController.molshopenBezetCheck(bs_interface)) {
                 System.out.println(" mollen verwijderen die niet op molshoop staan");
                 bs_interface.deleteMollfromList();

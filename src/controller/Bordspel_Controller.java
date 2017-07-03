@@ -298,6 +298,14 @@ public class Bordspel_Controller {
 		System.out.println(this.getClass().toString()+": spelVerlaten");
 	}
 
+	public boolean isSpeciaal(int[] molCoord, Niveau_Model niveau){
+		for(SpeciaalVeld_Veld speciaal:niveau.getSpeciaal()){
+			if (Arrays.equals(molCoord,speciaal.getPositie())){
+				return true;
+			}
+		}
+		return false;
+	}
 
 
 }

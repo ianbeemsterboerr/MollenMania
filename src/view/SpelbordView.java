@@ -464,8 +464,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	public void niveauLaden(int niveauIndex){
 		Platform.runLater(()->{
 //			this.spelbord_pane.getStyleClass().remove(this.spelbord_pane.getStyleClass().indexOf("nivel"+(niveauIndex-1)));
-			this.spelbord_pane.getStyleClass().add("nivel"+(niveauIndex+1));
-			System.out.println(this.getClass().toString()+": niveauLaden nivel"+(niveauIndex+1));
+			this.spelbord_pane.getStyleClass().add("nivel"+niveauIndex);
+			System.out.println(this.getClass().toString()+": niveauLaden nivel"+niveauIndex);
 //			System.out.println(this.getClass().toString()+": niveauLaden "+spelbord_pane.getStyleClass());
 		});
 	}

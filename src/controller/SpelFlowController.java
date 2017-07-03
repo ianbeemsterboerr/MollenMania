@@ -74,28 +74,28 @@ public class SpelFlowController{
 
     public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
-        MouseEvent.MOUSE_CLICKED(e -> {
-
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");
-//        for (final Button fiche : DashboardView.fiches) {
             DashboardView.fiche_btn.setOnAction(e -> {
                 Fiche_Model fiche_list = speler.getFiche_list();
-                System.out.println(this.getClass().toString()+": ACTION: FICHE DRAAIEN");
+                System.out.println(this.getClass().toString() + ": ACTION: FICHE DRAAIEN");
                 try {
                     ficheController.kiesFiche(fiche_list);
-                    System.out.println(this.getClass().toString()+": "+"FicheNR = "+ fiche_list.getFicheNR());
-                    DashboardView.fichenrs.appendText(String.valueOf(fiche_list.getFicheNR()) +" : ");
+                    System.out.println(this.getClass().toString() + ": " + "FicheNR = " + fiche_list.getFicheNR());
+                    DashboardView.fichenrs.appendText(String.valueOf(fiche_list.getFicheNR()) + " : ");
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
-                    System.out.println(this.getClass().toString()+": "+BeurtStatus.SELECTEREN);
+                    System.out.println(this.getClass().toString() + ": " + BeurtStatus.SELECTEREN);
                     setFicheknoppenUit();
-                    selecteerMolKnoppen(speler,bs_interface);
-                bs_interface.notifyObservers(); //vervangen door notifySelf()?
+                    selecteerMolKnoppen(speler, bs_interface);
+                    bs_interface.notifyObservers(); //vervangen door notifySelf()?
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }
+
             });
     }
+
+
 
 
 
@@ -138,9 +138,8 @@ public class SpelFlowController{
                     if(molController.zetGeldig(bs_interface,speler,speler.getMol_list().get(molIndex),buttonBox.getCoordinaten())) {
                         bs_interface.setMolCoord(speler, buttonBox.getCoordinaten(), molIndex);
                         bs_interface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
-                        //bs_interface.notifyObservers();
                         System.out.println(this.getClass().toString() + ": pion geplaatst op: " + bs_interface.playerList().get(bs_interface.beurtIndex()).getMol_list().get(molIndex).printCoord());
-                        rondeOpruim(speler, bs_interface);
+                        rondeOpruim(speler, bs_interface,int molIndex);
                     }
 
                 } catch (RemoteException e1) {
@@ -150,9 +149,10 @@ public class SpelFlowController{
         }
     }
 
-   public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException {
+   public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface, int Molindex) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
+//            if(playboard_model.getHuidigNiveau()>1){}
             if (bs_interface.getHuidigeNiveauIndex() != 4 && molController.molshopenBezetCheck(bs_interface)) {
                 System.out.println(" mollen verwijderen die niet op molshoop staan");
                 bs_interface.deleteMollfromList();

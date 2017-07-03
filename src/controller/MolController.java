@@ -78,7 +78,7 @@ public class MolController {
 
 //            Bepaal of Rechte lijn en stappen gelijk aan ficheNR
             if (deltaCoord[0] == 0 || deltaCoord[1] == 0 || deltaCoord[2] == 0) {
-                System.out.println("delta=0");
+              System.out.println("delta=0");
                 if (deltaCoord[0] == ficheNR || deltaCoord[1] == ficheNR || deltaCoord[2] == ficheNR) {
                     System.out.println("delta = fiche");
                     if (deltaCoord[0] == (-1 * ficheNR) || deltaCoord[1] == (-1 * ficheNR) || deltaCoord[2] == (-1 * ficheNR)) {
@@ -89,7 +89,7 @@ public class MolController {
             }
         }
             System.out.println("geen rechte lijn");
-            return true;
+            return false;
         }
 
 

@@ -1,6 +1,7 @@
 package view;
 
 import controller.Bordspel_Controller;
+import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -133,8 +134,16 @@ public class DashboardView {
         stateGrid.add(ficheGrid,0,0);
         stateGrid.add(mol_en_fichebtnBox,1,0);
 
-        for (Button fiche:fiches) {
+        for (FicheButton fiche:fiches) {
             buttons.add(fiche);
+        }
+        if(!isYou){
+            for (FicheButton fiche:fiches) {
+                fiche.setDisable(true);
+            }
+            for (Button button:buttons) {
+                button.setDisable(true);
+            }
         }
 
         grid.add(username_lbl, 0, 0);
@@ -190,7 +199,13 @@ public class DashboardView {
 
     }
 
-    public void updateFiches(Fiche_Model fichesModel){
+    public void updateFiches(ArrayList<Speler_Model> spelers){
+        Fiche_Model fichesModel = new Fiche_Model();
+        for (Speler_Model speler:spelers) {
+            if(speler.getUsername().trim().equals(this.speler_model.getUsername().trim())){
+                fichesModel=speler.getFiche_list();
+            }
+        }
         String kleur="";
         switch (speler_model.getKleur()){
             case "blue":

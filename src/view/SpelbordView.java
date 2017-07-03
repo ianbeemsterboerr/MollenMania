@@ -160,36 +160,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		moap.setRight(right);
 		return moap;
 	}
-
-	public void disableProperty(boolean toggle){
-		for (int i = 0; i < buttonArray.length; i++) {
-		//	buttonArray[i].setDisable(true);
-		}
-		if(player_1.getIsYou() == true){
-			player_1.getFiche_btn().setDisable(toggle);
-			player_1.getMol_btn().setDisable(toggle);
-			player_1.getKlaar_btn().setDisable(toggle);
-			player_1.getRefresh_btn().setDisable(toggle);
-		}
-		else if(player_2.getIsYou() == true){
-			player_2.getFiche_btn().setDisable(toggle);
-			player_2.getMol_btn().setDisable(toggle);
-			player_2.getKlaar_btn().setDisable(toggle);
-			player_2.getRefresh_btn().setDisable(toggle);
-		}
-		else if(player_3.getIsYou() == true){
-			player_3.getFiche_btn().setDisable(toggle);
-			player_3.getMol_btn().setDisable(toggle);
-			player_3.getKlaar_btn().setDisable(toggle);
-			player_3.getRefresh_btn().setDisable(toggle);
-		}
-		else if(player_4.getIsYou() == true){
-			player_4.getFiche_btn().setDisable(toggle);
-			player_4.getMol_btn().setDisable(toggle);
-			player_4.getKlaar_btn().setDisable(toggle);
-			player_4.getRefresh_btn().setDisable(toggle);
-		}
-	}
 	
 	public GridPane loadVeld(ArrayList<Speler_Model> players) throws RemoteException{
 		GridPane root = new GridPane();
@@ -447,6 +417,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		BeurtStatus beurtStatus = playable.getBeurtStatus();
 		int niveauIndex = playable.getHuidigeNiveauIndex();
 		Niveau_Model huidigNiveau = playboard_model.getHuidigNiveau(niveauIndex);
+		ArrayList<Speler_Model> spelers = playable.playerList();
 
 		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
 		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+beurtStatus);
@@ -456,9 +427,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		loadGoudenSchep(buttonArray,huidigNiveau,beurtStatus);
 		loadSpecial(buttonArray,huidigNiveau,beurtStatus);
 		loadMolsHoop(buttonArray,huidigNiveau,beurtStatus);
-		loadSpelerMols(buttonArray,playable.playerList(), beurtStatus);
+		loadSpelerMols(buttonArray,spelers, beurtStatus);
 		enableOrDisable(aanDeBeurt, beurtStatus);
 		changeLabels(aanDeBeurt,beurtStatus);
+
+		//Dasboards updaten
+		this.player_1.updateFiches(spelers);
+		this.player_2.updateFiches(spelers);
+		if(player_3!=null){
+			this.player_3.updateFiches(spelers);
+			if(player_4!=null){
+				this.player_4.updateFiches(spelers);
+			}
+		}
 	}
 
 	public void niveauLaden(int niveauIndex){

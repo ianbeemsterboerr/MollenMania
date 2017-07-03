@@ -72,3 +72,7 @@
     -fx-background-repeat: stretch;
 
 }
+
+#redPion:disabled, #greenPion:disabled, #bluePion:disabled,#yellowPion:disabled{
+    -fx-opacity: 0.8;
+}

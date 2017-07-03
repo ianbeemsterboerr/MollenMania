@@ -41,6 +41,4 @@ public class HervatGameView {
         String filePath = fc.showOpenDialog(stage).getAbsolutePath();
         return filePath;
     }
-
-
 }

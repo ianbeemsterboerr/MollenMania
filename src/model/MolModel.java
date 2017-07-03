@@ -2,8 +2,6 @@ package model;
 
 import java.io.Serializable;
 
-import javafx.scene.paint.Color;
-
 /**
  * Het model van de mol. bevat alle data die een mol nodig heeft in het spel.
  * Created by Wessel on 29-5-2017.

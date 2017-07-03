@@ -33,7 +33,6 @@ public class DashboardView {
     public static FicheButton[] fiches = new FicheButton[6];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
-    private ImageView molPane;
 
     /**
      * De constructor, maakt een Grid object met alle knoppen en labels erin en slaat die op.
@@ -66,9 +65,6 @@ public class DashboardView {
             case "green":
                 molPath="CLBDSpelerGroen.png";
         }
-        Image molPlaatje = new Image(getClass().getResource("img/"+molPath).toString());
-        this.molPane =new ImageView(molPlaatje);
-
         System.out.println("DashboardView: bijnaam = "+bijnaam+" sm.getUserName = "+sm.getUsername());
 
         String openFiches = "";
@@ -86,7 +82,6 @@ public class DashboardView {
         Label username_lbl = new Label(speler_naam);
         Label aantal_mol_lbl = new Label(mol_count);
         Label aantal_fiche_lbl = new Label(fiche_count);
-        Label open_Fiches = new Label(openFiches);
 
         username_lbl.setStyle("-fx-font-weight:bold;");
         aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
@@ -125,7 +120,6 @@ public class DashboardView {
 
 
         VBox mol_en_fichebtnBox = new VBox();
-        mol_en_fichebtnBox.getChildren().add(molPane);
         aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
         mol_en_fichebtnBox.getChildren().add(aantal_mol_lbl);
         mol_en_fichebtnBox.getChildren().add(fiche_btn);
@@ -228,8 +222,10 @@ public class DashboardView {
         }else{
             for (FicheButton fiche:this.fiches) {
                 if(!fiche.isGedraaid()){
-                    System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+fichesModel.getFicheNR());
-                    fiche.setId("fiche_"+kleur+"_"+fichesModel.getFicheNR());
+                    int ficheNr=fichesModel.getFicheNR();
+                    System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
+                    fiche.setId("fiche_"+kleur+"_"+ficheNr);
+                    fiche.setText(Integer.toString(ficheNr));
                 }
             }
         }

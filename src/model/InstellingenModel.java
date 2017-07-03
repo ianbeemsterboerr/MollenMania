@@ -5,14 +5,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import java.io.*;
 import java.net.MalformedURLException;
 
-import static java.lang.System.in;
 
 /**
  * Bevat alle data voor de globale instellingen van de applicatie.
@@ -75,7 +69,6 @@ public class InstellingenModel extends Application{
     public void unmuteSound() throws MalformedURLException{
     	System.out.println("Toggle sound ON");
     	String urlJar = getClass().getResource("/sound/TestSound.mp3").toExternalForm();
-    	String uriString = new File("C:\\Users\\nach7vs\\workspace\\mollenmania\\src\\view\\sound\\TestSound.mp3").toURI().toURL().toString();
     	Media media = new Media(urlJar); //replace /Movies/test.mp3 with your file
         this.player = new MediaPlayer(media); 
         player.play();

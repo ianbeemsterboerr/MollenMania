@@ -35,6 +35,10 @@ public interface Bordspel_Interface extends Remote {
 
 	public void testMe() throws RemoteException;
 
+	public ArrayList<MolModel> getMollen() throws  RemoteException;
+
+	public Playboard_Model getPlayboardModel() throws RemoteException;
+
 
 	/*
 	 * ADD THINGS

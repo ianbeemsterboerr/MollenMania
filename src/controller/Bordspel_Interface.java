@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import model.*;
 import model.MolModel;
-import model.Playboard_Model;
 import model.Speler_Model;
 
 /**
@@ -53,6 +52,9 @@ public interface Bordspel_Interface extends Remote {
 	public void deleteMollfromList()throws RemoteException;
 	
 	public void testMe() throws RemoteException;
+
+	public ArrayList<MolModel> getMollen() throws  RemoteException;
+
 
 	/*
 	 * ADD THINGS

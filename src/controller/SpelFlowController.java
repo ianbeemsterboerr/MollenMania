@@ -1,11 +1,15 @@
 package controller;
 
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import model.*;
 import model.Velden.VeldKnop;
 import view.DashboardView;
 import view.SpelbordView;
 import java.rmi.RemoteException;
+
+import static java.sql.DriverManager.println;
 
 /**
  * Zorgt ervoor dat de flow binnen het spel verloopt zoals moet.
@@ -70,6 +74,7 @@ public class SpelFlowController{
 
     public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
+        MouseEvent.MOUSE_CLICKED(e -> {
 
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");

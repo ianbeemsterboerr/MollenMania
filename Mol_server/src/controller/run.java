@@ -35,7 +35,7 @@ public class run extends Application{
 		//System.setProperty("java.rmi.server.hostname", InetAddress.getLocalHost().toString());
 		// TODO Auto-generated method stub
 		ChoiceBox<Integer> cb_aantal_spelers;
-		double button_width = 150.0;
+		double button_width = 150;
 		HBox hbox_connect = new HBox();
 
 		
@@ -43,7 +43,7 @@ public class run extends Application{
 		host_name.setText("");
 		Button btn_host = new Button("Host");
 		Button btn_back = new Button("Terug");
-		Button btn_spelHervatten = new Button("Hervat");
+		Button btn_spelHervatten = new Button("Hervats");
 
 		btn_host.setMaxWidth(button_width);
 		btn_back.setMaxWidth(button_width);
@@ -107,9 +107,10 @@ public class run extends Application{
 	    grid.add(btn_back, 1, 3);
 	    grid.add(btn_spelHervatten,2,3);
 		
-		Scene connect_scene = new Scene(grid, 250, 120);
+		Scene connect_scene = new Scene(grid, 470, 120);
 		//Make scene call up style.css for styling
-		//connect_scene.getStylesheets().addAll(this.getClass().getResource("main_menu_style.css").toExternalForm());
+		grid.setId("grid");
+		connect_scene.getStylesheets().addAll(this.getClass().getResource("/view/ServerStyle.css").toExternalForm());
 
 
 		primaryStage.setOnCloseRequest(a->{

@@ -46,7 +46,7 @@ public class InstInGameView {
         btnAfsluiten.setId("btn_close");
 
         hbox = new HBox();
-        hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnOpslaan, btnMinimaliseer,btnAfsluiten);
+        hbox.getChildren().addAll(btnGeluid,btnHandleiding,btnOpslaan, btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.getStylesheets().addAll(getClass().getResource("style/knoppen_panel_style.css").toExternalForm());
 
@@ -65,7 +65,7 @@ public class InstInGameView {
             stage.setIconified(true);
         });
         btnAfsluiten.setOnAction(e -> {
-            this.bordspel_controller.spelVerlaten();
+            System.exit(0);
         });
     }
 

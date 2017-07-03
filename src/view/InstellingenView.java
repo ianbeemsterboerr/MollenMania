@@ -1,5 +1,7 @@
 package view;
 
+import java.net.MalformedURLException;
+
 import controller.InstellingenPanelController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -38,22 +40,25 @@ public class InstellingenView {
         btnAfsluiten.setId("btn_close");
 
         hbox = new HBox();
-        hbox.getChildren().addAll(btnKleurenblindheid,btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
+        hbox.getChildren().addAll(btnGeluid,btnHandleiding,btnMinimaliseer,btnAfsluiten);
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.getStylesheets().addAll(getClass().getResource("style/knoppen_panel_style.css").toExternalForm());
 
-        btnGeluid.setOnAction(e -> {controller.toggleMute();});
+        btnGeluid.setOnAction(e -> {try {
+			controller.toggleMute();
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}});
         btnKleurenblindheid.setOnAction(e -> {controller.toggleKleurenblindModus();});
         btnHandleiding.setOnAction(e -> {controller.showHandleiding();});
         btnMinimaliseer.setOnAction(e -> {
             stage.setIconified(true);
         });
         btnAfsluiten.setOnAction(e -> {
-			try{
-				System.exit(0);
-			}catch(Exception b){
-				b.printStackTrace();
-			}});
+            System.exit(0);
+        });
+
     }
 
     public void registerStage(Stage stage){

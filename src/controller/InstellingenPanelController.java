@@ -1,4 +1,6 @@
 package controller;
+import java.net.MalformedURLException;
+
 import model.InstellingenModel;
 import view.HandleidingView;
 import view.InstInGameView;
@@ -42,8 +44,9 @@ public class InstellingenPanelController {
 
     /**
      * Mute het geluid afhankelijk van of dit nog niet is gedaan. Anders unmute deze functie het geluid.
+     * @throws MalformedURLException 
      */
-    public void toggleMute(){
+    public void toggleMute() throws MalformedURLException{
         if (instellingenModel.getSoundState())
         instellingenModel.muteSound();
         else{

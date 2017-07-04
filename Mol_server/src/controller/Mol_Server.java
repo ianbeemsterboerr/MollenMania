@@ -9,12 +9,17 @@ import java.rmi.server.UnicastRemoteObject;
 import model.Spelbord_Model;
 
 public class Mol_Server extends UnicastRemoteObject{
-	
+
 	/**
-	 * Bevat alle functies voor het hosten van een server.
+	 * Server opstarten en bepalen als het een hervatten spel is of een nieuwe.
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Maak een nieuwe een server aan
+	 * @param max aantal spelers die in mogen
+	 * @throws RemoteException
+	 */
 	public Mol_Server(int max) throws RemoteException{
 		try {
 			//object to work in
@@ -36,8 +41,13 @@ public class Mol_Server extends UnicastRemoteObject{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 	   }
-
 	}
+
+	/**
+	 * Server laden met een hervatten spel model
+	 * @param model model van spel
+	 * @throws RemoteException
+	 */
 	public Mol_Server(Spelbord_Model model) throws RemoteException{
 		try {
 			//object to work in

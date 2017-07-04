@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 /**
+ *
  * Created by Ian on 6/16/2017.
  */
 public class HervatGameView {

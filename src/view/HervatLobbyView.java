@@ -155,7 +155,7 @@ public class HervatLobbyView extends UnicastRemoteObject implements Player_Obser
 		Scene lobby_scene = new Scene(grid, 400, 540);
 		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());
 
-		lobbyStage.setTitle("Lobby");
+		lobbyStage.setTitle("Hervatten Lobby");
 		lobbyStage.setScene(lobby_scene);
 		lobbyStage.show();
 	}

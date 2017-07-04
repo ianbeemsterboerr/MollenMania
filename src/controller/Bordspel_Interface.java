@@ -10,7 +10,7 @@ import model.MolModel;
 import model.Speler_Model;
 
 /**
- *
+ * Interface stub die aan de client side gebruikt wordt om met de server te communiceren
  */
 public interface Bordspel_Interface extends Remote {
 	/**

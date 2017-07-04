@@ -15,9 +15,9 @@ import model.Velden.Molshoop_Veld;
  */
 public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
-	/**
-	 * 
-	 */
+    /**
+     * Initialiseren van variablen die nodig zijn voor ons spel
+     */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
@@ -35,6 +35,10 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		
 	}
 
+    /**
+     * Spelers aan de model geven
+     * @param maxSpelers max aantal spelers die mee mogen spelen
+     */
 	public Spelbord_Model(int maxSpelers){
 		this.beurtStatus = BeurtStatus.LOBBY;
 		this.bordMax=maxSpelers;
@@ -61,6 +65,11 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		this.beurtStatus = BeurtStatus.LOBBY;
 	}
 
+    /**
+     * enum om de status van beurt terug te krijgen
+     * @return enum status
+     * @throws RemoteException
+     */
 	public BeurtStatus getBeurtStatus() throws RemoteException {
 		return beurtStatus;
 	}
@@ -69,6 +78,11 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		this.beurtStatus = beurtStatus;
 	}
 
+    /**
+     * Voeg een speler toe aan de lijst van spelers en laat de andere observers van weten.
+     * @param sm speler die toegevoegd moet worden
+     * @throws RemoteException
+     */
 	@Override
 	public void addSpeler(Speler_Model sm) throws RemoteException {
 		this.players.add(sm);
@@ -112,6 +126,11 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return false;
 	}
 
+    /**
+     * Voeg speler toe in een werkend spel
+     * @param bijnaam bijnaam van de speler
+     * @throws RemoteException
+     */
 	@Override
 	public void setSpelerInGame(String bijnaam)throws RemoteException{
 		int inGameCount=0;
@@ -129,33 +148,47 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		notifyObservers();
 	}
 
+    /**
+     * Vraag lijst van spelers die op de server ligt
+     * @return ArrayList van spelers
+     * @throws RemoteException
+     */
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.players;
 	}
 
-
+    /**
+     * Observer pattern laat alle observers weten dat er wijzingen zijn
+     * @throws RemoteException
+     */
 	public void notifyObservers() throws RemoteException {
 		for (Player_Observer co : bord_observers) {
 			co.modelChanged(this);
 		}
 	}
 
+    /**
+     * Lijst van observers
+     * @return ArrayList van observers
+     * @throws RemoteException
+     */
 	@Override
 	public ArrayList<Player_Observer> observer_list() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.bord_observers;
 	}
 
-	public ArrayList<Speler_Model> getSpelers() throws  RemoteException {
-		return this.players;
-	}
-
 	public void setBordMax(int m){
 		this.bordMax = m;
 	}
 
+    /**
+     * Max aantal spelers die de server toelaat
+     * @return int van spelers
+     * @throws RemoteException
+     */
 	@Override
 	public int maxSpelers() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -172,6 +205,11 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return this.mol_onbord;
 	}
 
+    /**
+     * Voeg mol toe aan lijst
+     * @param mol mol model toevoegen
+     * @throws RemoteException
+     */
 	@Override
 	public void addMolField(MolModel mol) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -184,24 +222,45 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return this.maxMollen;
 	}
 
+    /**
+     * Index van wie aan de beurt is
+     * @return int van beurt
+     * @throws RemoteException
+     */
 	@Override
 	public int beurtIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return beurtIndex;
 	}
 
+    /**
+     * Verander de niveau door index met 1 te verhogen
+     * @throws RemoteException
+     */
 	@Override
 	public void changeNiveauInt() throws RemoteException {
 		// TODO Auto-generated method stub
 		this.huidigeNiveau = this.huidigeNiveau + 1;
 	}
 
+    /**
+     * Vraag index van de huidige niveau
+     * @return int van niveau
+     * @throws RemoteException
+     */
 	@Override
 	public int getHuidigeNiveauIndex() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.huidigeNiveau;
 	}
 
+    /**
+     * Geef de mol een speler, coordinaten en een index in de lijst van mollen(speler)
+     * @param speler speler die mol bevat
+     * @param coord coord van toepassing op de knoppen op het veld
+     * @param molIndex index in de lijst van de spelers mollen
+     * @throws RemoteException
+     */
 	@Override
 	public void setMolCoord(Speler_Model speler, int[] coord, int molIndex) throws RemoteException {
 		System.out.println("voor verplaatsen" +this.players.get(beurtIndex).getMol_list().get(molIndex).printCoord());
@@ -214,12 +273,21 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return this;
 	}
 
+    /**
+     * Kent een mol toe aan een gegeven speler met daarin zijn coordinaten
+     * @param coordinaten int array met x,y,z coordinaten.
+     * @throws RemoteException
+     */
 	public void addMolltoList(int[] coordinaten)throws RemoteException{
 		System.out.println("AddmolltoLIst" +coordinaten);
 		this.players.get(beurtIndex).getMol_list().add(new MolModel(coordinaten, players.get(beurtIndex).getKleur()));
 		System.out.println(this.getClass().toString() +"aantalMollen(amtl): " +this.players.get(beurtIndex).getMol_list().size());
 	}
 
+    /**
+     * Haal mol uit de lijst van de gegeven speler
+     * @throws RemoteException
+     */
 	@Override
 	public void deleteMollfromList()throws RemoteException {
 		Playboard_Model playboardModel = new Playboard_Model();
@@ -248,6 +316,10 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	}
 
+    /**
+     * Verander beurt van spelers zodat zij hun beurt mogen spelen
+     * @throws RemoteException
+     */
     @Override
     public void veranderBeurt() throws RemoteException {
         System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
@@ -295,6 +367,10 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return mol_onbord;
 	}
 
+    /**
+     * Max aantal mensen die mogen spelen
+     * @return int van het aantal
+     */
 	public int getBordMax(){
 		return this.bordMax;
 	}
@@ -303,36 +379,68 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		this.players = players;
 	}
 
+    /**
+     * Set wie aan de beurt
+     * @param beurtIndex index van wie aan de beurt is
+     */
 	public void setBeurtIndex(int beurtIndex){
 		this.beurtIndex = beurtIndex;
 	}
 
+    /**
+     * Set de niveau van de bord
+     * @param huidigeNiveau int met huidige niveau
+     */
 	public void setHuidigeNiveau(int huidigeNiveau){
 		this.huidigeNiveau = huidigeNiveau;
 	}
 
+    /**
+     * Set maximum aantal mollen die een user mag hebben, verschilt per spel
+     * @param maxMollen int om de max op te slaan
+     */
 	public void setMaxMollen(int maxMollen){
 		this.maxMollen = maxMollen;
 	}
 
+    /**
+     * Vraag hervat status op
+     * @return boolean van model
+     * @throws RemoteException
+     */
 	@Override
 	public boolean getHervatStatus() throws RemoteException {
 		// TODO Auto-generated method stub
 		return this.hervatStatus;
 	}
 
+    /**
+     * Verander status van de hervatten boolean om vast te stellen dat het spel een hervatten spel is
+     * @param status boolean van status
+     * @throws RemoteException
+     */
 	@Override
 	public void setHervatStatus(boolean status) throws RemoteException {
 		// TODO Auto-generated method stub
 		this.hervatStatus = status;
 	}
 
+    /**
+     * Voeg speler toe aan lijst die klaar zijn in het hervat lobby
+     * @param speler geeft speler die klaar is mee en zet in lijst
+     * @throws RemoteException
+     */
 	@Override
 	public void addHervatSpelerKlaar(Speler_Model speler) throws RemoteException {
 		// TODO Auto-generated method stub
 		hervat_spelers.add(speler);
 	}
 
+    /**
+     * Vraag lijst van spelers die klaar zijn om een hervatten spel te laden
+     * @return ArrayList van spelers
+     * @throws RemoteException
+     */
 	@Override
 	public ArrayList<Speler_Model> getHervatSpelersList() throws RemoteException {
 		// TODO Auto-generated method stub

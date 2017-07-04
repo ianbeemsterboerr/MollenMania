@@ -17,9 +17,9 @@ import javafx.stage.StageStyle;
 import model.Speler_Model;
 
 /**
- * Created by Robert on 6/18/
  *
- * Neemt de plaats in van connect_host_view, gebruikt veel van de code van connect_host_view
+ *
+ * Vraagt naar de ip adres en de gebruikersnaam van de speler.
  */
 public class JoinSpelView {
     private String txtValue;

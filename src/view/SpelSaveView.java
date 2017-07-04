@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 
 /**
- * Created by Ian on 6/19/2017.
+ * C
  * Wordt getoond wanneer er op "Save Spel" wordt gedrukt vanuit de game.
  */
 public class SpelSaveView {

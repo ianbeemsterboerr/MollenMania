@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * Created by Robert on 6/16/2017.
+ * De instellingenpanel die rechtsbovenin staat.
  */
 public class InstInGameView {
     private Button btnGeluid;

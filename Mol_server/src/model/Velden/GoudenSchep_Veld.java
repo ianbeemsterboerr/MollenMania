@@ -3,6 +3,7 @@ package model.Velden;
 import java.io.Serializable;
 
 /**
+ * Is het veld dat, wanneer er een mol op staat, zegt dat de eindconditie van het spel is behaald.
  * Created by Wessel on 6-6-2017.
  */
 public class GoudenSchep_Veld implements Serializable {

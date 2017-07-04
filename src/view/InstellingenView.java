@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 /**
  * Initialiseer instellingen om te plaatsen waar nodig is.
- * Created by Robert on 6/16/2017.
+ *
  */
 public class InstellingenView {
     Button btnGeluid;

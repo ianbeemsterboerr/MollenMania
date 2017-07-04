@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by Robert on 6/22/2017.
+ * Alle statussen die het spel bevat.
  */
 public enum BeurtStatus {
     LOBBY,BORDSTARTEN,NEERZETTEN,FICHEDRAAIEN,SELECTEREN,VERPLAATSEN, EINDE

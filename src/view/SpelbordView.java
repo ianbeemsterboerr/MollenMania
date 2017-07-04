@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
@@ -544,10 +545,26 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
-	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<Speler_Model> spelers, BeurtStatus status){
+	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<Speler_Model> spelers, BeurtStatus status) throws RemoteException{
 		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
 			boolean disableMol=false;
+
+			if(player_1.getSpeler_model().getUsername().trim().equals(speler.getUsername().trim())){
+				//player_1.updateFiches(speler,bs_interface);
+				player_1.setToggleFicheEnabled(bs_interface);
+			}else if(player_2.getSpeler_model().getUsername().trim().equals(speler.getUsername().trim())){
+				//player_2.updateFiches(speler,bs_interface);
+				player_2.setToggleFicheEnabled(bs_interface);
+			}else if(player_3!=null&&player_3.getSpeler_model().getUsername().trim().equals(speler.getUsername().trim())){
+				//player_3.updateFiches(speler,bs_interface);
+				player_3.setToggleFicheEnabled(bs_interface);
+				if(player_4!=null&&player_4.getSpeler_model().getUsername().trim().equals(speler.getUsername().trim())){
+					//player_4.updateFiches(speler,bs_interface);
+					player_4.setToggleFicheEnabled(bs_interface);
+				}
+			}
+
 			if(!speler.getUsername().trim().equals(bordspel_controller.getBijnaam().trim())||status!=BeurtStatus.SELECTEREN){
 				disableMol=true;
 			}
@@ -566,6 +583,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	}
 
 	public void enableOrDisable(String aanDeBeurt, BeurtStatus beurtStatus){
+
 		boolean jijAanDeBeurt = aanDeBeurt.trim().equals(this.bordspel_controller.getBijnaam().trim());
 		if(!jijAanDeBeurt||beurtStatus==BeurtStatus.BORDSTARTEN){
 			System.out.println(this.getClass().toString()+": enableOrDisabl "+bordspel_controller.getBijnaam()+" is DISABLED");

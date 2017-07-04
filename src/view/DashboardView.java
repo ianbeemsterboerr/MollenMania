@@ -3,6 +3,7 @@ package view;
 import controller.Bordspel_Controller;
 import controller.Bordspel_Interface;
 import controller.Fiche_Controller;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,9 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import model.BeurtStatus;
 import model.Fiche_Model;
 import model.Speler_Model;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -162,14 +165,6 @@ public class DashboardView {
     }
 
     /**
-     * Zorgt ervoor dat de knoppen disabled zijn wanneer de speler niet aan de beurt is of wanneer het spelbord niet
-     * van de speler is.
-     */
-    public void setDisabled(){
-
-    }
-
-    /**
      * geeft de gridpane met de inhoud terug zodat SPelBordView hem kan gebruiken.
      * @return
      */
@@ -177,40 +172,61 @@ public class DashboardView {
         return this.grid;
     }
 
-    public void modelChanged(){
-
+    public Speler_Model getSpeler_model() {
+        return speler_model;
     }
 
-    public void updateFiches(Speler_Model speler){
-        System.out.println(this.getClass().toString()+": updateFiches");
-        Fiche_Model fichesModel = speler.getFiche_list();
+    public void updateFiches(Speler_Model speler, Bordspel_Interface bs_interface) throws RemoteException{
+        Platform.runLater(()->{
+                System.out.println(this.getClass().toString()+": updateFiches");
+                Fiche_Model fichesModel = speler.getFiche_list();
 
-        String kleur="";
-        switch (speler.getKleur()){
-            case "blue":
-                kleur="blauw";
-                break;
-            case "yellow":
-                kleur="geel";
-                break;
-            case "green":
-                kleur="groen";
-                break;
-            case "red":
-                kleur="red";
-                break;
-        }
+                String kleur="";
+                switch (speler.getKleur()){
+                    case "blue":
+                        kleur="blauw";
+                        break;
+                    case "yellow":
+                        kleur="geel";
+                        break;
+                    case "green":
+                        kleur="groen";
+                        break;
+                    case "red":
+                        kleur="red";
+                        break;
+                }
 
-        System.out.println(this.getClass().toString()+": updateFiches - fiche op nr zetten");
-        int ficheNr=fichesModel.getFicheNR();
-        System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
-        this.fiches[this.buttonNR].setId("fiche_"+kleur+"_"+ficheNr);
-        this.fiches[this.buttonNR].setGedraaid(true);
-        this.fiches[this.buttonNR].setText(String.valueOf(ficheNr));
-        this.buttonNR++;
-        if (this.buttonNR == 6){
-            this.buttonNR = 0;
+                System.out.println(this.getClass().toString()+": updateFiches - fiche op nr zetten");
+                int ficheNr=fichesModel.getFicheNR();
+                System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
+                this.fiches[this.buttonNR].setId("fiche_"+kleur+"_"+ficheNr);
+                this.fiches[this.buttonNR].setGedraaid(true);
+                this.fiches[this.buttonNR].setText(String.valueOf(ficheNr));
+                this.buttonNR++;
+                if (this.buttonNR == 6){
+                    this.buttonNR = 0;
+                }
+        });
+
+    }
+//    /**
+//     * Zorgt ervoor dat de knoppen disabled zijn wanneer de speler niet aan de beurt is of wanneer het spelbord niet
+//     * van de speler is.
+//     */
+//    public void setDisabled(boolean disabled){
+//
+//    }
+
+    public void setToggleFicheEnabled(Bordspel_Interface bs_interface) throws RemoteException{
+        boolean disabled=true;
+        if(isYou&&bs_interface.getBeurtStatus()==BeurtStatus.FICHEDRAAIEN
+                &&bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername().trim().equals(speler_model.getUsername().trim())){
+            disabled=false;
         }
-            }
+        for (Button button:buttons) {
+            button.setDisable(disabled);
         }
+    }
+}
 

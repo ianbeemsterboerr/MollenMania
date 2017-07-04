@@ -67,10 +67,12 @@ public class SpelFlowController{
     }
 
     public void setFicheknoppenAan(Bordspel_Interface bs_interface) throws RemoteException {
+
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
         System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");
             this.dashboardView.getFiche_btn().setOnAction(e -> {
                 try {
+
                     System.out.println(this.getClass().toString() + ": ACTION: FICHE DRAAIEN");
 
                     Speler_Model speler = bs_interface.playerList().get(bs_interface.beurtIndex());
@@ -81,7 +83,7 @@ public class SpelFlowController{
                     DashboardView.fichenrs.appendText(String.valueOf(fiche_list.getFicheNR()) + " : ");
                     System.out.println(this.getClass().toString() + ": " + BeurtStatus.SELECTEREN);
                     setFicheknoppenUit();
-                    this.dashboardView.updateFiches(speler);
+                    this.dashboardView.updateFiches(speler, bs_interface);
                     selecteerMolKnoppen(speler, bs_interface);
                     bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     bs_interface.notifyObservers();

@@ -61,6 +61,7 @@ public class Mol_Client {
 					System.out.println("New game!");
 					bs_controller.checkPlayerList(4, sm);
 					new Lobby_View(userStub, bs_controller, this);
+
 			}
 		} catch (Exception e) {
 			System.out.println(e);

@@ -22,11 +22,13 @@ public class SpelFlowController{
    private Bordspel_Controller bsController = new Bordspel_Controller();
    private Playboard_Model playboard_model = new Playboard_Model();
    private Bordspel_Interface bordspel_interface;
+   private DashboardView dashboardView;
 
     public SpelFlowController() {
     }
 
-    public void SpelStart(Bordspel_Interface bs) throws RemoteException {
+    public void SpelStart(Bordspel_Interface bs, DashboardView dashboardView) throws RemoteException {
+        this.dashboardView=dashboardView;
         this.bordspel_interface=bs;
         bs.setBeurtStatus(BeurtStatus.NEERZETTEN);
         setKnoppenNeerzetten(bs);
@@ -68,7 +70,7 @@ public class SpelFlowController{
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");
-            DashboardView.fiche_btn.setOnAction(e -> {
+            dashboardView.getFiche_btn().setOnAction(e -> {
                 Fiche_Model fiche_list = speler.getFiche_list();
                 System.out.println(this.getClass().toString() + ": ACTION: FICHE DRAAIEN");
                 try {

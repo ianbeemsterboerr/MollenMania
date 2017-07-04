@@ -3,6 +3,7 @@
     -fx-background-size:1440 810;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
+    -fx-
 }
 .nivel1 {
     -fx-background-image: url("../img/Spelbord_Bord1_HD.png");
@@ -12,21 +13,21 @@
 }
 .nivel2 {
     -fx-background-image: url("../img/SpelbordView2MEGA.png");
-    -fx-background-size:1440 810;
+    -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
 .nivel3 {
     -fx-background-image: url("../img/SpelbordView3MEGA.png");
-    -fx-background-size:1440 810;
+    -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
 .nivel4 {
     -fx-background-image: url("../img/SpelbordView4MEGA.png");
-    -fx-background-size:1440 810;
+    -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }

@@ -122,7 +122,26 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.initStyle(StageStyle.UNDECORATED);
 		bordStage.show();
 
-        new SpelFlowController().SpelStart(bs_interface);
+		DashboardView you;
+		if (player_1!=null&&player_1.getIsYou()){
+			you=player_1;
+			new SpelFlowController().SpelStart(bs_interface,player_1);
+			System.out.println(this.getClass().toString()+": player_1 meegegeven aan SpelFlowController");
+		}else if(player_2!=null&&player_2.getIsYou()){
+			you=player_2;
+			new SpelFlowController().SpelStart(bs_interface,player_2);
+			System.out.println(this.getClass().toString()+": player_2 meegegeven aan SpelFlowController");
+		}else if(player_3!=null&&player_3.getIsYou()){
+			you=player_3;
+			new SpelFlowController().SpelStart(bs_interface,player_3);
+			System.out.println(this.getClass().toString()+": player_3 meegegeven aan SpelFlowController");
+		}else if(player_4!=null&&player_4.getIsYou()){
+			you=player_4;
+			new SpelFlowController().SpelStart(bs_interface,player_4);
+			System.out.println(this.getClass().toString()+": player_4 meegegeven aan SpelFlowController");
+		}
+
+        //new SpelFlowController().SpelStart(bs_interface);
 	}
 
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
@@ -466,7 +485,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.BORDSTARTEN){
 			try {
 				for (VeldKnop veldKnop: buttonArray) {
-					veldKnop.setStyle("-fx-background-color: transparent;");
+					//veldKnop.setStyle("-fx-background-color: transparent;");
 					veldKnop.setId(" ");
 					veldKnop.setDisable(false);
 				//	System.out.println(this.getClass().toString()+": schoonmakenBord knop gezett! "+canNotClick);

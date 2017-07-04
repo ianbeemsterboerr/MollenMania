@@ -5,7 +5,10 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import model.Speler_Model;
+import view.HervatLobbyView;
 import view.InstellingenView;
 import view.Lobby_View;
 
@@ -42,9 +45,23 @@ public class Mol_Client {
 			//System.out.println(userStub.getClientHost());
 			Speler_Model sm = new Speler_Model(username, spid);
 
-			bs_controller.checkPlayerList(4, sm);
-			userStub.testMe();
-			new Lobby_View(userStub, bs_controller, this);
+			//check if boolean hervat status is true if so, load game via hervat route.
+			if(userStub.getHervatStatus() == true){
+				for(Speler_Model speler : userStub.playerList()){
+						if(speler.getUsername().equals(username)){
+							System.out.println("User found");
+							new HervatLobbyView(userStub, bs_controller, this);
+						} else{
+							Alert alert = new Alert(AlertType.WARNING, 
+			                        "Current game is a saved game, please enter the username used in that game.");
+							alert.show();
+						}
+					}
+				} else {
+					System.out.println("New game!");
+					bs_controller.checkPlayerList(4, sm);
+					new Lobby_View(userStub, bs_controller, this);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}

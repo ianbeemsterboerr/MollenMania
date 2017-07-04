@@ -84,10 +84,7 @@ public class run extends Application{
 				FileInputStream fis = new FileInputStream(file);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				spelModel = (Spelbord_Model) ois.readObject();
-				System.out.println(spelModel.beurtIndex());
-				System.out.println(spelModel.getBeurtStatus());
-				System.out.println(spelModel.getBordMax());
-				System.out.println(spelModel.getSpelers());
+				
 				new Mol_Server(spelModel);
 			} catch (IOException e) {
 				e.printStackTrace();

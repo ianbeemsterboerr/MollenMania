@@ -11,6 +11,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javafx.scene.control.Button;
+
 /**
  * Bestuurt alles wat er op het bordspel gebeurt. laat het de BordSpelView en kan data uit het servermodel halen.
  */
@@ -303,6 +305,14 @@ public class Bordspel_Controller {
 		}
 		return false;
 	}
-
+	
+    public void startSpel(Button btnklaar, ArrayList<Speler_Model> spelers, String bijnaam) throws RemoteException {
+    	for(Speler_Model speler : spelers){ //bind  user to user in the loaded game.
+			if(speler.getUsername().equals(bijnaam)){
+				this.bs_interface.addHervatSpelerKlaar(speler);
+				btnklaar.setDisable(true);
+			}
+    	}
+    }
 
 }

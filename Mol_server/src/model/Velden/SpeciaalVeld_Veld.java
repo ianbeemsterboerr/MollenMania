@@ -24,11 +24,5 @@ public class SpeciaalVeld_Veld implements Serializable {
         return positie;
     }
 
-    public void setPositie(int[] positie) {
-        this.positie = positie;
-    }
 
-    public void opSpeciaalVeld(){
-
-    }
 }

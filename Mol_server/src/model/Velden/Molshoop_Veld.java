@@ -23,12 +23,5 @@ public class Molshoop_Veld implements Serializable {
         return positie;
     }
 
-    public void setPositie(int[] positie) {
-        this.positie = positie;
-    }
 
-    boolean isBezet(){
-        return false;
-
-    }
 }

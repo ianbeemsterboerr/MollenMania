@@ -7,17 +7,11 @@ import java.io.Serializable;
  * Created by Wessel on 6-6-2017.
  */
 
-public class Normaalveld_Veld implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Normaalveld_Veld implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-public Normaalveld_Veld () {
+    public Normaalveld_Veld() {
     }
-
-    /**
-     * Geeft aan of hij bezet is.
-     * @return true wanneer bezet.
-     */
-  public boolean isBezet() {
-    return false;
-  }
 }
+
+

@@ -32,14 +32,5 @@ public class SpeciaalVeld_Veld implements Serializable{
      * Set de positie van de het veld.
      * @param positie de x, y en z coordinaat.
      */
-    public void setPositie(int[] positie) {
-        this.positie = positie;
-    }
 
-    /**
-     * Heeft nog geen duidelijke functie.
-     */
-    public void opSpeciaalVeld(){
-
-    }
 }

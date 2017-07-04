@@ -34,16 +34,5 @@ public class Molshoop_Veld implements Serializable{
      * Set de positie van de molshoop.
      * @param positie De positie waarop de molshoop moet komen.
      */
-    public void setPositie(int[] positie) {
-        this.positie = positie;
-    }
 
-    /**
-     * Geeft aan of de molshoop bezet is.
-     * @return true als hij bezet is.
-     */
-    boolean isBezet(){
-        return false;
-
-    }
 }

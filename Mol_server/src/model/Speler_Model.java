@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Speler_Model implements Serializable, Comparable<Speler_Model>{
 	
 	/**
-	 * 
+	 * Bevat alle data van een Speler.
 	 */
 	private static final long serialVersionUID = 1L;
 	private String username;

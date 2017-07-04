@@ -34,8 +34,10 @@ public class SpelSaveView {
         
         btn_opslaan.setOnAction(a->{
             ctrl.saveSpel(txt_save.getText());
+            stage.close();
         });
-       
+        gp_save.setId("gridpane");
+        gp_save.getStylesheets().addAll(getClass().getResource("style/saveStyle.css").toExternalForm());
         Scene scene = new Scene(gp_save, 300, 75);
 
         stage.setScene(scene);

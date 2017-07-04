@@ -112,65 +112,105 @@
 
 #fiche_blauw_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheBlauw0.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_geel_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheGeel0.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_groen_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheGroen0.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_rood_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheRood0.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 
 #fiche_blauw_1{
     -fx-background-image: url("../img/FicheBlauw1.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_blauw_2{
     -fx-background-image: url("../img/FicheBlauw2.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_blauw_3{
     -fx-background-image: url("../img/FicheBlauw3.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_blauw_4{
     -fx-background-image: url("../img/FicheBlauw4.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 
 #fiche_geel_1{
     -fx-background-image: url("../img/FicheGeel1.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_geel_2{
     -fx-background-image: url("../img/FicheGeel2.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_geel_3{
     -fx-background-image: url("../img/FicheGeel3.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_geel_4{
     -fx-background-image: url("../img/FicheGeel4.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 
 #fiche_groen_1{
     -fx-background-image: url("../img/FicheGroen1.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_groen_2{
     -fx-background-image: url("../img/FicheGroen2.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_groen_3{
     -fx-background-image: url("../img/FicheGroen3.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_groen_4{
     -fx-background-image: url("../img/FicheGroen4.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 
 #fiche_rood_1{
     -fx-background-image: url("../img/FicheRood1.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_rood_2{
     -fx-background-image: url("../img/FicheRood2.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_rood_3{
     -fx-background-image: url("../img/FicheRood3.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }
 #fiche_rood_4{
     -fx-background-image: url("../img/FicheRood4.png");
+    -fx-min-height: 30px;
+    -fx-min-width: 30px;
 }

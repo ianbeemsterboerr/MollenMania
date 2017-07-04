@@ -7,12 +7,12 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import model.Spelbord_Model;
-
+/**
+ * Server opstarten en bepalen als het een hervatten spel is of een nieuwe.
+ */
 public class Mol_Server extends UnicastRemoteObject{
 
-	/**
-	 * Server opstarten en bepalen als het een hervatten spel is of een nieuwe.
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	/**

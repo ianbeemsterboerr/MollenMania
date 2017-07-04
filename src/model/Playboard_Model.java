@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Maakt het model aan waarin alle niveaus staan. Deze niveaus bevat alle spelinformatie die voor die niveaus relevant zijn.
- * Created by Wessel on 29-5-2017.
+ *
  */
 public class Playboard_Model implements Serializable {
 	private static final long serialVersionUID = 1L;

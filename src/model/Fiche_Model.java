@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * De ArrayList die bestaat uit 6 fiches.
- * Created by Wessel on 29-5-2017.
+ *
  */
 public class  Fiche_Model implements Serializable{
     private static final long serialVersionUID = 1L;

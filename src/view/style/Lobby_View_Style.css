@@ -9,10 +9,6 @@
     -fx-background-repeat: stretch;
 }
 
-.slider .thumb {
-    -fx-graphic: url("../img/Icon_Handje.png");
-    -fx-background-color: transparent;
-}
 
 #rood{
     -fx-graphic: url("../img/Icon_MolHoofdRood.png");

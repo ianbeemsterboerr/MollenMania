@@ -76,10 +76,10 @@ public class run extends Application{
 		}});
 
 		btn_spelHervatten.setOnAction(a->{
-			if(host_name.getText()!=""&&host_name.getText()!=null&&host_name.getText()!=" "){
-				System.out.println(this.getClass().toString()+": rmi.server.hostname gezet");
-				System.setProperty("java.rmi.server.hostname",host_name.getText());
-			}
+//			if(host_name.getText()!=""&&host_name.getText()!=null&&host_name.getText()!=" "){
+//				System.out.println(this.getClass().toString()+": rmi.server.hostname gezet");
+//				System.setProperty("java.rmi.server.hostname",host_name.getText());
+//			}
 
 			File saveFile  = new HervatGameView().getFile();
 			File file = saveFile;

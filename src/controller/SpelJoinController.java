@@ -21,10 +21,10 @@ public class SpelJoinController {
     }
 
     public void connect(String serverIP, String clientIP, String bijnaam){
-        if(clientIP!=""&&clientIP!=null&&clientIP!=" "){
-            System.out.println(this.getClass().toString()+": rmi.server.hostname gezet");
-            System.setProperty("java.rmi.server.hostname",clientIP);
-        }
+//        if(clientIP!=""&&clientIP!=null&&clientIP!=" "){
+//            System.out.println(this.getClass().toString()+": rmi.server.hostname gezet");
+//            System.setProperty("java.rmi.server.hostname",clientIP);
+//        }
         new Mol_Client(serverIP,bijnaam,mainMenuController.getInstellingenPanelController());
     }
 }

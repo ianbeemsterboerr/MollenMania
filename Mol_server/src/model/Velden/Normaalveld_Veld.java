@@ -11,9 +11,6 @@ public class Normaalveld_Veld {
   public Normaalveld_Veld () {
     }
 
-  public boolean isBezet() {
-    return false;
-  }
 
 
 

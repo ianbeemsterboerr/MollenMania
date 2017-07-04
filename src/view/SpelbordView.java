@@ -342,7 +342,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 		// init velden wit
 		for (VeldKnop veldKnop: buttonArray) {
-			veldKnop.setStyle("-fx-background-color: white");
+			veldKnop.setStyle("-fx-background-color: transparent");
 			//veldKnop.setDisable(false);
 		}
 		// Init molshopen
@@ -351,7 +351,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			for (VeldKnop veldKnop:this.buttonArray){
 				if(Arrays.equals(m.getPositie(), veldKnop.getCoordinaten())){
 					//veldKnop.setDisable(true);
-					veldKnop.setStyle("-fx-background-color: saddlebrown;");
+					veldKnop.setStyle("-fx-background-color: transparent;");
 				}
 			}
 		}
@@ -445,7 +445,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		System.out.println(this.getClass().toString()+": MODELCHANGED "+bordspel_controller.getBijnaam()+" ------------------------------------------------------------------------------");
 		System.out.println(this.getClass().toString()+": MODELCHANGED status is "+beurtStatus);
 
-		niveauLaden(niveauIndex);
 		schoonmakenBord(buttonArray,beurtStatus);
 		loadGoudenSchep(buttonArray,huidigNiveau,beurtStatus);
 		loadSpecial(buttonArray,huidigNiveau,beurtStatus);
@@ -453,16 +452,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		loadSpelerMols(buttonArray,spelers, beurtStatus);
 		enableOrDisable(aanDeBeurt, beurtStatus);
 		changeLabels(aanDeBeurt,beurtStatus);
-
-		//Dasboards updaten
-//		System.out.println(this.getClass().toString()+": modelChanged: about to update the dasboards!");
-//		this.player_1.updateFiches(spelers);
-//		this.player_2.updateFiches(spelers);
-//		if(player_3!=null){
-//			this.player_3.updateFiches(spelers);
-//			if(player_4!=null){
-//				this.player_4.updateFiches(spelers);
-//			}
+		niveauLaden(niveauIndex);
 
 	}
 

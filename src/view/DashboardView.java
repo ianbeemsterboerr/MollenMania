@@ -149,7 +149,7 @@ public class DashboardView {
      * @return Button fiche_btn
      */
     public Button getFiche_btn() {
-        return fiche_btn;
+        return this.fiche_btn;
     }
 
     /**

@@ -45,7 +45,7 @@ public class SpelFlowController{
                         clearKnoppen();
                         bsInterface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
                         System.out.println(this.getClass().toString()+": "+"naar fiche "+BeurtStatus.FICHEDRAAIEN);
-                        setFicheknoppenAan(spelerAanDeBeurt, bsInterface);
+                        setFicheknoppenAan(bsInterface);
                         bsInterface.notifyObservers();
                         }
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
@@ -66,7 +66,8 @@ public class SpelFlowController{
         }
     }
 
-    public void setFicheknoppenAan(Speler_Model speler,Bordspel_Interface bs_interface) throws RemoteException {
+    public void setFicheknoppenAan(Bordspel_Interface bs_interface) throws RemoteException {
+        Speler_Model speler = bs_interface.playerList().get(bs_interface.beurtIndex());
         System.out.println(this.getClass().toString()+": setFicheKnoppenAan");
         System.out.println(this.getClass().toString()+": "+speler.getUsername() +" Is aan de beurt");
         System.out.println(this.getClass().toString()+": "+bs_interface.playerList().get(bs_interface.beurtIndex()).getUsername()+" Is aan de beurt volgens Model.");
@@ -149,8 +150,9 @@ public class SpelFlowController{
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
             if(bs_interface.getHuidigeNiveauIndex() >1 && bsController.isSpeciaal(speler.getMol_list().get(molIndex).getCoord(),playboard_model.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex()))){
+                System.out.println("SpeciaalVeld gespot");
                 clearKnoppen();
-                setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
+                setFicheknoppenAan(bs_interface);
                 this.bordspel_interface.notifyObservers();
             }
 
@@ -166,7 +168,7 @@ public class SpelFlowController{
             clearKnoppen();
             bs_interface.veranderBeurt();
             bs_interface.notifyObservers();
-            setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
+            setFicheknoppenAan(bs_interface);
         }
 
 

@@ -22,13 +22,13 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
+	private ArrayList<Speler_Model> hervat_spelers = new ArrayList<>();
 	private int beurtIndex =0;
 	private int huidigeNiveau = 1;
 	private int bordMax;
-
+	private boolean hervatStatus;
 	private int maxMollen;
 
-	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
 	
 	public Spelbord_Model(){
@@ -129,7 +129,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		notifyObservers();
 	}
 
-
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -178,8 +177,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
 	}
-
-
 
 	@Override
 	public int getMaxMollen() throws RemoteException {
@@ -251,8 +248,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	}
 
-
-
 	@Override
 	public void veranderBeurt() throws RemoteException {
 		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
@@ -319,5 +314,27 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		this.maxMollen = maxMollen;
 	}
 
+	@Override
+	public boolean getHervatStatus() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.hervatStatus;
+	}
 
+	@Override
+	public void setHervatStatus(boolean status) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.hervatStatus = status;
+	}
+
+	@Override
+	public void addHervatSpelerKlaar(Speler_Model speler) throws RemoteException {
+		// TODO Auto-generated method stub
+		hervat_spelers.add(speler);
+	}
+
+	@Override
+	public ArrayList<Speler_Model> getHervatSpelersList() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.hervat_spelers;
+	}
 }

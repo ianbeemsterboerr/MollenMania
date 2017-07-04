@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- * Created by Wessel on 29-5-2017.
+ * Bevat alle niveaus die bestaan op het spelbord.
  */
 public class Playboard_Model implements Serializable {
 

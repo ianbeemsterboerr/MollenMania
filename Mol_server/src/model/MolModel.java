@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javafx.scene.paint.Color;
 
 /**
- * Created by Wessel on 29-5-2017.
+ * Is een Mol. bevat kleur en coordinaten.
  */
 public class MolModel implements Serializable{
 

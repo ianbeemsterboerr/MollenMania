@@ -194,6 +194,7 @@ public class DashboardView {
     }
 
     public void updateFiches(ArrayList<Speler_Model> spelers){
+        System.out.println(this.getClass().toString()+": ");
         Fiche_Model fichesModel = new Fiche_Model();
         for (Speler_Model speler:spelers) {
             if(speler.getUsername().trim().equals(this.speler_model.getUsername().trim())){

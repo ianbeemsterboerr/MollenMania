@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import model.Fiche_Model;
 import model.Speler_Model;
 
@@ -30,7 +31,7 @@ public class DashboardView {
     private boolean isYou=false;
     private Button fiche_btn = new Button("Fiche draaien");
     private Fiche_Controller ficheController = new Fiche_Controller();
-    public static FicheButton[] fiches = new FicheButton[6];
+    public FicheButton[] fiches = new FicheButton[6];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
@@ -134,6 +135,7 @@ public class DashboardView {
         if(!isYou){
             for (FicheButton fiche:fiches) {
                 fiche.setDisable(true);
+                fiche.setShape(new Circle(30));
             }
             for (Button button:buttons) {
                 button.setDisable(true);
@@ -144,6 +146,16 @@ public class DashboardView {
         grid.add(stateGrid,0,1);
         grid.setHgap(10.0);
         grid.setVgap(10.0);
+    }
+
+    /**
+     *
+     * @return
+     * author: Robert den Blaauwen
+     * versie: 4-7-2017
+     */
+    public FicheButton[] getFiches() {
+        return fiches;
     }
 
     /**
@@ -185,10 +197,11 @@ public class DashboardView {
     }
 
     public void updateFiches(ArrayList<Speler_Model> spelers){
-        System.out.println(this.getClass().toString()+": ");
+        System.out.println(this.getClass().toString()+": updateFiches");
         Fiche_Model fichesModel = new Fiche_Model();
         for (Speler_Model speler:spelers) {
             if(speler.getUsername().trim().equals(this.speler_model.getUsername().trim())){
+                System.out.println(this.getClass().toString()+": updateFiches, YOU found");
                 fichesModel=speler.getFiche_list();
             }
         }
@@ -210,14 +223,16 @@ public class DashboardView {
         if(fichesModel.getGeslotenFiche().size()==6){
             for (FicheButton fiche:this.fiches) {
                 fiche.setId("fiche_"+kleur+"_nietgedraaid");
+                fiche.setGedraaid(false);
             }
         }else{
             for (FicheButton fiche:this.fiches) {
+                System.out.println(this.getClass().toString()+": updateFiches - fiche op nr zetten");
                 if(!fiche.isGedraaid()){
                     int ficheNr=fichesModel.getFicheNR();
                     System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
                     fiche.setId("fiche_"+kleur+"_"+ficheNr);
-                    fiche.setText(Integer.toString(ficheNr));
+                    fiche.setGedraaid(true);
                 }
             }
         }

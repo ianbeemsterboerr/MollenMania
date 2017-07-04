@@ -74,8 +74,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane = this.loadVeld(players);
 		veld_pane.setPrefHeight(700);
 		veld_pane.setMaxHeight(700);
-		veld_pane.setPrefWidth(800);
-		veld_pane.setMaxWidth(800);
+		veld_pane.setPrefWidth(700);
+		veld_pane.setMaxWidth(700);
 		veld_pane.setHgap(0);//31
 		veld_pane.setVgap(22);//50
 		veld_pane.setPadding(new Insets(65,0,0,-68));
@@ -99,7 +99,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane.setId("nivel1");
 
 		
-		Scene bord = new Scene(dashboard_pane, 1440,810);
+		Scene bord = new Scene(dashboard_pane, 1600,900);
 		bord.getStylesheets().addAll(this.getClass().getResource("style/SpelbordStyle.css").toExternalForm());
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();

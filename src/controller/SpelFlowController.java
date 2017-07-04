@@ -94,7 +94,7 @@ public class SpelFlowController{
 
 
     public void setFicheknoppenUit() {
-        for (final Button fiche : DashboardView.fiches) {
+        for (final Button fiche : this.dashboardView.getFiches()) {
             fiche.setOnAction(e -> System.out.println(this.getClass().toString()+": "+"UIT"));
         }
     }

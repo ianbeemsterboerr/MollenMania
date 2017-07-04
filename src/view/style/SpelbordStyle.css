@@ -1,40 +1,44 @@
 .background{
     -fx-background-image: url("../img/Spelbord_Achtergrond_Leeg.png");
-    -fx-background-size:1440 810;
+    -fx-background-size:100% 100%;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
-    -fx-
 }
 .nivel1 {
-    -fx-background-image: url("../img/Spelbord_Bord1_HD.png");
+    -fx-background-image: url("../img/Spelbord1Los.png");
     -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
+    -fx-border-width: 5px;
+    -fx-border-style: solid;
+    -fx-border-color: red;
+
+    -fx-max-width: 700px;
 }
 .nivel2 {
-    -fx-background-image: url("../img/SpelbordView2MEGA.png");
+    -fx-background-image: url("../img/Spelbord2Los.png");
     -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
 .nivel3 {
-    -fx-background-image: url("../img/SpelbordView3MEGA.png");
+    -fx-background-image: url("../img/Spelbord3Los.png");
     -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
 .nivel4 {
-    -fx-background-image: url("../img/SpelbordView4MEGA.png");
+    -fx-background-image: url("../img/Spelbord4Los.png");
     -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
 
 .nivel5 {
-    -fx-background-image: url("../img/SpelbordView5MEGA.png");
-    -fx-background-size:1440 810;
+    -fx-background-image: url("../img/Spelbord5Los.png");
+    -fx-background-size: auto 700;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
@@ -111,107 +115,160 @@
     -fx-opacity: 0.8;
 }
 
+#fiche{
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+}
+
+#fiche_nietgedraaid{
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 60px;
+    -fx-min-width: 60px;
+    -fx-background-color: transparent;
+}
+
 #fiche_blauw_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheBlauw0.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 60px;
+    -fx-min-width: 60px;
+    -fx-background-color: transparent;
 }
 #fiche_geel_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheGeel0.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 60px;
+    -fx-min-width: 60px;
+    -fx-background-color: transparent;
 }
 #fiche_groen_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheGroen0.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 60px;
+    -fx-min-width: 60px;
+    -fx-background-color: transparent
 }
 #fiche_rood_nietgedraaid{
     -fx-background-image: url("../img/CLBDFicheRood0.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 60px;
+    -fx-min-width: 60px;
+    -fx-background-color: transparent
 }
 
 #fiche_blauw_1{
     -fx-background-image: url("../img/FicheBlauw1.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_blauw_2{
     -fx-background-image: url("../img/FicheBlauw2.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_blauw_3{
     -fx-background-image: url("../img/FicheBlauw3.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_blauw_4{
     -fx-background-image: url("../img/FicheBlauw4.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 
 #fiche_geel_1{
     -fx-background-image: url("../img/FicheGeel1.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_geel_2{
     -fx-background-image: url("../img/FicheGeel2.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_geel_3{
     -fx-background-image: url("../img/FicheGeel3.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_geel_4{
     -fx-background-image: url("../img/FicheGeel4.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 
 #fiche_groen_1{
     -fx-background-image: url("../img/FicheGroen1.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_groen_2{
     -fx-background-image: url("../img/FicheGroen2.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_groen_3{
     -fx-background-image: url("../img/FicheGroen3.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_groen_4{
     -fx-background-image: url("../img/FicheGroen4.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 
 #fiche_rood_1{
     -fx-background-image: url("../img/FicheRood1.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_rood_2{
     -fx-background-image: url("../img/FicheRood2.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_rood_3{
     -fx-background-image: url("../img/FicheRood3.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }
 #fiche_rood_4{
     -fx-background-image: url("../img/FicheRood4.png");
-    -fx-min-height: 30px;
-    -fx-min-width: 30px;
+    -fx-background-size: 100%,100%;
+    -fx-min-height: 40px;
+    -fx-min-width: 40px;
+    -fx-border-radius: 20px;
 }

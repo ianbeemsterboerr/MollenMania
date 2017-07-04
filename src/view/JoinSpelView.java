@@ -43,8 +43,8 @@ public class JoinSpelView {
         ipClient = new TextField();
         username = new TextField();
 
-        Button btn_connect = new Button("CONNECT");
-        Button btn_back = new Button("BACK");
+        Button btn_connect = new Button("Verbind");
+        Button btn_back = new Button("Terug");
         btn_connect.setMaxWidth(button_width);
         btn_back.setMaxWidth(button_width);
 
@@ -106,7 +106,7 @@ public class JoinSpelView {
 
         //Make scene call up style.css for styling
         connect_scene.getStylesheets().addAll(getClass().getResource("style/main_menu_style.css").toExternalForm());
-        connectStage.setTitle("Insert IP to connect");
+        connectStage.setTitle("Mollenmania - Spel joinen");
         connectStage.setScene(connect_scene);
         connectStage.initStyle(StageStyle.TRANSPARENT);
         connectStage.show();

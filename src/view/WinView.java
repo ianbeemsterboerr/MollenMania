@@ -32,6 +32,7 @@ public class WinView {
         instInGameView.registerStage(winStage);
         winStage.initStyle(StageStyle.TRANSPARENT);
         winStage.setScene(winScene);
+        winStage.setTitle("Mollenmania - Winnaar");
         winStage.show();
     }
 }

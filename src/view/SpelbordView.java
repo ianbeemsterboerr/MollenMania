@@ -25,11 +25,11 @@ import model.Velden.SpeciaalVeld_Veld;
 import model.Velden.VeldKnop;
 import javafx.application.Platform;
 
+/**
+ * In deze klasse wordt de view van het spelbord gemaakt.
+ */
 public class SpelbordView extends UnicastRemoteObject implements Player_Observer{
-	
-	/**
-	 * luhmao productions
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Speler_Model> players;
 	private Bordspel_Interface bs_interface;
@@ -47,7 +47,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	DashboardView player_2;
 	DashboardView player_3;
 	DashboardView player_4;
-	
+
+	/**
+	 *
+	 * @param bs_controller de bordspel controller
+	 * @param bs_interface De RMI interface, bordspel interface
+	 * @param bijnaam de bijnaam van de speler
+	 * @param instInGameView de instellingen view van het bordspel.
+	 * @throws RemoteException
+	 */
 	public SpelbordView(Bordspel_Controller bs_controller, Bordspel_Interface bs_interface, String bijnaam, InstInGameView instInGameView) throws RemoteException{
 		this.instInGameView=instInGameView;
 		this.bordspel_controller=bs_controller;
@@ -56,20 +64,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		
 		players = bs_interface.playerList();
 		this.bs_interface = bs_interface;
-		
-//		Button next_stage = new Button("Next!");
-//		next_stage.setOnAction(e->{
-//			try {
-//	
-//				bs_interface.changeNiveauInt();
-//				System.out.println("Niveau is nu: " + bs_interface.getHuidigeNiveauIndex());
-//				System.out.println(bs_interface.molOnField().size());
-//				bs_controller.changeNiveau(bs_interface.molOnField(), buttonArray, bs_interface.getHuidigeNiveauIndex());
-//				
-//			} catch (RemoteException e1) {
-//				e1.printStackTrace();
-//			}
-//		});
 
 		dashboard_pane = this.loadPlayers(players, bs_controller, bijnaam);
 		veld_pane = this.loadVeld(players);
@@ -113,11 +107,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			e.printStackTrace();
 		}
 
-		//bordStage.setX(bounds.getMinX());
-		//bordStage.setY(bounds.getMinY());
-		//bordStage.setWidth(bounds.getWidth());
-		//bordStage.setHeight(bounds.getHeight());
-		bordStage.setTitle("play with me");
+		bordStage.setTitle("Mollenmania");
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
 		bordStage.initStyle(StageStyle.UNDECORATED);
@@ -145,6 +135,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
         //new SpelFlowController().SpelStart(bs_interface);
 	}
 
+	/**
+	 *
+	 * @param players lijst van spelers die in de model zitten
+	 * @param bs_controller bordspel controller om controller werk in de model te doen
+	 * @param bijnaam bijnaam is de username die de speler opgeeft aan het begin van de spel
+	 * @return krijgt een borderpane terug die in de constructor van de SpelbordView gebruikt wordt.
+	 * @throws RemoteException
+	 */
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
 
 		VBox left = new VBox();
@@ -183,7 +181,13 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		moap.setRight(right);
 		return moap;
 	}
-	
+
+	/**
+	 *
+	 * @param players spelers uit de model krijgen
+	 * @return krijgt een gridpane terug om in de constructor gebruikt te worden
+	 * @throws RemoteException
+	 */
 	public GridPane loadVeld(ArrayList<Speler_Model> players) throws RemoteException{
 		GridPane root = new GridPane();
 		int width=40;
@@ -332,14 +336,6 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;
 		}
-		
-		/*
-		 * load board.
-		 * VOILAAA
-		 * check niveau to determine list to be added. - check
-		 * should be rewritten in a better function outside of this class. - check
-		 */
-		//this.bordspel_controller.loadBoard(buttonArray, bs_interface.molOnField(),new Playboard_Model(), bs_interface.getHuidigeNiveauIndex());
 
 		// init velden wit
 		for (VeldKnop veldKnop: buttonArray) {
@@ -356,81 +352,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				}
 			}
 		}
-		
-		/*
-		 * final used to be used inside lamba. reason: jah knows.
-		 * all buttons become "active" in this for loop
-		 */
-		/**for(int i=0;i<this.buttonArray.length;i++){
-			final VeldKnop buttonBox;
-			buttonBox = buttonArray[i];
-			/**buttonBox.setOnAction(e->{
-				try {
-					this.bordspel_controller.clickAction(buttonBox.getCoordinaten());
-				} catch (RemoteException e1) {
-					e1.printStackTrace();
-				}
-				/*
-				 * button changes
-				 * let's check if there are any buttons in the onboard list 
-				 * and we will register them on the board.
-				 */
-				//buttonBox.setDisable(true);
-				/**buttonBox.setBezet(true);
-				buttonBox.setStyle("-fx-background-color: #ff0000;");
-
-				/*
-				 * model changes
-				 * to be done:
-				 * 		1. whose turn is it?
-				 */
-				/*
-				 * 1. we must get whose turn it is.
-				 * 2. use that motherfucker to play, until he is done with his mols
-				 * 
-				 * PHASE 2:
-				 * 
-				 */
-				/**try {
-					// WE ARE USING YOU WHOEVER YOU ARE
-					System.out.println(this.getClass().toString()+": Player " + bs_interface.beurtIndex() + " is aan de beurt.");
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				/*
-				 * als een user mag, set coordinaten van zijn mollen, mol_max moet gewijzigd worden met de max aantal mollen 
-				 * die speler aan het begin van de spel heeft, ie. variable moet weten hoeveel elke speler mag krijgen.
-				 */
-
-//				int mol_max = 5;
-//				//this.bordspel_controller.setMolCoords(player_aanDeBeurt, mol_geselecteerd, buttonBox, mol_max, mol_index);
-//				mol_index++;
-				
-		
-
-				int mol_max = 5;
-				/**int mol_max = 5;
->>>>>>> dd8434a5696afe10cd6630819f7b2025b5334aed
-				mol_index++;
-				
-				try {
-				    //bs_interface.addMolField(mol_geselecteerd);
-
-					bs_interface.notifyObservers();
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-<<<<<<< HEAD
-				});
-		}	
-=======
-			});**/
-		//}
     	return root;
 	}
 
+	/**
+	 * Model changed wordt gebruikt in de Observer Pattern, om veranderingen direct naar alle schermen te sturen
+	 * @param playable implementatie van interface om data vanuit te server te kunnen ophalen
+	 *            the model that is changed
+	 * @throws RemoteException
+	 */
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
 		//boolean jijAanDeBeurt = playable.playerList().get(playable.beurtIndex()).getUsername().trim().equals(bordspel_controller.getBijnaam().trim());
@@ -457,15 +387,23 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 	}
 
+	/**
+	 * niveau laden als het tijd is
+	 * @param niveauIndex wordt gebruikt om de huidige spel niveau te halen.
+	 */
 	public void niveauLaden(int niveauIndex){
 		Platform.runLater(()->{
-//			this.niveau_pane.getStyleClass().remove(this.niveau_pane.getStyleClass().indexOf("nivel"+(niveauIndex-1)));
 			this.veld_pane.getStyleClass().add("nivel"+niveauIndex);
 			System.out.println(this.getClass().toString()+": niveauLaden nivel"+niveauIndex);
-//			System.out.println(this.getClass().toString()+": niveauLaden "+niveau_pane.getStyleClass());
 		});
 	}
 
+	/**
+	 * deze methode wordt gebruikt om de bord te verversen
+	 * @param buttonArray je hebt de knoppen die op de veld staan nodig om ze te manipuleren
+	 * @param status enum van status wordt gebruikt om bij te houden in welke state van het spel je nu zit
+	 * @throws RemoteException
+	 */
 	public void schoonmakenBord(VeldKnop[] buttonArray, BeurtStatus status) throws RemoteException{
 		boolean canNotClick = true;
 		if(status==BeurtStatus.NEERZETTEN||status==BeurtStatus.VERPLAATSEN){
@@ -487,7 +425,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 
 		}
 	}
-	
+
+	/**
+	 * Deze methode wordt gebruikt om de goudenschep te laden, dit is het laatste deel van het spel
+	 * @param buttonArray je hebt de knoppen die op de veld staan nodig om ze te manipuleren
+	 * @param huidigNiveau de huidige niveau van het spel om te weten waar de knoppen geladen moeten worden
+	 * @param status enum van status wordt gebruikt om bij te houden in welke state van het spel je nu zit
+	 * @throws RemoteException
+	 */
 	public void loadGoudenSchep(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws  RemoteException{
 		ArrayList<GoudenSchep_Veld> goudenSchep_veld=huidigNiveau.getGoudenSchep();
 		boolean canNotClick=true;
@@ -506,7 +451,14 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			}
 		}
 	}
-	
+
+	/**
+	 * Deze methode wordt gebruikt om de speciale velden op het bord te laden
+	 * @param buttonArray je hebt de knoppen die op de veld staan nodig om ze te manipuleren
+	 * @param huidigNiveau de huidige niveau van het spel om te weten waar de knoppen geladen moeten worden
+	 * @param status enum van status wordt gebruikt om bij te houden in welke state van het spel je nu zit
+	 * @throws RemoteException
+	 */
 	public void loadSpecial(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws RemoteException{
 		ArrayList<SpeciaalVeld_Veld> speciaalVeld_velds = huidigNiveau.getSpeciaal();
 		boolean canNotClick=true;
@@ -526,13 +478,19 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
+	/**
+	 * Deze methode wordt gebruikt om de molshopen op het bord te laden
+	 * @param buttonArray je hebt de knoppen die op de veld staan nodig om ze te manipuleren
+	 * @param huidigNiveau de huidige niveau van het spel om te weten waar de knoppen geladen moeten worden
+	 * @param status enum van status wordt gebruikt om bij te houden in welke state van het spel je nu zit
+	 * @throws RemoteException
+	 */
 	public void loadMolsHoop(VeldKnop[] buttonArray, Niveau_Model huidigNiveau, BeurtStatus status) throws RemoteException{
 		ArrayList<Molshoop_Veld> molshoop_niveau = huidigNiveau.getMolshoop();
 		boolean canNotClick=true;
 		if(status==BeurtStatus.VERPLAATSEN){
 			canNotClick=false;
 		}
-//		System.out.println(this.getClass().toString()+": loadMolsHoop canNotClick "+canNotClick);
 		if(status==BeurtStatus.FICHEDRAAIEN||status==BeurtStatus.VERPLAATSEN||status==BeurtStatus.NEERZETTEN){
 			for(Molshoop_Veld m : molshoop_niveau){
 				for(int x = 0; x < buttonArray.length; x++){
@@ -545,6 +503,12 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
+	/**
+	 * Deze methode wordt gebruikt om de mollen van de spelers op de bord te plaatsen
+	 * @param buttonArray je hebt de knoppen die op de veld staan nodig om ze te manipuleren
+	 * @param huidigNiveau de huidige niveau van het spel om te weten waar de knoppen geladen moeten worden
+	 * @param status enum van status wordt gebruikt om bij te houden in welke state van het spel je nu zit
+	 */
 	public void loadSpelerMols(VeldKnop[] buttonArray, ArrayList<Speler_Model> spelers, BeurtStatus status) throws RemoteException{
 		//set nu alle mollen
 		for (Speler_Model speler:spelers) {
@@ -582,6 +546,11 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		}
 	}
 
+	/**
+	 * Deze methode wordt gebruikt om de knoppen aan en uit te zetteen als het jou beurt is
+	 * @param aanDeBeurt houdt de index bij van wie aan de beurt is
+	 * @param beurtStatus enum om status van het spel bij de houden
+	 */
 	public void enableOrDisable(String aanDeBeurt, BeurtStatus beurtStatus){
 
 		boolean jijAanDeBeurt = aanDeBeurt.trim().equals(this.bordspel_controller.getBijnaam().trim());

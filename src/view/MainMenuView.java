@@ -25,9 +25,9 @@ public class MainMenuView {
 	private Stage primaryStage;
 
 	/**
-	 *
-	 * @param instellingenView
-	 * @param mainMenuController
+	 * Maak een stage aan die gebruikt wordt om de main menu te laden
+	 * @param instellingenView om de instellingen panel in de main menu toe te voegen
+	 * @param mainMenuController controller om views ta laden
 	 */
 	public MainMenuView(InstellingenView instellingenView, MainMenuController mainMenuController){
 		this.instellingenView=instellingenView;
@@ -109,7 +109,7 @@ public class MainMenuView {
 
 		//set de titel, zorg dat de windows title bar weg wordt gehaald.
 		primaryStage.initStyle(StageStyle.UNDECORATED);
-		primaryStage.setTitle("MollenMania - Main Menu");
+		primaryStage.setTitle("Mollenmania - Main Menu");
 		primaryStage.setScene(main_scene);
 		instellingenView.registerStage(primaryStage);
 		primaryStage.show();

@@ -31,7 +31,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 	private Button btn_groen = new Button();
 	private Button btn_geel = new Button();
 	private Label meldingen = new Label();
-	Button btn_start = new Button("START");
+	Button btn_start = new Button("Start");
 
 	private String geselecteerdeKleur;
 	private Mol_Client mol_client;
@@ -97,8 +97,8 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 		game_table.setEditable(false);
 
-		TableColumn<Speler_Model, Integer> player_id_col = new TableColumn<Speler_Model, Integer>("PLAYER ID");
-		TableColumn<Speler_Model, String> player_name_col = new TableColumn<Speler_Model, String>("PLAYER NAME");
+		TableColumn<Speler_Model, Integer> player_id_col = new TableColumn<Speler_Model, Integer>("Speler ID");
+		TableColumn<Speler_Model, String> player_name_col = new TableColumn<Speler_Model, String>("Gebruikersnaam");
 		game_table.setItems(data);
 		player_id_col.setMinWidth(25.0);
 		player_name_col.setMinWidth(25.0);
@@ -107,9 +107,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 
 		player_id_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, Integer>("player_id"));
+				new PropertyValueFactory<Speler_Model, Integer>("Speler ID"));
 		player_name_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, String>("username"));
+				new PropertyValueFactory<Speler_Model, String>("Gebruikersnaam"));
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 
@@ -234,7 +234,7 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 		Scene lobby_scene = new Scene(grid, 400, 540);
 		lobby_scene.getStylesheets().addAll(this.getClass().getResource("style/Lobby_View_Style.css").toExternalForm());
 
-		lobbyStage.setTitle("Lobby");
+		lobbyStage.setTitle("Mollenmania - Lobby");
 		lobbyStage.setScene(lobby_scene);
 		lobbyStage.show();
 	}

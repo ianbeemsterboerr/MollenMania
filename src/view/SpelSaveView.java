@@ -41,7 +41,7 @@ public class SpelSaveView {
         Scene scene = new Scene(gp_save, 300, 75);
 
         stage.setScene(scene);
-        stage.setTitle("Spel saven");
+        stage.setTitle("Mollenmania - Spel opslaan");
         stage.show();
     }
 }

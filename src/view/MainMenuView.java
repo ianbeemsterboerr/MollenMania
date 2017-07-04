@@ -25,9 +25,9 @@ public class MainMenuView {
 	private Stage primaryStage;
 
 	/**
-	 *
-	 * @param instellingenView
-	 * @param mainMenuController
+	 * Maak een stage aan die gebruikt wordt om de main menu te laden
+	 * @param instellingenView om de instellingen panel in de main menu toe te voegen
+	 * @param mainMenuController controller om views ta laden
 	 */
 	public MainMenuView(InstellingenView instellingenView, MainMenuController mainMenuController){
 		this.instellingenView=instellingenView;

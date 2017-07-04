@@ -228,5 +228,11 @@ public class DashboardView {
             button.setDisable(disabled);
         }
     }
+    public void resetFiches(){
+        for (FicheButton fiche:fiches) {
+            fiche.setGedraaid(false);
+            fiche.setId("fiche_"+speler_model.getKleur()+"_nietgedraaid");
+        }
+    }
 }
 

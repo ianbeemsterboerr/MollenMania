@@ -29,13 +29,6 @@ public class SpelFlowController{
     public void SpelStart(Bordspel_Interface bs) throws RemoteException {
         this.bordspel_interface=bs;
         bs.setBeurtStatus(BeurtStatus.NEERZETTEN);
-        // controllers laden en variabelen maken
-
-
-            //bepaal Welke index de grootste hand heeft.
-            //bs.
-
-        //Mollen worden neergezet
         setKnoppenNeerzetten(bs);
     }
 
@@ -54,7 +47,6 @@ public class SpelFlowController{
                         bsInterface.notifyObservers();
                         }
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
-//                        bsInterface.playerList().get(bsInterface.beurtIndex()).addMolltoList(buttonBox.getCoordinaten());
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
                         System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +spelerAanDeBeurt.getMol_list().size());
                         nextPlayer(bsInterface);

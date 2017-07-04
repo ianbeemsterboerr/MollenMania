@@ -250,12 +250,12 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
     @Override
     public void veranderBeurt() throws RemoteException {
-        System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+        System.out.println(this.getClass().toString()+": aanDeBeurt: "+players.get(beurtIndex).getUsername());
         this.beurtIndex++;
         if (this.beurtIndex == this.playerList().size()) {
             this.beurtIndex = 0;
         }
-        System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+        System.out.println(this.getClass().toString()+": aanDeBeurt: "+players.get(beurtIndex).getUsername());
     }
 
 

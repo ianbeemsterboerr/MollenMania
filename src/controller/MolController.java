@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 import java.util.Arrays;
 
 /**
+ * Bestuurt wat een mol allemaal kan doen.
  * Created by Wessel on 15-6-2017.
  */
 public class MolController {

@@ -10,7 +10,7 @@ import model.MolModel;
 import model.Speler_Model;
 
 /**
- *
+ * Alles dat observers kan hebben dient deze interface te implementeren zodat alle observers geupdate kunnen worden.
  */
 public interface Bordspel_Interface extends Remote {
 	/**

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Het model van de mol. bevat alle data die een mol nodig heeft in het spel.
- * Created by Wessel on 29-5-2017.
+ *
  */
 public class MolModel implements Serializable {
     private static final long serialVersionUID = 1L;

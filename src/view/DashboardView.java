@@ -21,7 +21,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- * Created by Robert on 6/22/2017.
+ *
  *
  * Houdt alle knoppen die een speler op het spelbord nodig heeft bij. Houdt ook bij bij welke speler die hoort.
  * Wordt gebruikt in SpelBordView.Een dashboard staat voor 1 speler.

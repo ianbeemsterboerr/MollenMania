@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Created by Robert on 6/19/2017.
+ * Vraagt de gebruiker voor de instelingen voor het spel dat hij/zij wil starten.
  */
 public class HostSpelView {
     ChoiceBox<String> cb_aantal_spelers;

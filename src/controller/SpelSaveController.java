@@ -10,8 +10,9 @@ import java.io.ObjectOutputStream;
 
 
 /**
- * @author Ian Beemsterboer.
+ *
  * Heeft de verantwoordelijkheid om het spel op te slaan.
+ * @author Ian Beemsterboer.
  */
 public class SpelSaveController {
    Bordspel_Interface bs_interface;

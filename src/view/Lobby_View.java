@@ -24,6 +24,9 @@ import model.BeurtStatus;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 
+/**
+ * Laat de lobby zien met alle aanwezige spelers.
+ */
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 	private Button btn_blauw = new Button();
@@ -107,9 +110,9 @@ public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 
 		player_id_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, Integer>("Speler ID"));
+				new PropertyValueFactory<Speler_Model, Integer>("speler_id"));
 		player_name_col.setCellValueFactory(
-				new PropertyValueFactory<Speler_Model, String>("Gebruikersnaam"));
+				new PropertyValueFactory<Speler_Model, String>("username"));
 
 		game_table.getColumns().addAll(player_id_col, player_name_col);
 

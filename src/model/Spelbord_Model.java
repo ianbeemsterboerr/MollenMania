@@ -138,7 +138,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	public void notifyObservers() throws RemoteException {
 		for (Player_Observer co : bord_observers) {
-			System.out.println(this.getClass().toString()+": notifyObservers "+co.getBijnaam());
 			co.modelChanged(this);
 		}
 	}
@@ -249,15 +248,16 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
 	}
 
-	@Override
-	public void veranderBeurt() throws RemoteException {
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
-		beurtIndex++;
-		if (beurtIndex >= bord_observers.size()) {
-			beurtIndex = 0;
-		}
-		System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
-	}
+    @Override
+    public void veranderBeurt() throws RemoteException {
+        System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+        this.beurtIndex++;
+        if (this.beurtIndex == this.playerList().size()) {
+            this.beurtIndex = 0;
+        }
+        System.out.println(this.getClass().toString()+": aanDeBeurt: "+beurtIndex);
+    }
+
 
 	@Override
 	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {

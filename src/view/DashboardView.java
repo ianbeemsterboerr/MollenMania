@@ -28,8 +28,8 @@ public class DashboardView {
     private Speler_Model speler_model;
     private Pos alignment;
     private boolean isYou=false;
+    private Button fiche_btn = new Button("Fiche draaien");
     private Fiche_Controller ficheController = new Fiche_Controller();
-    public static Button fiche_btn = new Button("Fiche");
     public static FicheButton[] fiches = new FicheButton[6];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
@@ -87,7 +87,6 @@ public class DashboardView {
         aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
         aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
 
-        buttons.add(fiche_btn);
 
         FicheButton fiche1 = new FicheButton();
         FicheButton fiche2 = new FicheButton();
@@ -121,12 +120,13 @@ public class DashboardView {
 
         VBox mol_en_fichebtnBox = new VBox();
         aantal_mol_lbl.setText(Integer.toString(sm.getMol_list().size()));
-        mol_en_fichebtnBox.getChildren().add(aantal_mol_lbl);
-        mol_en_fichebtnBox.getChildren().add(fiche_btn);
+        mol_en_fichebtnBox.getChildren().addAll(aantal_mol_lbl,fiche_btn);
 
         GridPane stateGrid = new GridPane();
         stateGrid.add(ficheGrid,0,0);
-        stateGrid.add(mol_en_fichebtnBox,1,0);
+        stateGrid.add(mol_en_fichebtnBox,0,1);
+
+        buttons.add(fiche_btn);
 
         for (FicheButton fiche:fiches) {
             buttons.add(fiche);
@@ -153,15 +153,6 @@ public class DashboardView {
      */
     public Button getFiche_btn() {
         return fiche_btn;
-    }
-
-    /**
-     * Kan de knop waarmee je een fiche kunt draaien zetten.
-     *
-     * @param fiche_btn
-     */
-    public void setFiche_btn(Button fiche_btn) {
-        this.fiche_btn = fiche_btn;
     }
 
     /**
@@ -194,6 +185,7 @@ public class DashboardView {
     }
 
     public void updateFiches(ArrayList<Speler_Model> spelers){
+        System.out.println(this.getClass().toString()+": ");
         Fiche_Model fichesModel = new Fiche_Model();
         for (Speler_Model speler:spelers) {
             if(speler.getUsername().trim().equals(this.speler_model.getUsername().trim())){

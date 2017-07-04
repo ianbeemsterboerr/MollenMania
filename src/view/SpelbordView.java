@@ -76,9 +76,9 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		veld_pane.setMaxHeight(700);
 		veld_pane.setPrefWidth(800);
 		veld_pane.setMaxWidth(800);
-		veld_pane.setHgap(31);
-		veld_pane.setVgap(50);
-		veld_pane.setPadding(new Insets(70,0,0,-205));
+		veld_pane.setHgap(0);//31
+		veld_pane.setVgap(22);//50
+		veld_pane.setPadding(new Insets(65,0,0,-68));
 		dashboard_pane.setCenter(veld_pane);
 
 		BorderPane topPane = new BorderPane();
@@ -122,7 +122,26 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		bordStage.initStyle(StageStyle.UNDECORATED);
 		bordStage.show();
 
-        new SpelFlowController().SpelStart(bs_interface);
+		DashboardView you;
+		if (player_1!=null&&player_1.getIsYou()){
+			you=player_1;
+			new SpelFlowController().SpelStart(bs_interface,player_1);
+			System.out.println(this.getClass().toString()+": player_1 meegegeven aan SpelFlowController");
+		}else if(player_2!=null&&player_2.getIsYou()){
+			you=player_2;
+			new SpelFlowController().SpelStart(bs_interface,player_2);
+			System.out.println(this.getClass().toString()+": player_2 meegegeven aan SpelFlowController");
+		}else if(player_3!=null&&player_3.getIsYou()){
+			you=player_3;
+			new SpelFlowController().SpelStart(bs_interface,player_3);
+			System.out.println(this.getClass().toString()+": player_3 meegegeven aan SpelFlowController");
+		}else if(player_4!=null&&player_4.getIsYou()){
+			you=player_4;
+			new SpelFlowController().SpelStart(bs_interface,player_4);
+			System.out.println(this.getClass().toString()+": player_4 meegegeven aan SpelFlowController");
+		}
+
+        //new SpelFlowController().SpelStart(bs_interface);
 	}
 
 	public BorderPane loadPlayers(ArrayList<Speler_Model> players, Bordspel_Controller bs_controller, String bijnaam) throws RemoteException{
@@ -166,8 +185,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 	
 	public GridPane loadVeld(ArrayList<Speler_Model> players) throws RemoteException{
 		GridPane root = new GridPane();
-		int width=100;
-		int height=100;
+		int width=40;
+		int height=60;
 		int numRows = 12;
 		int numCols = 29;
 		buttonArray = new VeldKnop[61];
@@ -194,8 +213,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(100);
-			veld.setPrefHeight(100);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 1);
 			buttonArray[(column + 1) / 2 - 7] = veld;
@@ -208,8 +227,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 2);
 			buttonArray[column / 2 - 1] = veld;
@@ -222,8 +241,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 3);
 			buttonArray[(column + 1) / 2 + 5] = veld;
@@ -236,8 +255,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 4);
 			buttonArray[column / 2 + 13] = veld;
@@ -250,8 +269,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 5);
 			buttonArray[(column + 1) / 2 + 21] = veld;
@@ -264,8 +283,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 6);
 			buttonArray[column / 2 + 30] = veld;
@@ -278,8 +297,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 7);
 			buttonArray[(column + 1) / 2 + 37] = veld;
@@ -292,8 +311,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 8);
 			buttonArray[column / 2 + 44] = veld;
@@ -306,8 +325,8 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			VeldKnop veld = new VeldKnop(x , y, z);
 			x--;
 			y++;
-			veld.setPrefWidth(width);
-			veld.setPrefHeight(height);
+			veld.setMinWidth(width);
+			veld.setMinHeight(height);
 			veld.setStyle("-fx-background-color: transparent;");
 			root.add(veld, column, 9);
 			buttonArray[(column + 1) / 2 + 49] = veld;

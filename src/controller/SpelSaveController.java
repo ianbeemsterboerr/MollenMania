@@ -43,6 +43,7 @@ public class SpelSaveController {
             model.setBeurtIndex(bs_interface.beurtIndex());
             model.setHuidigeNiveau(bs_interface.getHuidigeNiveauIndex());
             model.setMaxMollen(bs_interface.getMaxMollen());
+            model.setHervatStatus(true);
 
             out.writeObject(model);
             out.close();

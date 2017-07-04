@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 /**
- * Created by Ian on 6/16/2017.
+ * Is een FileChooser. Wordt gebruikt om een savefile van de schijf te kiezen.
  */
 public class HervatGameView {
 

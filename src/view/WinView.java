@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Created by Robert on 6/23/2017.
+ *
  *
  * Deze class is simpelweg bedoeld om de code voor de WInview gescheiden te houden van SpelBordVoew ivm merge errors,
  * Hij hoeft niet per se in een aparte klasse te blijven, I think.

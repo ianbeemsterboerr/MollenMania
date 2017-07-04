@@ -24,6 +24,9 @@ import model.BeurtStatus;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 
+/**
+ * Laat de lobby zien met alle aanwezige spelers.
+ */
 public class Lobby_View extends UnicastRemoteObject implements Player_Observer {
 
 	private Button btn_blauw = new Button();

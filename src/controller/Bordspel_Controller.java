@@ -303,6 +303,7 @@ public class Bordspel_Controller {
 				return true;
 			}
 		}
+
 		return false;
 	}
 	

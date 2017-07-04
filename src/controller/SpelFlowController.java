@@ -35,34 +35,43 @@ public class SpelFlowController{
     }
 
     public void setKnoppenNeerzetten(Bordspel_Interface bsInterface) throws RemoteException {
-        System.out.println(this.getClass().toString()+": setKnoppenNeerzetten");
-        for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
-            buttonBox.setOnAction(e -> {
-                System.out.println(this.getClass().toString()+": ACTION: NEERZETTEN");
-                try {
-                    Speler_Model spelerAanDeBeurt = bsInterface.playerList().get(bsInterface.beurtIndex());
-                    if (molController.aantalMollen(bsInterface) <= spelerAanDeBeurt.getMol_list().size()) {
-                        clearKnoppen();
-                        bsInterface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
-                        System.out.println(this.getClass().toString()+": "+"naar fiche "+BeurtStatus.FICHEDRAAIEN);
-                        setFicheknoppenAan(bsInterface);
-                        bsInterface.notifyObservers();
+        if (bsInterface.getHuidigeNiveauIndex() != 1) {
+            clearKnoppen();
+            bsInterface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
+            System.out.println(this.getClass().toString() + ": " + "naar fiche " + BeurtStatus.FICHEDRAAIEN);
+            setFicheknoppenAan(bsInterface);
+            bsInterface.notifyObservers();
+        }
+        else {
+
+            System.out.println(this.getClass().toString() + ": setKnoppenNeerzetten");
+            for (final VeldKnop buttonBox : SpelbordView.buttonArray) {
+
+                buttonBox.setOnAction(e -> {
+                    System.out.println(this.getClass().toString() + ": ACTION: NEERZETTEN");
+                    try {
+                        Speler_Model spelerAanDeBeurt = bsInterface.playerList().get(bsInterface.beurtIndex());
+                        if (molController.aantalMollen(bsInterface) <= spelerAanDeBeurt.getMol_list().size()) {
+                            clearKnoppen();
+                            bsInterface.setBeurtStatus(BeurtStatus.FICHEDRAAIEN);
+                            System.out.println(this.getClass().toString() + ": " + "naar fiche " + BeurtStatus.FICHEDRAAIEN);
+                            setFicheknoppenAan(bsInterface);
+                            bsInterface.notifyObservers();
+                        } else if (molController.magMolNeerzetten(buttonBox, bsInterface, playboard_model)) {
+                            bsInterface.addMolltoList(buttonBox.getCoordinaten());
+                            System.out.println(this.getClass().toString() + ": " + "Mollen in lijst " + spelerAanDeBeurt.getMol_list().size());
+                            bsInterface.veranderBeurt();
+                            System.out.println(this.getClass().toString() + ": " + "spelerIndex: " + bsInterface.beurtIndex());
+                            System.out.println(this.getClass().toString() + ": " + "mol geplaatst en next");
+                            bsInterface.notifyObservers();
+                        } else {
+                            System.out.println(this.getClass().toString() + ": " + "Plek bezet of een molshoop");
                         }
-                    else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
-                        bsInterface.addMolltoList(buttonBox.getCoordinaten());
-                        System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +spelerAanDeBeurt.getMol_list().size());
-                        bsInterface.veranderBeurt();
-                        System.out.println(this.getClass().toString()+": "+"spelerIndex: " +bsInterface.beurtIndex());
-                        System.out.println(this.getClass().toString()+": "+"mol geplaatst en next");
-                        bsInterface.notifyObservers();
+                    } catch (RemoteException e1) {
+                        e1.printStackTrace();
                     }
-                    else {
-                        System.out.println(this.getClass().toString()+": "+"Plek bezet of een molshoop");
-                    }
-                } catch (RemoteException e1) {
-                    e1.printStackTrace();
-                }
-            });
+                });
+            }
         }
     }
 
@@ -146,7 +155,7 @@ public class SpelFlowController{
    public void rondeOpruim(Speler_Model speler, Bordspel_Interface bs_interface, int molIndex) throws RemoteException {
        System.out.println(this.getClass().toString()+": rondeOpruim");
               ficheController.fichesCheck(speler.getFiche_list());
-            if(bs_interface.getHuidigeNiveauIndex() >1 && bsController.isSpeciaal(speler.getMol_list().get(molIndex).getCoord(),playboard_model.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex()))){
+            if(bs_interface.getHuidigeNiveauIndex() > 1 && bsController.isSpeciaal(speler.getMol_list().get(molIndex).getCoord(),playboard_model.getHuidigNiveau(bs_interface.getHuidigeNiveauIndex()))){
                 System.out.println("SpeciaalVeld gespot");
                 clearKnoppen();
                 setFicheknoppenAan(bs_interface);

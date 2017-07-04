@@ -471,7 +471,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 				for(int x = 0; x < buttonArray.length; x++){
 					if(Arrays.equals(speciaal.getPositie(), buttonArray[x].getCoordinaten())){
 						//buttonArray[x].setDisable(canNotClick);
-						buttonArray[x].setStyle("-fx-background-color: darkcyan;");
+					//	buttonArray[x].setStyle("-fx-background-color: darkcyan;");
 					}
 				}
 			}

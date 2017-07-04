@@ -41,50 +41,50 @@ public class Playboard_Model implements Serializable {
 
     public Playboard_Model(){
         //Niveau 1
-        niveau1.getMolshoop().add(new Molshoop_Veld(3,1,-4));
-        niveau1.getMolshoop().add(new Molshoop_Veld(4,-1,-3));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-1,4,-3));
-        niveau1.getMolshoop().add(new Molshoop_Veld(1,1,-2));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-1,2,-1));
-        niveau1.getMolshoop().add(new Molshoop_Veld(2,-2,0));
-        niveau1.getMolshoop().add(new Molshoop_Veld(0,0,0));
-        niveau1.getMolshoop().add(new Molshoop_Veld(1,-2,1));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-4,3,1));
-        niveau1.getMolshoop().add(new Molshoop_Veld(2,-4,2));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-1,-1,2));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-4,1,3));
-        niveau1.getMolshoop().add(new Molshoop_Veld(-2,-2,4));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(3,1,-4));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(4,-1,-3));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-1,4,-3));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(1,1,-2));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-1,2,-1));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(2,-2,0));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(0,0,0));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(1,-2,1));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-4,3,1));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(2,-4,2));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-1,-1,2));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-4,1,3));
+        this.niveau1.getMolshoop().add(new Molshoop_Veld(-2,-2,4));
 
         //Niveau 2
-        niveau2.getMolshoop().add(new Molshoop_Veld(4,0,-4));
-        niveau2.getMolshoop().add(new Molshoop_Veld(1,2,-3));
-        niveau2.getMolshoop().add(new Molshoop_Veld(3,-1,-2));
-        niveau2.getMolshoop().add(new Molshoop_Veld(-2,3,-1));
-        niveau2.getMolshoop().add(new Molshoop_Veld(3,-3,0));
-        niveau2.getMolshoop().add(new Molshoop_Veld(4,-4,0));
-        niveau2.getMolshoop().add(new Molshoop_Veld(-3,1,2));
-        niveau2.getMolshoop().add(new Molshoop_Veld(-1,-2,3));
-        niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(0,4,-4));
-        niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(4,-4,0));
-        niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(0,-1,1));
-        niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(-3,0,3));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(4,0,-4));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(1,2,-3));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(3,-1,-2));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(-2,3,-1));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(3,-3,0));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(4,-4,0));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(-3,1,2));
+        this.niveau2.getMolshoop().add(new Molshoop_Veld(-1,-2,3));
+        this.niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(0,4,-4));
+        this.niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(4,-4,0));
+        this.niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(0,-1,1));
+        this.niveau2.getSpeciaal().add(new SpeciaalVeld_Veld(-3,0,3));
 
         //Niveau 3
-        niveau3.getMolshoop().add(new Molshoop_Veld(1,3,-4));
-        niveau3.getMolshoop().add(new Molshoop_Veld(2,-1,-1));
-        niveau3.getMolshoop().add(new Molshoop_Veld(-4,2,2));
-        niveau3.getMolshoop().add(new Molshoop_Veld(1,-4,3));
-        niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(4,-2,-2));
-        niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-2,4,-2));
-        niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-1,1,0));
-        niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-1,-3,4));
+        this.niveau3.getMolshoop().add(new Molshoop_Veld(1,3,-4));
+        this.niveau3.getMolshoop().add(new Molshoop_Veld(2,-1,-1));
+        this.niveau3.getMolshoop().add(new Molshoop_Veld(-4,2,2));
+        this.niveau3.getMolshoop().add(new Molshoop_Veld(1,-4,3));
+        this.niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(4,-2,-2));
+        this.niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-2,4,-2));
+        this.niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-1,1,0));
+        this.niveau3.getSpeciaal().add(new SpeciaalVeld_Veld(-1,-3,4));
 
         //Niveau 4
-        niveau4.getGoudenSchep().add(new GoudenSchep_Veld(0,0,0));
-        niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(4,0,-4));
-        niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-2,3,-1));
-        niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(2,-3,1));
-        niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-4,0,4));
+        this.niveau4.getGoudenSchep().add(new GoudenSchep_Veld(0,0,0));
+        this.niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(4,0,-4));
+        this.niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-2,3,-1));
+        this.niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(2,-3,1));
+        this.niveau4.getSpeciaal().add(new SpeciaalVeld_Veld(-4,0,4));
 
     }
 

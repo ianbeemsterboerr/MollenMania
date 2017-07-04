@@ -239,7 +239,9 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
     @Override
     public void changeNiveauInt() throws RemoteException {
         // TODO Auto-generated method stub
-        this.huidigeNiveau = this.huidigeNiveau + 1;
+        this.huidigeNiveau++;
+        System.out.println("NIVEAU INT + " +this.huidigeNiveau);
+
     }
 
     /**

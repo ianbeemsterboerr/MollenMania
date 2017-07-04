@@ -106,7 +106,7 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 			e.printStackTrace();
 		}
 
-		bordStage.setTitle("play with me");
+		bordStage.setTitle("Mollenmania");
 		bordStage.setScene(bord);
 		bordStage.setResizable(false);
 		bordStage.initStyle(StageStyle.UNDECORATED);

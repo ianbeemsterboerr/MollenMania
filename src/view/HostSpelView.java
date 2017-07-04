@@ -72,12 +72,12 @@ public class HostSpelView {
         grid.setHgap(10);
         grid.setPadding(new Insets(5, 5, 5, 5));
 
-        Label spelers = new Label("MAX AANTAL SPELERS: ");
+        Label spelers = new Label("Maximaal aantal spelers: ");
         spelers.setId("overlay_label");
         grid.add(spelers, 0, 0);
         grid.add(cb_aantal_spelers, 1, 0);
 
-        Label gebruikersnaam = new Label("USERNAME: ");
+        Label gebruikersnaam = new Label("Gebruikersnaam: ");
         gebruikersnaam.setId("overlay_label");
         grid.add(gebruikersnaam, 0, 1);
         grid.add(username, 1, 1);
@@ -95,7 +95,7 @@ public class HostSpelView {
         host_scene.setFill(Color.TRANSPARENT);
         //Make scene call up style.css for styling
         host_scene.getStylesheets().addAll(this.getClass().getResource("style/main_menu_style.css").toExternalForm());
-        connectStage.setTitle("Host een spel");
+        connectStage.setTitle("Mollenmania - Host een spel");
         connectStage.setScene(host_scene);
         connectStage.initStyle(StageStyle.TRANSPARENT);
         connectStage.show();

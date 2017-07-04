@@ -109,7 +109,7 @@ public class MainMenuView {
 
 		//set de titel, zorg dat de windows title bar weg wordt gehaald.
 		primaryStage.initStyle(StageStyle.UNDECORATED);
-		primaryStage.setTitle("MollenMania - Main Menu");
+		primaryStage.setTitle("Mollenmania - Main Menu");
 		primaryStage.setScene(main_scene);
 		instellingenView.registerStage(primaryStage);
 		primaryStage.show();

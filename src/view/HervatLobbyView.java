@@ -26,6 +26,9 @@ import model.BeurtStatus;
 import model.Speler_Model;
 import model.Velden.VeldKnop;
 
+/**
+ * Hier kies je een kleur en handgrootte en wacht je tot elke speler klaar is totdat het spel begint.
+ */
 public class HervatLobbyView extends UnicastRemoteObject implements Player_Observer {
 
 	private Label meldingen = new Label();
@@ -41,7 +44,7 @@ public class HervatLobbyView extends UnicastRemoteObject implements Player_Obser
 	private String bijnaam;
 
 	/**
-	 * Lobby's view, here you set some settings for the upcoming game.
+	 * Hier kies je een kleur en handgrootte en wacht je tot elke speler klaar is totdat het spel begint.
 	 * @param bs_interface
 	 * 			omdat view deel is van de observer lijst wordt een implementatie van interface meegegeven om server side functies te kunnen gebruiken
 	 * @param bs_controller
@@ -161,9 +164,9 @@ public class HervatLobbyView extends UnicastRemoteObject implements Player_Obser
 	}
 
 	/**
-	 * Observer methods
-	 * @param playable
-	 * 		zo kan de observer model informatie van de server ophalen
+	 * Wanneer het model is veranderd, zal deze methode door de server worden aangeroepen en worden de views geupdate naar de nieuwe data in het model.
+	 * @param playable De interface waaruit de view informatie vanuit de server kan halen.
+	 *
 	 */
 	@Override
 	public void modelChanged(Bordspel_Interface playable) throws RemoteException {
@@ -172,16 +175,32 @@ public class HervatLobbyView extends UnicastRemoteObject implements Player_Obser
 			meldingen.setText(Integer.toString(bs_interface.getHervatSpelersList().size()) + " player(s) ready.");
 	}
 
+	/**
+	 * Vraagt of de knoppen op de view aanstaan of niet.
+	 * @return true als ze aan staan.
+	 * @throws RemoteException Wanneer de connectie met de server onderbroken is.
+	 */
 	@Override
 	public boolean isEnabled() throws RemoteException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * Set de knoppen op de view aan of uit.
+	 * @param enabled enabling or disabling this object to send a message to the CounterController
+	 * @throws RemoteException
+	 */
 	@Override
 	public void setEnabled(boolean enabled) throws RemoteException {
 		// TODO Auto-generated method stub
 	}
+
+	/**
+	 * Geeft de bijnaam van de speler.
+	 * @return String.
+	 * @throws RemoteException Wanneer de connectie met de server onderbroken is.
+	 */
 	@Override
 	public String getBijnaam() throws  RemoteException{
 		return this.bijnaam;

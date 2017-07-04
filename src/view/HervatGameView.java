@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 /**
+ * Het scherm dat vraagt om een naam voor de savefile die gemaakt moet worden.
  *
  * Created by Ian on 6/16/2017.
  */

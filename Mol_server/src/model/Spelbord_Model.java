@@ -10,21 +10,30 @@ import controller.Bordspel_Interface;
 import controller.Player_Observer;
 import model.Velden.Molshoop_Veld;
 
-public class Spelbord_Model implements Bordspel_Interface, Serializable {
+/**
+ * Spelbord_Model is de container voor alle data in het hele spel. Deze is door elke client muteerbaar, zodat elke client het spel kan spelen.
+ */
+public class Spelbord_Model implements Bordspel_Interface, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Player_Observer> bord_observers = new ArrayList<>();
 	private ArrayList<Speler_Model> players = new ArrayList<>();
 	private ArrayList<MolModel> mol_onbord = new ArrayList<>();
-	private Playboard_Model pmo = new Playboard_Model();
-	private int[] specialPos;
+	private ArrayList<Speler_Model> hervat_spelers = new ArrayList<>();
 	private int beurtIndex =0;
 	private int huidigeNiveau = 1;
 	private int bordMax;
-
+	private boolean hervatStatus;
 	private int maxMollen;
 
-	//private Niveau_Model niveau1 = new Niveau_Model(); niveau's meoten gemaakt worden.
 	private BeurtStatus beurtStatus;
+	
+	public Spelbord_Model(){
+		
+	}
 
 	public Spelbord_Model(int maxSpelers){
 		this.beurtStatus = BeurtStatus.LOBBY;
@@ -120,7 +129,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 		notifyObservers();
 	}
 
-
 	@Override
 	public ArrayList<Speler_Model> playerList() throws RemoteException {
 		// TODO Auto-generated method stub
@@ -169,8 +177,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 		// TODO Auto-generated method stub
 		this.mol_onbord.add(mol);
 	}
-
-
 
 	@Override
 	public int getMaxMollen() throws RemoteException {
@@ -230,8 +236,8 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 							molToRemove.add(mol);
 					}
 				}
-                counter = 0;
-            }
+				counter = 0;
+			}
 			System.out.println("Size voor del" +this.players.get(this.players.indexOf(speler)).getMol_list().size());
 			System.out.println("size van RemoveMolList" +molToRemove.size());
 			this.players.get(this.players.indexOf(speler)).getMol_list().removeAll(molToRemove);
@@ -241,8 +247,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 		}
 
 	}
-
-
 
 	@Override
 	public void veranderBeurt() throws RemoteException {
@@ -257,6 +261,9 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 	@Override
 	public void addObserver(Player_Observer po, String bijnaam) throws RemoteException {
 		// TODO Auto-generated method stub
+
+		bord_observers.add(po);
+
 		boolean exists=false;
 		for (Player_Observer observer: bord_observers){
 			if(observer.getBijnaam().trim().equals(bijnaam.trim())){
@@ -268,6 +275,7 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 		if(!exists){
 			bord_observers.add(po);
 		}
+
 		try {
 			notifyObservers();
 		} catch (RemoteException e) {
@@ -276,20 +284,14 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 		}
 	}
 
-    @Override
-    public void testMe() throws RemoteException {
-        // TODO Auto-generated method stub
-        System.out.println("test");
-    }
-
 	@Override
-	public ArrayList<MolModel> getMollen() throws RemoteException {
-		return mol_onbord;
+	public void testMe() throws RemoteException {
+		// TODO Auto-generated method stub
+		System.out.println("test");
 	}
 
-	@Override
-	public Playboard_Model getPlayboardModel() throws RemoteException {
-		return pmo;
+	public ArrayList<MolModel> getMollen() throws RemoteException {
+		return mol_onbord;
 	}
 
 	public int getBordMax(){
@@ -298,10 +300,6 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 
 	public void setPlayers(ArrayList<Speler_Model> players){
 		this.players = players;
-	}
-
-	public void setPlayerModel(Playboard_Model pmo){
-		this.pmo = pmo;
 	}
 
 	public void setBeurtIndex(int beurtIndex){
@@ -314,5 +312,29 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable {
 
 	public void setMaxMollen(int maxMollen){
 		this.maxMollen = maxMollen;
+	}
+
+	@Override
+	public boolean getHervatStatus() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.hervatStatus;
+	}
+
+	@Override
+	public void setHervatStatus(boolean status) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.hervatStatus = status;
+	}
+
+	@Override
+	public void addHervatSpelerKlaar(Speler_Model speler) throws RemoteException {
+		// TODO Auto-generated method stub
+		hervat_spelers.add(speler);
+	}
+
+	@Override
+	public ArrayList<Speler_Model> getHervatSpelersList() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.hervat_spelers;
 	}
 }

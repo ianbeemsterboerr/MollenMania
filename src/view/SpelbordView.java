@@ -455,15 +455,15 @@ public class SpelbordView extends UnicastRemoteObject implements Player_Observer
 		changeLabels(aanDeBeurt,beurtStatus);
 
 		//Dasboards updaten
-		System.out.println(this.getClass().toString()+": modelChanged: about to update the dasboards!");
-		this.player_1.updateFiches(spelers);
-		this.player_2.updateFiches(spelers);
-		if(player_3!=null){
-			this.player_3.updateFiches(spelers);
-			if(player_4!=null){
-				this.player_4.updateFiches(spelers);
-			}
-		}
+//		System.out.println(this.getClass().toString()+": modelChanged: about to update the dasboards!");
+//		this.player_1.updateFiches(spelers);
+//		this.player_2.updateFiches(spelers);
+//		if(player_3!=null){
+//			this.player_3.updateFiches(spelers);
+//			if(player_4!=null){
+//				this.player_4.updateFiches(spelers);
+//			}
+
 	}
 
 	public void niveauLaden(int niveauIndex){

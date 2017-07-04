@@ -51,7 +51,7 @@ public class SpelFlowController{
                     else if (molController.magMolNeerzetten(buttonBox,bsInterface,playboard_model)){
                         bsInterface.addMolltoList(buttonBox.getCoordinaten());
                         System.out.println(this.getClass().toString()+": "+"Mollen in lijst " +spelerAanDeBeurt.getMol_list().size());
-                        nextPlayer(bsInterface);
+                        bsInterface.veranderBeurt();
                         System.out.println(this.getClass().toString()+": "+"spelerIndex: " +bsInterface.beurtIndex());
                         System.out.println(this.getClass().toString()+": "+"mol geplaatst en next");
                         bsInterface.notifyObservers();
@@ -77,11 +77,12 @@ public class SpelFlowController{
                     ficheController.kiesFiche(fiche_list);
                     System.out.println(this.getClass().toString() + ": " + "FicheNR = " + fiche_list.getFicheNR());
                     DashboardView.fichenrs.appendText(String.valueOf(fiche_list.getFicheNR()) + " : ");
-                    bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                     System.out.println(this.getClass().toString() + ": " + BeurtStatus.SELECTEREN);
                     setFicheknoppenUit();
+                    dashboardView.updateFiches(speler);
                     selecteerMolKnoppen(speler, bs_interface);
-                    bs_interface.notifyObservers(); //vervangen door notifySelf()?
+                    bs_interface.notifyObservers();
+                    bs_interface.setBeurtStatus(BeurtStatus.SELECTEREN);
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }
@@ -113,7 +114,7 @@ public class SpelFlowController{
                       System.out.println(this.getClass().toString()+": Mol gevonden "+BeurtStatus.SELECTEREN);
                       bs_interface.setBeurtStatus(BeurtStatus.VERPLAATSEN);
                     setEindpuntKnoppen(speler,bs_interface,molIndex);
-                    bs_interface.notifyObservers(); //vervangen door notifySelf()?
+                    bs_interface.notifyObservers();
                   }
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
@@ -163,7 +164,7 @@ public class SpelFlowController{
                 //einde spel
             }
             clearKnoppen();
-            this.nextPlayer(bs_interface);
+            bs_interface.veranderBeurt();
             bs_interface.notifyObservers();
             setFicheknoppenAan(bs_interface.playerList().get(bs_interface.beurtIndex()),bs_interface);
         }
@@ -176,21 +177,6 @@ public class SpelFlowController{
         this.bordspel_interface.notifyObservers();
     }
 
-    public void nextPlayer(Bordspel_Interface bs_interface) throws RemoteException{
-        System.out.println(this.getClass().toString()+": nextPLayer");
-        System.out.println("voor veranderbeurt" + bs_interface.beurtIndex());
-        bs_interface.veranderBeurt();
-        System.out.println("na veranderbeurt" + bs_interface.beurtIndex());
-    }
 
-    /**
-     * Een ideetje dat ik heb. Deze geeft veranderingen door aan SpelBordView zonder dat de views van andere spelers ook
-     * geupdate worden. Deze is bruikbaar bij dingen zoals fiche draaien, mol selecteren.
-     *
-     * Auteur: Robert den Blaauwen
-     * Versie: 28-6-2017
-     */
-    public void notifySelf(){
 
-    }
 }

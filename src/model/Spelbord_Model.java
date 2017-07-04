@@ -135,6 +135,7 @@ public class Spelbord_Model implements Bordspel_Interface, Serializable{
 		return this.players;
 	}
 
+
 	public void notifyObservers() throws RemoteException {
 		for (Player_Observer co : bord_observers) {
 			System.out.println(this.getClass().toString()+": notifyObservers "+co.getBijnaam());

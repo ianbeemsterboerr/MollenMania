@@ -34,6 +34,7 @@ public class DashboardView {
     public FicheButton[] fiches = new FicheButton[6];
     public static TextField fichenrs = new TextField();
     private ArrayList<Button> buttons = new ArrayList<Button>();
+    private int buttonNR = 0;
 
     /**
      * De constructor, maakt een Grid object met alle knoppen en labels erin en slaat die op.
@@ -88,35 +89,19 @@ public class DashboardView {
         aantal_fiche_lbl.setStyle("-fx-font-weight:bold;");
         aantal_mol_lbl.setStyle("-fx-font-weight:bold;");
 
+        for (int i = 0; i < 6; i++){
+            fiches[i] = new FicheButton();
+            fiches[i].setId("Fiche_nietgedraaid");
+        }
 
-        FicheButton fiche1 = new FicheButton();
-        FicheButton fiche2 = new FicheButton();
-        FicheButton fiche3 = new FicheButton();
-        FicheButton fiche4 = new FicheButton();
-        FicheButton fiche5 = new FicheButton();
-        FicheButton fiche6 = new FicheButton();
-
-        fiche1.setId("fiche_nietgedraaid");
-        fiche2.setId("fiche_nietgedraaid");
-        fiche3.setId("fiche_nietgedraaid");
-        fiche4.setId("fiche_nietgedraaid");
-        fiche5.setId("fiche_nietgedraaid");
-        fiche6.setId("fiche_nietgedraaid");
-
-        fiches[0]=fiche1;
-        fiches[1]=fiche2;
-        fiches[2]=fiche3;
-        fiches[3]=fiche4;
-        fiches[4]=fiche5;
-        fiches[5]=fiche6;
 
         GridPane ficheGrid = new GridPane();
-        ficheGrid.add(fiche1,0,0);
-        ficheGrid.add(fiche2,1,0);
-        ficheGrid.add(fiche3,0,1);
-        ficheGrid.add(fiche4,1,1);
-        ficheGrid.add(fiche5,0,2);
-        ficheGrid.add(fiche6,1,2);
+        ficheGrid.add(fiches[0],0,0);
+        ficheGrid.add(fiches[1],1,0);
+        ficheGrid.add(fiches[2],0,1);
+        ficheGrid.add(fiches[3],1,1);
+        ficheGrid.add(fiches[4],0,2);
+        ficheGrid.add(fiches[5],1,2);
 
 
         VBox mol_en_fichebtnBox = new VBox();
@@ -196,17 +181,12 @@ public class DashboardView {
 
     }
 
-    public void updateFiches(ArrayList<Speler_Model> spelers){
+    public void updateFiches(Speler_Model speler){
         System.out.println(this.getClass().toString()+": updateFiches");
-        Fiche_Model fichesModel = new Fiche_Model();
-        for (Speler_Model speler:spelers) {
-            if(speler.getUsername().trim().equals(this.speler_model.getUsername().trim())){
-                System.out.println(this.getClass().toString()+": updateFiches, YOU found");
-                fichesModel=speler.getFiche_list();
-            }
-        }
+        Fiche_Model fichesModel = speler.getFiche_list();
+
         String kleur="";
-        switch (speler_model.getKleur()){
+        switch (speler.getKleur()){
             case "blue":
                 kleur="blauw";
                 break;
@@ -220,21 +200,17 @@ public class DashboardView {
                 kleur="red";
                 break;
         }
-        if(fichesModel.getGeslotenFiche().size()==6){
-            for (FicheButton fiche:this.fiches) {
-                fiche.setId("fiche_"+kleur+"_nietgedraaid");
-                fiche.setGedraaid(false);
-            }
-        }else{
-            for (FicheButton fiche:this.fiches) {
-                System.out.println(this.getClass().toString()+": updateFiches - fiche op nr zetten");
-                if(!fiche.isGedraaid()){
-                    int ficheNr=fichesModel.getFicheNR();
-                    System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
-                    fiche.setId("fiche_"+kleur+"_"+ficheNr);
-                    fiche.setGedraaid(true);
-                }
+
+        System.out.println(this.getClass().toString()+": updateFiches - fiche op nr zetten");
+        int ficheNr=fichesModel.getFicheNR();
+        System.out.println(this.getClass().toString()+": updateFiches - fiche_"+kleur+"_"+ficheNr);
+        this.fiches[this.buttonNR].setId("fiche_"+kleur+"_"+ficheNr);
+        this.fiches[this.buttonNR].setGedraaid(true);
+        this.fiches[this.buttonNR].setText(String.valueOf(ficheNr));
+        this.buttonNR++;
+        if (this.buttonNR == 6){
+            this.buttonNR = 0;
+        }
             }
         }
-    }
-}
+
